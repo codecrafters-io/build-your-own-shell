@@ -1,7 +1,7 @@
-![progress-banner](https://codecrafters.io/landing/images/default_progress_banners/<fill_in_course_slug>.png)
+![progress-banner](https://codecrafters.io/landing/images/default_progress_banners/shell.png)
 
 This is a starting point for {{language_name}} solutions to the
-["Build Your Own <fill_in_course_name>" Challenge](https://app.codecrafters.io/courses/<fill_in_course_slug>/overview).
+["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
 
 _Add a description of your course here_
 
@@ -9,7 +9,7 @@ _Add a description of your course here_
 
 # Passing the first stage
 
-The entry point for your `<fill_in_executable_name>` implementation is in `{{ user_editable_file }}`. Study and uncomment the relevant code, and
+The entry point for your `shell` implementation is in `{{ user_editable_file }}`. Study and uncomment the relevant code, and
 push your changes to pass the first stage:
 
 ``` sh
@@ -25,7 +25,7 @@ Time to move on to the next stage!
 Note: This section is for stages 2 and beyond.
 
 1. Ensure you have `{{ required_executable }}` installed locally
-1. Run `./<fill_in_script_name>.sh` to run your program, which is implemented in
+1. Run `./your_shell.sh` to run your program, which is implemented in
    `{{ user_editable_file }}`.{{# language_is_rust }} This command compiles your
    Rust project, so it might be slow the first time you run it. Subsequent runs
    will be fast.{{/ language_is_rust}}

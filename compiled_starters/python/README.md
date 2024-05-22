@@ -1,7 +1,7 @@
-![progress-banner](https://codecrafters.io/landing/images/default_progress_banners/<fill_in_course_slug>.png)
+![progress-banner](https://codecrafters.io/landing/images/default_progress_banners/shell.png)
 
 This is a starting point for Python solutions to the
-["Build Your Own <fill_in_course_name>" Challenge](https://app.codecrafters.io/courses/<fill_in_course_slug>/overview).
+["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
 
 _Add a description of your course here_
 
@@ -10,7 +10,7 @@ _Add a description of your course here_
 
 # Passing the first stage
 
-The entry point for your `<fill_in_executable_name>` implementation is in
+The entry point for your `shell` implementation is in
 `app/main.py`. Study and uncomment the relevant code, and push your changes to
 pass the first stage:
 
@@ -27,7 +27,7 @@ Time to move on to the next stage!
 Note: This section is for stages 2 and beyond.
 
 1. Ensure you have `python (3.11)` installed locally
-1. Run `./<fill_in_script_name>.sh` to run your program, which is implemented in
+1. Run `./your_shell.sh` to run your program, which is implemented in
    `app/main.py`.
 1. Commit your changes and run `git push origin master` to submit your solution
    to CodeCrafters. Test output will be streamed to your terminal.

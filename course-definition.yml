@@ -1,22 +1,6 @@
-# Used in your course's URL: https://app.codecrafters.io/courses/<slug>
-# Example: "redis"
-slug: "your_course_slug"
-
-# The name of your course. This will be displayed in the course catalog, and on other course pages.
-# Example: "Build your own Redis"
-name: "Build your own something"
-
-# A short name for your course, this'll be used in copy like emails. 
-# Example: "Redis"
-short_name: "dummy"
-
-# The release status for your course. 
-#
-# - alpha: Only visible to yourself and CodeCrafters staff. 
-# - beta: Visible to all CodeCrafters users, but with a "beta" label.
-# - live: Visible to all CodeCrafters users, no label.
-# 
-# Allowed values: "alpha", "beta", "live"
+slug: "shell"
+name: "Build your own Shell"
+short_name: "Shell"
 release_status: "alpha"
 
 # This is shown on the course overview page. Markdown supported, recommended length ~30 words.
