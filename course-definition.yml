@@ -3,70 +3,31 @@ name: "Build your own Shell"
 short_name: "Shell"
 release_status: "alpha"
 
-# This is shown on the course overview page. Markdown supported, recommended length ~30 words.
-# 
-# Recommended format: 
-# 
-# > In this challenge, you'll build ABC that's capable of D, E, F and G. Along the way, we'll learn about X, Y, Z and more.
-# 
-# Example:
-# 
-# > In this challenge, you'll build a toy Redis clone that's capable of handling basic commands like PING, GET
-# > and SET. Along the way, we'll learn about event loops, the Redis Protocol and more.
 description_md: |-
-  Add a description for your course here.
+  A shell is a command-line interpreter that provides a user interface for interacting with the operating system. In this challenge, you'll build your own shell capable of interpreting and executing basic commands, handling input/output redirection, and managing processes.
 
-# This is shown on the catalog. Plaintext only, recommended length ~10 words.
-# 
-# Recommended format: 
-# 
-# > Learn about X, Y, Z and more
-# 
-# Example: 
-#
-# > Learn about TCP servers, the Redis protocol and more
-# 
-# **TODO**: Remove _md suffix since markdown isn't supported
+  Along the way, you'll learn about process creation and management, system calls, and the inner workings of a Unix-like operating system.
+
 short_description_md: |-
-  Add a short description for your course here.
+  Learn about system calls, process control, and more.
 
-# The percentage of users who complete your course. We'll calculate this automatically in the future, safe to ignore for now.
-completion_percentage: 15
+completion_percentage: 50
 
-# The languages that your course supports.
 languages:
   - slug: "go"
   - slug: "python"
   - slug: "rust"
 
 marketing:
-  # Shown in the catalog. 
-  # 
-  # Recommended guidelines:
-  # 
-  # - "easy": < 2h of work for an experienced developer
-  # - "medium": > 6h of work for an experienced developer
-  # - "hard": > 6h of work for an experienced developer
-  #
-  # Allowed values: "easy", "medium", "hard"
   difficulty: medium
-
-  # This is shown as an example when users suggest extensions to your course.
-  # Example: "Persistence" (from the Redis challenge)
-  sample_extension_idea_title: "My course extension idea"
-
-  # This is shown as an example when users suggest extensions to your course.
-  # Example: "A Redis server that can read and write .rdb files" (from the Redis challenge)
-  sample_extension_idea_description: "A description for my course extension idea"
-
-  # These are some default testimonials that you can use. Feel free to switch these out with your own.
+  sample_extension_idea_title: "Command History"
+  sample_extension_idea_description: "View and recall previously entered commands in your shell."
   testimonials:
     - author_name: "Ananthalakshmi Sankar"
       author_description: "Automation Engineer at Apple"
       author_avatar: "https://codecrafters.io/images/external/testimonials/oxta.jpeg"
       link: "https://github.com/anu294"
       text: "There are few sites I like as much that have a step by step guide. The real-time feedback is so good, it's creepy!"
-
     - author_name: "Patrick Burris"
       author_description: "Senior Software Developer, CenturyLink"
       author_avatar: "https://codecrafters.io/images/external/testimonials/patrick-burris.jpeg"
@@ -76,37 +37,233 @@ marketing:
         Didn't even know that was possible!
 
 stages:
-  - slug: "init" # A identifier for this stage, needs to be unique within a course.
-
-    # The name of the stage. This is shown in the course catalog, and on other course pages.
-    name: "The first stage"
-
-    # The difficulty of this stage. 
-    # 
-    # Recommended guidelines, based on how long the stage will take an experienced developer to complete:
-    # 
-    # - Very Easy (< 5 minutes) 
-    # - Easy (5-10 minutes) 
-    # - Medium (30m-1h) 
-    # - Hard (> 1h)
-    # 
-    # Allowed values: "very_easy", "easy", "medium", "hard"
+  - slug: "DX1"
+    name: "Shell Prompt"
     difficulty: very_easy
-
-    # The instructions for your stage. Markdown supported. Shown on the course page.
     description_md: |-
-      In this stage, we'll do XYZ
+      In this stage, you'll implement the most basic shell functionality. 
+      A shell prompt is the user interface for your shell, where users can type and execute commands. Your task is to make your shell print a `$` character and wait for user input. The shell should not exit after printing the prompt but continue to wait for commands.
 
-      **Example:** ABC
+      ### Tests
 
-      Your program will be executed like this: 
+      The tester will execute your program like this:
 
       ```bash
-      $ echo "apple" | ./your_executable.sh -E "a"
+      > ./myshell
       ```
 
-      You program must ABCD.
-
-    # A description of this stage that is used on the course overview page and other marketing material. Markdown supported.
+      If your shell prints the `$` prompt and waits for input, you'll pass this stage. Ensure that the shell does not exit immediately after printing the prompt.
     marketing_md: |-
-      In this stage, we'll do XYZ.
+      In this stage, you'll implement printing the shell prompt and waiting for user input. 
+
+  - slug: "AXY"
+    name: "Missing Command"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll implement the basic command handling for your shell.
+
+      When a user enters a command that is not recognized by the shell, the program should print `<command>: Command not found.`. This is a common feature in most shells, providing feedback to the user when they attempt to execute an invalid command.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      > ./myshell
+      $ nonexistent
+      nonexistent: command not found
+      ```
+
+      If your shell prints `<command>: command not found` for an unrecognized command, you'll pass this stage.  Ensure that the shell does not exit immediately after printing the response.
+
+      ### Notes
+
+      - We will only pass commands that don't exist, you don't need to worry about finding the command in the system's PATH in this stage.
+      - We won't test whether the prompt is printed again, only that the correct message is printed to stdout.
+    marketing_md: |-
+      In this stage, you'll implement handling unrecognized commands in your shell.
+  
+  - slug: "CX3"
+    name: "REPL"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
+
+      A REPL is an interactive loop that reads user input, evaluates it, prints the result, and then waits for the next input. Your task is to ensure that your shell can handle multiple commands in sequence, responding with `<command>: command not found` for each unrecognized command, without exiting after processing a command.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      > ./myshell
+      $ invalid_command_1
+      invalid_command_1: command not found
+      $ invalid_command_2
+      invalid_command_2: command not found
+      $ invalid_command_3
+      invalid_command_3: command not found
+      ```
+
+      The tester will send multiple commands, each time checking if `<command>: command not found` is printed to stdout. The program should not exit after processing these commands.
+
+      ### Notes
+
+      - Ensure that the shell remains running after processing each command.
+      - The REPL should correctly handle multiple commands in sequence.
+    marketing_md: |-
+      In this stage, you'll implement a Read-Eval-Print Loop (REPL) for your shell.
+  
+  - slug: "JSP"
+    name: "The Exit Built-in"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll implement the `exit` built-in command for your shell.
+
+      When the `exit` command is received, your shell should exit gracefully with an exit code of 0. This allows users to close the shell properly. Your task is to handle the `exit` command while continuing to respond to other commands as before.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      > ./myshell
+      $ invalid_command_1
+      invalid_command_1: command not found
+      $ exit 0
+      ```
+
+      The tester will issue two unrecognized commands and check for the correct "command not found" responses. Then, the `exit` command will be issued, and the program should exit with code 0.
+
+      ### Notes
+
+      - Ensure that the `exit` command causes the shell to exit with code 0.
+      - The shell should continue to handle other commands as usual until `exit` is received.
+    marketing_md: |-
+      In this stage, you'll implement the `exit` built-in command for your shell.
+
+  - slug: "FG3"
+    name: "The Echo Built-in"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement the `echo` built-in command for your shell.
+
+      When the `echo` command is received, your shell should print the rest of the line to stdout. This command is useful for displaying text and is a common feature in most shells. Make sure to handle the `echo` command within your shell, rather than executing an external `echo` binary.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      > ./myshell
+      $ echo pineapple, apple
+      pineapple, apple
+      $ echo banana, pear, mango
+      banana, pear, mango
+      $ echo hello world
+      hello world
+      ```
+
+      The tester will check if the `echo` command correctly prints the provided text to stdout.
+
+      ### Notes
+
+      - Ensure that the `echo` command prints the rest of the line to stdout.
+      - Prevent your shell from shelling out to an external `echo` binary.
+      - The output should exactly match the input text following the `echo` command.
+    marketing_md: |-
+      In this stage, you'll implement the `echo` built-in command for your shell.
+
+  - slug: "BX7"
+    name: "The Type Built-in"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement the `type` built-in command for your shell.
+
+      The `type` command is used to determine how a command would be interpreted if used. For built-in commands, it should indicate that they are shell built-ins. If the command is not recognized, it should indicate that the command is not found.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      > ./myshell
+      $ type echo
+      echo is a shell built-in
+      $ type exit
+      exit is a shell built-in
+      $ type type
+      type is a shell built-in
+      $ type nonexistent
+      nonexistent: command not found
+      ```
+
+      The tester will check if the `type` command correctly identifies built-in commands and provides the appropriate message for unrecognized commands.
+
+      ### Notes
+
+      - Ensure that the `type` command identifies built-in commands correctly.
+      - The output for recognized built-ins should be `<command> is a shell built-in`.
+      - The output for unrecognized commands should be `<command>: command not found`
+    marketing_md: |-
+      In this stage, you'll implement the `type` built-in command for your shell.
+
+  - slug: "DI8"
+    name: "The Type Built-in - 2"
+    difficulty: hard
+    description_md: |-
+      In this stage, you'll enhance the `type` built-in command to search for executable files using the PATH environment variable.
+
+      When a command is received, the program should search for the command in the directories listed in the PATH environment variable. If the command is found, the program should print the path to the command. If the command is not found, the program should print `<command>: command not found`.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      > ./myshell
+      $ type ls
+      /usr/bin/ls
+      $ type abcd
+      /usr/local/bin/abcd
+      $ type missing
+      missing: command not found
+      ```
+
+      The tester will check if the `type` command correctly identifies executable files in the PATH and provides the appropriate message for unrecognized commands.
+
+      ### Notes
+
+      - Ensure that the `type` command searches the directories listed in the PATH environment variable.
+      - The output for found commands should be the full path to the command.
+      - The output for unrecognized commands should be `<command>: command not found`
+    marketing_md: |-
+      In this stage, you'll implement the `type` built-in command for your shell.
+
+  - slug: "P0D"
+    name: "Run a program"
+    difficulty: hard
+    description_md: |-
+      In this stage, you'll implement the ability for your shell to run external programs with arguments.
+
+      When a valid program and its arguments are received as input, your shell should execute the program with the provided arguments. This is a fundamental feature of any shell, allowing users to run various commands and utilities.
+
+      ### Tests
+
+      The tester will execute your program like this:
+      # ToDo: Update test
+      ```bash
+      > ./myshell
+      $ mkdir -p /tmp/test1/test2
+      $ touch /tmp/test1/test2/testing
+      $ ls /tmp/test1/test2
+      testing
+      ```
+
+      The tester will check if your shell correctly executes the given commands and their arguments.
+
+      ### Notes
+
+      - Ensure that the shell can correctly parse and execute commands with their arguments.
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to run external programs with arguments.
