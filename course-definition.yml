@@ -62,7 +62,7 @@ stages:
     description_md: |-
       In this stage, you'll implement the basic command handling for your shell.
 
-      When a user enters a command that is not recognized by the shell, the program should print `<command>: Command not found.`. This is a common feature in most shells, providing feedback to the user when they attempt to execute an invalid command.
+      When a user enters a command that is not recognized by the shell, the program should print `<command>: command not found`. This is a common feature in most shells, providing feedback to the user when they attempt to execute an invalid command.
 
       ### Tests
 
