@@ -48,48 +48,58 @@ extensions:
 
 stages:
   - slug: "oo8"
-    name: "Shell Prompt"
+    name: "Print a prompt"
     difficulty: very_easy
     description_md: |-
-      In this stage, you'll implement the most basic shell functionality.
-      A shell prompt is the user interface for your shell, where users can type and execute commands. Your task is to make your shell print a `$` character and wait for user input. The shell should not exit after printing the prompt but continue to wait for commands.
+      In this stage, you'll implement printing a shell prompt (`$ `) and waiting for user input.
 
       ### Tests
 
       The tester will execute your program like this:
 
       ```bash
-      > ./myshell
+      ./your_shell.sh
       ```
 
-      If your shell prints the `$` prompt and waits for input, you'll pass this stage. Ensure that the shell does not exit immediately after printing the prompt.
+      The tester will then check whether your shell prints the `$ ` prompt and waits for user input.
+
+      ### Notes
+
+      - The prompt has two characters: `$`, and a space after it.
+      - Your program must not exit after printing `$ `, it should wait for user input.
+      - We'll handle reading commands and executing them in later stages, this stage only deals with printing the prompt.
     marketing_md: |-
       In this stage, you'll implement printing the shell prompt and waiting for user input.
 
   - slug: "cz2"
-    name: "Missing Command"
+    name: "Handle missing commands"
     difficulty: easy
     description_md: |-
-      In this stage, you'll implement the basic command handling for your shell.
-
-      When a user enters a command that is not recognized by the shell, the program should print `<command>: command not found`. This is a common feature in most shells, providing feedback to the user when they attempt to execute an invalid command.
+      In this stage, you'll implement support for handling missing commands in your shell.
 
       ### Tests
 
       The tester will execute your program like this:
 
       ```bash
-      > ./myshell
+      ./your_shell.sh
+      ```
+
+      It will then send the following command to your shell:
+
+      ```bash
       $ nonexistent
       nonexistent: command not found
       ```
 
-      If your shell prints `<command>: command not found` for an unrecognized command, you'll pass this stage.  Ensure that the shell does not exit immediately after printing the response.
+      The tester will check whether your shell prints `<command_name>: command not found` for an unrecognized command.
 
       ### Notes
 
-      - We will only pass commands that don't exist, you don't need to worry about finding the command in the system's PATH in this stage.
-      - We won't test whether the prompt is printed again, only that the correct message is printed to stdout.
+      - The command name will be a random string (like `missing_command_234`), so the response can't be hardcoded.
+      - We'll handle executing "valid" commands like `echo`, `cd` etc. in later stages, this stage only deals with unrecognized commands.
+      - In this stage it's okay if your program exits soon after printing the `<command_name>: command not found` message. In later stages
+        we'll check for a REPL (Read-Eval-Print Loop), i.e. whether the shell prints a new prompt after processing each command.
     marketing_md: |-
       In this stage, you'll implement handling unrecognized commands in your shell.
 
@@ -97,58 +107,66 @@ stages:
     name: "REPL"
     difficulty: medium
     description_md: |-
-      In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
+      In this stage, you'll implement a [REPL (Read-Eval-Print Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
 
-      A REPL is an interactive loop that reads user input, evaluates it, prints the result, and then waits for the next input. Your task is to ensure that your shell can handle multiple commands in sequence, responding with `<command>: command not found` for each unrecognized command, without exiting after processing a command.
+      A REPL is an interactive loop that reads user input, evaluates it, prints the result, and then waits for the next input.
 
       ### Tests
 
       The tester will execute your program like this:
 
       ```bash
-      > ./myshell
+      ./your_shell.sh
+      ```
+
+      It will then send a series of commands to your shell:
+
+      ```bash
       $ invalid_command_1
       invalid_command_1: command not found
       $ invalid_command_2
       invalid_command_2: command not found
       $ invalid_command_3
       invalid_command_3: command not found
+      $
       ```
 
-      The tester will send multiple commands, each time checking if `<command>: command not found` is printed to stdout. The program should not exit after processing these commands.
+      After each command, the tester will check if `<command_name>: command not found` is printed, and whether a prompt is printed for the next command.
 
       ### Notes
 
-      - Ensure that the shell remains running after processing each command.
-      - The REPL should correctly handle multiple commands in sequence.
+      - The exact number of commands sent and the command names will be random.
+      - Just like the previous stages, all commands will be invalid commands, so the response will always be `<command_name>: command not found`.
     marketing_md: |-
-      In this stage, you'll implement a Read-Eval-Print Loop (REPL) for your shell.
+      In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
 
   - slug: "pn5"
     name: "The Exit Built-in"
     difficulty: easy
     description_md: |-
-      In this stage, you'll implement the `exit` built-in command for your shell.
-
-      When the `exit` command is received, your shell should exit gracefully with an exit code of 0. This allows users to close the shell properly. Your task is to handle the `exit` command while continuing to respond to other commands as before.
+      In this stage, you'll implement the [`exit` built-in](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit).
 
       ### Tests
 
       The tester will execute your program like this:
 
       ```bash
-      > ./myshell
+      ./your_shell.sh
+      ```
+
+      It'll then send an invalid command to your shell, followed by the `exit` command:
+
+      ```bash
       $ invalid_command_1
       invalid_command_1: command not found
       $ exit 0
       ```
 
-      The tester will issue two unrecognized commands and check for the correct "command not found" responses. Then, the `exit` command will be issued, and the program should exit with code 0.
+      After issuing the `exit 0` command, the tester will verify whether your program terminates with [code/status](https://en.wikipedia.org/wiki/Exit_status) 0.
 
       ### Notes
 
-      - Ensure that the `exit` command causes the shell to exit with code 0.
-      - The shell should continue to handle other commands as usual until `exit` is received.
+      - The tester will always pass in `0` as the argument to the `exit` command.
     marketing_md: |-
       In this stage, you'll implement the `exit` built-in command for your shell.
 
