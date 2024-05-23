@@ -36,6 +36,14 @@ marketing:
         I think the instant feedback right there in the git push is really cool.
         Didn't even know that was possible!
 
+extensions:
+  - slug: "navigation"
+    name: "Directory Navigation"
+    description_markdown: |
+      In this challenge extension, you'll add directory navigation support to your shell implementation by introducing the `cd` and `pwd` commands.
+
+      Along the way, you'll learn about handling paths, changing the current working directory, and printing the current working directory. These commands are essential for effective navigation and file system management in any shell environment.
+
 stages:
   - slug: "oo8"
     name: "Shell Prompt"
@@ -269,6 +277,7 @@ stages:
       In this stage, you'll implement the ability for your shell to run external programs with arguments.
 
   - slug: "ei0"
+    primary_extension_slug: "navigation"
     name: "The PWD builtin"
     difficulty: easy
     description_md: |-
@@ -295,6 +304,7 @@ stages:
       In this stage, you'll implement the ability for your shell to print the current working directory.
 
   - slug: "ra6"
+    primary_extension_slug: "navigation"
     name: "The CD built-in: Absolute Paths"
     difficulty: medium
     description_md: |-
@@ -326,6 +336,7 @@ stages:
       In this stage, you'll implement the ability for your shell to run the `cd` built-in command with absolute paths.
 
   - slug: "gq9"
+    primary_extension_slug: "navigation"
     name: "The CD built-in: Relative Paths"
     difficulty: hard
     description_md: |-
@@ -363,6 +374,7 @@ stages:
       In this stage, you'll implement the ability for your shell to run the `cd` built-in command with relative paths.
 
   - slug: "gp4"
+    primary_extension_slug: "navigation"
     name: "The CD built-in: HOME"
     difficulty: medium
     description_md: |-
