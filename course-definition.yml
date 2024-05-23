@@ -293,7 +293,7 @@ stages:
 
   - slug: "ei0"
     primary_extension_slug: "navigation"
-    name: "The pwd builtin"
+    name: "The pwd built-in"
     difficulty: easy
     description_md: |-
       In this stage, you'll implement the `pwd` built-in command for your shell.
