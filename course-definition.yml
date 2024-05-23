@@ -174,16 +174,14 @@ stages:
     name: "The Echo Built-in"
     difficulty: medium
     description_md: |-
-      In this stage, you'll implement the `echo` built-in command for your shell.
-
-      When the `echo` command is received, your shell should print the rest of the line to stdout. This command is useful for displaying text and is a common feature in most shells. Make sure to handle the `echo` command within your shell, rather than executing an external `echo` binary.
+      In this stage, you'll implement the [`echo`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) built-in.
 
       ### Tests
 
       The tester will execute your program like this:
 
       ```bash
-      > ./myshell
+      ./your_shell.sh
       $ echo pineapple, apple
       pineapple, apple
       $ echo banana, pear, mango
@@ -215,7 +213,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      > ./myshell
+      ./your_shell.sh
       $ type echo
       echo is a shell built-in
       $ type exit
@@ -249,7 +247,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      > ./myshell
+      ./your_shell.sh
       $ type ls
       /usr/bin/ls
       $ type abcd
@@ -281,7 +279,7 @@ stages:
       The tester will execute your program like this:
       # ToDo: Update test
       ```bash
-      > ./myshell
+      ./your_shell.sh
       $ mkdir -p /tmp/test1/test2
       $ touch /tmp/test1/test2/testing
       $ ls /tmp/test1/test2
@@ -310,7 +308,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      $ ./myshell
+      ./your_shell.sh
       $ pwd
       /path/to/current/directory
       ```
@@ -337,7 +335,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      $ ./myshell
+      ./your_shell.sh
       $ cd /usr/local/bin
       $ pwd
       /usr/local/bin
@@ -369,7 +367,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      $ ./myshell
+      ./your_shell.sh
       $ cd /usr
       $ pwd
       /usr
@@ -407,7 +405,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      $ ./myshell
+      ./your_shell.sh
       $ cd /usr/local/bin
       $ pwd
       /usr/local/bin
