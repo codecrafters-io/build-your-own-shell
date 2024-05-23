@@ -11,7 +11,7 @@ description_md: |-
   Along the way, you'll learn about REPLs, shell command parsing, built-in commands, and more.
 
 short_description_md: |-
-  Learn about parsing shell commands, shell built-ins, executing external programs and more
+  Learn about parsing shell commands, executing programs and more
 
 completion_percentage: 20
 
