@@ -4,10 +4,8 @@ Study and uncomment the relevant code:
 
 ```python
 # Uncomment this block to pass the first stage
-if match_pattern(input_line, pattern):
-    exit(0)
-else:
-    exit(1)
+sys.stdout.write("$ ")
+sys.stdout.flush()
 ```
 
 Push your changes to pass the first stage:
