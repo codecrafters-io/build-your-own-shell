@@ -4,12 +4,14 @@ short_name: "Shell"
 release_status: "alpha"
 
 description_md: |-
-  A shell is a command-line interpreter that provides a user interface for interacting with the operating system. In this challenge, you'll build your own shell capable of interpreting and executing basic commands, handling input/output redirection, and managing processes.
+  A shell is a command-line interface that executes commands and manages processes. In this challenge, you'll build your own
+  [POSIX compliant](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html) shell that's capable of interpreting
+  shell commands, running external programs and built-in commands like `cd`, `pwd`, `echo` and more.
 
-  Along the way, you'll learn about process creation and management, system calls, and the inner workings of a Unix-like operating system.
+  Along the way, you'll learn about REPLs, shell command parsing, built-in commands, and more.
 
 short_description_md: |-
-  Learn about shell built-ins, parsing shell commands and more
+  Learn about parsing shell commands, shell built-ins, executing external programs and more
 
 completion_percentage: 20
 
