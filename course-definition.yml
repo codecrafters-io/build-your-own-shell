@@ -37,7 +37,7 @@ marketing:
         Didn't even know that was possible!
 
 stages:
-  - slug: "DX1"
+  - slug: "oo8"
     name: "Shell Prompt"
     difficulty: very_easy
     description_md: |-
@@ -56,7 +56,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement printing the shell prompt and waiting for user input. 
 
-  - slug: "AXY"
+  - slug: "cz2"
     name: "Missing Command"
     difficulty: easy
     description_md: |-
@@ -83,7 +83,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement handling unrecognized commands in your shell.
   
-  - slug: "CX3"
+  - slug: "ff0"
     name: "REPL"
     difficulty: medium
     description_md: |-
@@ -114,7 +114,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement a Read-Eval-Print Loop (REPL) for your shell.
   
-  - slug: "JSP"
+  - slug: "pn5"
     name: "The Exit Built-in"
     difficulty: easy
     description_md: |-
@@ -142,7 +142,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement the `exit` built-in command for your shell.
 
-  - slug: "FG3"
+  - slug: "iz3"
     name: "The Echo Built-in"
     difficulty: medium
     description_md: |-
@@ -174,7 +174,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement the `echo` built-in command for your shell.
 
-  - slug: "BX7"
+  - slug: "ez5"
     name: "The Type Built-in"
     difficulty: medium
     description_md: |-
@@ -208,7 +208,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement the `type` built-in command for your shell.
 
-  - slug: "DI8"
+  - slug: "mg5"
     name: "The Type Built-in - 2"
     difficulty: hard
     description_md: |-
@@ -240,7 +240,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement the `type` built-in command for your shell.
 
-  - slug: "P0D"
+  - slug: "ip1"
     name: "Run a program"
     difficulty: hard
     description_md: |-
@@ -267,3 +267,129 @@ stages:
       - Ensure that the shell can correctly parse and execute commands with their arguments.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run external programs with arguments.
+
+  - slug: "ei0"
+    name: "The PWD builtin"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll implement the `pwd` built-in command for your shell.
+
+      [pwd](https://en.wikipedia.org/wiki/Pwd) stands for "print working directory" and is used to output the current working directory. This command is essential for users to know their current location in the filesystem.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      $ ./myshell
+      $ pwd
+      /path/to/current/directory
+      ```
+
+      The tester will check if the `pwd` command correctly prints the current working directory.
+
+      ### Notes
+
+      - Ensure that the `pwd` command outputs the full path of the current working directory.
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to print the current working directory.
+
+  - slug: "ra6"
+    name: "The CD built-in: Absolute Paths"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement the `cd` built-in command to handle absolute paths for your shell.
+
+      The `cd` command is used to change the current working directory. When an absolute path to an existing directory is provided, the shell should change the current working directory to that path. If the directory doesn't exist, it should print an error message indicating that the directory was not found.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      $ ./myshell
+      $ cd /usr/local/bin
+      $ pwd
+      /usr/local/bin
+      $ cd /does_not_exist
+      cd: /does_not_exist: No such file or directory
+      ```
+
+      The tester will check if the `cd` command correctly changes the directory when a valid path is provided and if it properly handles invalid paths by displaying an appropriate error message.
+
+      ### Notes
+
+      - If the specified directory does not exist, print `cd: <directory>: No such file or directory`.
+      - The `pwd` command will be used to verify the current working directory after using `cd`.
+      ```
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to run the `cd` built-in command with absolute paths.
+
+  - slug: "gq9"
+    name: "The CD built-in: Relative Paths"
+    difficulty: hard
+    description_md: |-
+      In this stage, you'll implement the `cd` built-in command to handle relative paths for your shell.
+
+      The `cd` command should be able to change the current working directory using relative paths. Relative paths are specified relative to the current directory. If the specified directory does not exist, it should print an error message indicating that the directory was not found.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      $ ./myshell
+      $ cd /usr
+      $ pwd
+      /usr
+      $ cd ./local/bin
+      $ pwd
+      /usr/local/bin
+      $ cd ../../
+      $ pwd
+      /usr
+      $ cd missing
+      cd: missing: No such file or directory
+      ```
+
+      The tester will check if the `cd` command correctly changes the directory using relative paths and if it properly handles invalid paths by displaying an appropriate error message.
+
+      ### Notes
+
+      - The `pwd` command will be used to verify the current working directory after using `cd`.
+      - If the specified directory does not exist, print `cd: <directory>: No such file or directory`.
+      - Relative paths like `./`, `../`, and more complex relative paths should be handled correctly.
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to run the `cd` built-in command with relative paths.
+
+  - slug: "gp4"
+    name: "The CD built-in: HOME"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement the `cd` built-in command to handle the `~` character for your shell.
+
+      The `~` character is a shorthand for the user's home directory. When `cd` is received with `~`, your shell should change the current working directory to the user's home directory. This feature enhances user convenience, making it easier to navigate to the home directory.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      $ ./myshell
+      $ cd /usr/local/bin
+      $ pwd
+      /usr/local/bin
+      $ cd ~
+      $ pwd
+      /home/user
+      ```
+
+      The tester will check if the `cd` command correctly changes the directory to the user's home directory when `~` is used.
+
+      ### Notes
+
+      - Ensure that the `cd` command interprets `~` as the user's home directory.
+      - The `pwd` command will be used to verify the current working directory after using `cd ~`.
+      - The home directory is typically specified by the `HOME` environment variable.
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to run the `cd` built-in command with the `HOME` directory.
