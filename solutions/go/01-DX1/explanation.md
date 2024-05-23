@@ -3,13 +3,8 @@ The entry point for your Shell implementation is in `cmd/myshell/main.go`.
 Study and uncomment the relevant code: 
 
 ```go
-// Uncomment this to pass the first stage
-"bytes"
-```
-
-```go
-// Uncomment this to pass the first stage
-ok = bytes.ContainsAny(line, pattern)
+// Uncomment this block to pass the first stage
+fmt.Fprint(os.Stdout, "$ ")
 ```
 
 Push your changes to pass the first stage:
