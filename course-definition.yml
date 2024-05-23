@@ -9,9 +9,9 @@ description_md: |-
   Along the way, you'll learn about process creation and management, system calls, and the inner workings of a Unix-like operating system.
 
 short_description_md: |-
-  Learn about system calls, process control, and more.
+  Learn about shell built-ins, parsing shell commands and more
 
-completion_percentage: 50
+completion_percentage: 20
 
 languages:
   - slug: "go"
@@ -49,7 +49,7 @@ stages:
     name: "Shell Prompt"
     difficulty: very_easy
     description_md: |-
-      In this stage, you'll implement the most basic shell functionality. 
+      In this stage, you'll implement the most basic shell functionality.
       A shell prompt is the user interface for your shell, where users can type and execute commands. Your task is to make your shell print a `$` character and wait for user input. The shell should not exit after printing the prompt but continue to wait for commands.
 
       ### Tests
@@ -62,7 +62,7 @@ stages:
 
       If your shell prints the `$` prompt and waits for input, you'll pass this stage. Ensure that the shell does not exit immediately after printing the prompt.
     marketing_md: |-
-      In this stage, you'll implement printing the shell prompt and waiting for user input. 
+      In this stage, you'll implement printing the shell prompt and waiting for user input.
 
   - slug: "cz2"
     name: "Missing Command"
@@ -90,7 +90,7 @@ stages:
       - We won't test whether the prompt is printed again, only that the correct message is printed to stdout.
     marketing_md: |-
       In this stage, you'll implement handling unrecognized commands in your shell.
-  
+
   - slug: "ff0"
     name: "REPL"
     difficulty: medium
@@ -121,7 +121,7 @@ stages:
       - The REPL should correctly handle multiple commands in sequence.
     marketing_md: |-
       In this stage, you'll implement a Read-Eval-Print Loop (REPL) for your shell.
-  
+
   - slug: "pn5"
     name: "The Exit Built-in"
     difficulty: easy
