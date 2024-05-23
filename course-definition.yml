@@ -198,7 +198,7 @@ stages:
       In this stage, you'll implement the `echo` built-in command for your shell.
 
   - slug: "ez5"
-    name: "The Type Built-in"
+    name: "The type built-in: built-ins"
     difficulty: medium
     description_md: |-
       In this stage, you'll implement the `type` built-in command for your shell.
@@ -232,7 +232,7 @@ stages:
       In this stage, you'll implement the `type` built-in command for your shell.
 
   - slug: "mg5"
-    name: "The Type Built-in - 2"
+    name: "The type built-in: executable files"
     difficulty: hard
     description_md: |-
       In this stage, you'll enhance the `type` built-in command to search for executable files using the PATH environment variable.
@@ -293,7 +293,7 @@ stages:
 
   - slug: "ei0"
     primary_extension_slug: "navigation"
-    name: "The PWD builtin"
+    name: "The pwd builtin"
     difficulty: easy
     description_md: |-
       In this stage, you'll implement the `pwd` built-in command for your shell.
@@ -320,7 +320,7 @@ stages:
 
   - slug: "ra6"
     primary_extension_slug: "navigation"
-    name: "The CD built-in: Absolute Paths"
+    name: "The cd built-in: Absolute paths"
     difficulty: medium
     description_md: |-
       In this stage, you'll implement the `cd` built-in command to handle absolute paths for your shell.
@@ -352,7 +352,7 @@ stages:
 
   - slug: "gq9"
     primary_extension_slug: "navigation"
-    name: "The CD built-in: Relative Paths"
+    name: "The cd built-in: Relative paths"
     difficulty: hard
     description_md: |-
       In this stage, you'll implement the `cd` built-in command to handle relative paths for your shell.
@@ -390,7 +390,7 @@ stages:
 
   - slug: "gp4"
     primary_extension_slug: "navigation"
-    name: "The CD built-in: HOME"
+    name: "The cd built-in: Home directory"
     difficulty: medium
     description_md: |-
       In this stage, you'll implement the `cd` built-in command to handle the `~` character for your shell.
