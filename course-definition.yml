@@ -141,7 +141,7 @@ stages:
       In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
 
   - slug: "pn5"
-    name: "The Exit Built-in"
+    name: "The exit built-in"
     difficulty: easy
     description_md: |-
       In this stage, you'll implement the [`exit` built-in](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit).
@@ -171,7 +171,7 @@ stages:
       In this stage, you'll implement the `exit` built-in command for your shell.
 
   - slug: "iz3"
-    name: "The Echo Built-in"
+    name: "The echo built-in"
     difficulty: medium
     description_md: |-
       In this stage, you'll implement the [`echo`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) built-in.
@@ -182,21 +182,18 @@ stages:
 
       ```bash
       ./your_shell.sh
-      $ echo pineapple, apple
-      pineapple, apple
-      $ echo banana, pear, mango
-      banana, pear, mango
-      $ echo hello world
-      hello world
       ```
 
-      The tester will check if the `echo` command correctly prints the provided text to stdout.
+      It'll then send a series of `echo` commands to your shell:
 
-      ### Notes
+      ```bash
+      $ echo hello world
+      hello world
+      $ echo pineapple strawberry
+      pineapple apple
+      ```
 
-      - Ensure that the `echo` command prints the rest of the line to stdout.
-      - Prevent your shell from shelling out to an external `echo` binary.
-      - The output should exactly match the input text following the `echo` command.
+      After each command, the tester will check if the `echo` command correctly prints the provided text back.
     marketing_md: |-
       In this stage, you'll implement the `echo` built-in command for your shell.
 
