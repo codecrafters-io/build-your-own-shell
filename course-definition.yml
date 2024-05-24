@@ -8,7 +8,7 @@ description_md: |-
   [POSIX compliant](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html) shell that's capable of interpreting
   shell commands, running external programs and built-in commands like `cd`, `pwd`, `echo` and more.
 
-  Along the way, you'll learn about REPLs, shell command parsing, built-in commands, and more.
+  Along the way, you'll learn about shell command parsing, REPLs, built-in commands, and more.
 
 short_description_md: |-
   Learn about parsing shell commands, executing programs and more
