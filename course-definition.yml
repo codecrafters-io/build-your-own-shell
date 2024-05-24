@@ -302,9 +302,9 @@ stages:
     name: "Run a program"
     difficulty: medium
     description_md: |-
-      In this stage, you'll implement the ability for your shell to run external programs with arguments.
+      In this stage, you'll add support for running external programs with arguments.
 
-      When a valid program and its arguments are received as input, your shell should execute the program with the provided arguments. This is a fundamental feature of any shell, allowing users to run various commands and utilities.
+      External programs are located using the `PATH` environment variable, as described in previous stages.
 
       ### Tests
 
@@ -314,19 +314,20 @@ stages:
       ./your_shell.sh
       ```
 
-      It'll then send a command, that you need to execute:
+      It'll then send a command that you need to execute:
 
       ```bash
-      $ ./my_exe
-      random_string
-      $
+      $ program_1234 alice
+      Hello alice! The secret code is 1234.
       ```
 
-      The tester will check if your shell correctly executes the given command. The output of the command will be checked to ensure that it matches the expected output.
+      The command (`program_1234`) in the example above will be present in `PATH` and will be an executable file.
+
+      The tester will check if your shell correctly executes the given command and prints the output.
 
       ### Notes
 
-      - Ensure that the shell can correctly parse and execute commands with their arguments.
+      - The program name, arguments and the expected output will be random for each test case.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run external programs with arguments.
 
