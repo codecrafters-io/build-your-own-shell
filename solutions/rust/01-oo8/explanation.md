@@ -4,13 +4,8 @@ Study and uncomment the relevant code:
 
 ```rust
 // Uncomment this block to pass the first stage
-let stdin = io::stdin();
-loop {
-    print!("$ ");
-    io::stdout().flush().unwrap();
-    let mut input = String::new();
-    stdin.read_line(&mut input).unwrap();
-}
+print!("$ ");
+io::stdout().flush().unwrap();
 ```
 
 Push your changes to pass the first stage:

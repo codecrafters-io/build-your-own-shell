@@ -2,10 +2,11 @@ import sys
 
 
 def main():
-    while True:
-        sys.stdout.write("$ ")
-        sys.stdout.flush()
-        input()
+    sys.stdout.write("$ ")
+    sys.stdout.flush()
+
+    # Wait for user input
+    input()
 
 
 if __name__ == "__main__":
