@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	// ToDo what to do about these comments ?
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Fprint(os.Stdout, "$ ")

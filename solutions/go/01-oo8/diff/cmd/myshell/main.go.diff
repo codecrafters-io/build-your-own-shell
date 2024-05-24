@@ -1,4 +1,4 @@
-@@ -1,20 +1,16 @@
+@@ -1,19 +1,15 @@
  package main
 
  import (
@@ -8,9 +8,8 @@
  )
 
  func main() {
- 	// ToDo what to do about these comments ?
 -	// You can use print statements as follows for debugging, they'll be visible when running tests.
--	// fmt.Println("Logs from your program will appear here!")
+-	fmt.Println("Logs from your program will appear here!")
 -
  	reader := bufio.NewReader(os.Stdin)
  	for {

@@ -7,9 +7,8 @@ import (
 )
 
 func main() {
-	// ToDo what to do about these comments ?
 	// You can use print statements as follows for debugging, they'll be visible when running tests.
-	// fmt.Println("Logs from your program will appear here!")
+	fmt.Println("Logs from your program will appear here!")
 
 	reader := bufio.NewReader(os.Stdin)
 	for {
