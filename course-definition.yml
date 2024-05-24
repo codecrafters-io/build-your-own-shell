@@ -191,6 +191,7 @@ stages:
       hello world
       $ echo pineapple strawberry
       pineapple apple
+      $
       ```
 
       After each command, the tester will check if the `echo` command correctly prints the provided text back.
@@ -211,6 +212,11 @@ stages:
 
       ```bash
       ./your_shell.sh
+      ```
+
+      It'll then send a series of `type` commands to your shell:
+
+      ```bash
       $ type echo
       echo is a shell built-in
       $ type exit
@@ -219,6 +225,7 @@ stages:
       type is a shell built-in
       $ type nonexistent
       nonexistent: command not found
+      $
       ```
 
       The tester will check if the `type` command correctly identifies built-in commands and provides the appropriate message for unrecognized commands.
@@ -245,12 +252,18 @@ stages:
 
       ```bash
       ./your_shell.sh
+      ```
+
+      It'll then send a series of `type` commands to your shell:
+
+      ```bash
       $ type ls
       /usr/bin/ls
       $ type abcd
       /usr/local/bin/abcd
       $ type missing
       missing: command not found
+      $
       ```
 
       The tester will check if the `type` command correctly identifies executable files in the PATH and provides the appropriate message for unrecognized commands.
@@ -274,16 +287,20 @@ stages:
       ### Tests
 
       The tester will execute your program like this:
-      # ToDo: Update test
+
       ```bash
       ./your_shell.sh
-      $ mkdir -p /tmp/test1/test2
-      $ touch /tmp/test1/test2/testing
-      $ ls /tmp/test1/test2
-      testing
       ```
 
-      The tester will check if your shell correctly executes the given commands and their arguments.
+      It'll then send a command, that you need to execute:
+
+      ```bash
+      $ ./my_exe
+      random_string
+      $
+      ```
+
+      The tester will check if your shell correctly executes the given command. The output of the command will be checked to ensure that it matches the expected output.
 
       ### Notes
 
@@ -302,12 +319,19 @@ stages:
 
       ### Tests
 
+
       The tester will execute your program like this:
 
       ```bash
       ./your_shell.sh
+      ```
+
+      It'll then send a `pwd` command to your shell:
+
+      ```bash
       $ pwd
       /path/to/current/directory
+      $
       ```
 
       The tester will check if the `pwd` command correctly prints the current working directory.
@@ -333,11 +357,17 @@ stages:
 
       ```bash
       ./your_shell.sh
+      ```
+
+      It'll then send a series of `cd` commands to your shell:
+
+      ```bash
       $ cd /usr/local/bin
       $ pwd
       /usr/local/bin
       $ cd /does_not_exist
       cd: /does_not_exist: No such file or directory
+      $
       ```
 
       The tester will check if the `cd` command correctly changes the directory when a valid path is provided and if it properly handles invalid paths by displaying an appropriate error message.
@@ -365,6 +395,11 @@ stages:
 
       ```bash
       ./your_shell.sh
+      ```
+
+      It'll then send a series of `cd` commands to your shell:
+
+      ```bash
       $ cd /usr
       $ pwd
       /usr
@@ -374,8 +409,7 @@ stages:
       $ cd ../../
       $ pwd
       /usr
-      $ cd missing
-      cd: missing: No such file or directory
+      $ 
       ```
 
       The tester will check if the `cd` command correctly changes the directory using relative paths and if it properly handles invalid paths by displaying an appropriate error message.
@@ -403,15 +437,21 @@ stages:
 
       ```bash
       ./your_shell.sh
+      ```
+
+      It'll then send a series of `cd` commands to your shell:
+
+      ```bash
       $ cd /usr/local/bin
       $ pwd
       /usr/local/bin
       $ cd ~
       $ pwd
       /home/user
+      $
       ```
 
-      The tester will check if the `cd` command correctly changes the directory to the user's home directory when `~` is used.
+      The tester will check if the `cd` command correctly changes the directory to the user's home directory when `~` is used. You need to fetch the user's home directory from the `HOME` environment variable.
 
       ### Notes
 
