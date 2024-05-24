@@ -1,4 +1,5 @@
-@@ -1,15 +1,11 @@
+@@ -1,16 +1,12 @@
+ #[allow(unused_imports)]
  use std::io::{self, Write};
 
  fn main() {
