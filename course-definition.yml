@@ -65,7 +65,7 @@ stages:
 
       ### Notes
 
-      - The prompt has two characters: `$`, and a space after it.
+      - There's a space after the `$` character in the prompt.
       - Your program must not exit after printing `$ `, it should wait for user input.
       - We'll handle reading commands and executing them in later stages, this stage only deals with printing the prompt.
     marketing_md: |-
@@ -168,7 +168,7 @@ stages:
 
       - The tester will always pass in `0` as the argument to the `exit` command.
     marketing_md: |-
-      In this stage, you'll implement the `exit` built-in command for your shell.
+      In this stage, you'll implement the `exit` built-in command.
 
   - slug: "iz3"
     name: "The echo built-in"
@@ -196,7 +196,7 @@ stages:
 
       After each command, the tester will check if the `echo` command correctly prints the provided text back.
     marketing_md: |-
-      In this stage, you'll implement the `echo` built-in command for your shell.
+      In this stage, you'll implement the `echo` built-in command.
 
   - slug: "ez5"
     name: "The type built-in: built-ins"
@@ -204,7 +204,21 @@ stages:
     description_md: |-
       In this stage, you'll implement the `type` built-in command for your shell.
 
-      The `type` command is used to determine how a command would be interpreted if used. For built-in commands, it should indicate that they are shell built-ins. If the command is not recognized, it should indicate that the command is not found.
+      The `type` built-in is used to determine how a command would be interpreted if used. Example:
+
+      ```bash
+      $ type echo
+      echo is a shell built-in
+      $ type exit
+      exit is a shell built-in
+      $ type nonexistent
+      nonexistent: command not found
+      $ type cat
+      cat is /bin/cat
+      ```
+
+      In this stage we'll only test two cases: built-in commands and unrecognized commands. We'll handle
+      executable files in later stages.
 
       ### Tests
 
@@ -228,57 +242,65 @@ stages:
       $
       ```
 
-      The tester will check if the `type` command correctly identifies built-in commands and provides the appropriate message for unrecognized commands.
+      The tester will check if the `type` command responds correctly based on the command provided:
+
+      - If a command is a shell built-in, the expected output is `<command> is a shell built-in`.
+      - If a command is not recognized, the expected output is `<command>: command not found`.
 
       ### Notes
 
-      - Ensure that the `type` command identifies built-in commands correctly.
-      - The output for recognized built-ins should be `<command> is a shell built-in`.
-      - The output for unrecognized commands should be `<command>: command not found`
+      - The tester will only check for built-in commands and unrecognized commands in this stage.
+      - `type` itself is a shell built-in command, so `$ type type` should print `type is a shell built-in`.
     marketing_md: |-
-      In this stage, you'll implement the `type` built-in command for your shell.
+      In this stage, you'll implement the `type` built-in command.
 
   - slug: "mg5"
     name: "The type built-in: executable files"
-    difficulty: hard
+    difficulty: medium
     description_md: |-
-      In this stage, you'll enhance the `type` built-in command to search for executable files using the PATH environment variable.
+      In this stage, you'll extend the `type` built-in to search for executable files using [PATH](https://en.wikipedia.org/wiki/PATH_(variable)).
+
+      [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) is an environment variable that specifies a set of directories
+      where executable programs are located. When a command is received, the program should search for the command in the
+      directories listed in the PATH environment variable. If the command is found, the program should print the path to the command. If the command is not found, the program should print `<command>: command not found`.
+
+
 
       When a command is received, the program should search for the command in the directories listed in the PATH environment variable. If the command is found, the program should print the path to the command. If the command is not found, the program should print `<command>: command not found`.
 
       ### Tests
 
-      The tester will execute your program like this:
+      The tester will execute your program with a custom `PATH` like this:
 
       ```bash
-      ./your_shell.sh
+      PATH="/usr/bin:/usr/local/bin" ./your_shell.sh
       ```
 
       It'll then send a series of `type` commands to your shell:
 
       ```bash
       $ type ls
-      /usr/bin/ls
+      ls is /usr/bin/ls
       $ type abcd
-      /usr/local/bin/abcd
+      abcd is /usr/local/bin/abcd
       $ type missing
       missing: command not found
       $
       ```
 
-      The tester will check if the `type` command correctly identifies executable files in the PATH and provides the appropriate message for unrecognized commands.
+      The tester will check if the `type` command correctly identifies executable files in the PATH.
 
       ### Notes
 
-      - Ensure that the `type` command searches the directories listed in the PATH environment variable.
-      - The output for found commands should be the full path to the command.
-      - The output for unrecognized commands should be `<command>: command not found`
+      - The actual value of the `PATH` environment variable will be random for each test case.
+      - `PATH` can contain multiple directories separated by colons (`:`), your program should
+        search for programs in each directory in order and return the first match.
     marketing_md: |-
       In this stage, you'll implement the `type` built-in command for your shell.
 
   - slug: "ip1"
     name: "Run a program"
-    difficulty: hard
+    difficulty: medium
     description_md: |-
       In this stage, you'll implement the ability for your shell to run external programs with arguments.
 
