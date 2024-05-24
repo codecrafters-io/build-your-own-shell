@@ -6,9 +6,9 @@ release_status: "beta"
 description_md: |-
   A shell is a command-line interface that executes commands and manages processes. In this challenge, you'll build your own
   [POSIX compliant](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html) shell that's capable of interpreting
-  shell commands, running external programs and built-in commands like `cd`, `pwd`, `echo` and more.
+  shell commands, running external programs and builtin commands like `cd`, `pwd`, `echo` and more.
 
-  Along the way, you'll learn about shell command parsing, REPLs, built-in commands, and more.
+  Along the way, you'll learn about shell command parsing, REPLs, builtin commands, and more.
 
 short_description_md: |-
   Learn about parsing shell commands, executing programs and more
@@ -141,10 +141,10 @@ stages:
       In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
 
   - slug: "pn5"
-    name: "The exit built-in"
+    name: "The exit builtin"
     difficulty: easy
     description_md: |-
-      In this stage, you'll implement the [`exit` built-in](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit).
+      In this stage, you'll implement the [`exit` builtin](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit).
 
       ### Tests
 
@@ -168,13 +168,13 @@ stages:
 
       - The tester will always pass in `0` as the argument to the `exit` command.
     marketing_md: |-
-      In this stage, you'll implement the `exit` built-in command.
+      In this stage, you'll implement the `exit` builtin command.
 
   - slug: "iz3"
-    name: "The echo built-in"
+    name: "The echo builtin"
     difficulty: medium
     description_md: |-
-      In this stage, you'll implement the [`echo`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) built-in.
+      In this stage, you'll implement the [`echo`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) builtin.
 
       ### Tests
 
@@ -196,15 +196,15 @@ stages:
 
       After each command, the tester will check if the `echo` command correctly prints the provided text back.
     marketing_md: |-
-      In this stage, you'll implement the `echo` built-in command.
+      In this stage, you'll implement the `echo` builtin command.
 
   - slug: "ez5"
-    name: "The type built-in: built-ins"
+    name: "The type builtin: builtins"
     difficulty: medium
     description_md: |-
-      In this stage, you'll implement the `type` built-in command for your shell.
+      In this stage, you'll implement the `type` builtin command for your shell.
 
-      The `type` built-in is used to determine how a command would be interpreted if used. Example:
+      The `type` builtin is used to determine how a command would be interpreted if used. Example:
 
       ```bash
       $ type echo
@@ -217,7 +217,7 @@ stages:
       cat is /bin/cat
       ```
 
-      In this stage we'll only test two cases: built-in commands and unrecognized commands. We'll handle
+      In this stage we'll only test two cases: builtin commands and unrecognized commands. We'll handle
       executable files in later stages.
 
       ### Tests
@@ -249,16 +249,16 @@ stages:
 
       ### Notes
 
-      - The tester will only check for built-in commands and unrecognized commands in this stage.
+      - The tester will only check for builtin commands and unrecognized commands in this stage.
       - `type` itself is a shell builtin command, so `$ type type` should print `type is a shell builtin`.
     marketing_md: |-
-      In this stage, you'll implement the `type` built-in command.
+      In this stage, you'll implement the `type` builtin command.
 
   - slug: "mg5"
-    name: "The type built-in: executable files"
+    name: "The type builtin: executable files"
     difficulty: medium
     description_md: |-
-      In this stage, you'll extend the `type` built-in to search for executable files using [PATH](https://en.wikipedia.org/wiki/PATH_(variable)).
+      In this stage, you'll extend the `type` builtin to search for executable files using [PATH](https://en.wikipedia.org/wiki/PATH_(variable)).
 
       [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) is an environment variable that specifies a set of directories
       where executable programs are located. When a command is received, the program should search for the command in the
@@ -292,7 +292,7 @@ stages:
       - `PATH` can contain multiple directories separated by colons (`:`), your program should
         search for programs in each directory in order and return the first match.
     marketing_md: |-
-      In this stage, you'll implement the `type` built-in command for your shell.
+      In this stage, you'll implement the `type` builtin command for your shell.
 
   - slug: "ip1"
     name: "Run a program"
@@ -329,10 +329,10 @@ stages:
 
   # - slug: "ei0"
   #   primary_extension_slug: "navigation"
-  #   name: "The pwd built-in"
+  #   name: "The pwd builtin"
   #   difficulty: easy
   #   description_md: |-
-  #     In this stage, you'll implement the `pwd` built-in command for your shell.
+  #     In this stage, you'll implement the `pwd` builtin command for your shell.
 
   #     [pwd](https://en.wikipedia.org/wiki/Pwd) stands for "print working directory" and is used to output the current working directory. This command is essential for users to know their current location in the filesystem.
 
@@ -362,10 +362,10 @@ stages:
 
   # - slug: "ra6"
   #   primary_extension_slug: "navigation"
-  #   name: "The cd built-in: Absolute paths"
+  #   name: "The cd builtin: Absolute paths"
   #   difficulty: medium
   #   description_md: |-
-  #     In this stage, you'll implement the `cd` built-in command to handle absolute paths for your shell.
+  #     In this stage, you'll implement the `cd` builtin command to handle absolute paths for your shell.
 
   #     The `cd` command is used to change the current working directory. When an absolute path to an existing directory is provided, the shell should change the current working directory to that path. If the directory doesn't exist, it should print an error message indicating that the directory was not found.
 
@@ -396,14 +396,14 @@ stages:
   #     - The `pwd` command will be used to verify the current working directory after using `cd`.
   #     ```
   #   marketing_md: |-
-  #     In this stage, you'll implement the ability for your shell to run the `cd` built-in command with absolute paths.
+  #     In this stage, you'll implement the ability for your shell to run the `cd` builtin command with absolute paths.
 
   # - slug: "gq9"
   #   primary_extension_slug: "navigation"
-  #   name: "The cd built-in: Relative paths"
+  #   name: "The cd builtin: Relative paths"
   #   difficulty: hard
   #   description_md: |-
-  #     In this stage, you'll implement the `cd` built-in command to handle relative paths for your shell.
+  #     In this stage, you'll implement the `cd` builtin command to handle relative paths for your shell.
 
   #     The `cd` command should be able to change the current working directory using relative paths. Relative paths are specified relative to the current directory. If the specified directory does not exist, it should print an error message indicating that the directory was not found.
 
@@ -438,14 +438,14 @@ stages:
   #     - If the specified directory does not exist, print `cd: <directory>: No such file or directory`.
   #     - Relative paths like `./`, `../`, and more complex relative paths should be handled correctly.
   #   marketing_md: |-
-  #     In this stage, you'll implement the ability for your shell to run the `cd` built-in command with relative paths.
+  #     In this stage, you'll implement the ability for your shell to run the `cd` builtin command with relative paths.
 
   # - slug: "gp4"
   #   primary_extension_slug: "navigation"
-  #   name: "The cd built-in: Home directory"
+  #   name: "The cd builtin: Home directory"
   #   difficulty: medium
   #   description_md: |-
-  #     In this stage, you'll implement the `cd` built-in command to handle the `~` character for your shell.
+  #     In this stage, you'll implement the `cd` builtin command to handle the `~` character for your shell.
 
   #     The `~` character is a shorthand for the user's home directory. When `cd` is received with `~`, your shell should change the current working directory to the user's home directory. This feature enhances user convenience, making it easier to navigate to the home directory.
 
@@ -477,4 +477,4 @@ stages:
   #     - The `pwd` command will be used to verify the current working directory after using `cd ~`.
   #     - The home directory is typically specified by the `HOME` environment variable.
   #   marketing_md: |-
-  #     In this stage, you'll implement the ability for your shell to run the `cd` built-in command with the `HOME` directory.
+  #     In this stage, you'll implement the ability for your shell to run the `cd` builtin command with the `HOME` directory.
