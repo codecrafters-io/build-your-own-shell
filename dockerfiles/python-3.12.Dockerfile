@@ -1,5 +1,7 @@
 FROM python:3.12-alpine
 
+RUN apk add --no-cache "go>=1.20"
+
 RUN pip install --no-cache-dir "pipenv>=2023.12.1"
 
 COPY Pipfile /app/Pipfile

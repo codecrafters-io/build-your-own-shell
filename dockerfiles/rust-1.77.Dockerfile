@@ -1,5 +1,9 @@
 FROM rust:1.77-buster
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    golang-go=1.* \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY Cargo.toml /app/Cargo.toml
 COPY Cargo.lock /app/Cargo.lock
 
