@@ -212,7 +212,7 @@ stages:
       $ type exit
       exit is a shell builtin
       $ type nonexistent
-      nonexistent: not found
+      nonexistent not found
       $ type cat
       cat is /bin/cat
       ```
@@ -238,14 +238,14 @@ stages:
       $ type type
       type is a shell builtin
       $ type nonexistent
-      nonexistent: command not found
+      nonexistent not found
       $
       ```
 
       The tester will check if the `type` command responds correctly based on the command provided:
 
       - If a command is a shell builtin, the expected output is `<command> is a shell builtin`.
-      - If a command is not recognized, the expected output is `<command>: command not found`.
+      - If a command is not recognized, the expected output is `<command> not found`.
 
       ### Notes
 
