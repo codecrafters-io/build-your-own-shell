@@ -144,7 +144,7 @@ stages:
     name: "The exit builtin"
     difficulty: easy
     description_md: |-
-      In this stage, you'll implement the [`exit` builtin](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit).
+      In this stage, you'll implement the [exit](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit) builtin.
 
       ### Tests
 
@@ -174,7 +174,7 @@ stages:
     name: "The echo builtin"
     difficulty: medium
     description_md: |-
-      In this stage, you'll implement the [`echo`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) builtin.
+      In this stage, you'll implement the [echo](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) builtin.
 
       ### Tests
 
