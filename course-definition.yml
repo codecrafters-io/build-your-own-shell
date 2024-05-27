@@ -190,7 +190,7 @@ stages:
       $ echo hello world
       hello world
       $ echo pineapple strawberry
-      pineapple apple
+      pineapple strawberry
       $
       ```
 
