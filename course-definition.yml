@@ -38,13 +38,13 @@ marketing:
         I think the instant feedback right there in the git push is really cool.
         Didn't even know that was possible!
 
-# extensions:
-#   - slug: "navigation"
-#     name: "Directory Navigation"
-#     description_markdown: |
-#       In this challenge extension, you'll add directory navigation support to your shell implementation by introducing the `cd` and `pwd` commands.
+extensions:
+  - slug: "navigation"
+    name: "Navigation"
+    description_markdown: |
+      In this challenge extension, you'll add directory navigation support by implementing the `cd` and `pwd` commands.
 
-#       Along the way, you'll learn about handling paths, changing the current working directory, and printing the current working directory. These commands are essential for effective navigation and file system management in any shell environment.
+      Along the way, you'll learn about what the "current working directory" is, how to change it and more.
 
 stages:
   - slug: "oo8"
@@ -327,154 +327,173 @@ stages:
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run external programs with arguments.
 
-  # - slug: "ei0"
-  #   primary_extension_slug: "navigation"
-  #   name: "The pwd builtin"
-  #   difficulty: easy
-  #   description_md: |-
-  #     In this stage, you'll implement the `pwd` builtin command for your shell.
+  - slug: "ei0"
+    primary_extension_slug: "navigation"
+    name: "The pwd builtin"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll implement the `pwd` builtin command.
 
-  #     [pwd](https://en.wikipedia.org/wiki/Pwd) stands for "print working directory" and is used to output the current working directory. This command is essential for users to know their current location in the filesystem.
+      [pwd](https://en.wikipedia.org/wiki/Pwd) stands for "print working directory".
 
-  #     ### Tests
+      ### Tests
 
-  #     The tester will execute your program like this:
+      The tester will execute your program like this:
 
-  #     ```bash
-  #     ./your_shell.sh
-  #     ```
+      ```bash
+      ./your_shell.sh
+      ```
 
-  #     It'll then send a `pwd` command to your shell:
+      It'll then send a `pwd` command to your shell:
 
-  #     ```bash
-  #     $ pwd
-  #     /path/to/current/directory
-  #     $
-  #     ```
+      ```bash
+      $ pwd
+      /path/to/current/directory
+      $
+      ```
 
-  #     The tester will check if the `pwd` command correctly prints the current working directory.
+      The tester will check if the `pwd` command correctly prints the current working directory.
 
-  #     ### Notes
+      ### Notes
 
-  #     - Ensure that the `pwd` command outputs the full path of the current working directory.
-  #   marketing_md: |-
-  #     In this stage, you'll implement the ability for your shell to print the current working directory.
+      - The `pwd` command must print the full absolute path of the current working directory.
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to print the current working directory.
 
-  # - slug: "ra6"
-  #   primary_extension_slug: "navigation"
-  #   name: "The cd builtin: Absolute paths"
-  #   difficulty: medium
-  #   description_md: |-
-  #     In this stage, you'll implement the `cd` builtin command to handle absolute paths for your shell.
+  - slug: "ra6"
+    primary_extension_slug: "navigation"
+    name: "The cd builtin: Absolute paths"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement the `cd` builtin command to handle absolute paths.
 
-  #     The `cd` command is used to change the current working directory. When an absolute path to an existing directory is provided, the shell should change the current working directory to that path. If the directory doesn't exist, it should print an error message indicating that the directory was not found.
+      The `cd` command is used to change the current working directory. `cd` can receive multiple
+      argument types. In this challenge we'll cover:
 
-  #     ### Tests
+      - Absolute paths, like `/usr/local/bin`. (**This stage**)
+      - Relative paths, like `./`, `../`, `./dir`. (Later stages)
+      - The `~` character, which stands for the user's home directory (Later stages)
 
-  #     The tester will execute your program like this:
+      ### Tests
 
-  #     ```bash
-  #     ./your_shell.sh
-  #     ```
+      The tester will execute your program like this:
 
-  #     It'll then send a series of `cd` commands to your shell:
+      ```bash
+      ./your_shell.sh
+      ```
 
-  #     ```bash
-  #     $ cd /usr/local/bin
-  #     $ pwd
-  #     /usr/local/bin
-  #     $ cd /does_not_exist
-  #     cd: /does_not_exist: No such file or directory
-  #     $
-  #     ```
+      It'll then send a series of `cd` commands to your shell:
 
-  #     The tester will check if the `cd` command correctly changes the directory when a valid path is provided and if it properly handles invalid paths by displaying an appropriate error message.
+      ```bash
+      $ cd /usr/local/bin
+      $ pwd
+      /usr/local/bin
+      $ cd /does_not_exist
+      cd: /does_not_exist: No such file or directory
+      $
+      ```
 
-  #     ### Notes
+      The tester will check if the `cd` command correctly changes the directory when a valid path is provided. It'll
+      also check whether the message `cd: <directory>: No such file or directory` is printed if the provided path is invalid.
 
-  #     - If the specified directory does not exist, print `cd: <directory>: No such file or directory`.
-  #     - The `pwd` command will be used to verify the current working directory after using `cd`.
-  #     ```
-  #   marketing_md: |-
-  #     In this stage, you'll implement the ability for your shell to run the `cd` builtin command with absolute paths.
+      ### Notes
 
-  # - slug: "gq9"
-  #   primary_extension_slug: "navigation"
-  #   name: "The cd builtin: Relative paths"
-  #   difficulty: hard
-  #   description_md: |-
-  #     In this stage, you'll implement the `cd` builtin command to handle relative paths for your shell.
+      - The `cd` command doesn't print anything if the directory is changed successfully. The tester will use `pwd` to verify
+        the current working directory after using `cd`.
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to run the `cd` builtin command with absolute paths.
 
-  #     The `cd` command should be able to change the current working directory using relative paths. Relative paths are specified relative to the current directory. If the specified directory does not exist, it should print an error message indicating that the directory was not found.
+  - slug: "gq9"
+    primary_extension_slug: "navigation"
+    name: "The cd builtin: Relative paths"
+    difficulty: hard
+    description_md: |-
+      In this stage, you'll extend your `cd` builtin command to handle relative paths.
 
-  #     ### Tests
+      As a recap, `cd` can receive multiple argument types:
 
-  #     The tester will execute your program like this:
+      - Absolute paths, like `/usr/local/bin`. (Previous stages)
+      - Relative paths, like `./`, `../`, `./dir`. (**This stage**)
+      - The `~` character, which stands for the user's home directory (Later stages)
 
-  #     ```bash
-  #     ./your_shell.sh
-  #     ```
+      ### Tests
 
-  #     It'll then send a series of `cd` commands to your shell:
+      The tester will execute your program like this:
 
-  #     ```bash
-  #     $ cd /usr
-  #     $ pwd
-  #     /usr
-  #     $ cd ./local/bin
-  #     $ pwd
-  #     /usr/local/bin
-  #     $ cd ../../
-  #     $ pwd
-  #     /usr
-  #     $
-  #     ```
+      ```bash
+      ./your_shell.sh
+      ```
 
-  #     The tester will check if the `cd` command correctly changes the directory using relative paths and if it properly handles invalid paths by displaying an appropriate error message.
+      It'll then send a series of `cd` commands to your shell:
 
-  #     ### Notes
+      ```bash
+      $ cd /usr
+      $ pwd
+      /usr
+      $ cd ./local/bin
+      $ pwd
+      /usr/local/bin
+      $ cd ../../
+      $ pwd
+      /usr
+      $
+      ```
 
-  #     - The `pwd` command will be used to verify the current working directory after using `cd`.
-  #     - If the specified directory does not exist, print `cd: <directory>: No such file or directory`.
-  #     - Relative paths like `./`, `../`, and more complex relative paths should be handled correctly.
-  #   marketing_md: |-
-  #     In this stage, you'll implement the ability for your shell to run the `cd` builtin command with relative paths.
+      The tester will check if the `cd` command correctly changes the directory when a valid path is provided. It'll
+      also check whether the message `cd: <directory>: No such file or directory` is printed if the provided path is invalid.
 
-  # - slug: "gp4"
-  #   primary_extension_slug: "navigation"
-  #   name: "The cd builtin: Home directory"
-  #   difficulty: medium
-  #   description_md: |-
-  #     In this stage, you'll implement the `cd` builtin command to handle the `~` character for your shell.
+      ### Notes
 
-  #     The `~` character is a shorthand for the user's home directory. When `cd` is received with `~`, your shell should change the current working directory to the user's home directory. This feature enhances user convenience, making it easier to navigate to the home directory.
+      - The actual directory names used will be random, so you can't hardcode the expected output.
+      - Relative paths like `./`, `../`, and more complex relative paths should be handled correctly.
+      - The `cd` command doesn't print anything if the directory is changed successfully. The tester will use `pwd` to verify
+        the current working directory after using `cd`.
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to run the `cd` builtin command with relative paths.
 
-  #     ### Tests
+  - slug: "gp4"
+    primary_extension_slug: "navigation"
+    name: "The cd builtin: Home directory"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll extend your `cd` builtin command to handle the `~` character.
 
-  #     The tester will execute your program like this:
+      As a recap, `cd` can receive multiple argument types:
 
-  #     ```bash
-  #     ./your_shell.sh
-  #     ```
+      - Absolute paths, like `/usr/local/bin`. (Previous stages)
+      - Relative paths, like `./`, `../`, `./dir`. (Previous stages)
+      - The `~` character, which stands for the user's home directory (**This stage**)
 
-  #     It'll then send a series of `cd` commands to your shell:
+      The `~` character is shorthand for the user's home directory. When `cd` is received with `~`, your shell should
+      change the current working directory to the user's home directory. The home directory is specified by the
+      [`HOME`](https://unix.stackexchange.com/questions/123858/is-the-home-environment-variable-always-set-on-a-linux-system)
+      environment variable.
 
-  #     ```bash
-  #     $ cd /usr/local/bin
-  #     $ pwd
-  #     /usr/local/bin
-  #     $ cd ~
-  #     $ pwd
-  #     /home/user
-  #     $
-  #     ```
+      ### Tests
 
-  #     The tester will check if the `cd` command correctly changes the directory to the user's home directory when `~` is used. You need to fetch the user's home directory from the `HOME` environment variable.
+      The tester will execute your program like this:
 
-  #     ### Notes
+      ```bash
+      ./your_shell.sh
+      ```
 
-  #     - Ensure that the `cd` command interprets `~` as the user's home directory.
-  #     - The `pwd` command will be used to verify the current working directory after using `cd ~`.
-  #     - The home directory is typically specified by the `HOME` environment variable.
-  #   marketing_md: |-
-  #     In this stage, you'll implement the ability for your shell to run the `cd` builtin command with the `HOME` directory.
+      It'll then send a series of `cd` commands to your shell:
+
+      ```bash
+      $ cd /usr/local/bin
+      $ pwd
+      /usr/local/bin
+      $ cd ~
+      $ pwd
+      /home/user
+      $
+      ```
+
+      The tester will check if the `cd` command correctly changes the directory to the user's home directory when `~` is used.
+
+      ### Notes
+
+      - The `pwd` command will be used to verify the current working directory after using `cd ~`.
+      - The home directory is specified by the `HOME` environment variable.
+    marketing_md: |-
+      In this stage, you'll implement the ability for your shell to run the `cd` builtin command with the `HOME` directory.
