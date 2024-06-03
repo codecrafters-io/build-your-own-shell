@@ -279,8 +279,8 @@ stages:
       ls is /usr/bin/ls
       $ type abcd
       abcd is /usr/local/bin/abcd
-      $ type missing
-      missing: command not found
+      $ type missing_cmd
+      missing_cmd: command not found
       $
       ```
 
