@@ -19,6 +19,7 @@ languages:
   - slug: "go"
   - slug: "python"
   - slug: "rust"
+  - slug: "c"
 
 marketing:
   difficulty: medium
