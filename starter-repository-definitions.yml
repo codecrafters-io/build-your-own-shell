@@ -134,8 +134,8 @@
       target: bun.lockb
     - source: starter_templates/typescript/tsconfig.json
       target: tsconfig.json
-    - source: starter_templates/typescript/spawn_redis_server.sh
-      target: spawn_redis_server.sh
+    - source: starter_templates/typescript/your_shell.sh
+      target: your_shell.sh
     - source: starter_templates/.gitattributes
       target: .gitattributes
     - source: starter_templates/typescript/.gitignore
