@@ -23,3 +23,11 @@ language_pack: rust-1.77
 # Available versions: java-21
 language_pack: java-21
 {{/ language_is_java }}
+{{# language_is_c }}
+# Available versions: c-9.2
+language_pack: c-9.2
+{{/ language_is_c }}
+{{# language_is_javascript }}
+# Available versions: nodejs-21
+language_pack: nodejs-21
+{{/ language_is_javascript }}

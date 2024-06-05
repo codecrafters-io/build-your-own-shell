@@ -20,6 +20,8 @@ languages:
   - slug: "python"
   - slug: "rust"
   - slug: "java"
+  - slug: "javascript"
+  - slug: "c"
 
 marketing:
   difficulty: medium
