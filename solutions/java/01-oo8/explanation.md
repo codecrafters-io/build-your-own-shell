@@ -9,12 +9,8 @@ Study and uncomment the relevant code:
 
 ```java
 // Uncomment this block to pass the first stage
- Scanner sc = new Scanner(System.in);
-```
-
-```java
-// Uncomment this block to pass the first stage
- String input = sc.next();
+Scanner scanner = new Scanner(System.in);
+String input = scanner.nextLine();
 ```
 
 Push your changes to pass the first stage:
