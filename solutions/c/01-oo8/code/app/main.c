@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    printf("$ ");
-    fflush(stdout);
+  printf("$ ");
+  fflush(stdout);
 
   // Wait for user input
   char input[100];

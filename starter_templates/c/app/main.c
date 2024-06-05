@@ -5,8 +5,8 @@ int main() {
   printf("Logs from your program will appear here!\n");
 
   // Uncomment this block to pass the first stage
-  //   printf("$ ");
-  //   fflush(stdout);
+  // printf("$ ");
+  // fflush(stdout);
 
   // Wait for user input
   char input[100];
