@@ -19,6 +19,7 @@ languages:
   - slug: "go"
   - slug: "python"
   - slug: "rust"
+  - slug: "javascript"
   - slug: "c"
 
 marketing:
