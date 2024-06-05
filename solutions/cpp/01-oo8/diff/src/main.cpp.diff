@@ -1,0 +1,19 @@
+@@ -1,13 +1,9 @@
+ #include <iostream>
+
+ int main() {
+-  // You can use print statements as follows for debugging, they'll be visible when running tests.
+-  std::cout << "Logs from your program will appear here!\n";
++  std::cout << "$ ";
++  std::cout.flush();
+
+-  // Uncomment this block to pass the first stage
+-  // std::cout << "$ ";
+-  // std::cout.flush();
+-  //
+-  // std::string input;
+-  // std::getline(std::cin, input);
++  std::string input;
++  std::getline(std::cin, input);
+ }
+\ No newline at end of file

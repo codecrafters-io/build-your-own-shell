@@ -31,3 +31,7 @@ language_pack: c-9.2
 # Available versions: nodejs-21
 language_pack: nodejs-21
 {{/ language_is_javascript }}
+{{# language_is_cpp }}
+# Available versions: cpp-23
+language_pack: cpp-23
+{{/ language_is_cpp }}
