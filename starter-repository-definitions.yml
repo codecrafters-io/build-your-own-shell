@@ -61,6 +61,23 @@
   template_attributes:
     required_executable: "go (1.19)"
     user_editable_file: "cmd/myshell/main.go"
+
+- language: c
+  file_mappings:
+    - source: starter_templates/README.md
+      target: README.md
+    - source: starter_templates/codecrafters.yml
+      target: codecrafters.yml
+    - source: starter_templates/c/your_shell.sh
+      target: your_shell.sh
+    - source: starter_templates/c/app/main.c
+      target: app/main.c
+    - source: starter_templates/.gitattributes
+      target: .gitattributes
+  template_attributes:
+    required_executable: "c (9.2)"
+    user_editable_file: "app/main.c"
+
 - language: javascript
   file_mappings:
     - source: starter_templates/README.md
