@@ -1,0 +1,11 @@
+{
+  "name": "@codecrafters/build-your-own-shell",
+  "description": "Build your own Shell challenge, from Codecrafters",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run app/main.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
