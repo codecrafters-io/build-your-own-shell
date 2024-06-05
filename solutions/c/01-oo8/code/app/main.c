@@ -1,8 +1,6 @@
 #include <stdio.h>
 
 int main() {
-  printf("Logs from your program will appear here!\n");
-
     printf("$ ");
     fflush(stdout);
 
