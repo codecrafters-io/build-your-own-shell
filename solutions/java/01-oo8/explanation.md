@@ -4,17 +4,17 @@ Study and uncomment the relevant code:
 
 ```java
 // Uncomment this block to pass the first stage
-import java.util.Scanner;
+ import java.util.Scanner;
 ```
 
 ```java
 // Uncomment this block to pass the first stage
-Scanner sc = new Scanner(System.in);
+ Scanner sc = new Scanner(System.in);
 ```
 
 ```java
 // Uncomment this block to pass the first stage
-String input = sc.nextLine();
+ String input = sc.next();
 ```
 
 Push your changes to pass the first stage:

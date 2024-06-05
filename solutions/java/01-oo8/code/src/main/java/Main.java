@@ -1,11 +1,11 @@
-import java.util.Scanner;
+ import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
+         Scanner sc = new Scanner(System.in);
 
         System.out.print("$ ");
-        String input = sc.nextLine();
+         String input = sc.next();
     }
 }
