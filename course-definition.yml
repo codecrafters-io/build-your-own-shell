@@ -23,6 +23,7 @@ languages:
   - slug: "javascript"
   - slug: "c"
   - slug: "cpp"
+  - slug: "typescript"
 
 marketing:
   difficulty: medium
