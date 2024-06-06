@@ -21,9 +21,11 @@ languages:
   - slug: "rust"
   - slug: "java"
   - slug: "javascript"
+    release_status: "alpha"
   - slug: "c"
   - slug: "cpp"
   - slug: "typescript"
+    release_status: "alpha"
 
 marketing:
   difficulty: medium
