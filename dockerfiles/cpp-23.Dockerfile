@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.7-labs
 FROM gcc:13.2.0-bookworm
 
 ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="vcpkg.json,vcpkg-configuration.json"
