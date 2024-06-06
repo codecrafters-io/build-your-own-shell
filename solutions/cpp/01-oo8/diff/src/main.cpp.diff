@@ -18,4 +18,3 @@
 +  std::string input;
 +  std::getline(std::cin, input);
  }
-\ No newline at end of file
