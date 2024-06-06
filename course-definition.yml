@@ -22,6 +22,7 @@ languages:
   - slug: "java"
   - slug: "javascript"
   - slug: "c"
+  - slug: "cpp"
   - slug: "typescript"
 
 marketing:

@@ -100,6 +100,32 @@
     required_executable: "node (21)"
     user_editable_file: "app/main.js"
 
+- language: cpp
+  file_mappings:
+    - source: starter_templates/README.md
+      target: README.md
+    - source: starter_templates/codecrafters.yml
+      target: codecrafters.yml
+    - source: starter_templates/cpp/vcpkg.json
+      target: vcpkg.json
+    - source: starter_templates/cpp/vcpkg-configuration.json
+      target: vcpkg-configuration.json
+    - source: starter_templates/cpp/CMakeLists.txt
+      target: CMakeLists.txt
+    - source: starter_templates/cpp/.gitignore
+      target: .gitignore
+    - source: starter_templates/cpp/src/main.cpp
+      target: src/main.cpp
+    - source: starter_templates/cpp/CMakeLists.txt
+      target: CMakeLists.txt
+    - source: starter_templates/cpp/your_shell.sh
+      target: your_shell.sh
+    - source: starter_templates/.gitattributes
+      target: .gitattributes
+  template_attributes:
+    required_executable: "cmake"
+    user_editable_file: "src/main.cpp"
+
 - language: java
   file_mappings:
     - source: starter_templates/README.md
