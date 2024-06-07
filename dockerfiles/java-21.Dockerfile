@@ -1,5 +1,8 @@
 FROM maven:3.9.5-eclipse-temurin-21-alpine
 
+# We need to install Go to build the custom executable.
+RUN apk add --no-cache "go>=1.20"
+
 COPY pom.xml /app/pom.xml
 
 WORKDIR /app
