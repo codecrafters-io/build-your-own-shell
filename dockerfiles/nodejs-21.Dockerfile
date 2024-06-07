@@ -1,5 +1,8 @@
 FROM node:21.7-alpine3.19
 
+# We need to install Go to build the custom executable.
+RUN apk add --no-cache "go>=1.20"
+
 ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="package.json,package-lock.json"
 
 WORKDIR /app

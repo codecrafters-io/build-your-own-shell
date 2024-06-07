@@ -1,5 +1,8 @@
 FROM oven/bun:1.1.4-alpine
 
+# We need to install Go to build the custom executable.
+RUN apk add --no-cache "go>=1.20"
+
 ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="package.json,bun.lockb"
 
 WORKDIR /app
