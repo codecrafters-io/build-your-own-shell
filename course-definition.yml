@@ -219,7 +219,7 @@ stages:
       $ type exit
       exit is a shell builtin
       $ type nonexistent
-      nonexistent not found
+      nonexistent: not found
       $ type cat
       cat is /bin/cat
       ```
@@ -245,14 +245,14 @@ stages:
       $ type type
       type is a shell builtin
       $ type nonexistent
-      nonexistent not found
+      nonexistent: not found
       $
       ```
 
       The tester will check if the `type` command responds correctly based on the command provided:
 
       - If a command is a shell builtin, the expected output is `<command> is a shell builtin`.
-      - If a command is not recognized, the expected output is `<command> not found`.
+      - If a command is not recognized, the expected output is `<command>: not found`.
 
       ### Notes
 
@@ -269,7 +269,7 @@ stages:
 
       [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) is an environment variable that specifies a set of directories
       where executable programs are located. When a command is received, the program should search for the command in the
-      directories listed in the PATH environment variable. If the command is found, the program should print the path to the command. If the command is not found, the program should print `<command>: command not found`.
+      directories listed in the PATH environment variable. If the command is found, the program should print the path to the command. If the command is not found, the program should print `<command>: not found`.
 
       ### Tests
 
@@ -287,7 +287,7 @@ stages:
       $ type abcd
       abcd is /usr/local/bin/abcd
       $ type missing_cmd
-      missing_cmd: command not found
+      missing_cmd: not found
       $
       ```
 
