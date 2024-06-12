@@ -1,21 +1,12 @@
-@@ -1,15 +1,10 @@
--// Uncomment this block to pass the first stage
--// import { createInterface } from 'readline';
-+import { createInterface } from 'readline';
+@@ -1,11 +1,10 @@
+ import { createInterface } from 'readline';
 
--// You can use print statements as follows for debugging, they'll be visible when running tests.
--console.log("Logs from your program will appear here!");
-+const rl = createInterface({
-+  input: process.stdin,
-+  output: process.stdout
-+});
+ const rl = createInterface({
+   input: process.stdin,
+   output: process.stdout
+ });
 
 -// Uncomment this block to pass the first stage
--// const rl = createInterface({
--//   input: process.stdin,
--//   output: process.stdout
--// });
--//
 -// rl.question('$ ', (answer) => {
 -//   rl.close();
 -// });
