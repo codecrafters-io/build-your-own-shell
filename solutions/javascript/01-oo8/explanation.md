@@ -9,11 +9,6 @@ const readline = require("readline");
 
 ```javascript
 // Uncomment this block to pass the first stage
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
 rl.question("$ ", (answer) => {
   rl.close();
 });
