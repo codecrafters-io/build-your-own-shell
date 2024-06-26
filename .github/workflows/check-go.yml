@@ -1,0 +1,14 @@
+name: Check Go
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test_course_definition:
+    uses: codecrafters-io/course-sdk/.github/workflows/check-go.yml@CC-1291
