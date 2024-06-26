@@ -12,3 +12,5 @@ concurrency:
 jobs:
   test_course_definition:
     uses: codecrafters-io/course-sdk/.github/workflows/check-go.yml@CC-1291
+    with:
+      sdkRef: CC-1291
