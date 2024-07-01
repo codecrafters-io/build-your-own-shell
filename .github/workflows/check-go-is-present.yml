@@ -1,0 +1,16 @@
+name: Check Go is present inside all language buildpacks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test_course_definition:
+    uses: codecrafters-io/course-sdk/.github/workflows/check-go-is-present.yml@main
+    with:
+      sdkRef: main
