@@ -1,7 +1,8 @@
-@@ -1,12 +1,11 @@
+@@ -1,13 +1,12 @@
  #include <stdio.h>
 
- int main() {
+ int main()
+ {
 -  // Uncomment this block to pass the first stage
 -  // printf("$ ");
 -  // fflush(stdout);
