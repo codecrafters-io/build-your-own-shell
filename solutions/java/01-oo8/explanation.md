@@ -4,15 +4,7 @@ Study and uncomment the relevant code:
 
 ```java
 // Uncomment this block to pass the first stage
-import java.util.Scanner;
-```
-
-```java
-// Uncomment this block to pass the first stage
 System.out.print("$ ");
-
-Scanner scanner = new Scanner(System.in);
-String input = scanner.nextLine();
 ```
 
 Push your changes to pass the first stage:

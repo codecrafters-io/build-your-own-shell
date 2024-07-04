@@ -12,10 +12,14 @@
       target: Pipfile.lock
     - source: starter_templates/python/.gitignore
       target: .gitignore
-    - source: starter_templates/python/your_shell.sh
-      target: your_shell.sh
+    - source: starter_templates/python/your_program.sh
+      target: your_program.sh
     - source: starter_templates/.gitattributes
       target: .gitattributes
+    - source: starter_templates/python/.codecrafters/compile.sh
+      target: .codecrafters/compile.sh
+    - source: starter_templates/python/.codecrafters/run.sh
+      target: .codecrafters/run.sh
   template_attributes:
     required_executable: "python (3.11)"
     user_editable_file: "app/main.py"
@@ -34,10 +38,14 @@
       target: Cargo.toml
     - source: starter_templates/rust/Cargo.lock
       target: Cargo.lock
-    - source: starter_templates/rust/your_shell.sh
-      target: your_shell.sh
+    - source: starter_templates/rust/your_program.sh
+      target: your_program.sh
     - source: starter_templates/.gitattributes
       target: .gitattributes
+    - source: starter_templates/rust/.codecrafters/compile.sh
+      target: .codecrafters/compile.sh
+    - source: starter_templates/rust/.codecrafters/run.sh
+      target: .codecrafters/run.sh
   template_attributes:
     required_executable: "cargo (1.70)"
     user_editable_file: "src/main.rs"
@@ -48,8 +56,8 @@
       target: README.md
     - source: starter_templates/codecrafters.yml
       target: codecrafters.yml
-    - source: starter_templates/go/your_shell.sh
-      target: your_shell.sh
+    - source: starter_templates/go/your_program.sh
+      target: your_program.sh
     - source: starter_templates/go/go.mod
       target: go.mod
     - source: starter_templates/go/go.sum
@@ -58,6 +66,10 @@
       target: cmd/myshell/main.go
     - source: starter_templates/.gitattributes
       target: .gitattributes
+    - source: starter_templates/go/.codecrafters/compile.sh
+      target: .codecrafters/compile.sh
+    - source: starter_templates/go/.codecrafters/run.sh
+      target: .codecrafters/run.sh
   template_attributes:
     required_executable: "go (1.19)"
     user_editable_file: "cmd/myshell/main.go"
@@ -94,12 +106,16 @@
       target: package-lock.json
     - source: starter_templates/javascript/app/main.js
       target: app/main.js
-    - source: starter_templates/javascript/your_shell.sh
-      target: your_shell.sh
+    - source: starter_templates/javascript/your_program.sh
+      target: your_program.sh
     - source: starter_templates/.gitattributes
       target: .gitattributes
     - source: starter_templates/javascript/.gitignore
       target: .gitignore
+    - source: starter_templates/javascript/.codecrafters/compile.sh
+      target: .codecrafters/compile.sh
+    - source: starter_templates/javascript/.codecrafters/run.sh
+      target: .codecrafters/run.sh
   template_attributes:
     required_executable: "node (21)"
     user_editable_file: "app/main.js"
@@ -122,10 +138,14 @@
       target: src/main.cpp
     - source: starter_templates/cpp/CMakeLists.txt
       target: CMakeLists.txt
-    - source: starter_templates/cpp/your_shell.sh
-      target: your_shell.sh
+    - source: starter_templates/cpp/your_program.sh
+      target: your_program.sh
     - source: starter_templates/.gitattributes
       target: .gitattributes
+    - source: starter_templates/cpp/.codecrafters/compile.sh
+      target: .codecrafters/compile.sh
+    - source: starter_templates/cpp/.codecrafters/run.sh
+      target: .codecrafters/run.sh
   template_attributes:
     required_executable: "cmake"
     user_editable_file: "src/main.cpp"
@@ -136,8 +156,8 @@
       target: README.md
     - source: starter_templates/codecrafters.yml
       target: codecrafters.yml
-    - source: starter_templates/java/your_shell.sh
-      target: your_shell.sh
+    - source: starter_templates/java/your_program.sh
+      target: your_program.sh
     - source: starter_templates/java/.gitignore
       target: .gitignore
     - source: starter_templates/java/src/main/java/Main.java
@@ -146,6 +166,10 @@
       target: pom.xml
     - source: starter_templates/.gitattributes
       target: .gitattributes
+    - source: starter_templates/java/.codecrafters/compile.sh
+      target: .codecrafters/compile.sh
+    - source: starter_templates/java/.codecrafters/run.sh
+      target: .codecrafters/run.sh
   template_attributes:
     required_executable: "java (21)"
     user_editable_file: "src/main/java/Main.java"
@@ -164,12 +188,16 @@
       target: bun.lockb
     - source: starter_templates/typescript/tsconfig.json
       target: tsconfig.json
-    - source: starter_templates/typescript/your_shell.sh
-      target: your_shell.sh
+    - source: starter_templates/typescript/your_program.sh
+      target: your_program.sh
     - source: starter_templates/.gitattributes
       target: .gitattributes
     - source: starter_templates/typescript/.gitignore
       target: .gitignore
+    - source: starter_templates/typescript/.codecrafters/compile.sh
+      target: .codecrafters/compile.sh
+    - source: starter_templates/typescript/.codecrafters/run.sh
+      target: .codecrafters/run.sh
   template_attributes:
     required_executable: "bun (1.1)"
     user_editable_file: "app/main.ts"
