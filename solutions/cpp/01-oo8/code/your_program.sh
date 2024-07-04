@@ -1,12 +1,26 @@
 #!/bin/sh
 #
-# DON'T EDIT THIS!
+# Use this script to run your program LOCALLY.
 #
-# CodeCrafters uses this file to test your code. Don't make any changes here!
+# Note: Changing this script WILL NOT affect how CodeCrafters runs your program.
 #
-# DON'T EDIT THIS!
+#
+# Learn more: docs.codecrafters.io/program-interface
+
+# Exit early if any commands fail
 set -e
-# vcpkg & cmake are required. 
+
+CODECRAFTERS_SUBMISSION_DIR=$(dirname 0)
+
+# Copied from .codecrafters/compile.sh
+#
+# - Edit this to change how your program compiles locally
+# - Edit .codecrafters/compile.sh to change how your program compiles remotely
 cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake
 cmake --build ./build
+
+# Copied from .codecrafters/run.sh
+#
+# - Edit this to change how your program runs locally
+# - Edit .codecrafters/run.sh to change how your program runs remotely
 exec ./build/shell "$@"

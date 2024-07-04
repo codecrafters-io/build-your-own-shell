@@ -10,6 +10,8 @@
 # Exit early if any commands fail
 set -e
 
+CODECRAFTERS_SUBMISSION_DIR=$(dirname 0)
+
 # Copied from .codecrafters/compile.sh
 #
 # - Edit this to change how your program compiles locally
