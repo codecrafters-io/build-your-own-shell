@@ -4,13 +4,10 @@
 #
 # Note: Changing this script WILL NOT affect how CodeCrafters runs your program.
 #
-#
-# Learn more: docs.codecrafters.io/program-interface
+# Learn more: codecrafters.io/program-interface
 
 # Exit early if any commands fail
 set -e
-
-CODECRAFTERS_SUBMISSION_DIR=$(dirname 0)
 
 # Copied from .codecrafters/compile.sh
 #

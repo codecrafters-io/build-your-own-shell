@@ -4,7 +4,10 @@
 # 
 # This runs before .codecrafters/run.sh
 #
-# Learn more: <insert-link>
+# Learn more: codecrafters.io/program-interface
+
+# Exit early if any commands fail
+set -e
 
 cargo build \
     --quiet \

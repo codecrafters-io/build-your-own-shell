@@ -4,6 +4,9 @@
 # 
 # This runs after .codecrafters/compile.sh
 #
-# Learn more: <insert-link>
+# Learn more: codecrafters.io/program-interface
+
+# Exit early if any commands fail
+set -e
 
 exec bun run app/main.ts "$@"
