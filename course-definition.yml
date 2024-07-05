@@ -1,7 +1,7 @@
 slug: "shell"
 name: "Build your own Shell"
 short_name: "Shell"
-release_status: "beta"
+release_status: "live"
 
 description_md: |-
   A shell is a command-line interface that executes commands and manages processes. In this challenge, you'll build your own
