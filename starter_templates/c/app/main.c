@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
   // Uncomment this block to pass the first stage
   // printf("$ ");
   // fflush(stdout);

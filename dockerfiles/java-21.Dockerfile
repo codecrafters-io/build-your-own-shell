@@ -15,7 +15,5 @@ RUN mkdir -p /app-cached
 RUN mv /app/target /app-cached # Is this needed?
 
 # Pre-compile script only created for legacy repositories
-RUN if [ -f "$CODECRAFTERS_SUBMISSION_DIR/your_shell.sh" ]; then \
-    printf "cd \${CODECRAFTERS_SUBMISSION_DIR} && mvn -B package -Ddir=/tmp/codecrafters-shell-target && sed -i 's/^\(mvn .*\)/#\1/' ./your_program.sh" > /codecrafters-precompile.sh; \
-    chmod +x /codecrafters-precompile.sh; \
-    fi
+RUN printf "cd \${CODECRAFTERS_SUBMISSION_DIR} && mvn -B package -Ddir=/tmp/codecrafters-shell-target && sed -i 's/^\(mvn .*\)/#\1/' ./your_shell.sh" > /codecrafters-precompile.sh
+RUN chmod +x /codecrafters-precompile.sh
