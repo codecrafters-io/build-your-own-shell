@@ -4,6 +4,6 @@
 # 
 # This runs before .codecrafters/run.sh
 #
-# Learn more: codecrafters.io/program-interface
+# Learn more: https://codecrafters.io/program-interface
 
 # (This file is empty since Python programs don't use a compile step)

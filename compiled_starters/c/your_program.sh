@@ -4,8 +4,7 @@
 #
 # Note: Changing this script WILL NOT affect how CodeCrafters runs your program.
 #
-#
-# Learn more: codecrafters.io/program-interface
+# Learn more: https://codecrafters.io/program-interface
 
 # Exit early if any commands fail
 set -e

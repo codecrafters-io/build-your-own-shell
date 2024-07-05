@@ -4,7 +4,7 @@
 # 
 # This runs after .codecrafters/compile.sh
 #
-# Learn more: codecrafters.io/program-interface
+# Learn more: https://codecrafters.io/program-interface
 
 # Exit early if any commands fail
 set -e
