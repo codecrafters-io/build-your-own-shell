@@ -1,7 +1,5 @@
-@@ -1,12 +1,10 @@
--// Uncomment this block to pass the first stage
--// const readline = require("readline");
-+const readline = require("readline");
+@@ -1,11 +1,10 @@
+ const readline = require("readline");
 
  const rl = readline.createInterface({
    input: process.stdin,

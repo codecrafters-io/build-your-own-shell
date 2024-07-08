@@ -65,7 +65,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       The tester will then check whether your shell prints the `$ ` prompt and waits for user input.
@@ -89,7 +89,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It will then send the following command to your shell:
@@ -123,7 +123,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It will then send a series of commands to your shell:
@@ -158,7 +158,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It'll then send an invalid command to your shell, followed by the `exit` command:
@@ -188,7 +188,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It'll then send a series of `echo` commands to your shell:
@@ -232,7 +232,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It'll then send a series of `type` commands to your shell:
@@ -276,7 +276,7 @@ stages:
       The tester will execute your program with a custom `PATH` like this:
 
       ```bash
-      PATH="/usr/bin:/usr/local/bin" ./your_shell.sh
+      PATH="/usr/bin:/usr/local/bin" ./your_program.sh
       ```
 
       It'll then send a series of `type` commands to your shell:
@@ -314,7 +314,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It'll then send a command that you need to execute:
@@ -348,7 +348,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It'll then send a `pwd` command to your shell:
@@ -386,7 +386,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It'll then send a series of `cd` commands to your shell:
@@ -428,7 +428,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It'll then send a series of `cd` commands to your shell:
@@ -481,7 +481,7 @@ stages:
       The tester will execute your program like this:
 
       ```bash
-      ./your_shell.sh
+      ./your_program.sh
       ```
 
       It'll then send a series of `cd` commands to your shell:

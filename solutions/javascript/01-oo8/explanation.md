@@ -4,11 +4,6 @@ Study and uncomment the relevant code:
 
 ```javascript
 // Uncomment this block to pass the first stage
-const readline = require("readline");
-```
-
-```javascript
-// Uncomment this block to pass the first stage
 rl.question("$ ", (answer) => {
   rl.close();
 });
