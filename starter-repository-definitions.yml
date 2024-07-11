@@ -1,95 +1,32 @@
 - language: python
-  file_mappings:
-    - source: starter_templates/README.md
-      target: README.md
-    - source: starter_templates/codecrafters.yml
-      target: codecrafters.yml
-    - source: starter_templates/.gitattributes
-      target: .gitattributes
   template_attributes:
     required_executable: "python (3.11)"
     user_editable_file: "app/main.py"
-
 - language: rust
-  file_mappings:
-    - source: starter_templates/README.md
-      target: README.md
-    - source: starter_templates/codecrafters.yml
-      target: codecrafters.yml
-    - source: starter_templates/.gitattributes
-      target: .gitattributes
   template_attributes:
     required_executable: "cargo (1.70)"
     user_editable_file: "src/main.rs"
-
 - language: go
-  file_mappings:
-    - source: starter_templates/README.md
-      target: README.md
-    - source: starter_templates/codecrafters.yml
-      target: codecrafters.yml
-    - source: starter_templates/.gitattributes
-      target: .gitattributes
   template_attributes:
     required_executable: "go (1.19)"
     user_editable_file: "cmd/myshell/main.go"
-
 - language: c
-  file_mappings:
-    - source: starter_templates/README.md
-      target: README.md
-    - source: starter_templates/codecrafters.yml
-      target: codecrafters.yml
-    - source: starter_templates/.gitattributes
-      target: .gitattributes
   template_attributes:
     required_executable: "c (9.2)"
     user_editable_file: "app/main.c"
-
 - language: javascript
-  file_mappings:
-    - source: starter_templates/README.md
-      target: README.md
-    - source: starter_templates/codecrafters.yml
-      target: codecrafters.yml
-    - source: starter_templates/.gitattributes
-      target: .gitattributes
   template_attributes:
     required_executable: "node (21)"
     user_editable_file: "app/main.js"
-
 - language: cpp
-  file_mappings:
-    - source: starter_templates/README.md
-      target: README.md
-    - source: starter_templates/codecrafters.yml
-      target: codecrafters.yml
-    - source: starter_templates/.gitattributes
-      target: .gitattributes
   template_attributes:
     required_executable: "cmake"
     user_editable_file: "src/main.cpp"
-
 - language: java
-  file_mappings:
-    - source: starter_templates/README.md
-      target: README.md
-    - source: starter_templates/codecrafters.yml
-      target: codecrafters.yml
-    - source: starter_templates/.gitattributes
-      target: .gitattributes
   template_attributes:
     required_executable: "java (21)"
     user_editable_file: "src/main/java/Main.java"
-
 - language: typescript
-  file_mappings:
-    - source: starter_templates/README.md
-      target: README.md
-    - source: starter_templates/codecrafters.yml
-      target: codecrafters.yml
-    - source: starter_templates/.gitattributes
-      target: .gitattributes
   template_attributes:
     required_executable: "bun (1.1)"
     user_editable_file: "app/main.ts"
