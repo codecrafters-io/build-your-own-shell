@@ -1,0 +1,10 @@
+@@ -1,8 +1,7 @@
+ import java.util.Scanner
+
+ fun main() {
+-    // Uncomment this block to pass the first stage
+-    // print("$ ")
++    print("$ ")
+
+     readln() // Wait for user input
+ }
