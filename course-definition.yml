@@ -23,7 +23,6 @@ languages:
   - slug: "javascript"
     release_status: "alpha"
   - slug: "kotlin"
-    release_status: "alpha"
   - slug: "python"
   - slug: "rust"
   - slug: "typescript"
