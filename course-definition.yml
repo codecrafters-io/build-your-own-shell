@@ -16,14 +16,16 @@ short_description_md: |-
 completion_percentage: 20
 
 languages:
+  - slug: "c"
+  - slug: "cpp"
   - slug: "go"
-  - slug: "python"
-  - slug: "rust"
   - slug: "java"
   - slug: "javascript"
     release_status: "alpha"
-  - slug: "c"
-  - slug: "cpp"
+  - slug: "kotlin"
+    release_status: "alpha"
+  - slug: "python"
+  - slug: "rust"
   - slug: "typescript"
     release_status: "alpha"
 
