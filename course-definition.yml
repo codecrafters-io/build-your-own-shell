@@ -27,6 +27,8 @@ languages:
   - slug: "rust"
   - slug: "typescript"
     release_status: "alpha"
+  - slug: "ruby"
+    release_status: "alpha"
 
 marketing:
   difficulty: medium
