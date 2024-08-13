@@ -15,11 +15,11 @@ set -e # Exit early if any commands fail
 (
   cd "$(dirname "$0")" # Ensure compile steps are run within the repository directory
   mix escript.build
-  mv codecrafters_shell /tmp/codecrafters-build-{{course_slug}}-elixir
+  mv codecrafters_shell /tmp/codecrafters-build-shell-elixir
 )
 
 # Copied from .codecrafters/run.sh
 #
 # - Edit this to change how your program runs locally
 # - Edit .codecrafters/run.sh to change how your program runs remotely
-exec /tmp/codecrafters-build-{{course_slug}}-elixir "$@"
+exec /tmp/codecrafters-build-shell-elixir "$@"

@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-exec /tmp/codecrafters-build-{{course_slug}}-elixir "$@"
+exec /tmp/codecrafters-build-shell-elixir "$@"
