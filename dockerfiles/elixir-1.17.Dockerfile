@@ -12,5 +12,9 @@ COPY --exclude=.git --exclude=README.md . /app
 # Install & cache deps
 RUN .codecrafters/compile.sh
 
+# If _build directory exists, move it to /app-cached
+RUN mkdir -p /app-cached
+RUN if [ -d "/app/_build" ]; then mv /app/_build /app-cached; fi
+
 # Once the heavy steps are done, we can copy all files back
 COPY . /app
