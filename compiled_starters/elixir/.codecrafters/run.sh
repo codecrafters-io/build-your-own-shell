@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-exec mix run --no-compile -- "$@"
+exec /tmp/codecrafters-build-{{course_slug}}-elixir "$@"

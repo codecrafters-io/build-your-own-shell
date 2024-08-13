@@ -7,9 +7,9 @@ defmodule App.MixProject do
       app: :codecrafters_shell,
       version: "1.0.0",
       elixir: "~> 1.17",
-      escript: [main_module: CLI],
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      escript: [main_module: CLI]
     ]
   end
 

@@ -1,3 +1,6 @@
+# Ignore the compiled binary
+/codecrafters_shell
+
 # The directory Mix will write compiled artifacts to.
 /_build/
 
