@@ -24,11 +24,12 @@ languages:
     release_status: "alpha"
   - slug: "kotlin"
   - slug: "python"
+  - slug: "ruby"
+    release_status: "alpha"
   - slug: "rust"
   - slug: "typescript"
     release_status: "alpha"
-  - slug: "ruby"
-    release_status: "alpha"
+  - slug: "zig"
 
 marketing:
   difficulty: medium
