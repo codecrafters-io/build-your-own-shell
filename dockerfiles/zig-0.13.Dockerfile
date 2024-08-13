@@ -1,14 +1,18 @@
 # syntax=docker/dockerfile:1.7-labs
-# TODO: Is there a way to avoid using edge here?
-FROM alpine:edge
+FROM alpine:3.20
 
-# Add the testing repository
-RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+RUN apk add --no-cache xz curl
+
+# Download and install Zig
+RUN curl -O https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz \
+    && tar -xf zig-linux-x86_64-0.13.0.tar.xz \
+    && mv zig-linux-x86_64-0.13.0 /usr/local/zig \
+    && rm zig-linux-x86_64-0.13.0.tar.xz
+
+# Add Zig to PATH
+ENV PATH="/usr/local/zig:${PATH}"
 
 ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="build.zig,build.zig.zon"
-
-# Update the package list and install Zig
-RUN apk add --no-cache zig@community=0.13.0-r0
 
 WORKDIR /app
 
@@ -17,6 +21,10 @@ COPY --exclude=.git --exclude=README.md . /app
 
 # This runs zig build
 RUN .codecrafters/compile.sh
+
+# Cache build directory
+RUN mkdir -p /app-cached
+RUN mv /app/.zig-cache /app-cached/.zig-cache || true
 
 # Once the heavy steps are done, we can copy all files back
 COPY . /app
