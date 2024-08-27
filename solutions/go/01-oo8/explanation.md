@@ -4,11 +4,6 @@ Study and uncomment the relevant code:
 
 ```go
 // Uncomment this block to pass the first stage
-"fmt"
-```
-
-```go
-// Uncomment this block to pass the first stage
 fmt.Fprint(os.Stdout, "$ ")
 ```
 
