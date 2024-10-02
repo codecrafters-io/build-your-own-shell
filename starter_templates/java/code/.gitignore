@@ -1,4 +1,3 @@
-java_shell.jar
-target/*
+*.jar
 target/
 .idea/
