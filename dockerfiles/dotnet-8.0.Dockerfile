@@ -18,4 +18,4 @@ RUN dotnet build --configuration Release .
 RUN echo "cd \${CODECRAFTERS_REPOSITORY_DIR} && dotnet build --configuration Release ." > /codecrafters-precompile.sh
 RUN chmod +x /codecrafters-precompile.sh
 
-ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="codecrafters.csproj,codecrafters.sln"
+ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="codecrafters-shell.csproj,codecrafters-shell.sln"
