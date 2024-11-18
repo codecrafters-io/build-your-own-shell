@@ -3,8 +3,8 @@ The entry point for your Shell implementation is in `src/main.cs`.
 Study and uncomment the relevant code: 
 
 ```csharp
-// Uncomment this block to pass the first stage
-Console.WriteLine("Implement starter code");
+// Uncomment this line to pass the first stage
+Console.Write("$ ");
 ```
 
 Push your changes to pass the first stage:

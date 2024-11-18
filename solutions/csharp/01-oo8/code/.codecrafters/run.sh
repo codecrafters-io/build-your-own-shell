@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-exec /tmp/codecrafters-build-csharp/codecrafters "$@"
+exec /tmp/codecrafters-build-csharp/codecrafters-shell "$@"
