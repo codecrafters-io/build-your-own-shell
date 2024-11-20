@@ -18,6 +18,7 @@ completion_percentage: 20
 languages:
   - slug: "c"
   - slug: "cpp"
+  - slug: "csharp"
   - slug: "go"
   - slug: "java"
   - slug: "javascript"
