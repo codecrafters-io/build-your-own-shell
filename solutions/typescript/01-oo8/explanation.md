@@ -4,7 +4,7 @@ Study and uncomment the relevant code:
 
 ```typescript
 // Uncomment this block to pass the first stage
-rl.question('$ ', (answer) => {
+rl.question("$ ", (answer) => {
   rl.close();
 });
 ```
