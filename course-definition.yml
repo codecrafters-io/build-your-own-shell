@@ -57,6 +57,13 @@ extensions:
       In this challenge extension, you'll add directory navigation support by implementing the `cd` and `pwd` commands.
 
       Along the way, you'll learn about what the "current working directory" is, how to change it and more.
+  
+  - slug: "quoting"
+    name: "Quoting"
+    description_markdown: |
+      In this challenge extension, you'll add quoting support to your shell.
+
+      Quoting allows you to preserve whitespace and special characters in your shell commands.
 
 stages:
   - slug: "oo8"
@@ -509,3 +516,44 @@ stages:
       - The home directory is specified by the `HOME` environment variable.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run the `cd` builtin command with the `HOME` directory.
+
+  - slug: "ni6"
+    primary_extension_slug: "quoting"
+    name: "Single quotes"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement support for quoting with single quotes.
+
+      Enclosing characters in single quotes preserves the literal value of each character within the quotes. Read more about quoting with single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send a series of `echo` commands to your shell:
+
+      ```bash
+      $ echo 'shell hello'
+      shell hello
+      $ echo 'world     test'
+      world     test
+      $
+      ```
+
+      The tester will check if the `echo` command correctly prints the quoted text.
+
+      Then it will also send a `cat` command, with the file name parameter enclosed in single quotes:
+
+      ```bash
+      $ cat '/tmp/file name' '/tmp/file name with spaces' 
+      content1 content2
+      ```
+
+      The tester will check if the `cat` command correctly prints the file content.
+
+    marketing_md: |-
+      In this stage, you'll implement support for quoting with single quotes.
