@@ -57,6 +57,13 @@ extensions:
       In this challenge extension, you'll add directory navigation support by implementing the `cd` and `pwd` commands.
 
       Along the way, you'll learn about what the "current working directory" is, how to change it and more.
+  
+  - slug: "quoting"
+    name: "Quoting"
+    description_markdown: |
+      In this challenge extension, you'll add quoting support to your shell.
+
+      Quoting allows you to preserve whitespace and special characters in your shell commands.
 
 stages:
   - slug: "oo8"
@@ -509,3 +516,239 @@ stages:
       - The home directory is specified by the `HOME` environment variable.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run the `cd` builtin command with the `HOME` directory.
+
+  - slug: "ni6"
+    primary_extension_slug: "quoting"
+    name: "Single quotes"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement support for quoting with single quotes.
+
+      Enclosing characters in single quotes preserves the literal value of each character within the quotes. Read more about quoting with single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send a series of `echo` commands to your shell:
+
+      ```bash
+      $ echo 'shell hello'
+      shell hello
+      $ echo 'world     test'
+      world     test
+      $
+      ```
+
+      The tester will check if the `echo` command correctly prints the quoted text.
+
+      Then it will also send a `cat` command, with the file name parameter enclosed in single quotes:
+
+      ```bash
+      $ cat '/tmp/file name' '/tmp/file name with spaces' 
+      content1 content2
+      ```
+
+      The tester will check if the `cat` command correctly prints the file content.
+
+    marketing_md: |-
+      In this stage, you'll implement support for quoting with single quotes.
+
+  - slug: "tg6"
+    primary_extension_slug: "quoting"
+    name: "Double quotes"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement support for quoting with double quotes.
+
+      Enclosing characters in double quotes preserves the literal value of each character within the quotes except `\`, the backslash retains its special meaning when followed by `\`, `$`, `"` or newline. Read more about quoting with double quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes).
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send a series of `echo` commands to your shell:
+
+      ```bash
+      $ echo "quz  hello"  "bar"
+      quz hello bar
+      $ echo "bar"  "shell's"  "foo"
+      bar shell's foo
+      $
+      ```
+
+      The tester will check if the `echo` command correctly prints the quoted text.
+
+      Then it will also send a `cat` command, with the file name parameter enclosed in double quotes:
+
+      ```bash
+      $ cat "/tmp/file name" "/tmp/'file name' with spaces" 
+      content1 content2
+      ```
+
+      The tester will check if the `cat` command correctly prints the file content.
+
+    marketing_md: |-
+      In this stage, you'll implement support for quoting with double quotes.
+
+  - slug: "yt5"
+    primary_extension_slug: "quoting"
+    name: "Backslash outside quotes"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement support for quoting with backslashes.
+
+      A non-quoted backslash `\` is treated as an escape character. It preserves the literal value of the next character. Read more about quoting with backslashes [here](https://www.gnu.org/software/bash/manual/bash.html#Escape-Character).
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send a series of `echo` commands to your shell:
+
+      ```bash
+      $ echo "before\   after"
+      before\   after
+      $ echo world\ \ \ \ \ \ script
+      world      script
+      $
+      ```
+
+      The tester will check if the `echo` command correctly prints the quoted text.
+
+      Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside quotes:
+
+      ```bash
+      $ cat "/tmp/file\\name" "/tmp/file\ name" 
+      content1 content2
+      ```
+
+      The tester will check if the `cat` command correctly prints the file content.
+
+    marketing_md: |-
+      In this stage, you'll implement support for quoting with backslashes only.
+
+  - slug: "le5"
+    primary_extension_slug: "quoting"
+    name: "Backslash within single quotes"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement support for quoting with backslashes within single quotes.
+
+      Enclosing characters in single quotes `'` preserves the literal value of each character within the quotes, even backslashes. Read more about quoting with backslashes within single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send a series of `echo` commands to your shell:
+
+      ```bash
+      $ echo 'shell\\\nscript'
+      shell\\\nscript
+      $ echo 'example\"testhello\"shell'
+      example\"testhello\"shell
+      $
+      ```
+
+      The tester will check if the `echo` command correctly prints the quoted text.
+
+
+      Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside single quotes:
+      ```bash
+      $ cat "/tmp/file/'name'" "/tmp/file/'\name\'"  
+      content1 content2
+      ```
+
+      The tester will check if the `cat` command correctly prints the file content.
+
+    marketing_md: |-
+      In this stage, you'll implement support for quoting with backslashes within single quotes.
+
+  - slug: "gu3"
+    primary_extension_slug: "quoting"
+    name: "Backslash within double quotes"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement support for quoting with backslashes within double quotes.
+
+      Enclosing backslashes within double quotes `"` preserves the special meaning of the backslash, only when it is followed by `\`, `$`, `"` or newline. Read more about quoting with backslashes within double quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes).
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send a series of `echo` commands to your shell:
+
+      ```bash
+      $ echo "hello'script'\\n'world"
+      hello'script'\n'world
+      $ echo "hello\"insidequotes\"script\"
+      hello"insidequotesscript"
+      $
+      ```
+
+      The tester will check if the `echo` command correctly prints the quoted text.
+
+      Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside double quotes:
+
+      ```bash
+      $ cat "/tmp/"file\name"" "/tmp/"file name"" 
+      content1 content2
+      ```
+
+      The tester will check if the `cat` command correctly prints the file content.
+
+    marketing_md: |-
+      In this stage, you'll implement support for quoting with backslashes within double quotes.
+
+  - slug: "qj0"
+    primary_extension_slug: "quoting"
+    name: "Executing a quoted executable"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement support for executing a quoted executable.
+
+      The tester will rename the `cat` executable to something containing spaces, quotes and backslashes.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send a series of commands to your shell, executing the renamed `cat` executable:
+
+      ```bash
+      $ 'exe with "quotes"' file
+      content1
+      $ "exe with 'single quotes'" file
+      content2
+      ```
+
+      The tester will check if the commands correctly execute the renamed `cat` executable, and that the output is correct.
+
+    marketing_md: |-
+      In this stage, you'll implement support for executing a quoted executable.
