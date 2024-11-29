@@ -57,7 +57,7 @@ extensions:
       In this challenge extension, you'll add directory navigation support by implementing the `cd` and `pwd` commands.
 
       Along the way, you'll learn about what the "current working directory" is, how to change it and more.
-  
+
   - slug: "quoting"
     name: "Quoting"
     description_markdown: |
@@ -91,10 +91,10 @@ stages:
       In this stage, you'll implement printing the shell prompt and waiting for user input.
 
   - slug: "cz2"
-    name: "Handle missing commands"
+    name: "Handle invalid commands"
     difficulty: easy
     description_md: |-
-      In this stage, you'll implement support for handling missing commands in your shell.
+      In this stage, you'll implement support for handling invalid commands in your shell.
 
       ### Tests
 
@@ -107,15 +107,15 @@ stages:
       It will then send the following command to your shell:
 
       ```bash
-      $ nonexistent
-      nonexistent: command not found
+      $ invalid_command
+      invalid_command: command not found
       ```
 
       The tester will check whether your shell prints `<command_name>: command not found` for an unrecognized command.
 
       ### Notes
 
-      - The command name will be a random string (like `missing_command_234`), so the response can't be hardcoded.
+      - The command name will be a random string, so the response can't be hardcoded.
       - We'll handle executing "valid" commands like `echo`, `cd` etc. in later stages, this stage only deals with unrecognized commands.
       - In this stage it's okay if your program exits soon after printing the `<command_name>: command not found` message. In later stages
         we'll check for a REPL (Read-Eval-Print Loop), i.e. whether the shell prints a new prompt after processing each command.
@@ -230,8 +230,8 @@ stages:
       echo is a shell builtin
       $ type exit
       exit is a shell builtin
-      $ type nonexistent
-      nonexistent: not found
+      $ type invalid_command
+      invalid_command: not found
       $ type cat
       cat is /bin/cat
       ```
@@ -256,8 +256,8 @@ stages:
       exit is a shell builtin
       $ type type
       type is a shell builtin
-      $ type nonexistent
-      nonexistent: not found
+      $ type invalid_command
+      invalid_command: not found
       $
       ```
 
@@ -298,8 +298,8 @@ stages:
       ls is /usr/bin/ls
       $ type abcd
       abcd is /usr/local/bin/abcd
-      $ type missing_cmd
-      missing_cmd: not found
+      $ type invalid_command
+      invalid_command: not found
       $
       ```
 
