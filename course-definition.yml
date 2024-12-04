@@ -232,8 +232,6 @@ stages:
       exit is a shell builtin
       $ type invalid_command
       invalid_command: not found
-      $ type cat
-      cat is /bin/cat
       ```
 
       In this stage we'll only test two cases: builtin commands and unrecognized commands. We'll handle
