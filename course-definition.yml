@@ -703,7 +703,7 @@ stages:
       ```bash
       $ echo "hello'script'\\n'world"
       hello'script'\n'world
-      $ echo "hello\"insidequotes\"script\"
+      $ echo "hello\"insidequotes"script\"
       hello"insidequotesscript"
       $
       ```
