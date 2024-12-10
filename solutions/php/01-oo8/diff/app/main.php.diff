@@ -1,5 +1,6 @@
-@@ -1,8 +1,7 @@
+@@ -1,9 +1,8 @@
  <?php
+ error_reporting(E_ALL);
 
 -// Uncomment this block to pass the first stage
 -// fwrite(STDOUT, "$ ");
