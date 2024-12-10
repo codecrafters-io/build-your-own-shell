@@ -1,0 +1,10 @@
+@@ -1,8 +1,7 @@
+ <?php
+
+-// Uncomment this block to pass the first stage
+-// fwrite(STDOUT, "$ ");
++fwrite(STDOUT, "$ ");
+
+ // Wait for user input
+ fgets(STDIN);
+ ?>

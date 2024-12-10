@@ -24,6 +24,7 @@ languages:
   - slug: "javascript"
     release_status: "alpha"
   - slug: "kotlin"
+  - slug: "php"
   - slug: "python"
   - slug: "ruby"
     release_status: "alpha"
