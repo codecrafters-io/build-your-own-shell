@@ -1,4 +1,4 @@
-@@ -1,9 +1,8 @@
+@@ -1,8 +1,7 @@
  <?php
  error_reporting(E_ALL);
 
@@ -8,4 +8,3 @@
 
  // Wait for user input
  fgets(STDIN);
- ?>

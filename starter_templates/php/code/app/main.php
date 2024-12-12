@@ -6,4 +6,3 @@ error_reporting(E_ALL);
 
 // Wait for user input
 fgets(STDIN);
-?>
