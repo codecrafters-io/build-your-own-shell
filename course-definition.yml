@@ -578,7 +578,7 @@ stages:
 
       ```bash
       $ echo "quz  hello"  "bar"
-      quz hello bar
+      quz  hello bar
       $ echo "bar"  "shell's"  "foo"
       bar shell's foo
       $
