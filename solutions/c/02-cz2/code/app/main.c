@@ -2,8 +2,10 @@
 #include <string.h>
 
 int main() {
+  // Flush after every printf
+  setbuf(stdout, NULL);
+
   printf("$ ");
-  fflush(stdout);
 
   // Wait for user input
   char input[100];

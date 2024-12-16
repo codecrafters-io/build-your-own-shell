@@ -1,9 +1,11 @@
 #include <stdio.h>
 
 int main() {
+  // Flush after every printf
+  setbuf(stdout, NULL);
+
   // Uncomment this block to pass the first stage
   // printf("$ ");
-  // fflush(stdout);
 
   // Wait for user input
   char input[100];
