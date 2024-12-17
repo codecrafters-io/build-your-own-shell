@@ -116,8 +116,8 @@ stages:
 
       ### Notes
 
+      - We're treating every command as "invalid" for now, but we'll handle executing "valid" commands like `echo`, `cd` etc. in later stages.
       - The command name will be a random string, so the response can't be hardcoded.
-      - We'll handle executing "valid" commands like `echo`, `cd` etc. in later stages, this stage only deals with unrecognized commands.
       - In this stage it's okay if your program exits soon after printing the `<command_name>: command not found` message. In later stages
         we'll check for a REPL (Read-Eval-Print Loop), i.e. whether the shell prints a new prompt after processing each command.
     marketing_md: |-
