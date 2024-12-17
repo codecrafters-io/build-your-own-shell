@@ -5,9 +5,6 @@ Study and uncomment the relevant code:
 ```cpp
 // Uncomment this block to pass the first stage
 std::cout << "$ ";
-
-std::string input;
-std::getline(std::cin, input);
 ```
 
 Push your changes to pass the first stage:

@@ -112,16 +112,16 @@ stages:
       invalid_command: command not found
       ```
 
-      The tester will check whether your shell prints `<command_name>: command not found` for an unrecognized command.
+      The tester will check whether your shell prints `<command_name>: command not found\n` for an invalid command.
 
       ### Notes
 
       - We're treating every command as "invalid" for now, but we'll handle executing "valid" commands like `echo`, `cd` etc. in later stages.
       - The command name will be a random string, so the response can't be hardcoded.
-      - In this stage it's okay if your program exits soon after printing the `<command_name>: command not found` message. In later stages
+      - In this stage it's okay if your program exits soon after printing the `<command_name>: command not found\n` message. In later stages
         we'll check for a REPL (Read-Eval-Print Loop), i.e. whether the shell prints a new prompt after processing each command.
     marketing_md: |-
-      In this stage, you'll implement handling unrecognized commands in your shell.
+      In this stage, you'll implement handling invalid commands in your shell.
 
   - slug: "ff0"
     name: "REPL"
