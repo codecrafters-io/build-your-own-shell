@@ -5,7 +5,6 @@ Study and uncomment the relevant code:
 ```c
 // Uncomment this block to pass the first stage
 printf("$ ");
-fflush(stdout);
 ```
 
 Push your changes to pass the first stage:
