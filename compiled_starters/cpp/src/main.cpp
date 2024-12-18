@@ -7,7 +7,7 @@ int main() {
 
   // Uncomment this block to pass the first stage
   // std::cout << "$ ";
-  
+
   std::string input;
   std::getline(std::cin, input);
 }
