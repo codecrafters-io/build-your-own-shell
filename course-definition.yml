@@ -759,7 +759,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for executing a quoted executable.
 
-  - slug: "r1"
+  - slug: "jv1"
     primary_extension_slug: "redirection"
     name: "Redirect stdout"
     difficulty: medium
@@ -799,7 +799,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for redirecting the output of a command to a file.
 
-  - slug: "r2"
+  - slug: "vz4"
     primary_extension_slug: "redirection"
     name: "Redirect stderr"
     difficulty: medium
@@ -836,7 +836,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for redirecting the standard error of a command to a file.
 
-  - slug: "r3"
+  - slug: "el9"
     primary_extension_slug: "redirection"
     name: "Append stdout"
     difficulty: medium
@@ -882,7 +882,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for appending the output of a command to a file.
 
-  - slug: "r4"
+  - slug: "un3"
     primary_extension_slug: "redirection"
     name: "Append stderr"
     difficulty: medium
