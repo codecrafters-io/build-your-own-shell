@@ -767,7 +767,7 @@ stages:
       In this stage, you'll implement support for redirecting the output of a command to a file.
       The `1>` operator is used to redirect the output of a command to a file.
       But, as a special case, if the file descriptor is not specified before the operator `>`, the output is redirected to the standard output by default, so `>` is equivalent to `1>`.
-      You can read more about Redirecting output [here](https://www.gnu.org/software/bash/manual/bash.html#Redirecting-Output).
+      Learn more about [Redirecting Output](https://www.gnu.org/software/bash/manual/bash.html#Redirecting-Output).
 
       ### Tests
 
@@ -806,7 +806,7 @@ stages:
     description_md: |-
       In this stage, you'll implement support for redirecting the standard error of a command to a file.
       The `2>` operator is used to redirect the standard error of a command to a file.
-      You can read more about Redirecting stderr [here](https://www.gnu.org/software/bash/manual/bash.html#Redirecting-Output).
+      Learn more about [Redirecting Stderr](https://www.gnu.org/software/bash/manual/bash.html#Redirecting-Output).
 
       ### Tests
 
@@ -844,7 +844,7 @@ stages:
       In this stage, you'll implement support for appending the output of a command to a file.
       The `1>>` operator is used to append the output of a command to a file.
       As a special case, if the file descriptor is not specified before the operator `>>`, the output is redirected to the standard output by default, so `>>` is equivalent to `1>>`.
-      You can read more about Appending redirected output [here](https://www.gnu.org/software/bash/manual/bash.html#Appending-Redirected-Output).
+      Learn more about [Appending Stdout](https://www.gnu.org/software/bash/manual/bash.html#Appending-Redirected-Output).
 
       ### Tests
 
@@ -889,7 +889,7 @@ stages:
     description_md: |-
       In this stage, you'll implement support for appending the standard error of a command to a file.
       The `2>>` operator is used to append the standard error of a command to a file.
-      You can read more about Appending redirected output [here](https://www.gnu.org/software/bash/manual/bash.html#Appending-Redirected-Output).
+      Learn more about [Appending Stderr](https://www.gnu.org/software/bash/manual/bash.html#Appending-Redirected-Output).
 
       ### Tests
 
