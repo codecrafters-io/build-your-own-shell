@@ -1,8 +1,4 @@
-def main
-  $stdout.write("$ ")
+$stdout.write("$ ")
 
-  # Wait for user input
-  command, *args = gets.chomp.split(" ")
-end
-
-main
+# Wait for user input
+command, *args = gets.chomp.split(" ")
