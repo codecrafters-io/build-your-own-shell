@@ -27,7 +27,6 @@ languages:
   - slug: "php"
   - slug: "python"
   - slug: "ruby"
-    release_status: "alpha"
   - slug: "rust"
   - slug: "typescript"
     release_status: "alpha"
