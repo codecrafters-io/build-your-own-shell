@@ -22,14 +22,12 @@ languages:
   - slug: "go"
   - slug: "java"
   - slug: "javascript"
-    release_status: "alpha"
   - slug: "kotlin"
   - slug: "php"
   - slug: "python"
   - slug: "ruby"
   - slug: "rust"
   - slug: "typescript"
-    release_status: "alpha"
   - slug: "zig"
 
 marketing:
