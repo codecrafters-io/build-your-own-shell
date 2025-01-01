@@ -299,8 +299,8 @@ stages:
       ```bash
       $ type ls
       ls is /usr/bin/ls
-      $ type abcd
-      abcd is /usr/local/bin/abcd
+      $ type valid_command
+      valid_command is /usr/local/bin/valid_command
       $ type invalid_command
       invalid_command: not found
       $
