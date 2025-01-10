@@ -335,11 +335,14 @@ stages:
       It'll then send a command that you need to execute:
 
       ```bash
-      $ program_1234 alice
-      Hello alice! The secret code is 1234.
+      $ custom_exe_1234 alice
+      Program was passed 2 args (including program name).
+      Arg #0 (program name): custom_exe_1234
+      Arg #1: alice
+      Program Signature: 5998595441
       ```
 
-      The command (`program_1234`) in the example above will be present in `PATH` and will be an executable file.
+      The command (`custom_exe_1234`) in the example above will be present in `PATH` and will be an executable file.
 
       The tester will check if your shell correctly executes the given command and prints the output.
 
