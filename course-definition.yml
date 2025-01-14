@@ -344,7 +344,9 @@ stages:
 
       The command (`custom_exe_1234`) in the example above will be present in `PATH` and will be an executable file.
 
-      The tester will check if your shell correctly executes the given command and prints the output.
+      You don’t need to print the details from the example; your task is simply to execute the specified command.
+
+      The tester will check if your shell correctly executes the given command by verifying the output.
 
       ### Notes
 
