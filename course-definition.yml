@@ -344,11 +344,12 @@ stages:
 
       The command (`custom_exe_1234`) in the example above will be present in `PATH` and will be an executable file.
 
-      The tester will check if your shell correctly executes the given command and prints the output.
+      The executable file will print information about the arguments it was passed along with a random "program signature". The tester will verify that your program prints output from the executable.
 
       ### Notes
 
       - The program name, arguments and the expected output will be random for each test case.
+      - The output in the example ("Program was passed N args...") comes from the executable. It's not something you need to implement manually.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run external programs with arguments.
 
