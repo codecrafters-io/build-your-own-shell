@@ -941,7 +941,7 @@ stages:
   - slug: "ac1"
     primary_extension_slug: "completions"
     name: "Builtin completion"
-    difficulty: easy
+    difficulty: medium
     description_md: |-
       In this stage, you'll implement support for autocompleting builtin commands.
 
@@ -1034,7 +1034,7 @@ stages:
   - slug: "ac4"
     primary_extension_slug: "completions"
     name: "Executable completion"
-    difficulty: easy
+    difficulty: medium
     description_md: |-
       In this stage, you'll extend your shell's tab completion to include external executable files in the user's `PATH`.
 
@@ -1105,7 +1105,7 @@ stages:
   - slug: "ac6"
     primary_extension_slug: "completions"
     name: "Completion with arguments"
-    difficulty: medium
+    difficulty: hard
     description_md: |-
       In this stage, you'll implement tab completion to handle cases with multiple matching executables where one is a prefix of another. 
 
