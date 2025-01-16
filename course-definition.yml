@@ -70,6 +70,13 @@ extensions:
 
       Redirection allows you to redirect the output of a command to a file or another command.
 
+  - slug: "completions"
+    name: "Autocompletion"
+    description_markdown: |
+      In this challenge extension, you'll add programmable completion support to your shell.
+
+      Programmable completion allows you to autocomplete commands and executable files.
+
 stages:
   - slug: "oo8"
     name: "Print a prompt"
@@ -930,3 +937,67 @@ stages:
 
     marketing_md: |-
       In this stage, you'll implement support for appending the standard error of a command to a file.
+
+  - slug: "ac1"
+    primary_extension_slug: "completions"
+    name: "Builtin completion"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll implement support for autocompleting builtin commands.
+
+      Your shell should be able to complete builtin commands when the user presses the `<TAB>` key. Specifically, you'll need to implement completion for the `echo` and `exit` builtins.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then send the following inputs, simulating user input and tab presses:
+
+      1.  **Input:** `ech`<TAB>
+          * The tester expects the prompt to display `echo` after the tab press.
+
+      2.  **Input:** `exi`<TAB>
+          * The tester expects the prompt to display `exit` after the tab press.
+
+      The tester checks if the completion works as expected and if your shell outputs the correct output for echo and exit command.
+
+    marketing_md: |-
+      In this stage, you'll add basic tab completion to your shell.
+
+  - slug: "ac2"
+    primary_extension_slug: "completions"
+    name: "Completion with arguments"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll extend your shell's tab completion to handle commands with arguments. 
+
+      Your shell should now not only complete the command itself but also correctly handle the subsequent arguments that the user types.
+      This means that after completing the command with `<TAB>`, it should allow the user to continue typing arguments, and those arguments should also be interpreted correctly.
+      You'll need to ensure commands like `echo` and `type` autocomplete and still function correctly with arguments.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      The tests will simulate user input with tab presses and will execute builtin commands, similar to the previous stage, with added arguments:
+
+      1.  **Input:** `ech`<TAB><ENTER> `hello`<ENTER>
+          *   The tester expects the shell to first complete the `ech` to `echo` after `<TAB>`, and then execute `echo hello` after the second `<ENTER>`.
+          *   The shell should output `hello`.
+
+      2.  **Input:** `typ`<TAB><ENTER> `type`<ENTER>
+           *   The tester expects the shell to first complete `typ` to `type` after `<TAB>`, and then execute `type type` after the second `<ENTER>`.
+           *   The shell should output `type is a shell builtin`.
+
+      The tester will verify that your shell properly completes the commands and executes the commands with the given arguments.
+
+    marketing_md: |-
+      This stage enhances your shell's completion by allowing arguments to be used after completion. 
