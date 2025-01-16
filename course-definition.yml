@@ -989,12 +989,12 @@ stages:
 
       The tests will simulate user input with tab presses and will execute builtin commands, similar to the previous stage, with added arguments:
 
-      1.  **Input:** `ech`<TAB><ENTER> `hello`<ENTER>
-          *   The tester expects the shell to first complete the `ech` to `echo` after `<TAB>`, and then execute `echo hello` after the second `<ENTER>`.
+      1.  **Input:** `ech`<TAB> `hello`<ENTER>
+          *   The tester expects the shell to first complete the `ech` to `echo` after `<TAB>`, then accept the `hello` argument, and after the `<ENTER>` key press, execute `echo hello`.
           *   The shell should output `hello`.
 
-      2.  **Input:** `typ`<TAB><ENTER> `type`<ENTER>
-           *   The tester expects the shell to first complete `typ` to `type` after `<TAB>`, and then execute `type type` after the second `<ENTER>`.
+      2.  **Input:** `typ`<TAB> `type`<ENTER>
+           *   The tester expects the shell to first complete `typ` to `type` after `<TAB>`, then accept the `type` argument, and after the `<ENTER>` key press, execute `type type`.
            *   The shell should output `type is a shell builtin`.
 
       The tester will verify that your shell properly completes the commands and executes the commands with the given arguments.
