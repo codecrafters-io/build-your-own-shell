@@ -1027,6 +1027,7 @@ stages:
           *   The tester will first type `xyz` and then press `<TAB>`. The tester expects that the prompt still shows "xyz" and there is a bell sound.
 
       The tester will verify that your shell does not attempt completion on invalid commands, the bell is sent.
+      The bell is sent by printing the `\a` character.
 
     marketing_md: |-
       In this stage, you'll implement support for handling invalid commands gracefully.
@@ -1040,7 +1041,7 @@ stages:
 
       Your shell should now be able to complete commands that are not built-ins, but exist as executable files in the directories listed in the `PATH` environment variable.
       When the user types the beginning of an external command and presses `<TAB>`, your shell should complete the command to the full executable file name.
-      This means that if you have a command "custom_executable" in the path and type "custom" and press `<TAB>`, the shell should complete that to "custom_executable".
+      This means that if you have a command `custom_executable` in the path and type `custom` and press `<TAB>`, the shell should complete that to `custom_executable`.
 
       ### Tests
 
@@ -1050,14 +1051,14 @@ stages:
       ./your_program.sh
       ```
 
-      Before executing your shell, the tester will create an executable file named `custom_exe` and add its directory to the `PATH`.
+      Before executing your shell, the tester will create an executable file named `custom_executable` and add its directory to the `PATH`.
 
       The test will simulate the user typing the start of the external command and pressing `<TAB>`:
 
       1.  **Input:** `custom`<TAB>
-          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to `custom_exe`.
+          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to `custom_executable`.
 
-      The tester will verify that your shell correctly completes the command to the external executable file name and then runs the executable.
+      The tester will verify that your shell correctly completes the command to the external executable file name.
 
     marketing_md: |-
       In this stage, you'll implement support for autocompleting external executables.
@@ -1084,20 +1085,20 @@ stages:
       ./your_program.sh
       ```
 
-      It will then set up a specific `PATH` and place executables `xyz_bar`, `xyz_baz`, and `xyz_quz` into different directories in the `PATH`. Finally, it will type `xyz_`, and then press the Tab key twice.
+      It will then set up a specific `PATH` and place multiple executables starting with a common prefix into different directories in the `PATH`. Finally, it will type the common prefix, and then press the Tab key twice.
 
       ```bash
       $ ./your_program.sh
       $ xyz_<TAB><TAB>
+      xyz_bar  xyz_baz  xyz_quz
+      $ xyz_
       ```
 
       The tester will verify that:
 
-      1. Your shell displays the prompt `$ xyz_` after receiving the partial command.
+      1. Your shell displays the prompt with the common prefix after receiving the partial command.
       2. Upon the first Tab key press, your shell prints a bell character.
-      3. Upon the second Tab key press, your shell prints `xyz_bar xyz_baz xyz_quz` to standard output.
-      4. The prompt line matches `xyz_bar  xyz_baz  xyz_quz` after printing matches.
-      5. Your shell doesn't modify the prompt line after completion when the command is incomplete.
+      3. Upon the second Tab key press, your shell prints the list of matching executables separated by 2 spaces, on the next line, and follow it with the prompt on a new line.
 
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions.
