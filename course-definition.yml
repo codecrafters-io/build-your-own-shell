@@ -958,12 +958,13 @@ stages:
       It will then send the following inputs, simulating user input and tab presses:
 
       1.  **Input:** `ech`<TAB>
-          * The tester expects the prompt to display `echo` after the tab press.
+          * The tester expects the prompt to display `echo ` after the tab press.
 
       2.  **Input:** `exi`<TAB>
-          * The tester expects the prompt to display `exit` after the tab press.
+          * The tester expects the prompt to display `exit ` after the tab press.
 
       The tester checks if the completion works as expected and if your shell outputs the correct output for `echo` and `exit` command.
+      Note the space at the end of the completion.
 
     marketing_md: |-
       In this stage, you'll implement support for autocompleting builtin commands.
@@ -977,7 +978,7 @@ stages:
 
       Your shell should now not only complete the command itself but also correctly handle the subsequent arguments that the user types.
       This means that after completing the command with `<TAB>`, it should allow the user to continue typing arguments, and those arguments should also be interpreted correctly.
-      You'll need to ensure commands like `echo` and `type` autocomplete and still function correctly with arguments.
+      You'll need to ensure commands like `echo ` and `type` autocomplete and still function correctly with arguments.
 
       ### Tests
 
@@ -1056,9 +1057,10 @@ stages:
       The test will simulate the user typing the start of the external command and pressing `<TAB>`:
 
       1.  **Input:** `custom`<TAB>
-          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to `custom_executable`.
+          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to `custom_executable `.
 
       The tester will verify that your shell correctly completes the command to the external executable file name.
+      Note the space at the end of the completion.
 
     marketing_md: |-
       In this stage, you'll implement support for autocompleting external executables.
