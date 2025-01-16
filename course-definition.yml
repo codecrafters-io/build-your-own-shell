@@ -1001,3 +1001,62 @@ stages:
 
     marketing_md: |-
       This stage enhances your shell's completion by allowing arguments to be used after completion. 
+
+  - slug: "ac3"
+    primary_extension_slug: "completions"
+    name: "Missing completions"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll refine your shell's tab completion behavior to handle cases where the user types an invalid command.
+
+      When the user types a command that is not a known builtin and presses `<TAB>`, your shell should not attempt to autocomplete it. Instead, it should just keep what the user typed and should ring a bell.
+      This means that if you type "xyz" and press `<TAB>`, the command should not change and you should hear a bell indicating that there are no valid completion options for "xyz".
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      The tests will simulate the user typing an invalid command and pressing the `<TAB>` key:
+
+      1.  **Input:** `xyz`<TAB>
+          *   The tester will first type `xyz` and then press `<TAB>`. The tester expects that the prompt still shows "xyz" and there is a bell sound.
+
+      The tester will verify that your shell does not attempt completion on invalid commands, the bell is sent.
+
+    marketing_md: |-
+      This stage improves your shell's usability by handling invalid commands gracefully.
+
+  - slug: "ac4"
+    primary_extension_slug: "completions"
+    name: "Executable completion"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll extend your shell's tab completion to include external executable files in the user's `PATH`.
+
+      Your shell should now be able to complete commands that are not built-ins, but exist as executable files in the directories listed in the `PATH` environment variable.
+      When the user types the beginning of an external command and presses `<TAB>`, your shell should complete the command to the full executable file name.
+      This means that if you have a command "custom_executable" in the path and type "custom" and press `<TAB>`, the shell should complete that to "custom_executable".
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      Before executing your shell, the tester will create an executable file named `custom_exe` and add its directory to the `PATH`.
+
+      The test will simulate the user typing the start of the external command and pressing `<TAB>`:
+
+      1.  **Input:** `custom`<TAB>
+          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to `custom_exe`.
+
+      The tester will verify that your shell correctly completes the command to the external executable file name and then runs the executable.
+
+    marketing_md: |-
+       This stage extends your shell's power by enabling completion of external executables.
