@@ -1108,7 +1108,7 @@ stages:
     name: "Completion with arguments"
     difficulty: hard
     description_md: |-
-      In this stage, you'll implement tab completion to handle cases with multiple matching executables where one is a prefix of another. 
+      In this stage, you'll extend your shell's tab completion to handle cases with multiple matching executables where one is a prefix of another. 
 
       When the user types a partial command and presses the Tab key, your shell should attempt to complete the command name. If there are multiple executable files in the PATH that match the prefix, and one of those matches is a prefix of another, then the shell should complete to the longest common prefix of all matching executables. If there is only one match after performing completion, then the shell should complete the command name as in previous stages.
 
@@ -1132,7 +1132,9 @@ stages:
       $ xyz_<TAB>
       $ xyz_foo_<TAB>
       $ xyz_foo_bar_<TAB>
+      $ xyz_foo_bar_baz 
       ```
+      Note: The prompt lines above are on the same line.
 
       The tester will verify that:
 
@@ -1145,5 +1147,3 @@ stages:
 
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions with common prefixes.
-
-TODO: Mention about the space @ the end of all completions
