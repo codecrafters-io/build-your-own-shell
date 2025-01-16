@@ -70,6 +70,13 @@ extensions:
 
       Redirection allows you to redirect the output of a command to a file or another command.
 
+  - slug: "completions"
+    name: "Autocompletion"
+    description_markdown: |
+      In this challenge extension, you'll add programmable completion support to your shell.
+
+      Programmable completion allows you to autocomplete commands and executable files.
+
 stages:
   - slug: "oo8"
     name: "Print a prompt"
@@ -930,3 +937,209 @@ stages:
 
     marketing_md: |-
       In this stage, you'll implement support for appending the standard error of a command to a file.
+
+  - slug: "ac1"
+    primary_extension_slug: "completions"
+    name: "Builtin completion"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll implement support for autocompleting builtin commands.
+
+      Your shell should be able to complete builtin commands when the user presses the `<TAB>` key. Specifically, you'll need to implement completion for the `echo` and `exit` builtins.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then send the following inputs, simulating user input and tab presses:
+
+      1.  **Input:** `ech`<TAB>
+          * The tester expects the prompt to display `echo` after the tab press.
+
+      2.  **Input:** `exi`<TAB>
+          * The tester expects the prompt to display `exit` after the tab press.
+
+      The tester checks if the completion works as expected and if your shell outputs the correct output for echo and exit command.
+
+    marketing_md: |-
+      In this stage, you'll add basic tab completion to your shell.
+
+  - slug: "ac2"
+    primary_extension_slug: "completions"
+    name: "Completion with arguments"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll extend your shell's tab completion to handle commands with arguments. 
+
+      Your shell should now not only complete the command itself but also correctly handle the subsequent arguments that the user types.
+      This means that after completing the command with `<TAB>`, it should allow the user to continue typing arguments, and those arguments should also be interpreted correctly.
+      You'll need to ensure commands like `echo` and `type` autocomplete and still function correctly with arguments.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      The tests will simulate user input with tab presses and will execute builtin commands, similar to the previous stage, with added arguments:
+
+      1.  **Input:** `ech`<TAB><ENTER> `hello`<ENTER>
+          *   The tester expects the shell to first complete the `ech` to `echo` after `<TAB>`, and then execute `echo hello` after the second `<ENTER>`.
+          *   The shell should output `hello`.
+
+      2.  **Input:** `typ`<TAB><ENTER> `type`<ENTER>
+           *   The tester expects the shell to first complete `typ` to `type` after `<TAB>`, and then execute `type type` after the second `<ENTER>`.
+           *   The shell should output `type is a shell builtin`.
+
+      The tester will verify that your shell properly completes the commands and executes the commands with the given arguments.
+
+    marketing_md: |-
+      This stage enhances your shell's completion by allowing arguments to be used after completion. 
+
+  - slug: "ac3"
+    primary_extension_slug: "completions"
+    name: "Missing completions"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll refine your shell's tab completion behavior to handle cases where the user types an invalid command.
+
+      When the user types a command that is not a known builtin and presses `<TAB>`, your shell should not attempt to autocomplete it. Instead, it should just keep what the user typed and should ring a bell.
+      This means that if you type "xyz" and press `<TAB>`, the command should not change and you should hear a bell indicating that there are no valid completion options for "xyz".
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      The tests will simulate the user typing an invalid command and pressing the `<TAB>` key:
+
+      1.  **Input:** `xyz`<TAB>
+          *   The tester will first type `xyz` and then press `<TAB>`. The tester expects that the prompt still shows "xyz" and there is a bell sound.
+
+      The tester will verify that your shell does not attempt completion on invalid commands, the bell is sent.
+
+    marketing_md: |-
+      This stage improves your shell's usability by handling invalid commands gracefully.
+
+  - slug: "ac4"
+    primary_extension_slug: "completions"
+    name: "Executable completion"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll extend your shell's tab completion to include external executable files in the user's `PATH`.
+
+      Your shell should now be able to complete commands that are not built-ins, but exist as executable files in the directories listed in the `PATH` environment variable.
+      When the user types the beginning of an external command and presses `<TAB>`, your shell should complete the command to the full executable file name.
+      This means that if you have a command "custom_executable" in the path and type "custom" and press `<TAB>`, the shell should complete that to "custom_executable".
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      Before executing your shell, the tester will create an executable file named `custom_exe` and add its directory to the `PATH`.
+
+      The test will simulate the user typing the start of the external command and pressing `<TAB>`:
+
+      1.  **Input:** `custom`<TAB>
+          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to `custom_exe`.
+
+      The tester will verify that your shell correctly completes the command to the external executable file name and then runs the executable.
+
+    marketing_md: |-
+       This stage extends your shell's power by enabling completion of external executables.
+
+  - slug: "ac5"
+    primary_extension_slug: "completions"
+    name: "Multiple completions"
+    difficulty: hard
+    description_md: |-
+      In this stage, you'll implement tab completion for executables, specifically when multiple executables share a common prefix.
+
+      When the user types a command prefix and presses `<TAB>`, your shell should:
+
+      - Identify all executables in the `PATH` that match the prefix.
+      - If there are multiple matches,
+        - On the first TAB press, just ring a bell. (`\a` rings the bell)
+        - On the second TAB press, print all the matching executables separated by 2    spaces, on the next line, and follow it with the prompt on a new line.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then set up a specific `PATH` and place executables `xyz_bar`, `xyz_baz`, and `xyz_quz` into different directories in the `PATH`. Finally, it will type `xyz_`, and then press the Tab key twice.
+
+      ```bash
+      $ ./your_program.sh
+      $ xyz_<TAB><TAB>
+      ```
+
+      The tester will verify that:
+
+      1. Your shell displays the prompt `$ xyz_` after receiving the partial command.
+      2. Upon the first Tab key press, your shell prints a bell character.
+      3. Upon the second Tab key press, your shell prints `xyz_bar xyz_baz xyz_quz` to standard output.
+      4. The prompt line matches `xyz_bar  xyz_baz  xyz_quz` after printing matches.
+      5. Your shell doesn't modify the prompt line after completion when the command is incomplete.
+
+    marketing_md: |-
+      In this stage, you'll add to your shell's usability by implementing multiple command completions.
+
+  - slug: "ac6"
+    primary_extension_slug: "completions"
+    name: "Completion with arguments"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement tab completion to handle cases with multiple matching executables where one is a prefix of another. 
+
+      When the user types a partial command and presses the Tab key, your shell should attempt to complete the command name. If there are multiple executable files in the PATH that match the prefix, and one of those matches is a prefix of another, then the shell should complete to the longest common prefix of all matching executables. If there is only one match after performing completion, then the shell should complete the command name as in previous stages.
+
+      For example, if `xyz_foo`, `xyz_foo_bar`, and `xyz_foo_bar_baz` are all available executables and the user types `xyz_` and presses tab, then your shell should complete the command to `xyz_foo`. If the user then types `_` and presses tab again, it should complete to `xyz_foo_bar`. If the user then types `_` and presses tab again, it should complete to `xyz_foo_bar_baz`.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then set up a specific `PATH` and place executables `xyz_foo`, `xyz_foo_bar`, and `xyz_foo_bar_baz` into different directories in the `PATH`. Finally, it will type `xyz_` and then press Tab, then type `_` and press Tab, then type `_` and press Tab.
+
+      ```bash
+      $ export PATH=/tmp/bar:$PATH
+      $ export PATH=/tmp/baz:$PATH
+      $ export PATH=/tmp/qux:$PATH
+      $ ./your_program.sh
+      $ xyz_<TAB>
+      $ xyz_foo_<TAB>
+      $ xyz_foo_bar_<TAB>
+      ```
+
+      The tester will verify that:
+
+      1. After typing `xyz_` and pressing Tab, your shell completes to `xyz_foo`.
+      2. After typing `_`, the prompt line matches `$ xyz_foo_`.
+      3. After typing `_` and pressing Tab, your shell completes to `xyz_foo_bar`.
+      4. After typing `_`, the prompt line matches `$ xyz_foo_bar_`.
+      5. After typing `_` and pressing Tab, your shell completes to `xyz_foo_bar_baz`.
+      6. The prompt line matches `$ xyz_foo_bar_baz ` after the final completion.
+
+    marketing_md: |-
+      In this stage, you'll enhance the tab completion feature of your shell to handle cases where multiple matching executables share a common prefix.
