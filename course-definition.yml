@@ -963,10 +963,10 @@ stages:
       2.  **Input:** `exi`<TAB>
           * The tester expects the prompt to display `exit` after the tab press.
 
-      The tester checks if the completion works as expected and if your shell outputs the correct output for echo and exit command.
+      The tester checks if the completion works as expected and if your shell outputs the correct output for `echo` and `exit` command.
 
     marketing_md: |-
-      In this stage, you'll add basic tab completion to your shell.
+      In this stage, you'll implement support for autocompleting builtin commands.
 
   - slug: "ac2"
     primary_extension_slug: "completions"
@@ -1000,7 +1000,8 @@ stages:
       The tester will verify that your shell properly completes the commands and executes the commands with the given arguments.
 
     marketing_md: |-
-      This stage enhances your shell's completion by allowing arguments to be used after completion. 
+      In this stage, you'll implement support for allowing arguments to be used after completion. 
+      
 
   - slug: "ac3"
     primary_extension_slug: "completions"
@@ -1028,7 +1029,7 @@ stages:
       The tester will verify that your shell does not attempt completion on invalid commands, the bell is sent.
 
     marketing_md: |-
-      This stage improves your shell's usability by handling invalid commands gracefully.
+      In this stage, you'll implement support for handling invalid commands gracefully.
 
   - slug: "ac4"
     primary_extension_slug: "completions"
@@ -1059,7 +1060,7 @@ stages:
       The tester will verify that your shell correctly completes the command to the external executable file name and then runs the executable.
 
     marketing_md: |-
-       This stage extends your shell's power by enabling completion of external executables.
+      In this stage, you'll implement support for autocompleting external executables.
 
   - slug: "ac5"
     primary_extension_slug: "completions"
@@ -1099,7 +1100,7 @@ stages:
       5. Your shell doesn't modify the prompt line after completion when the command is incomplete.
 
     marketing_md: |-
-      In this stage, you'll add to your shell's usability by implementing multiple command completions.
+      In this stage, you'll implement support for handling multiple completions.
 
   - slug: "ac6"
     primary_extension_slug: "completions"
@@ -1142,4 +1143,6 @@ stages:
       6. The prompt line matches `$ xyz_foo_bar_baz ` after the final completion.
 
     marketing_md: |-
-      In this stage, you'll enhance the tab completion feature of your shell to handle cases where multiple matching executables share a common prefix.
+      In this stage, you'll implement support for handling multiple completions with common prefixes.
+
+TODO: Mention about the space @ the end of all completions
