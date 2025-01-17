@@ -938,7 +938,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for appending the standard error of a command to a file.
 
-  - slug: "ac1"
+  - slug: "qp2"
     primary_extension_slug: "completions"
     name: "Builtin completion"
     difficulty: medium
@@ -969,7 +969,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for autocompleting builtin commands.
 
-  - slug: "ac2"
+  - slug: "gm9"
     primary_extension_slug: "completions"
     name: "Completion with arguments"
     difficulty: medium
@@ -1004,7 +1004,7 @@ stages:
       In this stage, you'll implement support for allowing arguments to be used after completion. 
       
 
-  - slug: "ac3"
+  - slug: "qm8"
     primary_extension_slug: "completions"
     name: "Missing completions"
     difficulty: easy
@@ -1033,7 +1033,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for handling invalid commands gracefully.
 
-  - slug: "ac4"
+  - slug: "gy5"
     primary_extension_slug: "completions"
     name: "Executable completion"
     difficulty: medium
@@ -1065,7 +1065,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for autocompleting external executables.
 
-  - slug: "ac5"
+  - slug: "wh6"
     primary_extension_slug: "completions"
     name: "Multiple completions"
     difficulty: hard
@@ -1105,7 +1105,7 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions.
 
-  - slug: "ac6"
+  - slug: "wt6"
     primary_extension_slug: "completions"
     name: "Completion with arguments"
     difficulty: hard
