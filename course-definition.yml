@@ -1107,7 +1107,7 @@ stages:
 
   - slug: "wt6"
     primary_extension_slug: "completions"
-    name: "Completion with arguments"
+    name: "Partial completions"
     difficulty: hard
     description_md: |-
       In this stage, you'll extend your shell's tab completion to handle cases with multiple matching executables where one is a prefix of another. 
