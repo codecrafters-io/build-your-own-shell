@@ -570,6 +570,10 @@ stages:
 
       The tester will check if the `cat` command correctly prints the file content.
 
+      ### Notes
+
+      - The `cat` command is an executable available on most systems, so there’s no need to implement it yourself.
+
     marketing_md: |-
       In this stage, you'll implement support for quoting with single quotes.
 
