@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-exec java -jar /tmp/codecrafters-build-shell-java/codecrafters-shell.jar "$@"
+exec java -Duser.home=$HOME -jar /tmp/codecrafters-build-shell-java/codecrafters-shell.jar "$@"
