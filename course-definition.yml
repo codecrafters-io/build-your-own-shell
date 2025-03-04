@@ -971,6 +971,10 @@ stages:
       The tester checks if the completion works as expected and if your shell outputs the correct output for `echo` and `exit` command.
       Note the space at the end of the completion.
 
+      ### Notes: 
+
+      - Different shells handle autocompletion differently. For consistency, we recommend using Bash for development and testing.
+
     marketing_md: |-
       In this stage, you'll implement support for autocompleting builtin commands.
 
