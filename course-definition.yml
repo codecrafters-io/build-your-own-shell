@@ -973,7 +973,7 @@ stages:
 
       ### Notes: 
 
-      - Different shells handle autocompletion differently. For consistency, we recommend using Bash for development and testing.
+      - Different shells handle autocompletion differently. For consistency, we recommend using [Bash](https://www.gnu.org/software/bash/) for development and testing.
 
     marketing_md: |-
       In this stage, you'll implement support for autocompleting builtin commands.
