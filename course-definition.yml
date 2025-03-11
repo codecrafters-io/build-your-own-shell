@@ -20,6 +20,7 @@ languages:
   - slug: "cpp"
   - slug: "csharp"
   - slug: "gleam"
+    release_status: "alpha"
   - slug: "go"
   - slug: "java"
   - slug: "javascript"
