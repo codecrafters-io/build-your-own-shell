@@ -19,6 +19,7 @@ languages:
   - slug: "c"
   - slug: "cpp"
   - slug: "csharp"
+  - slug: "gleam"
   - slug: "go"
   - slug: "java"
   - slug: "javascript"
