@@ -299,7 +299,7 @@ stages:
       The tester will execute your program with a custom `PATH` like this:
 
       ```bash
-      PATH="/usr/bin:/usr/local/bin" ./your_program.sh
+      PATH="/usr/bin:/usr/local/bin:$PATH" ./your_program.sh
       ```
 
       It'll then send a series of `type` commands to your shell:
