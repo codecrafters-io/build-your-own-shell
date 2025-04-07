@@ -565,7 +565,7 @@ stages:
       Then it will also send a `cat` command, with the file name parameter enclosed in single quotes:
 
       ```bash
-      $ cat '/tmp/file name' '/tmp/file name with spaces' 
+      $ cat '/tmp/file name' '/tmp/file name with spaces'
       content1 content2
       ```
 
@@ -610,7 +610,7 @@ stages:
       Then it will also send a `cat` command, with the file name parameter enclosed in double quotes:
 
       ```bash
-      $ cat "/tmp/file name" "/tmp/'file name' with spaces" 
+      $ cat "/tmp/file name" "/tmp/'file name' with spaces"
       content1 content2
       ```
 
@@ -651,7 +651,7 @@ stages:
       Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside quotes:
 
       ```bash
-      $ cat "/tmp/file\\name" "/tmp/file\ name" 
+      $ cat "/tmp/file\\name" "/tmp/file\ name"
       content1 content2
       ```
 
@@ -692,7 +692,7 @@ stages:
 
       Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside single quotes:
       ```bash
-      $ cat "/tmp/file/'name'" "/tmp/file/'\name\'"  
+      $ cat "/tmp/file/'name'" "/tmp/file/'\name\'"
       content1 content2
       ```
 
@@ -733,7 +733,7 @@ stages:
       Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside double quotes:
 
       ```bash
-      $ cat "/tmp/"file\name"" "/tmp/"file name"" 
+      $ cat "/tmp/"file\name"" "/tmp/"file name""
       content1 content2
       ```
 
@@ -972,8 +972,9 @@ stages:
       The tester checks if the completion works as expected and if your shell outputs the correct output for `echo` and `exit` command.
       Note the space at the end of the completion.
 
-      ### Notes: 
+      ### Notes:
 
+      - We recommend using a library like [readline](https://en.wikipedia.org/wiki/GNU_Readline) for your implementation. Most modern shells and REPLs (like the Python REPL) use readline under the hood.
       - Different shells handle autocompletion differently. For consistency, we recommend using [Bash](https://www.gnu.org/software/bash/) for development and testing.
 
     marketing_md: |-
@@ -984,7 +985,7 @@ stages:
     name: "Completion with arguments"
     difficulty: medium
     description_md: |-
-      In this stage, you'll extend your shell's tab completion to handle commands with arguments. 
+      In this stage, you'll extend your shell's tab completion to handle commands with arguments.
 
       Your shell should now not only complete the command itself but also correctly handle the subsequent arguments that the user types.
       This means that after completing the command with `<TAB>`, it should allow the user to continue typing arguments, and those arguments should also be interpreted correctly.
@@ -1119,7 +1120,7 @@ stages:
     name: "Partial completions"
     difficulty: hard
     description_md: |-
-      In this stage, you'll extend your shell's tab completion to handle cases with multiple matching executables where one is a prefix of another. 
+      In this stage, you'll extend your shell's tab completion to handle cases with multiple matching executables where one is a prefix of another.
 
       When the user types a partial command and presses the Tab key, your shell should attempt to complete the command name. If there are multiple executable files in the PATH that match the prefix, and one of those matches is a prefix of another, then the shell should complete to the longest common prefix of all matching executables. If there is only one match after performing completion, then the shell should complete the command name as in previous stages.
 
@@ -1143,7 +1144,7 @@ stages:
       $ xyz_<TAB>
       $ xyz_foo_<TAB>
       $ xyz_foo_bar_<TAB>
-      $ xyz_foo_bar_baz 
+      $ xyz_foo_bar_baz
       ```
       Note: The prompt lines above are on the same line.
 
