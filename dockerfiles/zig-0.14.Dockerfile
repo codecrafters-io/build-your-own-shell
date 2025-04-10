@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.7-labs
 FROM alpine:3.20
 
-RUN apk add --no-cache 'xz>=5.6' 'curl>=8.9' 'readline-dev>=8.2' 'musl-dev>=1.2'
+RUN apk add --no-cache 'xz>=5.6' 'curl>=8.9' 'readline-dev>=8.2' 'musl-dev>=1.2' 'ncurses-dev>=6.5'
 
 # Download and install Zig
 RUN curl -O https://ziglang.org/download/0.14.0/zig-linux-x86_64-0.14.0.tar.xz \
