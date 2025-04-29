@@ -1,5 +1,7 @@
 defmodule CLI do
   def main(_args) do
-    IO.gets("$ ")
+    IO.write("$ ")
+
+    IO.gets("")
   end
 end

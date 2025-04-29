@@ -1,8 +1,10 @@
-@@ -1,6 +1,5 @@
+@@ -1,8 +1,7 @@
  defmodule CLI do
    def main(_args) do
 -    # Uncomment this block to pass the first stage
--    # IO.gets("$ ")
-+    IO.gets("$ ")
+-    # IO.write("$ ")
++    IO.write("$ ")
+
+     IO.gets("")
    end
  end

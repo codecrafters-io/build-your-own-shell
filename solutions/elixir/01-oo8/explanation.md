@@ -4,7 +4,7 @@ Study and uncomment the relevant code:
 
 ```elixir
 # Uncomment this block to pass the first stage
-IO.gets("$ ")
+IO.write("$ ")
 ```
 
 Push your changes to pass the first stage:
