@@ -1159,3 +1159,118 @@ stages:
 
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions with common prefixes.
+    
+  - slug: "br6"
+    primary_extension_slug: "pipelines"
+    name: "Dual-command pipeline"
+    difficulty: hard
+    description_md: |-
+      In this stage, you'll implement support for basic pipelines involving two external commands.
+
+      A [pipeline](https://www.gnu.org/software/bash/manual/bash.html#Pipelines) connects the standard output of one command to the standard input of the next command using the `|` operator.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send commands involving a two-stage pipeline:
+
+      ```bash
+      $ cat /tmp/foo/file | wc
+             5      10      77
+      $ tail -f /tmp/foo/file-1 | head -n 5
+      raspberry strawberry
+      pear mango
+      pineapple apple
+      # (tester appends more lines to /tmp/foo/file-1)
+      # (And expects the running command to keep printing new lines)
+      This is line 4.
+      This is line 5.
+      $
+      ```
+
+      The tester will check if the final output matches the expected output after the pipeline execution. For the `tail -f` command, the tester will append content to the the input file while the pipeline is running.
+
+      ### Notes
+
+      -   The executables (`cat`, `wc`, `tail`, `head`) will be available in the `PATH`.
+      -   You need to handle creating a pipe, forking processes for each command, and setting up the standard input/output redirection between them.
+    marketing_md: |-
+      Implement support for basic two-command pipelines like `command1 | command2`.
+
+  - slug: "ny9"
+    primary_extension_slug: "pipelines"
+    name: "Pipelines with built-ins"
+    difficulty: hard
+    description_md: |-
+      In this stage, you'll extend pipeline support to include shell built-in commands.
+
+      Built-in commands (like `echo`, `type`) need to be handled correctly when they appear as part of a pipeline, whether at the beginning, middle, or end.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send commands involving pipelines with built-ins:
+
+      ```bash
+      $ echo raspberry\\nblueberry | wc
+             1       1      20
+      $ ls | type exit
+      exit is a shell builtin
+      $
+      ```
+
+      The tester will check if the final output matches the expected output after the pipeline execution, correctly handling the built-in commands.
+      For the `type` command, the tester will check if the command correctly handles the built-in command and prints the correct output, the `ls` output is not supposed to be printed.
+
+      ### Notes
+
+      -   Built-in commands don't typically involve creating a new process via `fork`/`exec`. You'll need to handle their execution within the shell process while still managing the input/output redirection required by the pipeline.
+    marketing_md: |-
+      Extend pipeline support to handle built-in commands like `echo` or `type` within pipelines.
+
+  - slug: "xk3"
+    primary_extension_slug: "pipelines"
+    name: "Multi-command pipelines"
+    difficulty: hard
+    description_md: |-
+      In this stage, you'll implement support for pipelines involving more than two commands.
+
+      Pipelines can chain multiple commands together, connecting the output of each command to the input of the next one.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It'll then send commands involving pipelines with three or more stages:
+
+      ```bash
+      $ cat /tmp/foo/file | head -n 5 | wc
+             5       5      10
+      $ ls -la /tmp/foo | tail -n 5 | head -n 3 | grep "file"
+      -rw-r--r-- 1 user user     5 Apr 29 10:06 file
+      $
+      ```
+
+      The tester will check if the final output matches the expected output after the multi-stage pipeline execution.
+
+      ### Notes
+
+      -   This requires managing multiple pipes and processes.
+      -   Ensure correct setup of stdin/stdout for each command in the chain (except the first command's stdin and the last command's stdout, which usually connect to the terminal or file redirections).
+      -   Proper process cleanup and waiting are crucial.
+    marketing_md: |-
+      Implement support for multi-command pipelines like `command1 | command2 | command3`.
