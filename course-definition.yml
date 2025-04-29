@@ -78,6 +78,13 @@ extensions:
 
       Programmable completion allows you to autocomplete commands and executable files.
 
+  - slug: "pipelines"
+    name: "Pipelines"
+    description_markdown: |
+      In this challenge extension, you'll add support for pipelines to your shell.
+
+      Pipelines allow you to connect multiple commands together, so the output of one command becomes the input of the next command.
+
 stages:
   - slug: "oo8"
     name: "Print a prompt"
