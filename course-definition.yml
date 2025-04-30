@@ -19,7 +19,6 @@ languages:
   - slug: "c"
   - slug: "cpp"
   - slug: "csharp"
-  - slug: "elixir"
   - slug: "gleam"
   - slug: "go"
   - slug: "java"
