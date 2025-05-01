@@ -1167,7 +1167,7 @@ stages:
 
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions with common prefixes.
-    
+
   - slug: "br6"
     primary_extension_slug: "pipelines"
     name: "Dual-command pipeline"
@@ -1185,11 +1185,14 @@ stages:
       ./your_program.sh
       ```
 
-      It'll then send commands involving a two-stage pipeline:
+      It'll then execute multiple pipelines with two commands in them. Examples:
 
       ```bash
       $ cat /tmp/foo/file | wc
              5      10      77
+      ```
+
+      ```bash
       $ tail -f /tmp/foo/file-1 | head -n 5
       raspberry strawberry
       pear mango
@@ -1201,12 +1204,15 @@ stages:
       $
       ```
 
-      The tester will check if the final output matches the expected output after the pipeline execution. For the `tail -f` command, the tester will append content to the the input file while the pipeline is running.
+      The tester will check if the final output matches the expected output after pipeline execution.
+
+      For the `tail -f` command, the tester will append content to the the input file while the pipeline is running.
 
       ### Notes
 
-      -   The executables (`cat`, `wc`, `tail`, `head`) will be available in the `PATH`.
-      -   You need to handle creating a pipe, forking processes for each command, and setting up the standard input/output redirection between them.
+      - The executables (`cat`, `wc`, `tail`, `head`) will be available in the `PATH`.
+      - To execute a pipeline you'll need to create a [pipe](https://en.wikipedia.org/wiki/Anonymous_pipe), [fork](https://en.wikipedia.org/wiki/Fork_(system_call))
+        processes for each command, and set up the standard input/output redirection between them.
     marketing_md: |-
       Implement support for basic two-command pipelines like `command1 | command2`.
 
