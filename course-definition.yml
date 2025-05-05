@@ -1075,7 +1075,7 @@ stages:
       The test will simulate the user typing the start of the external command and pressing `<TAB>`:
 
       1.  **Input:** `custom`<TAB>
-          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to <code>custom_executable&nbsp;</code>.
+          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to <code>custom_executable &nbsp;</code>.
 
       The tester will verify that your shell correctly completes the command to the external executable file name.
       Note the space at the end of the completion.
