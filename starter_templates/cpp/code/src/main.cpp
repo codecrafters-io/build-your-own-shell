@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 int main() {
   // Flush after every std::cout / std:cerr
