@@ -1046,11 +1046,7 @@ stages:
           *   The tester will first type `xyz` and then press `<TAB>`. The tester expects that the prompt still shows "xyz" and there is a bell sound.
 
       The tester will verify that your shell does not attempt completion on invalid commands, the bell is sent.
-      The bell is sent by printing the `\a` character.
-
-      ### Notes
-
-      - If `\a` is not supported in the language you're using, you can use `\u0007` instead.
+      The bell is sent by printing `\x07`, the [bell character](https://en.wikipedia.org/wiki/Bell_character).
 
     marketing_md: |-
       In this stage, you'll implement support for handling invalid commands gracefully.
