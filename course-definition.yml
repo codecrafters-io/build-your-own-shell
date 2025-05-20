@@ -980,7 +980,7 @@ stages:
       The tester checks if the completion works as expected and if your shell outputs the correct output for `echo` and `exit` command.
       Note the space at the end of the completion.
 
-      ### Notes:
+      ### Notes
 
       - We recommend using a library like [readline](https://en.wikipedia.org/wiki/GNU_Readline) for your implementation. Most modern shells and REPLs (like the Python REPL) use readline under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
       - Different shells handle autocompletion differently. For consistency, we recommend using [Bash](https://www.gnu.org/software/bash/) for development and testing.
@@ -1046,7 +1046,7 @@ stages:
           *   The tester will first type `xyz` and then press `<TAB>`. The tester expects that the prompt still shows "xyz" and there is a bell sound.
 
       The tester will verify that your shell does not attempt completion on invalid commands, the bell is sent.
-      The bell is sent by printing the `\a` character.
+      The bell is sent by printing `\x07`, the [bell character](https://en.wikipedia.org/wiki/Bell_character).
 
     marketing_md: |-
       In this stage, you'll implement support for handling invalid commands gracefully.
