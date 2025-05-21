@@ -86,6 +86,13 @@ extensions:
 
       Pipelines allow you to connect multiple commands together, so the output of one command becomes the input of the next command.
 
+  - slug: "history"
+    name: "History"
+    description_markdown: |
+      In this challenge extension, you'll add support for viewing and recalling previously entered commands using the `history` builtin.
+
+      History allows you to view and recall previously entered commands. Also, use it to re-run previous commands using the UP and DOWN arrow keys.
+
 stages:
   - slug: "oo8"
     name: "Print a prompt"
@@ -581,7 +588,7 @@ stages:
 
       ### Notes
 
-      - The `cat` command is an executable available on most systems, so there’s no need to implement it yourself.
+      - The `cat` command is an executable available on most systems, so there's no need to implement it yourself.
 
     marketing_md: |-
       In this stage, you'll implement support for quoting with single quotes.
@@ -1288,3 +1295,222 @@ stages:
       -   Proper process cleanup and waiting are crucial.
     marketing_md: |-
       Implement support for multi-command pipelines like `command1 | command2 | command3`.
+
+  - slug: "bq4"
+    primary_extension_slug: "history"
+    name: "The history builtin"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll add support for [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      The tester will then execute the `type history` command.
+
+      ```bash
+      $ type history
+      history is a shell builtin
+      $
+      ```
+
+      The tester will then execute the `type history` command and expect the output to be `history is a shell builtin`.
+
+      ### Notes
+
+      - For now we're just testing that the `type` builtin identifies `history` as a valid builtin.
+      - We'll handle the actual implementation of the `history` builtin in later stages.
+
+    marketing_md: |-
+      In this stage, you'll add support for the `history` builtin command in `type`.
+
+  - slug: "yf5"
+    primary_extension_slug: "history"
+    name: "Listing history"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement the `history` builtin.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then send multiple commands to your shell, followed by the `history` command:
+
+      ```bash
+      $ echo hello
+      hello
+      $ echo world
+      world
+      $ invalid_command
+      invalid_command: command not found
+      $ history
+          1  echo hello
+          2  echo world
+          3  invalid_command
+          4  history
+      $
+      ```
+
+      The tester will then execute the `history` command and expect a history list with the commands that were executed, formatted and indexed like in the example above.
+
+      ### Notes
+
+      - Some shells like *zsh* don't add the `history` command to the history list, but the tester expects it to be present.
+
+    marketing_md: |-
+      In this stage, you'll implement the `history` builtin.
+
+  - slug: "ag6"
+    primary_extension_slug: "history"
+    name: "Limiting history entries"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for limiting history entries using the `history <n>` syntax.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then send multiple commands to your shell, followed by the `history <n>` command:
+
+      ```bash
+      $ echo hello
+      hello
+      $ echo world
+      world
+      $ invalid_command
+      invalid_command: command not found
+      $ history 2
+          3  invalid_command
+          4  history 2
+      $
+      ```
+
+      The tester will then execute the `history <n>` command and expect the history list to be limited to the last `n` commands.
+
+      ### Notes
+
+      - The tester expects the history command to be present in the history list.
+
+    marketing_md: |-
+      In this stage, you'll implement support for limiting history entries.
+
+  - slug: "rh7"
+    primary_extension_slug: "history"
+    name: "Up-arrow navigation"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for recalling history with the up arrow key.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then send multiple commands to your shell, followed by the up arrow to recall the history:
+
+      ```bash
+      $ echo hello
+      hello
+      $ echo world
+      world
+      <UP ARROW>
+      $ echo world
+      <UP ARROW>
+      $ echo hello
+      ```
+
+      The tester will execute some commands and then press the up arrow key to recall the history.
+
+    marketing_md: |-
+      In this stage, you'll implement support for recalling history with the up arrow key.
+
+  - slug: "vq0"
+    primary_extension_slug: "history"
+    name: "Down-arrow navigation"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for recalling history with the down arrow key.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then send multiple commands to your shell, followed by the up and then down arrow keys to recall the history:
+
+      ```bash
+      $ echo hello
+      hello
+      $ echo world
+      world
+      <UP ARROW>
+      $ echo world
+      <UP ARROW>
+      $ echo hello
+      <DOWN ARROW>
+      $ echo world
+      ```
+
+      The tester will execute some commands and then press the up and then down arrow keys to recall the history.
+
+    marketing_md: |-
+      In this stage, you'll implement support for recalling history with the down arrow key.
+
+  - slug: "dm2"
+    primary_extension_slug: "history"
+    name: "Command Execution after Arrow Navigation"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll implement support for being able to press enter to execute a command recalled using UP-DOWN arrows.
+
+      ### Tests
+
+      The tester will execute your program like this:
+
+      ```bash
+      ./your_program.sh
+      ```
+
+      It will then send multiple commands to your shell, followed by the up and then down arrow keys to recall the history:
+
+      ```bash
+      $ echo hello
+      hello
+      $ echo world
+      world
+      <UP ARROW>
+      $ echo world
+      <UP ARROW>
+      $ echo hello
+      <DOWN ARROW>
+      $ echo world
+      <ENTER>
+      world
+      $
+      ```
+
+      The tester will execute some commands and then press the up and then down arrow keys to recall the history and then press enter to execute the command arrived.
+
+    marketing_md: |-
+      In this stage, you'll implement support for being able to press enter to execute a command recalled using UP-DOWN arrows.
