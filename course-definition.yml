@@ -588,7 +588,7 @@ stages:
 
       ### Notes
 
-      - The `cat` command is an executable available on most systems, so there’s no need to implement it yourself.
+      - The `cat` command is an executable available on most systems, so there's no need to implement it yourself.
 
     marketing_md: |-
       In this stage, you'll implement support for quoting with single quotes.
@@ -1325,6 +1325,9 @@ stages:
 
       - For now we're just testing that the `type` builtin identifies `history` as a valid builtin.
       - We'll handle the actual implementation of the `history` builtin in later stages.
+
+    marketing_md: |-
+      In this stage, you'll add support for the `history` builtin command in `type`.
 
   - slug: "yf5"
     primary_extension_slug: "history"
