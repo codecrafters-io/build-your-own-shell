@@ -1322,10 +1322,10 @@ stages:
       The tester will then execute the `type history` command and expect the output to be `history is a shell builtin`.
 
       ### Notes
-      
+
       - For now we're just testing that the `type` builtin identifies `history` as a valid builtin.
       - We'll handle the actual implementation of the `history` builtin in later stages.
-      
+
   - slug: "yf5"
     primary_extension_slug: "history"
     name: "Listing history"
@@ -1435,10 +1435,10 @@ stages:
       ```
 
       The tester will execute some commands and then press the up arrow key to recall the history.
-    
+
     marketing_md: |-
       In this stage, you'll implement support for recalling history with the up arrow key.
-  
+
   - slug: "vq0"
     primary_extension_slug: "history"
     name: "Down-arrow navigation"
@@ -1473,7 +1473,7 @@ stages:
 
     marketing_md: |-
       In this stage, you'll implement support for recalling history with the down arrow key.
-      
+
   - slug: "dm2"
     primary_extension_slug: "history"
     name: "Command Execution after Arrow Navigation"
@@ -1488,7 +1488,7 @@ stages:
       ```bash
       ./your_program.sh
       ```
-      
+
       It will then send multiple commands to your shell, followed by the up and then down arrow keys to recall the history:
 
       ```bash
