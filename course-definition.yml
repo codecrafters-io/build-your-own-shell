@@ -1301,6 +1301,7 @@ stages:
     name: "The history builtin"
     difficulty: easy
     description_md: |-
+
       In this stage, you'll add support for [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin.
 
       ### The history builtin
@@ -1366,7 +1367,7 @@ stages:
       $
       ```
 
-      The tester will then execute the `history` command and expect a history list with the commands that were executed, formatted and indexed like in the example above.
+      The tester expects a history list with the commands that were executed, formatted and indexed like in the example above.
 
       ### Notes
 
@@ -1405,7 +1406,7 @@ stages:
       $
       ```
 
-      The tester will then execute the `history <n>` command and expect the history list to be limited to the last `n` commands.
+      The tester expects the history list to be limited to the last `n` commands.
 
       ### Notes
 
@@ -1442,7 +1443,7 @@ stages:
       $ echo hello
       ```
 
-      The tester will execute some commands and then press the up arrow key to recall the history.
+      The tester will expect the previous commands to be displayed when the up arrow key is pressed.
 
     marketing_md: |-
       In this stage, you'll implement support for recalling history with the up arrow key.
@@ -1477,7 +1478,7 @@ stages:
       $ echo world
       ```
 
-      The tester will execute some commands and then press the up and then down arrow keys to recall the history.
+      The tester will expect the previous commands to be displayed when the down arrow key is pressed.
 
     marketing_md: |-
       In this stage, you'll implement support for recalling history with the down arrow key.
