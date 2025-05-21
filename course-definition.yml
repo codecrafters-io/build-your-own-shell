@@ -1301,7 +1301,6 @@ stages:
     name: "The history builtin"
     difficulty: easy
     description_md: |-
-
       In this stage, you'll add support for [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin.
 
       ### The history builtin
@@ -1485,7 +1484,7 @@ stages:
 
   - slug: "dm2"
     primary_extension_slug: "history"
-    name: "Command Execution after Arrow Navigation"
+    name: "Executing commands from history"
     difficulty: medium
     description_md: |-
       In this stage, you'll implement support for being able to press enter to execute a command recalled using UP-DOWN arrows.
@@ -1498,7 +1497,7 @@ stages:
       ./your_program.sh
       ```
 
-      It will then send multiple commands to your shell, followed by the up and then down arrow keys to recall the history:
+      It will then send multiple commands to your shell, followed by the up and then down arrow keys to recall the history and then press enter to execute the command:
 
       ```bash
       $ echo hello
@@ -1516,7 +1515,7 @@ stages:
       $
       ```
 
-      The tester will execute some commands and then press the up and then down arrow keys to recall the history and then press enter to execute the command arrived.
+      The tester will expect the command to be executed when the enter key is pressed.
 
     marketing_md: |-
       In this stage, you'll implement support for being able to press enter to execute a command recalled using UP-DOWN arrows.
