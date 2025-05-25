@@ -854,7 +854,7 @@ stages:
       ```bash
       $ ls nonexistent 2> /tmp/quz/baz.md
       $ cat /tmp/quz/baz.md
-      ls: cannot access 'nonexistent': No such file or directory
+      ls: nonexistent: No such file or directory
       $ echo 'Maria file cannot be found' 2> /tmp/quz/foo.md
       Maria file cannot be found
       $ cat /tmp/bar/pear nonexistent 2> /tmp/quz/quz.md
