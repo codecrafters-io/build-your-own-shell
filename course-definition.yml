@@ -940,17 +940,17 @@ stages:
 
       ```bash
       $ ls nonexistent >> /tmp/foo/baz.md
-      ls: cannot access 'nonexistent': No such file or directory
+      ls: nonexistent: No such file or directory
       $ ls nonexistent 2>> /tmp/foo/qux.md
       $ cat /tmp/foo/qux.md
-      ls: cannot access 'nonexistent': No such file or directory
+      ls: nonexistent: No such file or directory
       $ echo "James says Error" 2>> /tmp/foo/quz.md
       James says Error
       $ cat nonexistent 2>> /tmp/foo/quz.md
       $ ls nonexistent 2>> /tmp/foo/quz.md
       $ cat /tmp/foo/quz.md
       cat: nonexistent: No such file or directory
-      ls: cannot access 'nonexistent': No such file or directory
+      ls: nonexistent: No such file or directory
       ```
 
       The tester will check if the commands correctly execute commands and append their standard error to a file as specified.
