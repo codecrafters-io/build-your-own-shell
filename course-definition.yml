@@ -1569,6 +1569,9 @@ stages:
       $
       ```
 
+      ### Notes
+      - The tester will expect the history commands to also be present in the history list.
+
     marketing_md: |-
       In this stage, you'll implement support for reading history from a file.
 
@@ -1608,7 +1611,7 @@ stages:
 
       ### Notes
       - If the file doesn't exist when running `history -w`, your shell should create the file and then write the commands to it.
-      - If the file does exist, it should be overwritten.
+      - The tester will expect the `history -w` command to also be present in the history file.
 
     marketing_md: |-
       In this stage, you'll implement support for writing history to a file.
