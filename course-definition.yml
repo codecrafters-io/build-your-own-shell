@@ -1741,8 +1741,11 @@ stages:
       In this stage, you'll implement support for persisting history on exit.
 
   - slug: "jv2"
+    primary_extension_slug: "history-persistence"
+    name: "Append history on exit"
+    difficulty: medium
     description_md: |-
-      In this stage, you'll implement support for appending the in-memory history to the history file when exiting.
+      In this stage, you'll add support for appending the in-memory history to the history file when exiting.
 
       ### Tests
 
