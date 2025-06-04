@@ -1678,7 +1678,7 @@ stages:
 
       ### Tests
 
-      The contents of the history file would look something like:
+      The tester will write the following commands to the history file:
 
       ```txt
       echo hello
@@ -1749,7 +1749,7 @@ stages:
 
       ### Tests
 
-      The contents of the history file would look something like:
+      The tester will write the following commands to the history file:
 
       ```txt
       echo initial_command_1
