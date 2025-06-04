@@ -1544,7 +1544,7 @@ stages:
 
       ### Tests
 
-      The contents of the history file would look something like:
+      The tester will write the following commands to the history file:
 
       ```txt
       echo hello
@@ -1625,6 +1625,13 @@ stages:
 
       ### Tests
 
+      The tester will write the following commands to the history file:
+      
+      ```txt
+      echo initial_command_1
+      echo initial_command_2
+      ```
+
       The tester will execute your program like this:
 
       ```bash
@@ -1634,34 +1641,75 @@ stages:
       It will then send the following commands to your shell:
 
       ```bash
-      $ echo hi
-      hi
+      $ echo new_command
+      new_command
       $ history -a <path_to_history_file>
       $
       ```
 
-      It will then expect the history file's contents to look like:
+      The tester will then expect the history file's contents to include the new commands:
 
       ```txt
-      echo hello
-      echo world
-      echo hi
+      echo initial_command_1
+      echo initial_command_2
+      echo new_command
       history -a <path_to_history_file>
       ```
 
       ### Notes
-      - If the file doesn't exist when running `history -a`, your shell should create the file and then append the commands to it.
-      - If the file does exist, it should be appended to the end of the file.
+      - The tester will expect the `history -a` command to also be present in the history file.
+      - Running `history -a` multiple times should only append commands that have been executed since the last time `history -a` was run.
 
     marketing_md: |-
       In this stage, you'll implement support for appending history to a file.
 
-  - slug: "kz7"
+  - slug: "zp4"
     primary_extension_slug: "history-persistence"
-    name: "Persist history on exit"
+    name: "Read history on startup"
     difficulty: easy
     description_md: |-
-      In this stage, you'll make sure your shell saves the in-memory history to file when exiting.
+      In this stage, you'll ensure that your shell loads history from the file into memory on startup.
+
+      ### The `HISTFILE` environment variable
+
+      The [`HISTFILE` environment variable](https://www.gnu.org/software///bash/manual/bash.html#index-HISTFILE) specifies the path to the history file. 
+      It is the path used to load history from the file into memory on startup and to save the in-memory history to the file when exiting.
+
+
+      ### Tests
+
+      The contents of the history file would look something like:
+
+      ```txt
+      echo hello
+      echo world
+      ```
+
+      The tester will execute your program like this:
+
+      ```bash
+      HISTFILE=<path_to_history_file> ./your_program.sh
+      ```
+
+      It will then send the following commands to your shell:
+
+      ```bash
+      $ history
+      1  echo hello
+      2  echo world
+      3 history
+      $
+      ```
+
+    marketing_md: |-
+      In this stage, you'll ensure that your shell loads history from the file into memory on startup.
+
+  - slug: "kz7"
+    primary_extension_slug: "history-persistence"
+    name: "Write history on exit"
+    difficulty: easy
+    description_md: |-
+      In this stage, you'll add support for writing the in-memory history to the history file when exiting.
 
       ### Tests
 
@@ -1689,26 +1737,20 @@ stages:
       exit 0
       ```
 
-      ### Notes
-      - `HISTFILE` here is an environment variable passed to your shell.
-
     marketing_md: |-
       In this stage, you'll implement support for persisting history on exit.
 
-  - slug: "zp4"
-    primary_extension_slug: "history-persistence"
-    name: "HISTFILE here is an environment variable passed to your shell."
-    difficulty: easy
+  - slug: "jv2"
     description_md: |-
-      In this stage, you'll ensure that your shell loads history from the file into memory on startup.
+      In this stage, you'll implement support for appending the in-memory history to the history file when exiting.
 
       ### Tests
 
       The contents of the history file would look something like:
 
       ```txt
-      echo hello
-      echo world
+      echo initial_command_1
+      echo initial_command_2
       ```
 
       The tester will execute your program like this:
@@ -1720,17 +1762,19 @@ stages:
       It will then send the following commands to your shell:
 
       ```bash
-      $ history
-      1  echo hello
-      2  echo world
-      3 history
-      $
+      $ echo new_command
+      new_command
+      $ exit 0
       ```
 
-      The tester will expect the history to be loaded from the file.
+      The tester will then expect the history file's contents to look like:
 
-      ### Notes
-      - `HISTFILE` here is an environment variable passed to your shell.
+      ```txt
+      echo initial_command_1
+      echo initial_command_2
+      echo new_command
+      exit 0
+      ```
 
     marketing_md: |-
-      In this stage, you'll ensure that your shell loads history from the file into memory on startup.
+      In this stage, you'll implement support for appending the in-memory history to the history file when exiting.
