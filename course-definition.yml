@@ -1315,9 +1315,9 @@ stages:
       [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin that lists previously executed commands. Example usage: 
       ```bash
       $ history
-      1  previous_command_1
-      2  previous_command_2
-      3  history
+          1  previous_command_1
+          2  previous_command_2
+          3  history
       ```
 
       ### Tests
@@ -1696,9 +1696,9 @@ stages:
 
       ```bash
       $ history
-      1  echo hello
-      2  echo world
-      3 history
+          1  echo hello
+          2  echo world
+          3 history
       $
       ```
 
