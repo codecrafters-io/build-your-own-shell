@@ -1315,9 +1315,9 @@ stages:
       [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin that lists previously executed commands. Example usage: 
       ```bash
       $ history
-      1  previous_command_1
-      2  previous_command_2
-      3  history
+          1  previous_command_1
+          2  previous_command_2
+          3  history
       ```
 
       ### Tests
@@ -1549,6 +1549,7 @@ stages:
       ```txt
       echo hello
       echo world
+      <|EMPTY LINE|>
       ```
 
       The tester will execute your program like this:
@@ -1562,15 +1563,16 @@ stages:
       ```bash
       $ history -r <path_to_history_file>
       $ history
-      1  echo hello
-      2  echo world
-      3  history -r <path_to_history_file>
-      4  history
+          1  history -r <path_to_history_file>
+          2  echo hello
+          3  echo world
+          4  history
       $
       ```
 
       ### Notes
       - The tester will expect the history commands to also be present in the history list.
+      - `history -r` should append the history file's contents to the history list in memory.
 
     marketing_md: |-
       In this stage, you'll implement support for reading history from a file.
@@ -1600,18 +1602,20 @@ stages:
       $ history -w <path_to_history_file>
       $
       ```
-      
+
       The tester will then expect the history file's contents to look like:
 
       ```txt
       echo hello
       echo world
       history -w <path_to_history_file>
+      <|EMPTY LINE|>
       ```
 
       ### Notes
       - If the file doesn't exist when running `history -w`, your shell should create the file and then write the commands to it.
       - The tester will expect the `history -w` command to also be present in the history file.
+      - The history file should include a trailing newline character (displayed as an empty line).
 
     marketing_md: |-
       In this stage, you'll implement support for writing history to a file.
@@ -1626,10 +1630,11 @@ stages:
       ### Tests
 
       The tester will write the following commands to the history file:
-      
+
       ```txt
       echo initial_command_1
       echo initial_command_2
+      <|EMPTY LINE|>
       ```
 
       The tester will execute your program like this:
@@ -1654,6 +1659,7 @@ stages:
       echo initial_command_2
       echo new_command
       history -a <path_to_history_file>
+      <|EMPTY LINE|>
       ```
 
       ### Notes
@@ -1683,6 +1689,7 @@ stages:
       ```txt
       echo hello
       echo world
+      <|EMPTY LINE|>
       ```
 
       The tester will execute your program like this:
@@ -1695,9 +1702,9 @@ stages:
 
       ```bash
       $ history
-      1  echo hello
-      2  echo world
-      3 history
+          1  echo hello
+          2  echo world
+          3 history
       $
       ```
 
@@ -1728,13 +1735,14 @@ stages:
       world
       $ exit 0
       ```
-      
+
       The tester will then expect the history file's contents to look like:
 
       ```txt
       echo hello
       echo world
       exit 0
+      <|EMPTY LINE|>
       ```
 
     marketing_md: |-
@@ -1754,6 +1762,7 @@ stages:
       ```txt
       echo initial_command_1
       echo initial_command_2
+      <|EMPTY LINE|>
       ```
 
       The tester will execute your program like this:
@@ -1777,6 +1786,7 @@ stages:
       echo initial_command_2
       echo new_command
       exit 0
+      <|EMPTY LINE|>
       ```
 
     marketing_md: |-
