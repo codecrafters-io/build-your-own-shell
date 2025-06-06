@@ -1549,6 +1549,7 @@ stages:
       ```txt
       echo hello
       echo world
+
       ```
 
       The tester will execute your program like this:
@@ -1562,15 +1563,16 @@ stages:
       ```bash
       $ history -r <path_to_history_file>
       $ history
-      1  echo hello
-      2  echo world
-      3  history -r <path_to_history_file>
-      4  history
+          1  history -r <path_to_history_file>
+          2  echo hello
+          3  echo world
+          4  history
       $
       ```
 
       ### Notes
       - The tester will expect the history commands to also be present in the history list.
+      - There will be a trailing newline in the history file.
 
     marketing_md: |-
       In this stage, you'll implement support for reading history from a file.
@@ -1607,11 +1609,13 @@ stages:
       echo hello
       echo world
       history -w <path_to_history_file>
+
       ```
 
       ### Notes
       - If the file doesn't exist when running `history -w`, your shell should create the file and then write the commands to it.
       - The tester will expect the `history -w` command to also be present in the history file.
+      - The tester will expect the history file to have a trailing newline.
 
     marketing_md: |-
       In this stage, you'll implement support for writing history to a file.
@@ -1630,6 +1634,7 @@ stages:
       ```txt
       echo initial_command_1
       echo initial_command_2
+
       ```
 
       The tester will execute your program like this:
@@ -1654,11 +1659,13 @@ stages:
       echo initial_command_2
       echo new_command
       history -a <path_to_history_file>
+
       ```
 
       ### Notes
       - The tester will expect the `history -a` command to also be present in the history file.
       - Running `history -a` multiple times should only append commands that have been executed since the last time `history -a` was run.
+      - The tester will expect the history file to have a trailing newline.
 
     marketing_md: |-
       In this stage, you'll implement support for appending history to a file.
@@ -1683,6 +1690,7 @@ stages:
       ```txt
       echo hello
       echo world
+
       ```
 
       The tester will execute your program like this:
@@ -1695,9 +1703,9 @@ stages:
 
       ```bash
       $ history
-      1  echo hello
-      2  echo world
-      3 history
+          1  echo hello
+          2  echo world
+          3 history
       $
       ```
 
@@ -1735,6 +1743,7 @@ stages:
       echo hello
       echo world
       exit 0
+
       ```
 
     marketing_md: |-
@@ -1754,6 +1763,7 @@ stages:
       ```txt
       echo initial_command_1
       echo initial_command_2
+      
       ```
 
       The tester will execute your program like this:
@@ -1777,6 +1787,7 @@ stages:
       echo initial_command_2
       echo new_command
       exit 0
+
       ```
 
     marketing_md: |-
