@@ -871,7 +871,8 @@ stages:
       ```
 
       The tester will check if the commands correctly execute commands and redirect their error message to a file as specified.
-      The file contents will also be checked for correctness.
+
+      It will also check that the file is created (if it doesn’t already exist), and that its contents match the expected output.
 
     marketing_md: |-
       In this stage, you'll implement support for redirecting the standard error of a command to a file.
