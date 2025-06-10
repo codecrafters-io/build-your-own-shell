@@ -6,7 +6,7 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 
 # Install build dependencies (for native extensions)
-RUN apk add --no-cache build-base
+RUN apk add --no-cache build-base=0.5-r3
 
 # Install dependencies
 RUN bundle install --verbose
