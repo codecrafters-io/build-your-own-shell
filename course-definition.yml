@@ -463,7 +463,7 @@ stages:
   - slug: "gq9"
     primary_extension_slug: "navigation"
     name: "The cd builtin: Relative paths"
-    difficulty: hard
+    difficulty: medium
     description_md: |-
       In this stage, you'll extend your `cd` builtin command to handle relative paths.
 
