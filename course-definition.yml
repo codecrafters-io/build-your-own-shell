@@ -562,7 +562,7 @@ stages:
     description_md: |-
       In this stage, you'll implement support for quoting with single quotes.
 
-      Characters enclosed in single quotes are interpreted literally, with no special treatment. Read more about quoting with single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
+      Every character within single quotes is interpreted literally, with no special treatment. Read more about quoting with single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
 
       ### Tests
 
@@ -730,7 +730,18 @@ stages:
     description_md: |-
       In this stage, you'll implement support for quoting with backslashes within double quotes.
 
-      Within double quotes `"`, a backslash escapes the following characters: `\`, `"`, `$`, and a newline. In all other cases, the backslash is treated as a literal character. Read more about quoting with backslashes within double quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes).
+      Within double quotes `"`, a backslash escapes the following characters: `"`, `\`, `$`, `` ` ``, or newline. Read more about quoting with backslashes within double quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes).
+
+      In this stage, we’ll cover:
+
+      - `\"` → escapes double quote, allowing " to appear literally within the quoted string
+      - `\\` → escapes backslash, resultig in a literal \
+
+      We won’t cover the following cases in this stage:
+
+      - `\$` → escapes the dollar sign, preventing variable expansion
+      -  `` \` `` → escapes the backtick, preventing command substitution
+      - `\<newline>` → escapes a newline character, allowing line continuation
 
       ### Tests
 
