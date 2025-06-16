@@ -735,7 +735,7 @@ stages:
       In this stage, we’ll cover:
 
       - `\"` → escapes double quote, allowing " to appear literally within the quoted string
-      - `\\` → escapes backslash, resultig in a literal \
+      - `\\` → escapes backslash, resulting in a literal \
 
       We won’t cover the following cases in this stage:
 
