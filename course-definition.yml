@@ -689,7 +689,7 @@ stages:
     description_md: |-
       In this stage, you'll implement support for quoting with backslashes within single quotes.
 
-      Enclosing characters in single quotes `'` preserves the literal value of each character within the quotes, even backslashes. Read more about quoting with backslashes within single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
+      Within single quotes `'`, every character (including backslashes) is treated literally. No escaping is performed. Read more about quoting with backslashes within single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
 
       ### Tests
 
