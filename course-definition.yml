@@ -377,6 +377,19 @@ stages:
 
       The executable file will print information about the arguments it was passed along with a random "program signature". The tester will verify that your program prints output from the executable.
 
+      You’ll then receive another command to execute:
+
+      ```bash
+      $ custom_exe_5678 bob carol
+      Program was passed 3 args (including program name).
+      Arg #0 (program name): custom_exe_5678
+      Arg #1: bob
+      Arg #2: carol
+      Program Signature: 9859544159
+      ```
+
+      This is similar to the previous command, except there are three arguments instead of two.
+
       ### Notes
 
       - The program name, arguments and the expected output will be random for each test case.
