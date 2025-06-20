@@ -376,6 +376,8 @@ stages:
 
       The executable file will print information about the arguments it was passed along with a random "program signature". The tester will verify that your program prints output from the executable.
 
+      The tester will run multiple such commands and use a random number of arguments each time.
+
       ### Notes
 
       - The program name, arguments and the expected output will be random for each test case.
