@@ -341,7 +341,7 @@ stages:
       ### Notes
 
       - The actual value of the `PATH` environment variable will be random for each test case.
-      - `PATH` can contain multiple directories separated by colons (`:`), your program should search for programs in each directory in order and return the first match which has executable permission.
+      - `PATH` can contain multiple directories separated by colons (`:`), your program should search for programs in each directory in order and return the first match which has executable permissions.
       - Some commands, such as `echo`, can exist as both builtin commands and executable files. In such cases, the `type` command should identify them as builtins.
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command for your shell.
