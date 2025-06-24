@@ -648,6 +648,12 @@ stages:
 
       The tester will check if the `cat` command correctly prints the file content.
 
+      Here are a few examples illustrating how backslashes behave within double quotes:
+      | Command | Expected output |
+      | :---: | :-------------: | 
+      | `echo "A \\ escapes itself"` | `A \ escapes itself` | 
+      | `echo "A \" inside double quotes"` | `A " inside double quotes` |
+
     marketing_md: |-
       In this stage, you'll implement support for quoting with double quotes.
 
