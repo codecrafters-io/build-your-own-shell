@@ -598,8 +598,8 @@ stages:
 
       | Command | Expected output | Explanation |
       | :---: | :-------------: | :---------: |
-      | `echo 'hello     world'` | `hello     world` | Spaces are preserved within quotes. |
-      | `echo hello     world` | `hello world` | Consecutive spaces are collapsed unless quoted. |
+      | `echo 'hello&nbsp;&nbsp;&nbsp;&nbsp;world'` | `hello&nbsp;&nbsp;&nbsp;&nbsp;world` | Spaces are preserved within quotes. |
+      | `echo hello&nbsp;&nbsp;&nbsp;&nbsp;world` | `hello world` | Consecutive spaces are collapsed unless quoted. |
       | `echo 'hello''world'` | `helloworld` | Adjacent quoted strings are concatenated. ]
       | `echo hello''world` | `helloworld` | Empty quotes are ignored. ]
 
