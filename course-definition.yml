@@ -600,8 +600,8 @@ stages:
       | :---: | :-------------: | :---------: |
       | `echo 'hello     world'` | `hello     world` | Spaces are preserved within quotes. |
       | `echo hello     world` | `hello world` | Consecutive spaces are collapsed unless quoted. |
-      | `echo 'foo''bar'` | `foobar` | Adjacent quoted strings are concatenated. ]
-      | `echo 123''456` | `123456` | Empty quotes are ignored. ]
+      | `echo 'hello''world'` | `helloworld` | Adjacent quoted strings are concatenated. ]
+      | `echo hello''world` | `helloworld` | Empty quotes are ignored. ]
 
       ### Notes
 
