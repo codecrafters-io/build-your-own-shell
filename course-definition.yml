@@ -541,6 +541,8 @@ stages:
       $ cd /usr/local/bin
       $ pwd
       /usr/local/bin
+      $ echo ~
+      /home/user
       $ cd ~
       $ pwd
       /home/user
