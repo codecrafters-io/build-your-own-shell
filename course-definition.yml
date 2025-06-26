@@ -312,15 +312,15 @@ stages:
     description_md: |-
       In this stage, you'll extend the `type` builtin to search for executable files using [PATH](https://en.wikipedia.org/wiki/PATH_(variable)).
 
-      [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) is an environment variable that specifies a set of directories where executable programs are located. When a command is received, the program should search for the command in the directories listed in the PATH environment variable.
+      [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) is an environment variable that specifies a set of directories where executable programs are located. When a command is received, your shell should search for the command in the directories listed in the PATH environment variable.
 
-      For example, PATH like `/dir1:/dir2:/dir3` means that the program should search for the command in `/dir1`, then `/dir2`, and finally `/dir3`, in that order.
+      For example, PATH like `/dir1:/dir2:/dir3` means that your shell should search in `/dir1`, then `/dir2`, and finally `/dir3`, in that order.
 
       Caveat: Not all commands found are necessarily executable.
 
-      - If the command is found (but it does not have execute permissions), the program should skip it and continue searching. 
-      - If the command is found (and it has execute permissions), the program should print the path to the command. 
-      - If the command is not found, the program should print `<command>: not found`.
+      - If the command is found (but it does not have execute permissions), your shell should skip it and continue searching. 
+      - If the command is found (and it has execute permissions), your shell should print the path to the command. 
+      - If the command is not found, your shell should print `<command>: not found`.
 
       ### Tests
 
