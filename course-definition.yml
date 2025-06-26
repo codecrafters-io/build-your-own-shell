@@ -314,7 +314,13 @@ stages:
 
       [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) is an environment variable that specifies a set of directories where executable programs are located. When a command is received, the program should search for the command in the directories listed in the PATH environment variable.
 
-      If the command is found, the program should print the path to the command. If the command is not found, the program should print `<command>: not found`.
+      For example, PATH like `/dir1:/dir2:/dir3` means that the program should search for the command in `/dir1`, then `/dir2`, and finally `/dir3`, in that order.
+
+      Caveat: Not all commands found are necessarily executable.
+
+      - If the command is found (but it does not have execute permissions), the program should skip it and continue searching. 
+      - If the command is found (and it has execute permissions), the program should print the path to the command. 
+      - If the command is not found, the program should print `<command>: not found`.
 
       ### Tests
 
@@ -329,8 +335,14 @@ stages:
       ```bash
       $ type ls
       ls is /usr/bin/ls
+      ```
+
+      ```bash
       $ type valid_command
       valid_command is /usr/local/bin/valid_command
+      ```
+
+      ```bash
       $ type invalid_command
       invalid_command: not found
       $
@@ -341,8 +353,9 @@ stages:
       ### Notes
 
       - The actual value of the `PATH` environment variable will be random for each test case.
-      - `PATH` can contain multiple directories separated by colons (`:`), your program should search for programs in each directory in order and return the first match which has executable permissions.
       - Some commands, such as `echo`, can exist as both builtin commands and executable files. In such cases, the `type` command should identify them as builtins.
+      - PATH can include directories that don’t exist on disk, so your code should handle such cases gracefully.
+
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command for your shell.
 
@@ -1120,8 +1133,11 @@ stages:
       1.  **Input:** `custom`<TAB>
           *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to <code>custom_executable  </code>.
 
-      The tester will verify that your shell correctly completes the command to the external executable file name.
-      Note the space at the end of the completion.
+      The tester will verify that your shell correctly completes the command to the external executable file name. Note the space at the end of the completion.
+
+      ### Notes
+
+      - PATH can include directories that don't exist on disk, so your code should handle such cases gracefully.
 
     marketing_md: |-
       In this stage, you'll implement support for autocompleting external executables.
