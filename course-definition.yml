@@ -1057,11 +1057,11 @@ stages:
 
       The tests will simulate user input with tab presses and will execute builtin commands, similar to the previous stage, with added arguments:
 
-      1.  **Input:** `ech``<TAB>` `hello``<ENTER>`
+      1.  **Input:** `ech<TAB>` `hello<ENTER>`
           *   The tester expects the shell to first complete the `ech` to `echo` after `<TAB>`, then accept the `hello` argument, and after the `<ENTER>` key press, execute `echo hello`.
           *   The shell should output `hello`.
 
-      2.  **Input:** `exi``<TAB>` `type``<ENTER>`
+      2.  **Input:** `exi<TAB>` `0<ENTER>`
            *   The tester expects the shell to first complete `exi` to `exit` after `<TAB>`, then accept the `0` argument, and after the `<ENTER>` key press, execute `exit 0`.
            *   The shell should exit with status code 0.
 
