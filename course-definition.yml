@@ -104,289 +104,48 @@ stages:
   - slug: "oo8"
     name: "Print a prompt"
     difficulty: very_easy
-    description_md: |-
-      In this stage, you'll implement printing a shell prompt (`$ `) and waiting for user input.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      The tester will then check whether your shell prints the `$ ` prompt and waits for user input.
-
-      ### Notes
-
-      - There's a space after the `$` character in the prompt.
-      - Your program must not exit after printing `$ `, it should wait for user input.
-      - We'll handle reading commands and executing them in later stages, this stage only deals with printing the prompt.
     marketing_md: |-
       In this stage, you'll implement printing the shell prompt and waiting for user input.
 
   - slug: "cz2"
     name: "Handle invalid commands"
     difficulty: easy
-    description_md: |-
-      In this stage, you'll implement support for handling invalid commands in your shell.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send the following command to your shell:
-
-      ```bash
-      $ invalid_command
-      invalid_command: command not found
-      ```
-
-      The tester will check whether your shell prints `<command_name>: command not found\n` for an invalid command.
-
-      ### Notes
-
-      - We're treating every command as "invalid" for now, but we'll handle executing "valid" commands like `echo`, `cd` etc. in later stages.
-      - The command name will be a random string, so the response can't be hardcoded.
-      - In this stage it's okay if your program exits soon after printing the `<command_name>: command not found\n` message. In later stages
-        we'll check for a REPL (Read-Eval-Print Loop), i.e. whether the shell prints a new prompt after processing each command.
     marketing_md: |-
       In this stage, you'll implement handling invalid commands in your shell.
 
   - slug: "ff0"
     name: "REPL"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement a [REPL (Read-Eval-Print Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
-
-      A REPL is an interactive loop that reads user input, evaluates it, prints the result, and then waits for the next input.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send a series of commands to your shell:
-
-      ```bash
-      $ invalid_command_1
-      invalid_command_1: command not found
-      $ invalid_command_2
-      invalid_command_2: command not found
-      $ invalid_command_3
-      invalid_command_3: command not found
-      $
-      ```
-
-      After each command, the tester will check if `<command_name>: command not found` is printed, and whether a prompt is printed for the next command.
-
-      ### Notes
-
-      - The exact number of commands sent and the command names will be random.
-      - Just like the previous stages, all commands will be invalid commands, so the response will always be `<command_name>: command not found`.
     marketing_md: |-
       In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
 
   - slug: "pn5"
     name: "The exit builtin"
     difficulty: easy
-    description_md: |-
-      In this stage, you'll implement the [exit](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit) builtin.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send an invalid command to your shell, followed by the `exit` command:
-
-      ```bash
-      $ invalid_command_1
-      invalid_command_1: command not found
-      $ exit 0
-      ```
-
-      After issuing the `exit 0` command, the tester will verify whether your program terminates with [code/status](https://en.wikipedia.org/wiki/Exit_status) 0.
-
-      ### Notes
-
-      - The tester will always pass in `0` as the argument to the `exit` command.
     marketing_md: |-
       In this stage, you'll implement the `exit` builtin command.
 
   - slug: "iz3"
     name: "The echo builtin"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement the [echo](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) builtin.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `echo` commands to your shell:
-
-      ```bash
-      $ echo hello world
-      hello world
-      $ echo pineapple strawberry
-      pineapple strawberry
-      $
-      ```
-
-      After each command, the tester will check if the `echo` command correctly prints the provided text back.
     marketing_md: |-
       In this stage, you'll implement the `echo` builtin command.
 
   - slug: "ez5"
     name: "The type builtin: builtins"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement the `type` builtin command for your shell.
-
-      The `type` builtin is used to determine how a command would be interpreted if used. Example:
-
-      ```bash
-      $ type echo
-      echo is a shell builtin
-      $ type exit
-      exit is a shell builtin
-      $ type invalid_command
-      invalid_command: not found
-      ```
-
-      In this stage we'll only test two cases: builtin commands and unrecognized commands. We'll handle
-      executable files in later stages.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `type` commands to your shell:
-
-      ```bash
-      $ type echo
-      echo is a shell builtin
-      $ type exit
-      exit is a shell builtin
-      $ type type
-      type is a shell builtin
-      $ type invalid_command
-      invalid_command: not found
-      $
-      ```
-
-      The tester will check if the `type` command responds correctly based on the command provided:
-
-      - If a command is a shell builtin, the expected output is `<command> is a shell builtin`.
-      - If a command is not recognized, the expected output is `<command>: not found`.
-
-      ### Notes
-
-      - The tester will only check for builtin commands and unrecognized commands in this stage.
-      - `type` itself is a shell builtin command, so `$ type type` should print `type is a shell builtin`.
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command.
 
   - slug: "mg5"
     name: "The type builtin: executable files"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll extend the `type` builtin to search for executable files using [PATH](https://en.wikipedia.org/wiki/PATH_(variable)).
-
-      [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) is an environment variable that specifies a set of directories where executable programs are located. When a command is received, your shell should search for the command in the directories listed in the PATH environment variable.
-
-      For example, if PATH is `/dir1:/dir2:/dir3`, your shell should search in `/dir1`, then `/dir2`, and finally `/dir3`, in that order.
-
-      - If a matching file is found but it does not have execute permissions, your shell should skip it and continue searching. 
-      - If a matching files is found and it has execute permissions, your shell should print the path to the file. 
-      - If no matching files are found, your shell should print `<command>: not found`.
-
-      ### Tests
-
-      The tester will execute your program with a custom `PATH` like this:
-
-      ```bash
-      PATH="/usr/bin:/usr/local/bin:$PATH" ./your_program.sh
-      ```
-
-      It'll then send a series of `type` commands to your shell:
-
-      ```bash
-      $ type ls
-      ls is /usr/bin/ls
-      $ type valid_command
-      valid_command is /usr/local/bin/valid_command
-      $ type invalid_command
-      invalid_command: not found
-      $
-      ```
-
-      The tester will check if the `type` command correctly identifies executable files in the PATH.
-
-      ### Notes
-
-      - The actual value of the `PATH` environment variable will be random for each test case.
-      - Some commands, such as `echo`, can exist as both builtin commands and executable files. In such cases, the `type` command should identify them as builtins.
-      - PATH can include directories that don’t exist on disk, so your code should handle such cases gracefully.
-
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command for your shell.
 
   - slug: "ip1"
     name: "Run a program"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll add support for running external programs with arguments.
-
-      External programs are located using the `PATH` environment variable, as described in previous stages.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a command that you need to execute:
-
-      ```bash
-      $ custom_exe_1234 alice
-      Program was passed 2 args (including program name).
-      Arg #0 (program name): custom_exe_1234
-      Arg #1: alice
-      Program Signature: 5998595441
-      ```
-
-      The command (`custom_exe_1234`) in the example above will be present in `PATH` and will be an executable file.
-
-      The executable file will print information about the arguments it was passed along with a random "program signature". The tester will verify that your program prints output from the executable.
-
-      The tester will run multiple such commands and use a random number of arguments each time.
-
-      ### Notes
-
-      - The program name, arguments and the expected output will be random for each test case.
-      - The output in the example ("Program was passed N args...") comes from the executable. It's not something you need to implement manually.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run external programs with arguments.
 
@@ -394,32 +153,6 @@ stages:
     primary_extension_slug: "navigation"
     name: "The pwd builtin"
     difficulty: easy
-    description_md: |-
-      In this stage, you'll implement the `pwd` builtin command.
-
-      [pwd](https://en.wikipedia.org/wiki/Pwd) stands for "print working directory".
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a `pwd` command to your shell:
-
-      ```bash
-      $ pwd
-      /path/to/current/directory
-      $
-      ```
-
-      The tester will check if the `pwd` command correctly prints the current working directory.
-
-      ### Notes
-
-      - The `pwd` command must print the full absolute path of the current working directory.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to print the current working directory.
 
@@ -427,42 +160,6 @@ stages:
     primary_extension_slug: "navigation"
     name: "The cd builtin: Absolute paths"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement the `cd` builtin command to handle absolute paths.
-
-      The `cd` command is used to change the current working directory. `cd` can receive multiple
-      argument types. In this challenge we'll cover:
-
-      - Absolute paths, like `/usr/local/bin`. (**This stage**)
-      - Relative paths, like `./`, `../`, `./dir`. (Later stages)
-      - The `~` character, which stands for the user's home directory (Later stages)
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `cd` commands to your shell:
-
-      ```bash
-      $ cd /usr/local/bin
-      $ pwd
-      /usr/local/bin
-      $ cd /does_not_exist
-      cd: /does_not_exist: No such file or directory
-      $
-      ```
-
-      The tester will check if the `cd` command correctly changes the directory when a valid path is provided. It'll
-      also check whether the message `cd: <directory>: No such file or directory` is printed if the provided path is invalid.
-
-      ### Notes
-
-      - The `cd` command doesn't print anything if the directory is changed successfully. The tester will use `pwd` to verify
-        the current working directory after using `cd`.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run the `cd` builtin command with absolute paths.
 
@@ -470,47 +167,6 @@ stages:
     primary_extension_slug: "navigation"
     name: "The cd builtin: Relative paths"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll extend your `cd` builtin command to handle relative paths.
-
-      As a recap, `cd` can receive multiple argument types:
-
-      - Absolute paths, like `/usr/local/bin`. (Previous stages)
-      - Relative paths, like `./`, `../`, `./dir`. (**This stage**)
-      - The `~` character, which stands for the user's home directory (Later stages)
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `cd` commands to your shell:
-
-      ```bash
-      $ cd /usr
-      $ pwd
-      /usr
-      $ cd ./local/bin
-      $ pwd
-      /usr/local/bin
-      $ cd ../../
-      $ pwd
-      /usr
-      $
-      ```
-
-      The tester will check if the `cd` command correctly changes the directory when a valid path is provided. It'll
-      also check whether the message `cd: <directory>: No such file or directory` is printed if the provided path is invalid.
-
-      ### Notes
-
-      - The actual directory names used will be random, so you can't hardcode the expected output.
-      - Relative paths like `./`, `../`, and more complex relative paths should be handled correctly.
-      - The `cd` command doesn't print anything if the directory is changed successfully. The tester will use `pwd` to verify
-        the current working directory after using `cd`.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run the `cd` builtin command with relative paths.
 
@@ -518,46 +174,6 @@ stages:
     primary_extension_slug: "navigation"
     name: "The cd builtin: Home directory"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll extend your `cd` builtin command to handle the `~` character.
-
-      As a recap, `cd` can receive multiple argument types:
-
-      - Absolute paths, like `/usr/local/bin`. (Previous stages)
-      - Relative paths, like `./`, `../`, `./dir`. (Previous stages)
-      - The `~` character, which stands for the user's home directory (**This stage**)
-
-      The `~` character is shorthand for the user's home directory. When `cd` is received with `~`, your shell should
-      change the current working directory to the user's home directory. The home directory is specified by the
-      [`HOME`](https://unix.stackexchange.com/questions/123858/is-the-home-environment-variable-always-set-on-a-linux-system)
-      environment variable.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `cd` commands to your shell:
-
-      ```bash
-      $ cd /usr/local/bin
-      $ pwd
-      /usr/local/bin
-      $ cd ~
-      $ pwd
-      /home/user
-      $
-      ```
-
-      The tester will check if the `cd` command correctly changes the directory to the user's home directory when `~` is used.
-
-      ### Notes
-
-      - The `pwd` command will be used to verify the current working directory after using `cd ~`.
-      - The home directory is specified by the `HOME` environment variable.
     marketing_md: |-
       In this stage, you'll implement the ability for your shell to run the `cd` builtin command with the `HOME` directory.
 
@@ -565,53 +181,6 @@ stages:
     primary_extension_slug: "quoting"
     name: "Single quotes"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for quoting with single quotes.
-
-      Every character within single quotes is interpreted literally, with no special treatment. Read more about quoting with single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `echo` commands to your shell:
-
-      ```bash
-      $ echo 'shell hello'
-      shell hello
-      $ echo 'world     test'
-      world     test
-      $
-      ```
-
-      The tester will check if the `echo` command correctly prints the quoted text.
-
-      Then it will also send a `cat` command, with the file name parameter enclosed in single quotes:
-
-      ```bash
-      $ cat '/tmp/file name' '/tmp/file name with spaces'
-      content1 content2
-      ```
-
-      The tester will check if the `cat` command correctly prints the file content.
-
-      Here are a few examples illustrating how quotes behave:
-
-      | Command | Expected output | Explanation |
-      | :---: | :-------------: | :---------: |
-      | <code style="white-space: pre;">echo 'hello    world'</code> | <code style="white-space: pre;">hello    world</code> | Spaces are preserved within quotes. |
-      | <code style="white-space: pre;">echo hello    world</code> | `hello world` | Consecutive spaces are collapsed unless quoted. |
-      | `echo 'hello''world'` | `helloworld` | Adjacent quoted strings `'hello'` and `'world'` are concatenated.
-      | `echo hello''world` | `helloworld` | Empty quotes `''` are ignored.
-
-      ### Notes
-
-      - The `cat` command is an executable available on most systems, so there's no need to implement it yourself.
-
     marketing_md: |-
       In this stage, you'll implement support for quoting with single quotes.
 
@@ -619,40 +188,6 @@ stages:
     primary_extension_slug: "quoting"
     name: "Double quotes"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for quoting with double quotes.
-
-      Most characters within double quotes are treated literally, with a few exceptions that will be covered in later stages. Read more about quoting with double quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes).
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `echo` commands to your shell:
-
-      ```bash
-      $ echo "quz  hello"  "bar"
-      quz  hello bar
-      $ echo "bar"  "shell's"  "foo"
-      bar shell's foo
-      $
-      ```
-
-      The tester will check if the `echo` command correctly prints the quoted text.
-
-      Then it will also send a `cat` command, with the file name parameter enclosed in double quotes:
-
-      ```bash
-      $ cat "/tmp/file name" "/tmp/'file name' with spaces"
-      content1 content2
-      ```
-
-      The tester will check if the `cat` command correctly prints the file content.
-
     marketing_md: |-
       In this stage, you'll implement support for quoting with double quotes.
 
@@ -660,40 +195,6 @@ stages:
     primary_extension_slug: "quoting"
     name: "Backslash outside quotes"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for quoting with backslashes.
-
-      A non-quoted backslash `\` is treated as an escape character. It preserves the literal value of the next character. Read more about quoting with backslashes [here](https://www.gnu.org/software/bash/manual/bash.html#Escape-Character).
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `echo` commands to your shell:
-
-      ```bash
-      $ echo "before\   after"
-      before\   after
-      $ echo world\ \ \ \ \ \ script
-      world      script
-      $
-      ```
-
-      The tester will check if the `echo` command correctly prints the quoted text.
-
-      Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside quotes:
-
-      ```bash
-      $ cat "/tmp/file\\name" "/tmp/file\ name"
-      content1 content2
-      ```
-
-      The tester will check if the `cat` command correctly prints the file content.
-
     marketing_md: |-
       In this stage, you'll implement support for quoting with backslashes only.
 
@@ -701,40 +202,6 @@ stages:
     primary_extension_slug: "quoting"
     name: "Backslash within single quotes"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for quoting with backslashes within single quotes.
-
-      Within single quotes `'`, every character (including backslashes) is treated literally. No escaping is performed. Read more about quoting with backslashes within single quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes).
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `echo` commands to your shell:
-
-      ```bash
-      $ echo 'shell\\\nscript'
-      shell\\\nscript
-      $ echo 'example\"testhello\"shell'
-      example\"testhello\"shell
-      $
-      ```
-
-      The tester will check if the `echo` command correctly prints the quoted text.
-
-
-      Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside single quotes:
-      ```bash
-      $ cat "/tmp/file/'name'" "/tmp/file/'\name\'"
-      content1 content2
-      ```
-
-      The tester will check if the `cat` command correctly prints the file content.
-
     marketing_md: |-
       In this stage, you'll implement support for quoting with backslashes within single quotes.
 
@@ -742,58 +209,6 @@ stages:
     primary_extension_slug: "quoting"
     name: "Backslash within double quotes"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for quoting with backslashes within double quotes.
-
-      Within double quotes `"`, a backslash escapes the following characters: `"`, `\`, `$`, `` ` ``, or newline. Read more about quoting with backslashes within double quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes).
-
-      In this stage, we’ll cover:
-
-      - `\"` → escapes double quote, allowing " to appear literally within the quoted string
-      - `\\` → escapes backslash, resulting in a literal \
-
-      We won’t cover the following cases in this stage:
-
-      - `\$` → escapes the dollar sign, preventing variable expansion
-      -  `` \` `` → escapes the backtick, preventing command substitution
-      - `\<newline>` → escapes a newline character, allowing line continuation
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of `echo` commands to your shell:
-
-      ```bash
-      $ echo "hello'script'\\n'world"
-      hello'script'\n'world
-      $ echo "hello\"insidequotes"script\"
-      hello"insidequotesscript"
-      $
-      ```
-
-      The tester will check if the `echo` command correctly prints the quoted text.
-
-      Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside double quotes:
-
-      ```bash
-      $ cat "/tmp/"file\name"" "/tmp/"file name""
-      content1 content2
-      ```
-
-      The tester will check if the `cat` command correctly prints the file content.
-
-      Here are a few examples illustrating how backslashes behave within double quotes:
-
-      | Command | Expected output |
-      | :---: | :-------------: | 
-      | `echo "A \\ escapes itself"` | `A \ escapes itself` | 
-      | `echo "A \" inside double quotes"` | `A " inside double quotes` |
-
     marketing_md: |-
       In this stage, you'll implement support for quoting with backslashes within double quotes.
 
@@ -801,30 +216,6 @@ stages:
     primary_extension_slug: "quoting"
     name: "Executing a quoted executable"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for executing a quoted executable.
-
-      The tester will rename the `cat` executable to something containing spaces, quotes and backslashes.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of commands to your shell, executing the renamed `cat` executable:
-
-      ```bash
-      $ 'exe with "quotes"' file
-      content1
-      $ "exe with 'single quotes'" file
-      content2
-      ```
-
-      The tester will check if the commands correctly execute the renamed `cat` executable, and that the output is correct.
-
     marketing_md: |-
       In this stage, you'll implement support for executing a quoted executable.
 
@@ -832,41 +223,6 @@ stages:
     primary_extension_slug: "redirection"
     name: "Redirect stdout"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for redirecting the output of a command to a file.
-
-      The `1>` operator is used to redirect the output of a command to a file.
-      But, as a special case, if the file descriptor is not specified before the operator `>`, the output is redirected to the standard output by default, so `>` is equivalent to `1>`.
-
-      Learn more about [Redirecting Output](https://www.gnu.org/software/bash/manual/bash.html#Redirecting-Output).
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of commands to your shell, executing commands and redirecting their output to a file:
-
-      ```bash
-      $ ls /tmp/baz > /tmp/foo/baz.md
-      $ cat /tmp/foo/baz.md
-      apple
-      blueberry
-      $ echo 'Hello James' 1> /tmp/foo/foo.md
-      $ cat /tmp/foo/foo.md
-      Hello James
-      $ cat /tmp/baz/blueberry nonexistent 1> /tmp/foo/quz.md
-      cat: nonexistent: No such file or directory
-      $ cat /tmp/foo/quz.md
-      blueberry
-      ```
-
-      The tester will check if the commands correctly execute commands and redirect their output to a file as specified.
-      The file contents will also be checked for correctness.
-
     marketing_md: |-
       In this stage, you'll implement support for redirecting the output of a command to a file.
 
@@ -874,39 +230,6 @@ stages:
     primary_extension_slug: "redirection"
     name: "Redirect stderr"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for redirecting the standard error of a command to a file.
-
-      The `2>` operator is used to redirect the standard error of a command to a file.
-
-      Learn more about [Redirecting Stderr](https://www.gnu.org/software/bash/manual/bash.html#Redirecting-Output).
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of commands to your shell, executing commands and redirecting their output to a file:
-
-      ```bash
-      $ ls nonexistent 2> /tmp/quz/baz.md
-      $ cat /tmp/quz/baz.md
-      ls: nonexistent: No such file or directory
-      $ echo 'Maria file cannot be found' 2> /tmp/quz/foo.md
-      Maria file cannot be found
-      $ cat /tmp/bar/pear nonexistent 2> /tmp/quz/quz.md
-      pear
-      $ cat /tmp/quz/quz.md
-      cat: nonexistent: No such file or directory
-      ```
-
-      The tester will check if the commands correctly execute commands and redirect their error message to a file as specified.
-
-      It will also check that the file is created (if it doesn’t already exist), and that its contents match the expected output.
-
     marketing_md: |-
       In this stage, you'll implement support for redirecting the standard error of a command to a file.
 
@@ -914,47 +237,6 @@ stages:
     primary_extension_slug: "redirection"
     name: "Append stdout"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for appending the output of a command to a file.
-
-      The `1>>` operator is used to append the output of a command to a file.
-      As a special case, if the file descriptor is not specified before the operator `>>`, the output is redirected to the standard output by default, so `>>` is equivalent to `1>>`.
-
-      Learn more about [Appending Stdout](https://www.gnu.org/software/bash/manual/bash.html#Appending-Redirected-Output).
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of commands to your shell, executing commands and appending their output to a file:
-
-      ```bash
-      $ ls /tmp/baz >> /tmp/bar/bar.md
-      $ cat /tmp/bar/bar.md
-      apple
-      banana
-      blueberry
-      $ echo 'Hello Emily' 1>> /tmp/bar/baz.md
-      $ echo 'Hello Maria' 1>> /tmp/bar/baz.md
-      $ cat /tmp/bar/baz.md
-      Hello Emily
-      Hello Maria
-      $ echo "List of files: " > /tmp/bar/qux.md
-      $ ls /tmp/baz >> /tmp/bar/qux.md
-      $ cat /tmp/bar/qux.md
-      List of files:
-      apple
-      banana
-      blueberry
-      ```
-
-      The tester will check if the commands correctly execute commands and append their output to a file as specified.
-      The file contents will also be checked for correctness.
-
     marketing_md: |-
       In this stage, you'll implement support for appending the output of a command to a file.
 
@@ -962,41 +244,6 @@ stages:
     primary_extension_slug: "redirection"
     name: "Append stderr"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for appending the standard error of a command to a file.
-
-      The `2>>` operator is used to append the standard error of a command to a file.
-
-      Learn more about [Appending Stderr](https://www.gnu.org/software/bash/manual/bash.html#Appending-Redirected-Output).
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send a series of commands to your shell, executing commands and appending their standard error to a file:
-
-      ```bash
-      $ ls nonexistent >> /tmp/foo/baz.md
-      ls: nonexistent: No such file or directory
-      $ ls nonexistent 2>> /tmp/foo/qux.md
-      $ cat /tmp/foo/qux.md
-      ls: nonexistent: No such file or directory
-      $ echo "James says Error" 2>> /tmp/foo/quz.md
-      James says Error
-      $ cat nonexistent 2>> /tmp/foo/quz.md
-      $ ls nonexistent 2>> /tmp/foo/quz.md
-      $ cat /tmp/foo/quz.md
-      cat: nonexistent: No such file or directory
-      ls: nonexistent: No such file or directory
-      ```
-
-      The tester will check if the commands correctly execute commands and append their standard error to a file as specified.
-      The file contents will also be checked for correctness.
-
     marketing_md: |-
       In this stage, you'll implement support for appending the standard error of a command to a file.
 
@@ -1004,35 +251,6 @@ stages:
     primary_extension_slug: "completions"
     name: "Builtin completion"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for autocompleting builtin commands.
-
-      Your shell should be able to complete builtin commands when the user presses the `<TAB>` key. Specifically, you'll need to implement completion for the `echo` and `exit` builtins.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send the following inputs, simulating user input and tab presses:
-
-      1.  **Input:** `ech`<TAB>
-          * The tester expects the prompt to display `echo ` after the tab press.
-
-      2.  **Input:** `exi`<TAB>
-          * The tester expects the prompt to display `exit ` after the tab press.
-
-      The tester checks if the completion works as expected and if your shell outputs the correct output for `echo` and `exit` command.
-      Note the space at the end of the completion.
-
-      ### Notes
-
-      - We recommend using a library like [readline](https://en.wikipedia.org/wiki/GNU_Readline) for your implementation. Most modern shells and REPLs (like the Python REPL) use readline under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
-      - Different shells handle autocompletion differently. For consistency, we recommend using [Bash](https://www.gnu.org/software/bash/) for development and testing.
-
     marketing_md: |-
       In this stage, you'll implement support for autocompleting builtin commands.
 
@@ -1040,33 +258,6 @@ stages:
     primary_extension_slug: "completions"
     name: "Completion with arguments"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll extend your shell's tab completion to handle commands with arguments.
-
-      Your shell should now not only complete the command itself but also correctly handle the subsequent arguments that the user types.
-      This means that after completing the command with `<TAB>`, it should allow the user to continue typing arguments, and those arguments should also be interpreted correctly.
-      You'll need to ensure commands like `echo ` and `type` autocomplete and still function correctly with arguments.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      The tests will simulate user input with tab presses and will execute builtin commands, similar to the previous stage, with added arguments:
-
-      1.  **Input:** `ech<TAB>` `hello<ENTER>`
-          *   The tester expects the shell to first complete the `ech` to `echo` after `<TAB>`, then accept the `hello` argument, and after the `<ENTER>` key press, execute `echo hello`.
-          *   The shell should output `hello`.
-
-      2.  **Input:** `exi<TAB>` `0<ENTER>`
-           *   The tester expects the shell to first complete `exi` to `exit` after `<TAB>`, then accept the `0` argument, and after the `<ENTER>` key press, execute `exit 0`.
-           *   The shell should exit with status code 0.
-
-      The tester will verify that your shell properly completes the commands and executes the commands with the given arguments.
-
     marketing_md: |-
       In this stage, you'll implement support for allowing arguments to be used after completion.
 
@@ -1074,28 +265,6 @@ stages:
     primary_extension_slug: "completions"
     name: "Missing completions"
     difficulty: easy
-    description_md: |-
-      In this stage, you'll refine your shell's tab completion behavior to handle cases where the user types an invalid command.
-
-      When the user types a command that is not a known builtin and presses `<TAB>`, your shell should not attempt to autocomplete it. Instead, it should just keep what the user typed and should ring a bell.
-      This means that if you type "xyz" and press `<TAB>`, the command should not change and you should hear a bell indicating that there are no valid completion options for "xyz".
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      The tests will simulate the user typing an invalid command and pressing the `<TAB>` key:
-
-      1.  **Input:** `xyz`<TAB>
-          *   The tester will first type `xyz` and then press `<TAB>`. The tester expects that the prompt still shows "xyz" and there is a bell sound.
-
-      The tester will verify that your shell does not attempt completion on invalid commands, the bell is sent.
-      The bell is sent by printing `\x07`, the [bell character](https://en.wikipedia.org/wiki/Bell_character).
-
     marketing_md: |-
       In this stage, you'll implement support for handling invalid commands gracefully.
 
@@ -1103,34 +272,6 @@ stages:
     primary_extension_slug: "completions"
     name: "Executable completion"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll extend your shell's tab completion to include external executable files in the user's `PATH`.
-
-      Your shell should now be able to complete commands that are not built-ins, but exist as executable files in the directories listed in the `PATH` environment variable.
-      When the user types the beginning of an external command and presses `<TAB>`, your shell should complete the command to the full executable file name.
-      This means that if you have a command `custom_executable` in the path and type `custom` and press `<TAB>`, the shell should complete that to `custom_executable`.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      Before executing your shell, the tester will create an executable file named `custom_executable` and add its directory to the `PATH`.
-
-      The test will simulate the user typing the start of the external command and pressing `<TAB>`:
-
-      1.  **Input:** `custom`<TAB>
-          *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to <code>custom_executable  </code>.
-
-      The tester will verify that your shell correctly completes the command to the external executable file name. Note the space at the end of the completion.
-
-      ### Notes
-
-      - PATH can include directories that don't exist on disk, so your code should handle such cases gracefully.
-
     marketing_md: |-
       In this stage, you'll implement support for autocompleting external executables.
 
@@ -1138,39 +279,6 @@ stages:
     primary_extension_slug: "completions"
     name: "Multiple completions"
     difficulty: hard
-    description_md: |-
-      In this stage, you'll implement tab completion for executables, specifically when multiple executables share a common prefix.
-
-      When the user types a command prefix and presses `<TAB>`, your shell should:
-
-      - Identify all executables in the `PATH` that match the prefix.
-      - If there are multiple matches,
-        - On the first TAB press, just ring a bell. (`\a` rings the bell)
-        - On the second TAB press, print all the matching executables separated by 2    spaces, on the next line, and follow it with the prompt on a new line.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then set up a specific `PATH` and place multiple executables starting with a common prefix into different directories in the `PATH`. Finally, it will type the common prefix, and then press the Tab key twice.
-
-      ```bash
-      $ ./your_program.sh
-      $ xyz_<TAB><TAB>
-      xyz_bar  xyz_baz  xyz_quz
-      $ xyz_
-      ```
-
-      The tester will verify that:
-
-      1. Your shell displays the prompt with the common prefix after receiving the partial command.
-      2. Upon the first Tab key press, your shell prints a bell character.
-      3. Upon the second Tab key press, your shell prints the list of matching executables separated by 2 spaces, on the next line, and follow it with the prompt on a new line.
-
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions.
 
@@ -1178,44 +286,6 @@ stages:
     primary_extension_slug: "completions"
     name: "Partial completions"
     difficulty: hard
-    description_md: |-
-      In this stage, you'll extend your shell's tab completion to handle cases with multiple matching executables where one is a prefix of another.
-
-      When the user types a partial command and presses the Tab key, your shell should attempt to complete the command name. If there are multiple executable files in the PATH that match the prefix, and one of those matches is a prefix of another, then the shell should complete to the longest common prefix of all matching executables. If there is only one match after performing completion, then the shell should complete the command name as in previous stages.
-
-      For example, if `xyz_foo`, `xyz_foo_bar`, and `xyz_foo_bar_baz` are all available executables and the user types `xyz_` and presses tab, then your shell should complete the command to `xyz_foo`. If the user then types `_` and presses tab again, it should complete to `xyz_foo_bar`. If the user then types `_` and presses tab again, it should complete to `xyz_foo_bar_baz`.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then set up a specific `PATH` and place executables `xyz_foo`, `xyz_foo_bar`, and `xyz_foo_bar_baz` into different directories in the `PATH`. Finally, it will type `xyz_` and then press Tab, then type `_` and press Tab, then type `_` and press Tab.
-
-      ```bash
-      $ export PATH=/tmp/bar:$PATH
-      $ export PATH=/tmp/baz:$PATH
-      $ export PATH=/tmp/qux:$PATH
-      $ ./your_program.sh
-      $ xyz_<TAB>
-      $ xyz_foo_<TAB>
-      $ xyz_foo_bar_<TAB>
-      $ xyz_foo_bar_baz
-      ```
-      Note: The prompt lines above are on the same line.
-
-      The tester will verify that:
-
-      1. After typing `xyz_` and pressing Tab, your shell completes to `xyz_foo`.
-      2. After typing `_`, the prompt line matches `$ xyz_foo_`.
-      3. After typing `_` and pressing Tab, your shell completes to `xyz_foo_bar`.
-      4. After typing `_`, the prompt line matches `$ xyz_foo_bar_`.
-      5. After typing `_` and pressing Tab, your shell completes to `xyz_foo_bar_baz`.
-      6. The prompt line matches `$ xyz_foo_bar_baz ` after the final completion.
-
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions with common prefixes.
 
@@ -1223,47 +293,6 @@ stages:
     primary_extension_slug: "pipelines"
     name: "Dual-command pipeline"
     difficulty: hard
-    description_md: |-
-      In this stage, you'll implement support for basic pipelines involving two external commands.
-
-      A [pipeline](https://www.gnu.org/software/bash/manual/bash.html#Pipelines) connects the standard output of one command to the standard input of the next command using the `|` operator.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then execute multiple pipelines with two commands in them. Examples:
-
-      ```bash
-      $ cat /tmp/foo/file | wc
-             5      10      77
-      ```
-
-      ```bash
-      $ tail -f /tmp/foo/file-1 | head -n 5
-      raspberry strawberry
-      pear mango
-      pineapple apple
-      # (tester appends more lines to /tmp/foo/file-1)
-      # (And expects the running command to keep printing new lines)
-      This is line 4.
-      This is line 5.
-      $
-      ```
-
-      The tester will check if the final output matches the expected output after pipeline execution.
-
-      For the `tail -f` command, the tester will append content to the the input file while the pipeline is running.
-
-      ### Notes
-
-      - The executables (`cat`, `wc`, `tail`, `head`) will be available in the `PATH`.
-      - To execute a pipeline you'll need to create a [pipe](https://en.wikipedia.org/wiki/Anonymous_pipe), [fork](https://en.wikipedia.org/wiki/Fork_(system_call))
-        processes for each command, and set up the standard input/output redirection between them.
     marketing_md: |-
       Implement support for basic two-command pipelines like `command1 | command2`.
 
@@ -1271,35 +300,6 @@ stages:
     primary_extension_slug: "pipelines"
     name: "Pipelines with built-ins"
     difficulty: hard
-    description_md: |-
-      In this stage, you'll extend pipeline support to include shell built-in commands.
-
-      Built-in commands (like `echo`, `type`) need to be handled correctly when they appear as part of a pipeline, whether at the beginning, middle, or end.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send commands involving pipelines with built-ins:
-
-      ```bash
-      $ echo raspberry\\nblueberry | wc
-             1       1      20
-      $ ls | type exit
-      exit is a shell builtin
-      $
-      ```
-
-      The tester will check if the final output matches the expected output after the pipeline execution, correctly handling the built-in commands.
-      For the `type` command, the tester will check if the command correctly handles the built-in command and prints the correct output, the `ls` output is not supposed to be printed.
-
-      ### Notes
-
-      -   Built-in commands don't typically involve creating a new process via `fork`/`exec`. You'll need to handle their execution within the shell process while still managing the input/output redirection required by the pipeline.
     marketing_md: |-
       Extend pipeline support to handle built-in commands like `echo` or `type` within pipelines.
 
@@ -1307,36 +307,6 @@ stages:
     primary_extension_slug: "pipelines"
     name: "Multi-command pipelines"
     difficulty: hard
-    description_md: |-
-      In this stage, you'll implement support for pipelines involving more than two commands.
-
-      Pipelines can chain multiple commands together, connecting the output of each command to the input of the next one.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It'll then send commands involving pipelines with three or more stages:
-
-      ```bash
-      $ cat /tmp/foo/file | head -n 5 | wc
-             5       5      10
-      $ ls -la /tmp/foo | tail -n 5 | head -n 3 | grep "file"
-      -rw-r--r-- 1 user user     5 Apr 29 10:06 file
-      $
-      ```
-
-      The tester will check if the final output matches the expected output after the multi-stage pipeline execution.
-
-      ### Notes
-
-      -   This requires managing multiple pipes and processes.
-      -   Ensure correct setup of stdin/stdout for each command in the chain (except the first command's stdin and the last command's stdout, which usually connect to the terminal or file redirections).
-      -   Proper process cleanup and waiting are crucial.
     marketing_md: |-
       Implement support for multi-command pipelines like `command1 | command2 | command3`.
 
@@ -1344,37 +314,6 @@ stages:
     primary_extension_slug: "history"
     name: "The history builtin"
     difficulty: easy
-    description_md: |-
-      In this stage, you'll add support for [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin.
-
-      ### The history builtin
-
-      [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin that lists previously executed commands. Example usage: 
-      ```bash
-      $ history
-          1  previous_command_1
-          2  previous_command_2
-          3  history
-      ```
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      The tester will then execute the `type history` command.
-
-      ```bash
-      $ type history
-      history is a shell builtin
-      $
-      ```
-
-      The tester will then execute the `type history` command and expect the output to be `history is a shell builtin`.
-
     marketing_md: |-
       In this stage, you'll add support for the `history` builtin command in `type`.
 
@@ -1382,40 +321,6 @@ stages:
     primary_extension_slug: "history"
     name: "Listing history"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement the `history` builtin.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send multiple commands to your shell, followed by the `history` command:
-
-      ```bash
-      $ echo hello
-      hello
-      $ echo world
-      world
-      $ invalid_command
-      invalid_command: command not found
-      $ history
-          1  echo hello
-          2  echo world
-          3  invalid_command
-          4  history
-      $
-      ```
-
-      The tester expects a history list with the commands that were executed, formatted and indexed like in the example above.
-
-      ### Notes
-
-      - Some shells like *zsh* don't add the `history` command to the history list, but the tester expects it to be present.
-
     marketing_md: |-
       In this stage, you'll implement the `history` builtin.
 
@@ -1423,38 +328,6 @@ stages:
     primary_extension_slug: "history"
     name: "Limiting history entries"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll add support for limiting history entries using the `history <n>` syntax.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send multiple commands to your shell, followed by the `history <n>` command:
-
-      ```bash
-      $ echo hello
-      hello
-      $ echo world
-      world
-      $ invalid_command
-      invalid_command: command not found
-      $ history 2
-          3  invalid_command
-          4  history 2
-      $
-      ```
-
-      The tester expects the history list to be limited to the last `n` commands.
-
-      ### Notes
-
-      - The tester expects the history command to be present in the history list.
-
     marketing_md: |-
       In this stage, you'll implement support for limiting history entries.
 
@@ -1462,36 +335,6 @@ stages:
     primary_extension_slug: "history"
     name: "Up-arrow navigation"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll add support for recalling history with the up arrow key.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send multiple commands to your shell, followed by the up arrow to recall the history:
-
-      ```bash
-      $ echo hello
-      hello
-      $ echo world
-      world
-      <UP ARROW>
-      $ echo world
-      <UP ARROW>
-      $ echo hello
-      ```
-
-      The tester will expect the previous commands to be displayed when the up arrow key is pressed.
-
-      ### Notes
-
-      - We recommend using a library like [readline](https://en.wikipedia.org/wiki/GNU_Readline) for your implementation. Most modern shells and REPLs (like the Python REPL) use readline under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
-
     marketing_md: |-
       In this stage, you'll implement support for recalling history with the up arrow key.
 
@@ -1499,38 +342,6 @@ stages:
     primary_extension_slug: "history"
     name: "Down-arrow navigation"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll add support for recalling history with the down arrow key.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send multiple commands to your shell, followed by the up and then down arrow keys to recall the history:
-
-      ```bash
-      $ echo hello
-      hello
-      $ echo world
-      world
-      <UP ARROW>
-      $ echo world
-      <UP ARROW>
-      $ echo hello
-      <DOWN ARROW>
-      $ echo world
-      ```
-
-      The tester will expect the previous commands to be displayed when the down arrow key is pressed.
-
-      ### Notes
-
-      - We recommend using a library like [readline](https://en.wikipedia.org/wiki/GNU_Readline) for your implementation. Most modern shells and REPLs (like the Python REPL) use readline under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
-
     marketing_md: |-
       In this stage, you'll implement support for recalling history with the down arrow key.
 
@@ -1538,37 +349,6 @@ stages:
     primary_extension_slug: "history"
     name: "Executing commands from history"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll implement support for being able to press enter to execute a command recalled using UP-DOWN arrows.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send multiple commands to your shell, followed by the up and then down arrow keys to recall the history and then press enter to execute the command:
-
-      ```bash
-      $ echo hello
-      hello
-      $ echo world
-      world
-      <UP ARROW>
-      $ echo world
-      <UP ARROW>
-      $ echo hello
-      <DOWN ARROW>
-      $ echo world
-      <ENTER>
-      world
-      $
-      ```
-
-      The tester will expect the command to be executed when the enter key is pressed.
-
     marketing_md: |-
       In this stage, you'll implement support for being able to press enter to execute a command recalled using UP-DOWN arrows.
 
@@ -1576,41 +356,6 @@ stages:
     primary_extension_slug: "history-persistence"
     name: "Read history from file"
     difficulty: medium
-    description_md: |-
-      In this stage, you will read history from a file using the `history -r <path_to_history_file>` command.
-
-      ### Tests
-
-      The tester will write the following commands to the history file:
-
-      ```txt
-      echo hello
-      echo world
-      <|EMPTY LINE|>
-      ```
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send the following commands to your shell:
-
-      ```bash
-      $ history -r <path_to_history_file>
-      $ history
-          1  history -r <path_to_history_file>
-          2  echo hello
-          3  echo world
-          4  history
-      $
-      ```
-
-      ### Notes
-      - The tester will expect the history commands to also be present in the history list.
-      - `history -r` should append the history file's contents to the history list in memory.
-
     marketing_md: |-
       In this stage, you'll implement support for reading history from a file.
 
@@ -1618,42 +363,6 @@ stages:
     primary_extension_slug: "history-persistence"
     name: "Write history to file"
     difficulty: medium
-    description_md: |-
-      In this stage, you will add support for writing commands from memory to the history file using the `history -w <path_to_history_file>` command.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send the following commands to your shell:
-
-      ```bash
-      $ echo hello
-      hello
-      $ echo world
-      world
-      $ history -w <path_to_history_file>
-      $
-      ```
-
-      The tester will then expect the history file's contents to look like:
-
-      ```txt
-      echo hello
-      echo world
-      history -w <path_to_history_file>
-      <|EMPTY LINE|>
-      ```
-
-      ### Notes
-      - If the file doesn't exist when running `history -w`, your shell should create the file and then write the commands to it.
-      - The tester will expect the `history -w` command to also be present in the history file.
-      - The history file should include a trailing newline character (displayed as an empty line).
-
     marketing_md: |-
       In this stage, you'll implement support for writing history to a file.
 
@@ -1661,48 +370,6 @@ stages:
     primary_extension_slug: "history-persistence"
     name: "Append history to file"
     difficulty: hard
-    description_md: |-
-      In this stage, you will add support for appending commands from memory to the history file using the `history -a <path_to_history_file>` command.
-
-      ### Tests
-
-      The tester will write the following commands to the history file:
-
-      ```txt
-      echo initial_command_1
-      echo initial_command_2
-      <|EMPTY LINE|>
-      ```
-
-      The tester will execute your program like this:
-
-      ```bash
-      ./your_program.sh
-      ```
-
-      It will then send the following commands to your shell:
-
-      ```bash
-      $ echo new_command
-      new_command
-      $ history -a <path_to_history_file>
-      $
-      ```
-
-      The tester will then expect the history file's contents to include the new commands:
-
-      ```txt
-      echo initial_command_1
-      echo initial_command_2
-      echo new_command
-      history -a <path_to_history_file>
-      <|EMPTY LINE|>
-      ```
-
-      ### Notes
-      - The tester will expect the `history -a` command to also be present in the history file.
-      - Running `history -a` multiple times should only append commands that have been executed since the last time `history -a` was run.
-
     marketing_md: |-
       In this stage, you'll implement support for appending history to a file.
 
@@ -1710,41 +377,6 @@ stages:
     primary_extension_slug: "history-persistence"
     name: "Read history on startup"
     difficulty: easy
-    description_md: |-
-      In this stage, you'll ensure that your shell loads history from the file into memory on startup.
-
-      ### The `HISTFILE` environment variable
-
-      The [`HISTFILE` environment variable](https://www.gnu.org/software///bash/manual/bash.html#index-HISTFILE) specifies the path to the history file. 
-      It is the path used to load history from the file into memory on startup and to save the in-memory history to the file when exiting.
-
-
-      ### Tests
-
-      The tester will write the following commands to the history file:
-
-      ```txt
-      echo hello
-      echo world
-      <|EMPTY LINE|>
-      ```
-
-      The tester will execute your program like this:
-
-      ```bash
-      HISTFILE=<path_to_history_file> ./your_program.sh
-      ```
-
-      It will then send the following commands to your shell:
-
-      ```bash
-      $ history
-          1  echo hello
-          2  echo world
-          3 history
-      $
-      ```
-
     marketing_md: |-
       In this stage, you'll ensure that your shell loads history from the file into memory on startup.
 
@@ -1752,36 +384,6 @@ stages:
     primary_extension_slug: "history-persistence"
     name: "Write history on exit"
     difficulty: easy
-    description_md: |-
-      In this stage, you'll add support for writing the in-memory history to the history file when exiting.
-
-      ### Tests
-
-      The tester will execute your program like this:
-
-      ```bash
-      HISTFILE=<path_to_history_file> ./your_program.sh
-      ```
-
-      It will then send the following commands to your shell:
-
-      ```bash
-      $ echo hello
-      hello
-      $ echo world
-      world
-      $ exit 0
-      ```
-
-      The tester will then expect the history file's contents to look like:
-
-      ```txt
-      echo hello
-      echo world
-      exit 0
-      <|EMPTY LINE|>
-      ```
-
     marketing_md: |-
       In this stage, you'll implement support for persisting history on exit.
 
@@ -1789,42 +391,5 @@ stages:
     primary_extension_slug: "history-persistence"
     name: "Append history on exit"
     difficulty: medium
-    description_md: |-
-      In this stage, you'll add support for appending the in-memory history to the history file when exiting.
-
-      ### Tests
-
-      The tester will write the following commands to the history file:
-
-      ```txt
-      echo initial_command_1
-      echo initial_command_2
-      <|EMPTY LINE|>
-      ```
-
-      The tester will execute your program like this:
-
-      ```bash
-      HISTFILE=<path_to_history_file> ./your_program.sh
-      ```
-
-      It will then send the following commands to your shell:
-
-      ```bash
-      $ echo new_command
-      new_command
-      $ exit 0
-      ```
-
-      The tester will then expect the history file's contents to look like:
-
-      ```txt
-      echo initial_command_1
-      echo initial_command_2
-      echo new_command
-      exit 0
-      <|EMPTY LINE|>
-      ```
-
     marketing_md: |-
       In this stage, you'll implement support for appending the in-memory history to the history file when exiting.
