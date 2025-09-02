@@ -8,6 +8,10 @@ For example, if PATH is `/dir1:/dir2:/dir3`, your shell should search in `/dir1`
 - If a matching files is found and it has execute permissions, your shell should print the path to the file. 
 - If no matching files are found, your shell should print `<command>: not found`.
 
+{{#lang_is_elixir}}
+It's not recommended to use [System.find_executable](https://hexdocs.pm/elixir/1.18.4/System.html#find_executable/1) if you'd like to learn how to implement the functionality manully.
+{{/lang_is_elixir}}
+
 ### Tests
 
 The tester will execute your program with a custom `PATH` like this:
