@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-exec java -jar /tmp/codecrafters-build-dir/build-your-own-shell.jar "$@"
+exec /tmp/codecrafters-build-shell-kotlin/distributions/app/bin/app "$@"
