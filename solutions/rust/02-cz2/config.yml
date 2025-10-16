@@ -4,7 +4,7 @@ hints:
       Use the [`read_line()`](https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line) method:
 
       ```rust
-      # Captures the user's command in the "command" variable
+      // Captures the user's command in the "command" variable
       io::stdin().read_line(&mut command).unwrap();
       ```
 
@@ -15,7 +15,7 @@ hints:
       Use Rust's [`println!()`](https://doc.rust-lang.org/std/macro.println.html) macro: 
 
       ```rust
-      # Prints the "<command>: command not found" message
+      // Prints the "<command>: command not found" message
       println!("{}: command not found", command.trim())
       ```
 
