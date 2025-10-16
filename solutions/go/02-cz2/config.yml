@@ -4,7 +4,7 @@ hints:
       Use the [`ReadString()`](https://pkg.go.dev/bufio#Reader.ReadString) method:
 
       ```go
-      # Captures the user's command in the "command" variable
+      // Captures the user's command in the "command" variable
       command, err := bufio.NewReader(os.Stdin).ReadString('\n')
       ```
 
@@ -15,7 +15,7 @@ hints:
       Use the [`Println()`](https://pkg.go.dev/fmt#Println) function:
 
       ```go
-      # Prints the "<command>: command not found" message
+      // Prints the "<command>: command not found" message
       fmt.Println(command[:len(command)-1] + ": command not found")
       ```
 
