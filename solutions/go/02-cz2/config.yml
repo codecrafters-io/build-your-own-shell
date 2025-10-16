@@ -1,7 +1,7 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use the [bufio.Reader.ReadString()](https://pkg.go.dev/bufio#Reader.ReadString) method:
+      Use the [`ReadString()`](https://pkg.go.dev/bufio#Reader.ReadString) method:
 
       ```go
       # Captures the user's command in the "command" variable
@@ -12,7 +12,7 @@ hints:
 
   - title_markdown: "How do I print the command not found message?"
     body_markdown: |-
-      Use the [fmt#Println()](https://pkg.go.dev/fmt#Println) method:
+      Use the [`Println()`](https://pkg.go.dev/fmt#Println) function:
 
       ```go
       # Prints the "<command>: command not found" message
