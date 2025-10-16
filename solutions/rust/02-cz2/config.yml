@@ -1,7 +1,7 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use Rust's [Stdin::read_line()](https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line) method:
+      Use the [Stdin::read_line()](https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line) method:
 
       ```rust
       # Captures the user's command in the "command" variable
