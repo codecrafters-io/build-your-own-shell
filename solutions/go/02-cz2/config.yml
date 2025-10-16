@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use Go's [bufio.Reader.ReadString()](https://pkg.go.dev/bufio#Reader.ReadString) method:
+
+      ```go
+      # Captures the user's command in the "command" variable
+      command, err := bufio.NewReader(os.Stdin).ReadString('\n')
+      ```
+
+      The `ReadString()` method waits for the user to enter a command, and then returns it (including a newline) as a string.
+
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use Go's [fmt#Println()](https://pkg.go.dev/fmt#Println) method:
+
+      ```go
+      # Prints the "<command>: command not found" message
+      fmt.Println(command[:len(command)-1] + ": command not found")
+      ```
+
+      Since `command` includes a trailing newline, use `command[:len(command)-1]` to remove it.

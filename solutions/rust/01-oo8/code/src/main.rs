@@ -6,6 +6,6 @@ fn main() {
     io::stdout().flush().unwrap();
 
     // Wait for user input
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).unwrap();
+    let mut command = String::new();
+    io::stdin().read_line(&mut command).unwrap();
 }

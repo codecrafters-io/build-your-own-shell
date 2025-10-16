@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use Rust's [Stdin::read_line()](https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line) method:
+
+      ```rust
+      # Captures the user's command in the "command" variable
+      io::stdin().read_line(&mut command).unwrap();
+      ```
+
+      The `read_line()` method waits for the user to enter a command, and then appends it (including a newline) to the `command` string.
+
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use Rust's [println!()](https://doc.rust-lang.org/std/macro.println.html) macro: 
+
+      ```rust
+      # Prints the "<command>: command not found" message
+      println!("{}: command not found", command.trim())
+      ```
+
+      The above code uses a [format string](https://doc.rust-lang.org/rust-by-example/hello/print/fmt.html) to include the command in the message. Since `command` includes a trailing newline, use `command.trim()` to remove it.
