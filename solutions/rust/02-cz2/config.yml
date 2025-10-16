@@ -1,7 +1,7 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use Rust's [Stdin::read_line()](https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line) method:
+      Use the [`read_line()`](https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line) method:
 
       ```rust
       # Captures the user's command in the "command" variable
@@ -12,7 +12,7 @@ hints:
 
   - title_markdown: "How do I print the command not found message?"
     body_markdown: |-
-      Use Rust's [println!()](https://doc.rust-lang.org/std/macro.println.html) macro: 
+      Use Rust's [`println!()`](https://doc.rust-lang.org/std/macro.println.html) macro: 
 
       ```rust
       # Prints the "<command>: command not found" message
