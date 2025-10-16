@@ -1,6 +1,10 @@
-In this stage, you'll implement the `type` builtin command for your shell.
+In this stage, you'll implement the `type` builtin for your shell.
 
-The `type` builtin is used to determine how a command would be interpreted if used. Example:
+### The `type` Builtin
+
+The [`type`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/type.html) builtin is used to determine how a command would be interpreted if used. It checks whether a command is a builtin, an executable file, or unrecognized.
+
+For example:
 
 ```bash
 $ type echo
@@ -11,8 +15,11 @@ $ type invalid_command
 invalid_command: not found
 ```
 
-In this stage we'll only test two cases: builtin commands and unrecognized commands. We'll handle
-executable files in later stages.
+For this stage, you'll handle two cases:
+- Builtin commands like `echo`, `exit`, and `type`
+- Unrecognized commands that don't match any builtin
+
+We'll handle executable files in later stages.
 
 ### Tests
 
@@ -22,7 +29,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It'll then send a series of `type` commands to your shell:
+It will then send a series of `type` commands to your shell:
 
 ```bash
 $ type echo
@@ -36,10 +43,9 @@ invalid_command: not found
 $
 ```
 
-The tester will check if the `type` command responds correctly based on the command provided:
-
-- If a command is a shell builtin, the expected output is `<command> is a shell builtin`.
-- If a command is not recognized, the expected output is `<command>: not found`.
+The tester will verify that:
+- Builtin commands print: `<command> is a shell builtin`
+- Unrecognized commands print: `<command>: not found`
 
 ### Notes
 
