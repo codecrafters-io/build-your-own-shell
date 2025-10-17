@@ -2,7 +2,7 @@ In this stage, you'll extend the `type` builtin to search for executable files u
 
 ### The PATH Environment Variable
 
-[PATH](https://en.wikipedia.org/wiki/PATH_(variable)) is an environment variable that specifies a set of directories where executable programs are located. 
+The [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) environment variable specifies a list of directories where the shell should look for executable programs.
 
 For example, if the PATH is set to `/dir1:/dir2:/dir3`, the shell would search for executables in `/dir1`, then `/dir2`, and finally `/dir3`, in that order.
 
@@ -53,3 +53,4 @@ The tester will check if the `type` command correctly identifies executable file
 
 - The actual value of the `PATH` environment variable will be random for each test case.
 - PATH can include directories that don’t exist on disk, so your code should handle such cases gracefully.
+- When parsing the PATH environment variable, remember that the delimiter (usually `:` or `;`) can vary by operating system. Use OS-agnostic path handling provided by your language (like `os.pathsep` in Python, `File.pathSeparator` in Java, or `path.delimiter` in Node.js) to correctly split the directories.
