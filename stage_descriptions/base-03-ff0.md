@@ -38,9 +38,9 @@ invalid_command_3: command not found
 $
 ```
 
-After each command, the tester will verify:
-- The message `<command_name>: command not found` is printed
-- A new prompt (`$ `) is displayed before the tester sends the next command
+After each command, the tester will verify that your shell:
+- Prints the message `<command_name>: command not found`.
+- Displays a new prompt (`$ `) before the tester sends the next command
 
 ### Notes
 
