@@ -62,35 +62,26 @@ marketing:
         The first ~10 stages will uncover insights that most developers never explicitly learn:
 
         * How a shell reads, parses, and runs commands (it’s not magic!)
-        * What a REPL is and how it works under the hood — read, execute, repeat
-        * What `$PATH` does, how executables are located, and why some commands work and others don’t
-        * The difference between how builtins are run (like `echo`) vs external programs (like `cursor .`)
-        * How running commands can spawn processes
-        * How your code structure evolves as features increase
+        * What a REPL is and how it works under the hood (read - eval - print - loop)
+        * The difference in running builtins (like `echo`) vs. external programs (like `cursor`)
+        * What `$PATH` means and its role in identifying executable files
+        * How running commands can spawn OS processes, and how those processes exit
 
-        As you progress to the advanced stages, you will get introduced to more programming ideas, such as token parsing, process management, and state persistence. You’ll be forced to structure your code carefully to avoid regressions.
+        As you progress to the advanced stages, you'll get introduced to more programming ideas, such as parsing complex syntax and process management. You’ll be forced to structure your code carefully to avoid regressions.
 
-        Expect to continuously refactor code and re-organise code to facilitate easier progress. This challenge is a rare exercise in system design, advanced programming practice, and insightful real-world knowledge (shell + OS).
-
-        You'll come out of it as a more interesting developer.
+        Expect to continuously refactor code and re-organise code to faciliate easier progress.
 
     - question_markdown: "Why should I build such a project?"
       answer_markdown: |-
-        If you’ve mostly worked on web or application code, this challenge takes you closer to how your computer actually runs software. You’ll move beyond APIs and frameworks into the layer where processes, input/output, and commands interact.
+        Building your own shell blends system design, advanced programming practice, and real-world computing knowledge (shell + OS). If you’ve mostly only worked on web or application code, you'll get a chance to be closer to how your computer actually runs software.
 
-        It’s a rare mix of coding and systems thinking: you’ll manage parsing, process control, and interactivity all at once. You’ll also see how different implementations approach the same problem, which sharpens your judgment and helps you form your own taste in software design.
-
-        And beyond the technical depth, there’s something uniquely satisfying about understanding the tool you use every day. It’ll make you both a better engineer and a more interesting one to talk to.
+        Beyond technical depth, there’s something uniquely satisfying about understanding a tool you use every day. You'll come out of it as a more confident and interesting developer.
 
     - question_markdown: "What are the pre-requisites for this challenge?"
       answer_markdown: |-
-        You should be comfortable writing code in any one language and using Git. No prior experience with shells or operating systems is required.
+        You should be comfortable writing code in any one language and using Git. No prior experience with shells or operating systems is required. Most learners pick up required concepts (e.g processes) as they go.
 
-        Most learners pick up new concepts — like processes, redirection, and state management — as they go.
-
-        What matters most is curiosity and persistence. We'll make it extremely simple to get started, but don't expect a step-by-step tutorial. Stages will get trickier as your codebase grows.
-
-        You’ll strengthen your intuition by exploring, debugging, and discovering solutions yourself.
+        What matters most is curiosity and persistence. You’ll build your intuition by exploring, debugging, and discovering solutions yourself. While we do make it extremely simple to get started, don't expect this to be a follow-along tutorial.
   testimonials:
     - author_name: "Ananthalakshmi Sankar"
       author_description: "Automation Engineer at Apple"
