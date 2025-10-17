@@ -2,7 +2,7 @@ In this stage, you'll implement the `type` builtin for your shell.
 
 ### The `type` Builtin
 
-The [`type`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/type.html) builtin is used to determine how a command would be interpreted if used. It checks whether a command is a builtin, an executable file, or unrecognized.
+The [`type`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/type.html) builtin is used to determine how a command would be interpreted if it were used. It checks whether a command is a builtin, an executable file, or unrecognized.
 
 For example:
 
@@ -16,8 +16,8 @@ invalid_command: not found
 ```
 
 For this stage, you'll handle two cases:
-- Builtin commands like `echo`, `exit`, and `type`
-- Unrecognized commands that don't match any builtin
+- For builtin commands (like `echo`, `exit`, and `type`), print `<command> is a shell builtin`.
+- For unrecognized commands that don't match any builtin, print `<command>: not found`.
 
 We'll handle executable files in later stages.
 
