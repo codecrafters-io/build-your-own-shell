@@ -5,7 +5,7 @@ In this stage, you'll add support for running external programs with arguments.
 So far, you've implemented builtin commands that your shell executes directly. Now you'll handle external programs that your shell needs to find and run.
 
 When a command isn't a builtin, your shell should:
-1. Search for an executable with that name in the directories listed in PATH (just like `type` does)
+1. Search for an executable with the given name in the directories listed in PATH (just like `type` does)
 2. If found, execute the program
 3. Pass any arguments from the command line to the program
 
