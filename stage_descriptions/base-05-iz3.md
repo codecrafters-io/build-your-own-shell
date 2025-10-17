@@ -1,4 +1,4 @@
-In this stage, you'll implement the echo builtin.
+In this stage, you'll implement the `echo` builtin.
 
 ### The `echo` Builtin
 
