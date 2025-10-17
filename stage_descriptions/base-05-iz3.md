@@ -2,7 +2,7 @@ In this stage, you'll implement the `echo` builtin.
 
 ### The `echo` Builtin
 
-The [echo](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) builtin prints its arguments to stdout, with spaces between them, and a newline (`\n`) at the end.
+The [`echo`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) builtin prints its arguments to stdout, with spaces between them, and a newline (`\n`) at the end.
 
 Example usage:
 
