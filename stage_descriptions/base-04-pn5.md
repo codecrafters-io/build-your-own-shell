@@ -2,7 +2,7 @@ In this stage, you'll implement the `exit` builtin.
 
 ### The `exit` Builtin
 
-The [exit](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit) builtin is a special command that terminates the shell.
+The [`exit`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit) builtin is a special command that terminates the shell.
 
 It takes an optional numeric argument as the shell's [exit status](https://en.wikipedia.org/wiki/Exit_status):
 ```bash
