@@ -35,6 +35,53 @@ marketing:
   difficulty: medium
   sample_extension_idea_title: "Command History"
   sample_extension_idea_description: "View and recall previously entered commands in your shell."
+  frequently_asked_questions:
+    - question_markdown: "What exactly will I build?"
+      answer_markdown: |-
+        You’ll start by implementing the core building blocks that every shell depends on:
+
+        * Reading and interpreting user input
+        * Implementing built-in commands like `pwd` and `cd`
+        * Launching external programs
+
+        Once these pieces are in place, your shell will already feel usable. You’ll be able to type commands, see their output, and move around your filesystem.
+
+        As you continue, you’ll implement advanced features like:
+
+        * Pipes and redirection
+        * Command history
+        * Autocompletion
+        * ... and more
+
+        You'll finish with a GitHub repo of your own working Shell implementation.
+
+        You can publish and brag about it anywhere.
+
+    - question_markdown: "What exactly will I learn?"
+      answer_markdown: |-
+        The first ~10 stages will uncover insights that most developers never explicitly learn:
+
+        * How a shell reads, parses, and runs commands (it’s not magic!)
+        * What a REPL is and how it works under the hood (read - eval - print - loop)
+        * The difference in running builtins (like `echo`) vs. external programs (like `cursor`)
+        * What `$PATH` means and its role in identifying executable files
+        * How running commands can spawn OS processes, and how those processes exit
+
+        As you progress to the advanced stages, you'll get introduced to more programming ideas, such as parsing complex syntax and process management. You’ll be forced to structure your code carefully to avoid regressions.
+
+        Expect to continuously refactor code and re-organise code to faciliate easier progress.
+
+    - question_markdown: "Why should I build such a project?"
+      answer_markdown: |-
+        Building your own shell blends system design, advanced programming practice, and real-world computing knowledge (shell + OS). If you’ve mostly only worked on web or application code, you'll get a chance to be closer to how your computer actually runs software.
+
+        Beyond technical depth, there’s something uniquely satisfying about understanding a tool you use every day. You'll come out of it as a more confident and interesting developer.
+
+    - question_markdown: "What are the pre-requisites for this challenge?"
+      answer_markdown: |-
+        You should be comfortable writing code in any one language and using Git. No prior experience with shells or operating systems is required. Most learners pick up required concepts (e.g processes) as they go.
+
+        What matters most is curiosity and persistence. You’ll build your intuition by exploring, debugging, and discovering solutions yourself. While we do make it extremely simple to get started, don't expect this to be a follow-along tutorial.
   testimonials:
     - author_name: "Ananthalakshmi Sankar"
       author_description: "Automation Engineer at Apple"
