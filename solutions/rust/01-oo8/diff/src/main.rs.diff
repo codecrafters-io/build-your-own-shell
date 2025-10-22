@@ -1,4 +1,4 @@
-@@ -1,12 +1,11 @@
+@@ -1,8 +1,7 @@
  #[allow(unused_imports)]
  use std::io::{self, Write};
 
@@ -8,8 +8,4 @@
 -    // io::stdout().flush().unwrap();
 +    print!("$ ");
 +    io::stdout().flush().unwrap();
-
-     // Wait for user input
-     let mut command = String::new();
-     io::stdin().read_line(&mut command).unwrap();
  }

@@ -1,4 +1,4 @@
-@@ -1,13 +1,12 @@
+@@ -1,11 +1,10 @@
  import sys
 
 
@@ -6,9 +6,7 @@
 -    # Uncomment this block to pass the first stage
 -    # sys.stdout.write("$ ")
 +    sys.stdout.write("$ ")
-
-     # Wait for user input
-     input()
+     pass
 
 
  if __name__ == "__main__":

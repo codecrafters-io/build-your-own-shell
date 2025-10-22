@@ -1,8 +1,4 @@
-@@ -1,5 +1,4 @@
+@@ -1,2 +1 @@
 -# Uncomment this block to pass the first stage
 -# $stdout.write("$ ")
 +$stdout.write("$ ")
-
- # Wait for user input
- command, *args = gets.chomp.split(" ")
-\ No newline at end of file

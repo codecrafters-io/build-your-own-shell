@@ -1,4 +1,4 @@
-@@ -1,14 +1,13 @@
+@@ -1,11 +1,10 @@
  #include <iostream>
  #include <string>
 
@@ -10,7 +10,4 @@
 -  // Uncomment this block to pass the first stage
 -  // std::cout << "$ ";
 +  std::cout << "$ ";
-
-   std::string input;
-   std::getline(std::cin, input);
  }

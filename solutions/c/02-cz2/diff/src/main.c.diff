@@ -1,4 +1,4 @@
-@@ -1,14 +1,18 @@
+@@ -1,11 +1,18 @@
  #include <stdio.h>
 -#include <stdlib.h>
 +#include <string.h>
@@ -9,13 +9,13 @@
    setbuf(stdout, NULL);
 
    printf("$ ");
-
-   // Wait for user input
-   char input[100];
-   fgets(input, 100, stdin);
++
++  // Wait for user input
++  char input[100];
++  fgets(input, 100, stdin);
 +  // Remove the trailing newline
 +  input[strlen(input) - 1] = '\0';
 +  printf("%s: command not found\n", input);
-+
+
    return 0;
  }
