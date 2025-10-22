@@ -1,18 +1,15 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 )
 
-// Ensures gofmt doesn't remove the "fmt" import in stage 1 (feel free to remove this!)
+// Ensures gofmt doesn't remove the "fmt" and "os" imports in stage 1 (feel free to remove this!)
 var _ = fmt.Fprint
+var _ = os.Stdout
 
 func main() {
 	// Uncomment this block to pass the first stage
 	// fmt.Fprint(os.Stdout, "$ ")
-
-	// Wait for user input
-	bufio.NewReader(os.Stdin).ReadString('\n')
 }

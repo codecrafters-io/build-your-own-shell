@@ -1,12 +1,12 @@
-@@ -1,12 +1,13 @@
+@@ -1,10 +1,13 @@
  import sys
 
 
  def main():
      sys.stdout.write("$ ")
-
-     # Wait for user input
--    input()
+-    pass
++
++    # Wait for user input
 +    command = input()
 +    print(f"{command}: command not found")
 

@@ -1,4 +1,4 @@
-@@ -1,15 +1,14 @@
+@@ -1,12 +1,11 @@
  #include <stdio.h>
  #include <stdlib.h>
 
@@ -10,8 +10,5 @@
 -  // printf("$ ");
 +  printf("$ ");
 
-   // Wait for user input
-   char input[100];
-   fgets(input, 100, stdin);
    return 0;
  }

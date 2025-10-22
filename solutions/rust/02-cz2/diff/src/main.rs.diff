@@ -1,13 +1,13 @@
-@@ -1,11 +1,12 @@
+@@ -1,7 +1,12 @@
  #[allow(unused_imports)]
  use std::io::{self, Write};
 
  fn main() {
      print!("$ ");
      io::stdout().flush().unwrap();
-
-     // Wait for user input
-     let mut command = String::new();
-     io::stdin().read_line(&mut command).unwrap();
++
++    // Wait for user input
++    let mut command = String::new();
++    io::stdin().read_line(&mut command).unwrap();
 +    println!("{}: command not found", command.trim());
  }
