@@ -162,31 +162,31 @@ stages:
       In this stage, you'll implement handling invalid commands in your shell.
 
   - slug: "ff0"
-    name: "REPL"
+    name: "Implement a REPL"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
 
   - slug: "pn5"
-    name: "The exit builtin"
+    name: "Implement exit"
     difficulty: easy
     marketing_md: |-
       In this stage, you'll implement the `exit` builtin command.
 
   - slug: "iz3"
-    name: "The echo builtin"
+    name: "Implement echo"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement the `echo` builtin command.
 
   - slug: "ez5"
-    name: "The type builtin: builtins"
+    name: "Implement type"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command.
 
   - slug: "mg5"
-    name: "The type builtin: executable files"
+    name: "Locate executable files"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command for your shell.
