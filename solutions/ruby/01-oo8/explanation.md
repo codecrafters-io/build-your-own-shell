@@ -1,9 +1,9 @@
 The entry point for your Shell implementation is in `app/main.rb`.
 
-Study and uncomment the relevant code: 
+Study and uncomment the relevant code:
 
 ```ruby
-# Uncomment this block to pass the first stage
+# TODO: Uncomment the code below to pass the first stage
 $stdout.write("$ ")
 ```
 

@@ -1,9 +1,9 @@
 The entry point for your Shell implementation is in `src/main.c`.
 
-Study and uncomment the relevant code: 
+Study and uncomment the relevant code:
 
 ```c
-// Uncomment this block to pass the first stage
+// TODO: Uncomment the code below to pass the first stage
 printf("$ ");
 ```
 

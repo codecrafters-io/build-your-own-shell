@@ -1,9 +1,9 @@
 The entry point for your Shell implementation is in `app/main.py`.
 
-Study and uncomment the relevant code: 
+Study and uncomment the relevant code:
 
 ```python
-# Uncomment this block to pass the first stage
+# TODO: Uncomment the code below to pass the first stage
 sys.stdout.write("$ ")
 ```
 
