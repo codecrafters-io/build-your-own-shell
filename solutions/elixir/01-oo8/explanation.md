@@ -3,7 +3,7 @@ The entry point for your Shell implementation is in `lib/main.ex`.
 Study and uncomment the relevant code: 
 
 ```elixir
-# Uncomment this block to pass the first stage
+# Uncomment the code below to pass the first stage
 IO.write("$ ")
 ```
 

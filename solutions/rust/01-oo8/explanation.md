@@ -3,7 +3,7 @@ The entry point for your Shell implementation is in `src/main.rs`.
 Study and uncomment the relevant code: 
 
 ```rust
-// Uncomment this block to pass the first stage
+// Uncomment the code below to pass the first stage
 print!("$ ");
 io::stdout().flush().unwrap();
 ```

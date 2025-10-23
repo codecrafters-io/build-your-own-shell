@@ -10,6 +10,6 @@ var _ = fmt.Fprint
 var _ = os.Stdout
 
 func main() {
-	// Uncomment this block to pass the first stage
+	// Uncomment the code below to pass the first stage
 	// fmt.Fprint(os.Stdout, "$ ")
 }

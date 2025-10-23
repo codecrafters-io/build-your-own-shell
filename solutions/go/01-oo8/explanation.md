@@ -3,7 +3,7 @@ The entry point for your Shell implementation is in `app/main.go`.
 Study and uncomment the relevant code: 
 
 ```go
-// Uncomment this block to pass the first stage
+// Uncomment the code below to pass the first stage
 fmt.Fprint(os.Stdout, "$ ")
 ```
 

@@ -5,7 +5,7 @@ int main(int argc, char *argv[]) {
   // Flush after every printf
   setbuf(stdout, NULL);
 
-  // Uncomment this block to pass the first stage
+  // Uncomment the code below to pass the first stage
   // printf("$ ");
 
   return 0;

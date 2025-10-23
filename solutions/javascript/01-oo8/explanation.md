@@ -3,7 +3,7 @@ The entry point for your Shell implementation is in `app/main.js`.
 Study and uncomment the relevant code: 
 
 ```javascript
-// Uncomment this block to pass the first stage
+// Uncomment the code below to pass the first stage
 rl.question("$ ", (answer) => {
   rl.close();
 });

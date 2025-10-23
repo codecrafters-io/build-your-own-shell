@@ -1,4 +1,4 @@
 fun main() {
-    // Uncomment this block to pass the first stage
+    // Uncomment the code below to pass the first stage
     // print("$ ")
 }
