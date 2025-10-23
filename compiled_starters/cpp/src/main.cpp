@@ -6,6 +6,6 @@ int main() {
   std::cout << std::unitbuf;
   std::cerr << std::unitbuf;
 
-  // Uncomment this block to pass the first stage
+  // TODO: Uncomment the code below to pass the first stage
   // std::cout << "$ ";
 }

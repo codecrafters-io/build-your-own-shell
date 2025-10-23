@@ -1,4 +1,4 @@
 @@ -1,2 +1 @@
--# Uncomment this block to pass the first stage
+-# TODO: Uncomment the code below to pass the first stage
 -# $stdout.write("$ ")
 +$stdout.write("$ ")

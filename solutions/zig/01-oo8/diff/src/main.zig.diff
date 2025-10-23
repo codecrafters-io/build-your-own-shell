@@ -3,7 +3,7 @@
  var stdin = std.fs.File.stdin().readerStreaming(&.{});
 
  pub fn main() !void {
--    // Uncomment this block to pass the first stage
+-    // TODO: Uncomment the code below to pass the first stage
 -    // std.debug.print("$ ", .{});
 +    std.debug.print("$ ", .{});
  }

@@ -5,7 +5,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-// Uncomment this block to pass the first stage
+// TODO: Uncomment the code below to pass the first stage
 // rl.question("$ ", (answer) => {
 //   rl.close();
 // });
