@@ -153,7 +153,7 @@ stages:
     name: "Print a prompt"
     difficulty: very_easy
     marketing_md: |-
-      In this stage, you'll implement printing the shell prompt and waiting for user input.
+      In this stage, you'll implement printing the shell prompt.
 
   - slug: "cz2"
     name: "Handle invalid commands"
