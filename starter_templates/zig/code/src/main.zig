@@ -1,7 +1,11 @@
 const std = @import("std");
-var stdin = std.fs.File.stdin().readerStreaming(&.{});
+
+var stdout_buffer: [4096]u8 = undefined;
+var stdout_writer = std.fs.File.stdout().writerStreaming(&stdout_buffer);
+const stdout = &stdout_writer.interface;
 
 pub fn main() !void {
     // TODO: Uncomment the code below to pass the first stage
-    // std.debug.print("$ ", .{});
+    // try stdout.print("$ ", .{});
+    // try stdout.flush();
 }
