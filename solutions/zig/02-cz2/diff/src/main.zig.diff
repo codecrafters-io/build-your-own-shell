@@ -11,9 +11,9 @@
 
  pub fn main() !void {
      try stdout.print("$ ", .{});
-+    try stdout.flush();
+     try stdout.flush();
 +
 +    const command = try stdin.takeDelimiter('\n');
 +    try stdout.print("{s}: command not found\n", .{command.?});
-     try stdout.flush();
++    try stdout.flush();
  }
