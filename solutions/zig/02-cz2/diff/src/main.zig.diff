@@ -1,15 +1,19 @@
-@@ -1,6 +1,14 @@
+@@ -1,10 +1,18 @@
  const std = @import("std");
- var stdin = std.fs.File.stdin().readerStreaming(&.{});
-+var stdout = std.fs.File.stdout().writerStreaming(&.{});
+
++var stdin_buffer: [4096]u8 = undefined;
++var stdin_reader = std.fs.File.stdin().readerStreaming(&stdin_buffer);
++const stdin = &stdin_reader.interface;
++
+ var stdout_buffer: [4096]u8 = undefined;
+ var stdout_writer = std.fs.File.stdout().writerStreaming(&stdout_buffer);
+ const stdout = &stdout_writer.interface;
 
  pub fn main() !void {
-     std.debug.print("$ ", .{});
+     try stdout.print("$ ", .{});
++    try stdout.flush();
 +
-+    var input_buffer: [1024]u8 = undefined;
-+    var input_len = try stdin.read(&input_buffer);
-+    if (input_len > 0) input_len -= 1; // Remove the newline character
-+    const input_slice = input_buffer[0..input_len];
-+
-+    try stdout.interface.print("{s}: command not found\n", .{input_slice});
++    const command = try stdin.takeDelimiter('\n');
++    try stdout.print("{s}: command not found\n", .{command.?});
+     try stdout.flush();
  }
