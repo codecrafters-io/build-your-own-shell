@@ -4,17 +4,24 @@ hints:
       Use the [`ReadString()`](https://pkg.go.dev/bufio#Reader.ReadString) method:
 
       ```go
+      import (
+          "bufio"
+          "os"
+      )
+
       // Captures the user's command in the "command" variable
       command, err := bufio.NewReader(os.Stdin).ReadString('\n')
       ```
 
       The `ReadString()` method waits for the user to enter a command, and then returns it (including a newline) as a string.
 
-  - title_markdown: "How do I print the command not found message?"
+  - title_markdown: 'How do I print the command not found message?'
     body_markdown: |-
       Use the [`Println()`](https://pkg.go.dev/fmt#Println) function:
 
       ```go
+      import "fmt"
+
       // Prints the "<command>: command not found" message
       fmt.Println(command[:len(command)-1] + ": command not found")
       ```
