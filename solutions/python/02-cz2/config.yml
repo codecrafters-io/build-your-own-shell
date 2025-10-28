@@ -1,7 +1,7 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use Python's [`input()`](https://docs.python.org/3/library/functions.html#input) function:
+      Use the [`input()`](https://docs.python.org/3/library/functions.html#input) function:
 
       ```python
       # Captures the user's command in the "command" variable
@@ -12,11 +12,11 @@ hints:
 
   - title_markdown: 'How do I print the command not found message?'
     body_markdown: |-
-      Use Python's [print()](https://docs.python.org/3/library/functions.html#print) function to print the message to the console:
+      Use the [print()](https://docs.python.org/3/library/functions.html#print) function to print the message to the console:
 
       ```python
       # Prints the "<command>: command not found" message
       print(f"{command}: command not found")
       ```
 
-      The above code uses an [f-string](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals) to include the command in the message.
+      The code above uses an [f-string](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals) to include the command in the message.
