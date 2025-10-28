@@ -1,10 +1,8 @@
 const std = @import("std");
 
-var stdout_buffer: [4096]u8 = undefined;
-var stdout_writer = std.fs.File.stdout().writerStreaming(&stdout_buffer);
+var stdout_writer = std.fs.File.stdout().writerStreaming(&.{});
 const stdout = &stdout_writer.interface;
 
 pub fn main() !void {
     try stdout.print("$ ", .{});
-    try stdout.flush();
 }
