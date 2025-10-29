@@ -1,0 +1,24 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use the [`BufferedReader`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedReader.html) class with [`System.in`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/System.html#in):
+      ```java
+      import java.io.BufferedReader;
+      import java.io.InputStreamReader;
+
+      // Captures the user's command in the "command" variable
+      BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+      String command = reader.readLine();
+      ```
+
+      The `readLine()` method waits for the user to enter a command and returns it as a string (without the newline).
+
+  - title_markdown: 'How do I print the command not found message?'
+    body_markdown: |-
+      Use [`System.out.println()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)):
+      ```java
+      // Prints the "<command>: command not found" message
+      System.out.println(command + ": command not found");
+      ```
+
+      The code above uses string concatenation (`+`) to combine the command with the error message.
