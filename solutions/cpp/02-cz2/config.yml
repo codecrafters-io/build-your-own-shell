@@ -11,7 +11,7 @@ hints:
       std::getline(std::cin, command);
       ```
 
-      The `std::getline()` function waits for the user to enter a command and stores it in the `command` string (without the newline).
+      The `std::getline()` function waits for the user to enter a command and stores it in the `command` string.
 
   - title_markdown: 'How do I print the command not found message?'
     body_markdown: |-
