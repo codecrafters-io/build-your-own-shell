@@ -1,6 +1,19 @@
-In this stage, you'll implement the `pwd` builtin command.
+In this stage, you'll implement the `pwd` builtin.
 
-[pwd](https://en.wikipedia.org/wiki/Pwd) stands for "print working directory".
+### The `pwd` Builtin
+
+The [`pwd`](https://en.wikipedia.org/wiki/Pwd) builtin prints the current working directory. `pwd` stands for "print working directory."
+
+Every process (including your shell) has a current working directory, which is the directory it's "in" at any given moment. The `pwd` command displays the full absolute path of this directory.
+
+For example:
+```bash
+$ pwd
+/home/user/projects
+$ pwd
+/usr/local/bin
+```
+
 
 ### Tests
 
@@ -10,7 +23,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It'll then send a `pwd` command to your shell:
+It will then send a `pwd` command to your shell:
 
 ```bash
 $ pwd
@@ -18,8 +31,9 @@ $ pwd
 $
 ```
 
-The tester will check if the `pwd` command correctly prints the current working directory.
+The tester will verify that the `pwd` command correctly displays the current working directory.
 
 ### Notes
 
 - The `pwd` command must print the full absolute path of the current working directory.
+- You'll need to use your language's API to get the current working directory (like `process.cwd()` in Node.js, `os.getcwd()` in Python, or `getcwd()` in C).
