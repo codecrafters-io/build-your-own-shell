@@ -1,0 +1,28 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use the [`readline`](https://nodejs.org/api/readline.html) module with [`question()`](https://nodejs.org/api/readline.html#rlquestionquery-options-callback):
+      ```typescript
+      import * as readline from 'readline';
+
+      const rl = readline.createInterface({
+          input: process.stdin,
+          output: process.stdout
+      });
+
+      rl.question('$ ', (command: string) => {
+          // The command variable contains the user's input
+      });
+      ```
+
+      The `question()` method displays a prompt and waits for the user to enter a command.
+
+  - title_markdown: 'How do I print the command not found message?'
+    body_markdown: |-
+      Use [`console.log()`](https://nodejs.org/api/console.html#consolelogdata-args):
+      ```typescript
+      // Prints the "<command>: command not found" message
+      console.log(`${command}: command not found`);
+      ```
+
+      The above code uses a template literal to include the command in the message.

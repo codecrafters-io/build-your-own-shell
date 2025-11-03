@@ -1,0 +1,29 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use the standard input reader:
+      ```zig
+      const std = @import("std");
+
+      const stdin = std.io.getStdIn().reader();
+      var buffer: [1024]u8 = undefined;
+
+      // Read the user's command
+      const input = try stdin.readUntilDelimiterOrEof(&buffer, '\n');
+      ```
+
+      The `readUntilDelimiterOrEof()` method waits for the user to enter a command and returns it as a slice (without the trailing newline).
+
+  - title_markdown: 'How do I print the command not found message?'
+    body_markdown: |-
+      Use the standard output writer with [`print()`](https://ziglang.org/documentation/master/std/#std.io.Writer.print):
+      ```zig
+      const stdout = std.io.getStdOut().writer();
+
+      // Prints the "<command>: command not found" message
+      if (input) |command| {
+          try stdout.print("{s}: command not found\n", .{command});
+      }
+      ```
+
+      The `{s}` format specifier is used for string slices.
