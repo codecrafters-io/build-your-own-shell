@@ -11,7 +11,7 @@ hints:
       const command = try stdin.takeDelimiter('\n');
       ```
 
-      The `takeDelimiter()` method reads until it encounters a newline and returns an optional slice without the newline character.
+      The `takeDelimiter()` method reads the input and returns it as an optional slice (without the newline character).
 
   - title_markdown: 'How do I print the command not found message?'
     body_markdown: |-
@@ -22,4 +22,3 @@ hints:
       ```
 
       - The `{s}` format specifier is used for string slices.
-      - Since `takeDelimiter()` returns an optional, use `.?` to unwrap it.
