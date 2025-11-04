@@ -1,6 +1,18 @@
-In this stage, you'll implement the `pwd` builtin command.
+In this stage, you'll implement the `pwd` builtin.
 
-[pwd](https://en.wikipedia.org/wiki/Pwd) stands for "print working directory".
+### The `pwd` Builtin
+
+The [`pwd`](https://en.wikipedia.org/wiki/Pwd) (print working directory) builtin prints the full, absolute path of the current working directory to stdout.
+
+When your shell starts, its current working directory is typically the directory from which it was executed. Your `pwd` implementation needs to retrieve this information from the operating system and print it.
+
+For example:
+```bash
+$ pwd
+/home/user/projects
+$ pwd
+/usr/local/bin
+```
 
 ### Tests
 
@@ -10,7 +22,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It'll then send a `pwd` command to your shell:
+It will then send a `pwd` command to your shell:
 
 ```bash
 $ pwd
@@ -18,7 +30,7 @@ $ pwd
 $
 ```
 
-The tester will check if the `pwd` command correctly prints the current working directory.
+The tester will verify that the `pwd` command correctly displays the current working directory.
 
 ### Notes
 
