@@ -1,6 +1,8 @@
 const std = @import("std");
-var stdin = std.fs.File.stdin().readerStreaming(&.{});
+
+var stdout_writer = std.fs.File.stdout().writerStreaming(&.{});
+const stdout = &stdout_writer.interface;
 
 pub fn main() !void {
-    std.debug.print("$ ", .{});
+    try stdout.print("$ ", .{});
 }
