@@ -3,15 +3,15 @@ hints:
     body_markdown: |-
       Use the [`readline`](https://nodejs.org/api/readline.html) module with [`question()`](https://nodejs.org/api/readline.html#rlquestionquery-options-callback):
       ```typescript
-      import * as readline from 'readline';
+      import { createInterface } from 'readline';
 
-      const rl = readline.createInterface({
-          input: process.stdin,
-          output: process.stdout
+      const rl = createInterface({
+        input: process.stdin,
+        output: process.stdout
       });
 
-      rl.question('$ ', (command: string) => {
-          // The command variable contains the user's input
+      rl.question('$ ', (command) => {
+        // The command variable contains the user's input
       });
       ```
 

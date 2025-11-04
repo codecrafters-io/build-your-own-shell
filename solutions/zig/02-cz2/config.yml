@@ -1,29 +1,25 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use the standard input reader:
+      Set up standard input and use [`takeDelimiterExclusive()`](https://ziglang.org/documentation/master/std/#std.io.Reader.takeDelimiterExclusive) to read the command:
       ```zig
-      const std = @import("std");
+      var in_buf: [1024]u8 = undefined;
+      var reader_impl = std.fs.File.stdin().reader(&in_buf);
+      const stdin = &reader_impl.interface;
 
-      const stdin = std.io.getStdIn().reader();
-      var buffer: [1024]u8 = undefined;
-
-      // Read the user's command
-      const input = try stdin.readUntilDelimiterOrEof(&buffer, '\n');
+      // Captures the user's command (without the trailing newline)
+      const command = try stdin.takeDelimiterExclusive('\n');
       ```
 
-      The `readUntilDelimiterOrEof()` method waits for the user to enter a command and returns it as a slice (without the trailing newline).
+      The `takeDelimiterExclusive()` method reads until it encounters a newline and returns the input without the newline character.
 
   - title_markdown: 'How do I print the command not found message?'
     body_markdown: |-
-      Use the standard output writer with [`print()`](https://ziglang.org/documentation/master/std/#std.io.Writer.print):
+      Use the [`print()`](https://ziglang.org/documentation/master/std/#std.io.Writer.print) method:
       ```zig
-      const stdout = std.io.getStdOut().writer();
-
       // Prints the "<command>: command not found" message
-      if (input) |command| {
-          try stdout.print("{s}: command not found\n", .{command});
-      }
+      try stdout.print("{s}: command not found\n", .{command});
+      try stdout.flush();
       ```
 
       The `{s}` format specifier is used for string slices.

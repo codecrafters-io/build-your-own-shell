@@ -1,14 +1,20 @@
 const std = @import("std");
-var stdin = std.fs.File.stdin().readerStreaming(&.{});
-var stdout = std.fs.File.stdout().writerStreaming(&.{});
+
+var in_buf: [1024]u8 = undefined;
+var out_buf: [1024]u8 = undefined;
+
+var reader_impl = std.fs.File.stdin().reader(&in_buf);
+var writer_impl = std.fs.File.stdout().writer(&out_buf);
+
+const stdin = &reader_impl.interface;
+const stdout = &writer_impl.interface;
 
 pub fn main() !void {
-    std.debug.print("$ ", .{});
+    try stdout.print("$ ", .{});
+    try stdout.flush();
 
-    var input_buffer: [1024]u8 = undefined;
-    var input_len = try stdin.read(&input_buffer);
-    if (input_len > 0) input_len -= 1; // Remove the newline character
-    const input_slice = input_buffer[0..input_len];
+    const command = try stdin.takeDelimiterExclusive('\n');
 
-    try stdout.interface.print("{s}: command not found\n", .{input_slice});
+    try stdout.print("{s}: command not found\n", .{command});
+    try stdout.flush();
 }
