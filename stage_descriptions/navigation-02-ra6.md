@@ -1,4 +1,4 @@
-In this stage, you'll implement the `cd` builtin command to handle absolute paths.
+In this stage, you'll implement the `cd` builtin command to handle absolute paths. 
 
 The `cd` command is used to change the current working directory. `cd` can receive multiple
 argument types. In this challenge we'll cover:
