@@ -21,4 +21,4 @@ hints:
       try stdout.print("{s}: command not found\n", .{command.?});
       ```
 
-      - The `{s}` format specifier is used for string slices.
+      The `{s}` format specifier is used for string slices.
