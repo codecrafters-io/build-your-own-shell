@@ -7,7 +7,7 @@ hints:
       string command = Console.ReadLine();
       ```
 
-      The `ReadLine()` method waits for the user to enter a command and then returns it as a string (without the trailing newline).
+      The `ReadLine()` method waits for the user to enter a command and then returns it as a string.
 
   - title_markdown: 'How do I print the command not found message?'
     body_markdown: |-
