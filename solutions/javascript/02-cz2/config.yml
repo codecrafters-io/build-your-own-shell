@@ -3,13 +3,6 @@ hints:
     body_markdown: |-
       Use the [`readline`](https://nodejs.org/api/readline.html) module with [`question()`](https://nodejs.org/api/readline.html#rlquestionquery-options-callback):
       ```javascript
-      const readline = require('readline');
-
-      const rl = readline.createInterface({
-          input: process.stdin,
-          output: process.stdout
-      });
-
       rl.question('$ ', (command) => {
           // The command variable contains the user's input
       });
