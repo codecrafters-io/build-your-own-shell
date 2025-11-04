@@ -1,15 +1,8 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use the [`readline`](https://nodejs.org/api/readline.html) module with [`question()`](https://nodejs.org/api/readline.html#rlquestionquery-options-callback):
+      Use the [`question()`](https://nodejs.org/api/readline.html#rlquestionquery-options-callback) method:
       ```typescript
-      import { createInterface } from 'readline';
-
-      const rl = createInterface({
-        input: process.stdin,
-        output: process.stdout
-      });
-
       rl.question('$ ', (command) => {
         // The command variable contains the user's input
       });
