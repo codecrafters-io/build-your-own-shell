@@ -6,7 +6,7 @@ As a recap, `cd` can receive multiple argument types:
 
 - Absolute paths, like `/usr/local/bin`. (Handled in the previous stage)
 - Relative paths, like `./`, `../`, `./dir`. 
-- The `~` character, which stands for the user's home directory
+- The `~` character.
 
 For this stage, you'll handle the second argument type.
 
@@ -59,9 +59,9 @@ $
 ```
 
 The tester will verify that:
-- Valid relative paths change the directory correctly 
-- Invalid relative paths print the error message `cd: <directory>: No such file or directory`
-- The directory remains unchanged when `cd` fails
+- Valid relative paths change the directory correctly. 
+- Invalid relative paths print the error message `cd: <directory>: No such file or directory`.
+- The directory remains unchanged when `cd` fails.
 
 ### Notes
 
