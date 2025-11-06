@@ -1,10 +1,39 @@
-In this stage, you'll extend your `cd` builtin command to handle relative paths.
+In this stage, you'll extend your `cd` builtin to handle relative paths.
+
+### The `cd` Builtin (Recap)
 
 As a recap, `cd` can receive multiple argument types:
 
-- Absolute paths, like `/usr/local/bin`. (Previous stages)
-- Relative paths, like `./`, `../`, `./dir`. (**This stage**)
-- The `~` character, which stands for the user's home directory (Later stages)
+- Absolute paths, like `/usr/local/bin`. (Handled in the previous stage)
+- Relative paths, like `./`, `../`, `./dir`. 
+- The `~` character, which stands for the user's home directory
+
+For this stage, you'll handle the second argument type.
+
+### Relative Paths
+
+A relative path specifies a location relative to the current working directory, rather than from the root of the filesystem.
+
+Your shell must correctly interpret and navigate the following components of a relative path:
+
+- `./` (Current Directory): Refers to the current working directory itself.
+- `../` (Parent Directory): Refers to the directory immediately above the current working directory in the file system hierarchy. 
+- Subdirectories: Any path that does not begin with `/` is treated as a path relative to the current location (e.g., `cd local/bin` or `cd ./local/bin`).
+
+Here are some examples:
+```bash
+$ pwd
+/usr
+$ cd ./local/bin    # Go to "local/bin" inside current directory (/usr)
+$ pwd
+/usr/local/bin
+$ cd ../../         # Go up two levels
+$ pwd
+/usr
+$ cd local          # "local" is shorthand for "./local"
+$ pwd
+/usr/local
+```
 
 ### Tests
 
@@ -14,7 +43,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It'll then send a series of `cd` commands to your shell:
+It will then send a series of `cd` commands to your shell:
 
 ```bash
 $ cd /usr
@@ -29,12 +58,11 @@ $ pwd
 $
 ```
 
-The tester will check if the `cd` command correctly changes the directory when a valid path is provided. It'll
-also check whether the message `cd: <directory>: No such file or directory` is printed if the provided path is invalid.
+The tester will verify that:
+- Valid relative paths change the directory correctly 
+- Invalid relative paths print the error message `cd: <directory>: No such file or directory`
+- The directory remains unchanged when `cd` fails
 
 ### Notes
 
 - The actual directory names used will be random, so you can't hardcode the expected output.
-- Relative paths like `./`, `../`, and more complex relative paths should be handled correctly.
-- The `cd` command doesn't print anything if the directory is changed successfully. The tester will use `pwd` to verify
-  the current working directory after using `cd`.
