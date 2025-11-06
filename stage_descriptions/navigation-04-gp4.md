@@ -6,7 +6,7 @@ As a recap, `cd` can receive multiple argument types:
 
 - Absolute paths, like `/usr/local/bin`. (Handled in an earlier stage)
 - Relative paths, like `./`, `../`, `./dir`. (Handled in the previous stage)
-- The `~` character, which stands for the user's home directory
+- The `~` character.
 
 ### The `~` Character
 
@@ -53,8 +53,9 @@ $
 ```
 
 The tester will verify that:
-- `cd ~` changes to the home directory
-- The home directory matches the value of the `HOME` environment variable
+- `cd ~` changes to the home directory.
+- The home directory matches the value of the `HOME` environment variable.
 
 ### Notes
+
 - Most languages provide functions to read environment variables (like `process.env.HOME` in Node.js, `os.getenv('HOME')` in Python, or `getenv("HOME")` in C).
