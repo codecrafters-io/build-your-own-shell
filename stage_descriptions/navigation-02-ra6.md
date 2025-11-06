@@ -55,9 +55,9 @@ $
 ```
 
 The tester will verify that:
-- Valid paths change the directory
-- Invalid paths print the error message (`cd: <directory>: No such file or directory`)
-- Invalid paths don't change the current directory
+- Valid paths change the directory.
+- Invalid paths print the error message `cd: <directory>: No such file or directory`.
+- Invalid paths don't change the current directory.
 
 ### Notes
 
