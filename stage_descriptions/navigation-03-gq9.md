@@ -18,7 +18,7 @@ Your shell must correctly interpret and navigate the following components of a r
 
 - `./` (Current Directory): Refers to the current working directory itself.
 - `../` (Parent Directory): Refers to the directory immediately above the current working directory in the file system hierarchy. 
-- Subdirectories: Any path that does not begin with `/` is treated as a path relative to the current location (e.g., `cd local/bin` or `cd ./local/bin`).
+- Subdirectories: Paths like `./dirname` or `dirname` are treated as relative to the current directory.
 
 Here are some examples:
 ```bash
