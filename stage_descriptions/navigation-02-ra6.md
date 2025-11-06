@@ -17,7 +17,7 @@ For this stage, we'll focus on absolute paths.
 An absolute path starts with `/` and specifies a location from the root of the filesystem.
 
 When `cd` receives an absolute path:
-- If the directory exists, change to that directory (print nothing).
+- If the directory exists, change to that directory.
 - If the directory doesn't exist, print `cd: <directory>: No such file or directory`.
 
 For example:
@@ -33,7 +33,7 @@ $ pwd
 /usr/local/bin
 ```
 
-When the directory change fails, the current directory remains unchanged.
+If the directory change fails, the current directory should remain unchanged.
 
 ### Tests
 
