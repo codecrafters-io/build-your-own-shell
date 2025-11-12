@@ -150,12 +150,20 @@ extensions:
 
 stages:
   - slug: "oo8"
+    concept_slugs:
+      [
+        "what-is-a-shell-prompt",
+      ]
     name: "Print a prompt"
     difficulty: very_easy
     marketing_md: |-
       In this stage, you'll implement printing the shell prompt.
 
   - slug: "cz2"
+    concept_slugs:
+      [
+        "what-is-a-shell-prompt",
+      ]
     name: "Handle invalid commands"
     difficulty: easy
     marketing_md: |-
