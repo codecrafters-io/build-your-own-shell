@@ -11,6 +11,7 @@ description_md: |-
   Your shell will run a REPL, parse commands, spawn processes, and more.
 short_description_md: |-
   Learn about parsing shell commands, executing programs and more
+concept_slugs: ["what-is-a-shell-prompt"]
 
 completion_percentage: 20
 
