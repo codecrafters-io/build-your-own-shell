@@ -10,7 +10,7 @@ In this stage, we’ll cover:
 We won’t cover the following cases in this stage:
 
 - `\$` → escapes the dollar sign, preventing variable expansion
--  `` \` `` → escapes the backtick, preventing command substitution
+- `` \` `` → escapes the backtick, preventing command substitution
 - `\<newline>` → escapes a newline character, allowing line continuation
 
 ### Tests
@@ -36,7 +36,7 @@ The tester will check if the `echo` command correctly prints the quoted text.
 Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside double quotes:
 
 ```bash
-$ cat "/tmp/"file\name"" "/tmp/"file name""
+$ cat "/tmp/ant/\"f 38\"" "/tmp/ant/\"f\\93\""
 content1 content2
 ```
 
@@ -44,7 +44,7 @@ The tester will check if the `cat` command correctly prints the file content.
 
 Here are a few examples illustrating how backslashes behave within double quotes:
 
-| Command | Expected output |
-| :---: | :-------------: | 
-| `echo "A \\ escapes itself"` | `A \ escapes itself` | 
+|              Command               |      Expected output       |
+| :--------------------------------: | :------------------------: |
+|    `echo "A \\ escapes itself"`    |    `A \ escapes itself`    |
 | `echo "A \" inside double quotes"` | `A " inside double quotes` |
