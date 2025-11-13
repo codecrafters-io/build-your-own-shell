@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y zip=3.* && \ 
     apt-get install --no-install-recommends -y g++=4:* && \
     apt-get install --no-install-recommends -y build-essential=12.* && \
+    apt-get install --no-install-recommends -y libncurses-dev=6.* && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
