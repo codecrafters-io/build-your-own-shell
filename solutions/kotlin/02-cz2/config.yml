@@ -1,0 +1,19 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use [`readLine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readLine.html) to read user input:
+
+      ```kotlin
+      // Captures the user's command in the "command" variable
+      val command = readLine() ?: return
+      ```
+
+      The `readLine()` function waits for the user to enter a command and then returns it as a string.
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) to print the message:
+
+      ```kotlin
+      // Prints the "<command>: command not found" message
+      println("$command: command not found")
+      ```

@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use [`gets()`](https://ruby-doc.org/core-3.3.0/Kernel.html#method-i-gets) to read user input:
+
+      ```ruby
+      # Captures the user's command in the "command" variable
+      command = gets
+      ```
+
+      The `gets()` method waits for the user to enter a line, and then returns it (including the trailing newline) as a string.
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use [`puts`](https://ruby-doc.org/core-3.3.0/Kernel.html#method-i-puts) to print the message to the console:
+
+      ```ruby
+      # Prints the "<command>: command not found" message
+      command = command ? command.chomp : ""
+      $stdout.puts("#{command}: command not found")
+      ```
+
+      Since `command` includes a trailing newline, use `command.chomp` to remove it.
