@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use the [`fgets()`](https://www.php.net/manual/en/function.fgets.php) function to read a line from STDIN:
+
+      ```php
+      // Captures the user's command in the "$command" variable
+      $command = fgets(STDIN);
+      ```
+
+      The `fgets()` function reads a line from standard input and returns it (including the newline) as a string.
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use the [`fwrite()`](https://www.php.net/manual/en/function.fwrite.php) function to write the message to standard output:
+
+      ```php
+      // Prints the "<command>: command not found" message
+      $command = rtrim($command, "\r\n");
+      fwrite(STDOUT, $command . ": command not found\n");
+      ```
+
+      Since `$command` includes a trailing newline, use the [`rtrim()`](https://www.php.net/manual/en/function.rtrim.php) function to remove it before printing.

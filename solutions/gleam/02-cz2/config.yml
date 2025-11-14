@@ -1,0 +1,25 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use `io.read_line()` to read user input:
+
+      ```gleam
+      # Captures the user's command in the "command" variable
+      let _ = case io.get_line()
+      ```
+
+      The `read_line()` function waits for the user to enter a command, and then returns it (including a newline) as `Ok(string)`.
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use `io.println()` to print the message:
+
+      ```gleam
+      import gleam/string
+
+      # Prints the "<command>: command not found" message
+      let cmd = string.trim(command)
+      io.println(cmd <> ": command not found")
+      ```
+
+      - The `<>` operator concatenates strings.
+      - The `string.trim()` function removes surrounding whitespace, including the trailing newline from `command`.
