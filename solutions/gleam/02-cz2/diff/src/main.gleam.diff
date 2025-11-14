@@ -1,14 +1,12 @@
-@@ -1,5 +1,13 @@
+@@ -1,5 +1,11 @@
  import gleam/io
++import gleam/erlang
 +import gleam/string
 
  pub fn main() {
    io.print("$ ")
-+  let _ = case io.read_line() {
-+    Ok(command) -> {
-+      let cmd = string.trim(command)
-+      io.println(cmd <> ": command not found")
-+    }
-+    Error(_) -> Nil
-+  }
++  let assert Ok(command) = erlang.get_line("") 
++  
++  let cmd = string.trim(command)
++  io.println(cmd <> ": command not found")
  }

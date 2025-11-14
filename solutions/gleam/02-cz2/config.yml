@@ -1,17 +1,19 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use `io.read_line()` to read user input:
+      Use the [`get_line()`](https://hexdocs.pm/gleam_stdlib/gleam/erlang.html#get_line) function:
 
       ```gleam
-      # Captures the user's command in the "command" variable
-      let _ = case io.read_line()
+      import gleam/erlang
+
+      // Captures the user's command
+      let assert Ok(command) = erlang.get_line("")
       ```
 
-      The `read_line()` function waits for the user to enter a command, and then returns it (including a newline) as `Ok(string)`.
+      The `get_line()` function waits for the user to enter a command and returns it as a string (including a trailing newline).
   - title_markdown: "How do I print the command not found message?"
     body_markdown: |-
-      Use `io.println()` to print the message:
+      Use the [`println()`](https://hexdocs.pm/gleam_stdlib/gleam/io.html#println) function:
 
       ```gleam
       import gleam/string
