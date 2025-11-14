@@ -5,7 +5,7 @@ hints:
 
       ```gleam
       # Captures the user's command in the "command" variable
-      let _ = case io.get_line()
+      let _ = case io.read_line()
       ```
 
       The `read_line()` function waits for the user to enter a command, and then returns it (including a newline) as `Ok(string)`.
