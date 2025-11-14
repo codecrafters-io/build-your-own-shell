@@ -12,8 +12,9 @@ When `type` receives a command input, your shell must follow these steps:
 1. Check if the command is a builtin command (like `exit` or `echo`). If it is, report it as a builtin (`<command> is a shell builtin`) and stop.
 2. If the command is not a builtin, your shell must go through every directory in PATH. For each directory:
     1. Check if a file with the command name exists.
-    2. If the file exists and has execute permissions, print `<command> is <full_path>` and stop searching.
-    3. If the file exists but doesn't have execute permissions, skip it and continue to the next directory.
+    2. Check if the file has **execute permissions**.
+    3. If the file exists and has execute permissions, print `<command> is <full_path>` and stop.
+    4. If the file exists but **lacks execute permissions**, skip it and continue to the next directory.
 3. If no executable is found in any directory, print `<command>: not found`.
 
 For example:
@@ -47,10 +48,13 @@ invalid_command: not found
 $
 ```
 
-The tester will check if the `type` command correctly identifies executable files in the PATH.
+The tester will verify that the `type` command correctly identifies executable files in the PATH:
+- Executable files in PATH are reported with their full path (`<command> is <full_path>`).
+- Files without execute permissions are skipped.
+- Non-existent commands print the `<command>: not found` message.
 
 ### Notes
 
-- The actual value of the `PATH` environment variable will be random for each test case.
+- Most languages provide functions to check execute permissions for a file (like `os.access(path, os.X_OK)` in Python, or `Files.isExecutable()` in Java).
 - PATH can include directories that don’t exist on disk, so your code should handle such cases gracefully.
 - When parsing the PATH environment variable, remember that the delimiter (usually `:` or `;`) can vary by operating system. Use OS-agnostic path handling provided by your language (like `os.pathsep` in Python, `File.pathSeparator` in Java, or `path.delimiter` in Node.js) to correctly split the directories.
