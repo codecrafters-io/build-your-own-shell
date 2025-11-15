@@ -28,6 +28,10 @@ $ type echo
 echo is a shell builtin
 ```
 
+{{#lang_is_elixir}}
+It's not recommended to use [System.find_executable](https://hexdocs.pm/elixir/1.18.4/System.html#find_executable/1) if you'd like to learn how to implement the functionality manully.
+{{/lang_is_elixir}}
+
 ### Tests
 
 The tester will execute your program with a custom `PATH` like this:
