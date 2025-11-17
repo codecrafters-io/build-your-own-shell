@@ -1,4 +1,4 @@
-In this stage, you'll implement support for quoting with single quotes.
+In this stage, you'll implement support for quoting with single quotes. 
 
 ### Single Quotes
 
