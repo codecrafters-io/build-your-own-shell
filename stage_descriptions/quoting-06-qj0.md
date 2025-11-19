@@ -1,6 +1,26 @@
 In this stage, you'll implement support for executing a quoted executable.
 
-The tester will rename the `cat` executable to something containing spaces, quotes and backslashes.
+### Quoted Executable Names
+
+Up until now, the executable name (the first word in a command) has been a simple string. But executable names can also be quoted, just like arguments.
+
+This is useful when an executable has spaces, quotes, or special characters in its name. Quoting the executable name lets you execute programs that would otherwise be difficult to reference.
+
+For example:
+
+```bash
+$ 'my program' argument1
+# Runs an executable named "my program"
+
+$ "exe with spaces" file.txt
+# Runs an executable named "exe with spaces"
+```
+
+When your shell receives a command with a quoted executable:
+
+- Your parser must correctly interpret the quotes to form the executable name (e.g., from `"my 'program'"` to `my 'program'`).
+- Your shell must search for the unquoted program name in the `PATH` directories.
+- Upon finding the executable, your shell must spawn the process, passing any other tokens as arguments.
 
 ### Tests
 
@@ -10,7 +30,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It'll then send a series of commands to your shell, executing the renamed `cat` executable:
+It will then send a series of commands to your shell, executing the renamed `cat` executable:
 
 ```bash
 $ 'exe with "quotes"' file
@@ -19,4 +39,7 @@ $ "exe with 'single quotes'" file
 content2
 ```
 
-The tester will check if the commands correctly execute the renamed `cat` executable, and that the output is correct.
+The tester will verify that:
+- Quoted executable names are correctly processed (quotes removed).
+- The resulting executable name is found and executed.
+- The output matches what the executable produces.
