@@ -1,6 +1,18 @@
-In this stage, you'll implement support for quoting with backslashes.
+In this stage, you'll implement support for backslashes outside quotes.
 
-A non-quoted backslash `\` is treated as an escape character. It preserves the literal value of the next character. Read more about quoting with backslashes [here](https://www.gnu.org/software/bash/manual/bash.html#Escape-Character).
+### Backslash Escaping
+
+When a backslash (`\`) is used outside of quotes, it acts as an `escape character`. If the backslash precedes a character that usually has a special meaning to the shell (like `$`, `*`, `?`, or other delimiters), the backslash causes the character to be treated as a literal character.
+
+Most importantly for this stage, a backslash can be used to prevent whitespace from acting as a delimiter. If you use a backslash before a space, that space is preserved as part of the current argument, rather than separating it from the next token.
+
+Here are a few examples illustrating how backslashes behave outside quotes:
+
+| Command | Expected Output | Explanation |
+|---------|----------------|-------------|
+| `echo world\ \ \ \ \ \ script` | `world      script` | Each `\ ` creates a literal space as part of one argument. |
+| `echo before\     after` | `before  after` | The backslash preserves the first space literally, but the shell collapses the subsequent unescaped spaces. |
+| `echo hello\\world` | `hello\world` | The first backslash escapes the second, and the result is a single literal backslash in the argument. |
 
 ### Tests
 
@@ -29,4 +41,4 @@ $ cat "/tmp/file\\name" "/tmp/file\ name"
 content1 content2
 ```
 
-The tester will check if the `cat` command correctly prints the file content.
+The tester will check whether the `cat` command correctly prints the file's contents.
