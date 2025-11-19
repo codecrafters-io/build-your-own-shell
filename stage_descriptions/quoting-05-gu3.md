@@ -1,6 +1,8 @@
 In this stage, you'll implement support for quoting with backslashes within double quotes.
 
-Within double quotes `"`, a backslash escapes the following characters: `"`, `\`, `$`, `` ` ``, or newline. Read more about quoting with backslashes within double quotes [here](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes).
+### Backslashes in Double Quotes
+
+Within [double quotes](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes), a backslash only escapes certain special characters: `"`, `\`, `$`, `` ` ``, and newline. For all other characters, the backslash is treated literally.
 
 In this stage, we’ll cover:
 
@@ -12,6 +14,13 @@ We won’t cover the following cases in this stage:
 - `\$` → escapes the dollar sign, preventing variable expansion
 - `` \` `` → escapes the backtick, preventing command substitution
 - `\<newline>` → escapes a newline character, allowing line continuation
+
+Here are a few examples illustrating how backslashes behave within double quotes:
+
+|              Command               |      Expected output       |
+| :--------------------------------: | :------------------------: |
+|    `echo "A \\ escapes itself"`    |    `A \ escapes itself`    |
+| `echo "A \" inside double quotes"` | `A " inside double quotes` |
 
 ### Tests
 
@@ -40,11 +49,6 @@ $ cat "/tmp/ant/\"f 38\"" "/tmp/ant/\"f\\93\""
 content1 content2
 ```
 
-The tester will check if the `cat` command correctly prints the file content.
+The tester will check whether the `cat` command correctly prints the file's contents.
 
-Here are a few examples illustrating how backslashes behave within double quotes:
 
-|              Command               |      Expected output       |
-| :--------------------------------: | :------------------------: |
-|    `echo "A \\ escapes itself"`    |    `A \ escapes itself`    |
-| `echo "A \" inside double quotes"` | `A " inside double quotes` |
