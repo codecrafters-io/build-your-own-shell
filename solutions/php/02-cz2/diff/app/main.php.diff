@@ -1,13 +1,9 @@
-@@ -1,4 +1,12 @@
+@@ -1,4 +1,8 @@
  <?php
  error_reporting(E_ALL);
 
  fwrite(STDOUT, "$ ");
 +
 +// Wait for user input
-+$command = fgets(STDIN);
-+if ($command === false) {
-+    $command = '';
-+}
-+$command = rtrim($command, "\r\n");
++$command = rtrim(fgets(STDIN), "\r\n");
 +fwrite(STDOUT, $command . ": command not found\n");
