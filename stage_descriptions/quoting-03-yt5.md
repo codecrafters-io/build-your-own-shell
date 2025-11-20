@@ -23,8 +23,8 @@ The tester will execute your program like this:
 It will then send a series of `echo` commands to your shell:
 
 ```bash
-$ echo "before\   after"
-before\   after
+$ echo \'\"hello world\"\'
+'"hello world"'
 $ echo world\ \ \ \ \ \ script
 world      script
 $
