@@ -2,13 +2,13 @@ In this stage, you'll implement support for quoting with double quotes.
 
 ### Double Quotes
 
-Double quotes are similar to single quotes in that they preserve whitespace and group tokens, but they are less strict. Most characters inside double quotes are treated literally, with a few exceptions that will be covered in later stages.
+In shell syntax, most characters within [double quotes](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes) (`"`) are treated literally. However, double quotes allow certain special characters to be interpreted (like `$` for variables and `\` for escaping), but we'll cover those exceptions in later stages.
 
 For this stage, your shell must apply the following rules when parsing double quotes:
 
 - Consecutive whitespaces (spaces, tabs) must be preserved.
 - Characters that normally act as delimiters or special characters lose their special meaning inside double quotes and are treated literally.
-- As with single quotes, double quoted strings placed next to each other are concatenated to form a single argument.
+- Double-quoted strings placed next to each other are concatenated to form a single argument.
 
 For example:
 
