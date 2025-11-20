@@ -14,7 +14,10 @@ For example:
 
 ```bash
 $ echo "hello    world"
-hello    world          # Multiple spaces preserved
+hello    world         # Multiple spaces preserved
+
+$ echo "hello""world"
+helloworld             # Quoted strings next to each other are concatenated.
 
 $ echo "hello" "world"
 hello world            # Separate arguments
