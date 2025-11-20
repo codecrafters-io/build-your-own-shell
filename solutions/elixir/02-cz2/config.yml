@@ -1,0 +1,20 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use [`IO.gets()`](https://hexdocs.pm/elixir/IO.html#gets/2) to read user input:
+
+      ```elixir
+      # Captures the user's command in the "command" variable
+      command = IO.gets("") |> String.trim()
+      ```
+
+      - The `IO.gets()` function waits for the user to enter a line, and then returns it as a string.
+      - The `String.trim()` function trims the user input.
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use [`IO.puts()`](https://hexdocs.pm/elixir/IO.html#puts/2) to print the message:
+
+      ```elixir
+      # Prints the "<command>: command not found" message
+      IO.puts("#{command}: command not found")
+      ```
