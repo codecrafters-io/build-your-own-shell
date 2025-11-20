@@ -2,7 +2,7 @@ In this stage, you'll implement support for quoting with single quotes.
 
 ### Single Quotes
 
-[Single quotes](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes) disable all special meaning for characters enclosed within them. Every character between the opening and closing single quote marks is treated literally.
+[Single quotes](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes) (`'`) disable all special meaning for characters enclosed within them. Every character between single quotes is treated literally.
 
 When your shell parses a command line:
 
