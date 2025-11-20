@@ -32,7 +32,7 @@ $
 
 The tester will check if the `echo` command correctly prints the quoted text.
 
-Next, the tester will send a `cat` command, with the file name parameters consisting of backslashes inside quotes:
+Next, the tester will send a `cat` command, with the file name parameters consisting of backslashes outside quotes:
 
 ```bash
 $ cat "/tmp/file\\name" "/tmp/file\ name"
