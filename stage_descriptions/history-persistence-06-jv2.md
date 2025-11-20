@@ -21,7 +21,7 @@ It will then send the following commands to your shell:
 ```bash
 $ echo new_command
 new_command
-$ exit 0
+$ exit
 ```
 
 The tester will then expect the history file's contents to look like:
@@ -30,6 +30,6 @@ The tester will then expect the history file's contents to look like:
 echo initial_command_1
 echo initial_command_2
 echo new_command
-exit 0
+exit
 <|EMPTY LINE|>
 ```
