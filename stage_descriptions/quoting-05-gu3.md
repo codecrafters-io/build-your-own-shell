@@ -1,19 +1,19 @@
-In this stage, you'll implement support for quoting with backslashes within double quotes.
+In this stage, you'll implement support for backslashes within double quotes.
 
 ### Backslashes in Double Quotes
 
-Within [double quotes](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes), a backslash only escapes certain special characters: `"`, `\`, `$`, `` ` ``, and newline. For all other characters, the backslash is treated literally.
+Within [double quotes](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes), a backslash only escapes certain special characters: `"`, `\`, `$`, `` ` ``, and `newline`. For all other characters, the backslash is treated literally.
 
 In this stage, we’ll cover:
 
-- `\"` → escapes double quote, allowing " to appear literally within the quoted string
-- `\\` → escapes backslash, resulting in a literal \
+- `\"`: escapes double quote, allowing `"` to appear literally within the quoted string.
+- `\\`: escapes backslash, resulting in a literal `\`.
 
 We won’t cover the following cases in this stage:
 
-- `\$` → escapes the dollar sign, preventing variable expansion
-- `` \` `` → escapes the backtick, preventing command substitution
-- `\<newline>` → escapes a newline character, allowing line continuation
+- `\$`: escapes the dollar sign.
+- `` \` ``: escapes the backtick.
+- `\<newline>`: escapes a newline character.
 
 Here are a few examples illustrating how backslashes behave within double quotes:
 
