@@ -15,7 +15,7 @@ $ echo hello
 hello
 $ echo world
 world
-$ exit 0
+$ exit
 ```
 
 The tester will then expect the history file's contents to look like:
@@ -23,6 +23,6 @@ The tester will then expect the history file's contents to look like:
 ```txt
 echo hello
 echo world
-exit 0
+exit
 <|EMPTY LINE|>
 ```
