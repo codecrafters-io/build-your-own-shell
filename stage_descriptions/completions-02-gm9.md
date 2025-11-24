@@ -12,7 +12,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-The tests will simulate user input with tab presses and will execute builtin commands, similar to the previous stage, with added arguments:
+The tests will simulate user input with tab presses and will execute builtin commands, similar to previous stages, with added arguments:
 
 1.  **Input:** `ech<TAB>` `hello<ENTER>`
 
