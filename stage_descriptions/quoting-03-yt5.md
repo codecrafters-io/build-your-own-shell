@@ -2,7 +2,11 @@ In this stage, you'll implement support for backslashes outside quotes.
 
 ### Backslash Escaping
 
-When a backslash (`\`) is used outside of quotes, it acts as an escape character. If the backslash precedes a character that usually has a special meaning to the shell (like `$`, `*`, `?`, or other delimiters), the backslash causes the character to be treated as a literal character.
+When a backslash `\` is used outside of quotes, it acts as an escape character. The backslash removes the special meaning of the next character and treats it as a literal character. After escaping, the backslash itself is removed.
+
+This works for any character, including:
+- Characters with special meaning (like space, `'`, `"`, `$`, `*`, `?`, and other delimiters)
+- Characters without special meaning (regular letters like `n`, `t`, etc.)
 
 Here are a few examples illustrating how backslashes behave outside quotes:
 
@@ -10,18 +14,18 @@ Here are a few examples illustrating how backslashes behave outside quotes:
 |---------|----------------|-------------|
 | `echo world\ \ \ \ \ \ script` | `world      script` | Each `\ ` creates a literal space as part of one argument. |
 | `echo before\     after` | `before  after` | The backslash preserves the first space literally, but the shell collapses the subsequent unescaped spaces. |
+| `echo test\nexample` | `testnexample` | `\n` becomes just `n`. |
 | `echo hello\\world` | `hello\world` | The first backslash escapes the second, and the result is a single literal backslash in the argument. |
+| `echo \'hello\'` | `'hello'` | `\'` makes the single quotes literal characters. |
 
 ### Tests
 
 The tester will execute your program like this:
-
 ```bash
-./your_program.sh
+$ ./your_program.sh
 ```
 
 It will then send a series of `echo` commands to your shell:
-
 ```bash
 $ echo \'\"hello world\"\'
 '"hello world"'
@@ -30,13 +34,12 @@ world      script
 $
 ```
 
-The tester will check if the `echo` command correctly prints the quoted text.
+The tester will check if the `echo` command correctly handles escaped characters.
 
-Next, the tester will send a `cat` command, with the file name parameters consisting of backslashes outside quotes:
-
+Next, the tester will send a `cat` command with backslashes used to escape characters within the quoted filename arguments:
 ```bash
 $ cat "/tmp/file\\name" "/tmp/file\ name"
 content1 content2
 ```
 
-The tester will verify that the `cat` command correctly prints the file's contents.
+The tester will verify that the `cat` command correctly accesses these files.
