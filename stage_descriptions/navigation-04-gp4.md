@@ -4,8 +4,8 @@ In this stage, you'll extend your `cd` builtin to handle the `~` character.
 
 As a recap, `cd` can receive multiple argument types:
 
-- Absolute paths, like `/usr/local/bin`. (Handled in an earlier stage)
-- Relative paths, like `./`, `../`, `./dir`. (Handled in the previous stage)
+- Absolute paths, like `/usr/local/bin`. (Handled in earlier stages)
+- Relative paths, like `./`, `../`, `./dir`. (Handled in previous stages)
 - The `~` character.
 
 ### The `~` Character
