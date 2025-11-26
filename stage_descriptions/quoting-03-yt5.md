@@ -36,7 +36,8 @@ $
 
 The tester will check if the `echo` command correctly handles escaped characters.
 
-Next, the tester will send a `cat` command with backslashes used to escape characters within the quoted filename arguments:
+Next, the tester will send a `cat` command with backslashes used to escape characters within filename arguments:
+
 ```bash
 $ cat "/tmp/file\\name" "/tmp/file\ name"
 content1 content2
