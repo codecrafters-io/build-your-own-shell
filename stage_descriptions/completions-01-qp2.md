@@ -1,6 +1,18 @@
 In this stage, you'll implement support for autocompleting builtin commands.
 
-Your shell should be able to complete builtin commands when the user presses the `<TAB>` key. Specifically, you'll need to implement completion for the `echo` and `exit` builtins.
+### Tab Autocompletion
+
+Tab completion is a shell feature that helps users complete commands by pressing the `<TAB>` key.
+
+For this stage, you'll implement autocompletion for two builtin commands: `echo` and `exit`.
+
+When the user types a partial command and presses `<TAB>`, your shell should:
+
+1.  Check if the partial text matches the beginning of a builtin command (specifically `echo` or `exit`).
+2.  If there is a match, complete the word.
+3.  Add a trailing space so the user can immediately type arguments.
+
+For example, if a user types `ech` and presses tab, your shell should complete it to `echo ` (with a space at the end).
 
 ### Tests
 
@@ -10,16 +22,19 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It will then send the following inputs, simulating user input and tab presses:
+It will then simulate user input and tab presses:
 
-1.  **Input:** `ech`<TAB>
-    * The tester expects the prompt to display `echo ` after the tab press.
+```bash
+$ ech<TAB>
+$ echo 
 
-2.  **Input:** `exi`<TAB>
-    * The tester expects the prompt to display `exit ` after the tab press.
+$ exi<TAB>
+$ exit 
+```
 
-The tester checks if the completion works as expected and if your shell outputs the correct output for `echo` and `exit` command.
-Note the space at the end of the completion.
+The tester will verify that:
+- Pressing tab after `ech` completes to `echo `
+- Pressing tab after `exi` completes to `exit `
 
 ### Notes
 
