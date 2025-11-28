@@ -2,13 +2,11 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
-// Ensures gofmt doesn't remove the "fmt" and "os" imports in stage 1 (feel free to remove this!)
-var _ = fmt.Fprint
-var _ = os.Stdout
+// Ensures gofmt doesn't remove the "fmt" import in stage 1 (feel free to remove this!)
+var _ = fmt.Print
 
 func main() {
-	fmt.Fprint(os.Stdout, "$ ")
+	fmt.Print("$ ")
 }
