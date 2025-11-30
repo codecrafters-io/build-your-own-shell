@@ -1,4 +1,4 @@
-In this stage, you'll implement tab completion when multiple executables share a common prefix.
+In this stage, you'll implement tab completion for multiple executables that share a common prefix.
 
 ### Handling Multiple Matches
 
@@ -36,8 +36,8 @@ $ xyz_
 ```
 
 The tester will verify that:
-- The first tab press rings the bell.
-- The second tab press displays all matching executables in alphabetical order.
-- The matches are separated by two spaces.
-- The matches are displayed on a new line.
-- The prompt reappears with the original input preserved.
+1. The first tab press rings the bell.
+2. The second tab press displays all matching executables in alphabetical order.
+    - The matches are separated by two spaces.
+    - The matches are displayed on a new line.
+3. The prompt reappears with the original input preserved.
