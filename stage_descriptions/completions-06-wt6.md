@@ -1,8 +1,28 @@
-In this stage, you'll extend your shell's tab completion to handle cases with multiple matching executables where one is a prefix of another.
+In this stage, you'll extend autocompletion to handle partial completions using the longest common prefix (LCP) logic.
 
-When the user types a partial command and presses the Tab key, your shell should attempt to complete the command name. If there are multiple executable files in the PATH that match the prefix, and one of those matches is a prefix of another, then the shell should complete to the longest common prefix of all matching executables. If there is only one match after performing completion, then the shell should complete the command name as in previous stages.
+### Completing to Longest Common Prefix
 
-For example, if `xyz_foo`, `xyz_foo_bar`, and `xyz_foo_bar_baz` are all available executables and the user types `xyz_` and presses tab, then your shell should complete the command to `xyz_foo`. If the user then types `_` and presses tab again, it should complete to `xyz_foo_bar`. If the user then types `_` and presses tab again, it should complete to `xyz_foo_bar_baz`.
+When multiple executables match the user's input, and some are prefixes of others, your shell should complete to the longest common prefix of all matches.
+
+For example, if these executables exist in PATH:
+
+- `xyz_foo`
+- `xyz_foo_bar`
+- `xyz_foo_bar_baz`
+
+When the user types `xyz_` and presses tab, the shell completes to `xyz_foo` because that is the longest prefix shared by all three executables.
+
+Each subsequent tab press completes to the next common prefix:
+
+```bash
+# Note: The prompt lines below are displayed on the same line
+$ xyz_<TAB>
+$ xyz_foo_<TAB>
+$ xyz_foo_bar_<TAB>
+$ xyz_foo_bar_baz 
+```
+
+If there is only one match after performing completion, then the shell should complete the command name as in previous stages (with a trailing space).
 
 ### Tests
 
@@ -12,25 +32,18 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It will then set up a specific `PATH` and place executables `xyz_foo`, `xyz_foo_bar`, and `xyz_foo_bar_baz` into different directories in the `PATH`. Finally, it will type `xyz_` and then press Tab, then type `_` and press Tab, then type `_` and press Tab.
+It will then test progressive tab completion:
 
 ```bash
-$ export PATH=/tmp/bar:$PATH
-$ export PATH=/tmp/baz:$PATH
-$ export PATH=/tmp/qux:$PATH
-$ ./your_program.sh
+# Note: The prompt lines below are displayed on the same line
 $ xyz_<TAB>
 $ xyz_foo_<TAB>
 $ xyz_foo_bar_<TAB>
-$ xyz_foo_bar_baz
+$ xyz_foo_bar_baz 
 ```
-Note: The prompt lines above are on the same line.
 
 The tester will verify that:
-
-1. After typing `xyz_` and pressing Tab, your shell completes to `xyz_foo`.
-2. After typing `_`, the prompt line matches `$ xyz_foo_`.
-3. After typing `_` and pressing Tab, your shell completes to `xyz_foo_bar`.
-4. After typing `_`, the prompt line matches `$ xyz_foo_bar_`.
-5. After typing `_` and pressing Tab, your shell completes to `xyz_foo_bar_baz`.
-6. The prompt line matches `$ xyz_foo_bar_baz ` after the final completion.
+1. After `xyz_`<TAB>, the completion shows `xyz_foo`.
+2. After typing `_` and pressing tab, the completion shows `xyz_foo_bar`.
+3. After typing `_` and pressing tab again, the completion shows `xyz_foo_bar_baz ` with a trailing space.
+4. The trailing space only appears when exactly one match remains.
