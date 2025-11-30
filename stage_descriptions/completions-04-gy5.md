@@ -1,25 +1,31 @@
 In this stage, you'll extend your shell's tab completion to include external executable files in the user's `PATH`.
 
-Your shell should now be able to complete commands that are not built-ins, but exist as executable files in the directories listed in the `PATH` environment variable.
-When the user types the beginning of an external command and presses `<TAB>`, your shell should complete the command to the full executable file name.
-This means that if you have a command `custom_executable` in the path and type `custom` and press `<TAB>`, the shell should complete that to `custom_executable`.
+### Tab Completion for Executables
+
+In previous stages, you implemented tab completion for builtin commands (`echo` and `exit`). Now you'll extend completion to include external executables found in the PATH environment variable.
+
+When the user types the beginning of an executable's name and presses `<TAB>`, your shell should complete it to the full executable name.
+
+For example, if `custom_executable` exists in a directory listed in PATH, typing `custom` and pressing tab completes to `custom_executable ` (with a trailing space).
 
 ### Tests
 
-The tester will execute your program like this:
+The tester will create an executable file named `custom_executable` and add its directory to the `PATH`.
+
+It will then execute your program like this:
 
 ```bash
 ./your_program.sh
 ```
 
-Before executing your shell, the tester will create an executable file named `custom_executable` and add its directory to the `PATH`.
+Next, the tester will simulate a user typing the start of the external command and pressing `<TAB>`:
 
-The test will simulate the user typing the start of the external command and pressing `<TAB>`:
+```bash
+$ custom<TAB>
+$ custom_executable 
+```
 
-1.  **Input:** `custom`<TAB>
-    *   The tester types "custom" and presses `<TAB>`. The tester expects that the prompt line changes to <code>custom_executable  </code>.
-
-The tester will verify that your shell correctly completes the command to the external executable file name. Note the space at the end of the completion.
+The tester will verify that your shell correctly completes the command to the external executable file name.
 
 ### Notes
 
