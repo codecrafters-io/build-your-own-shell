@@ -1,7 +1,13 @@
 In this stage, you'll refine your shell's tab completion behavior to handle cases where the user types an invalid command.
 
-When the user types a command that is not a known builtin and presses `<TAB>`, your shell should not attempt to autocomplete it. Instead, it should just keep what the user typed and should ring a bell.
-This means that if you type "xyz" and press `<TAB>`, the command should not change and you should hear a bell indicating that there are no valid completion options for "xyz".
+### Handling Invalid Completions
+
+When the user types a command that doesn't match any known builtin and presses `<TAB>`, your shell should:
+
+1. Leave the input unchanged (don't modify what the user typed)
+2. Ring a bell to indicate there are no valid completions
+
+The bell is produced by printing the [bell character](https://en.wikipedia.org/wiki/Bell_character) `\x07` to the terminal. This typically produces an audible beep or visual flash, depending on the terminal settings.
 
 ### Tests
 
@@ -13,8 +19,11 @@ The tester will execute your program like this:
 
 The tests will simulate the user typing an invalid command and pressing the `<TAB>` key:
 
-1.  **Input:** `xyz`<TAB>
-    *   The tester will first type `xyz` and then press `<TAB>`. The tester expects that the prompt still shows "xyz" and there is a bell sound.
+```bash
+$ xyz<TAB>
+$ xyz
+```
 
-The tester will verify that your shell does not attempt completion on invalid commands, the bell is sent.
-The bell is sent by printing `\x07`, the [bell character](https://en.wikipedia.org/wiki/Bell_character).
+The tester will verify that:
+- The input remains unchanged when no completion is possible
+- The bell character is printed to indicate no matches
