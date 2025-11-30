@@ -12,7 +12,7 @@ For example, if these executables exist in PATH:
 
 When the user types `xyz_` and presses tab, the shell completes to `xyz_foo` because that is the longest prefix shared by all three executables.
 
-Each subsequent tab press completes to the next common prefix:
+After the user types the next separator character, pressing tab completes to the next common prefix of the remaining matches:
 
 ```bash
 # Note: The prompt lines below are displayed on the same line
@@ -22,7 +22,7 @@ $ xyz_foo_bar_<TAB>
 $ xyz_foo_bar_baz 
 ```
 
-If there is only one match after performing completion, then the shell should complete the command name as in previous stages (with a trailing space).
+If there is only one match after performing completion, then the shell should complete the command name as with previous stages (with a trailing space).
 
 ### Tests
 
