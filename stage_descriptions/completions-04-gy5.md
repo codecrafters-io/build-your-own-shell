@@ -18,14 +18,14 @@ It will then execute your program like this:
 ./your_program.sh
 ```
 
-The test will simulate the user typing the start of the external command and pressing `<TAB>`:
+Next, the tester will simulate a user typing the start of the external command and pressing `<TAB>`:
 
 ```bash
 $ custom<TAB>
 $ custom_executable 
 ```
 
-The tester will verify that your shell correctly completes the command to the external executable filename.
+The tester will verify that your shell correctly completes the command to the external executable file name.
 
 ### Notes
 
