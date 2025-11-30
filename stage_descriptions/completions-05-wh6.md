@@ -2,12 +2,12 @@ In this stage, you'll implement tab completion for multiple executables that sha
 
 ### Handling Multiple Matches
 
-When the user types a command prefix and presses `<TAB>`, your shell should identify all executables in PATH that match the prefix and follow these steps:
+When a user types a command prefix and presses `<TAB>`, your shell should find all executables in PATH that match the prefix and do the following:
 
 1. On the first `<TAB>` press, ring the bell (using `\x07`).
 2. On the second `<TAB>` press:
-    - Print all matching executables on a new line. They must be in **alphabetical order** and separated by two spaces (<code style="white-space: pre;">  </code>).
-    - Display the initial prompt on the next line.
+    - Print all matching executables on a new line. List them in **alphabetical order**, separated by two spaces (<code style="white-space: pre;">  </code>).
+    - Show the prompt again on the next line, keeping the original command prefix.
  
 For example:
 
