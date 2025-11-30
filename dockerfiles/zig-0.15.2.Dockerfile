@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1.7-labs
-FROM debian:bookworm
+FROM debian:trixie
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y xz-utils=5.4.1-1 && \
+    apt-get install --no-install-recommends -y xz-utils=5.8.1-1 libreadline-dev=8.2-6 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
