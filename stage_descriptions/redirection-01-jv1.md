@@ -1,5 +1,7 @@
 In this stage, you'll implement support for redirecting the output of a command to a file.
 
+### The `1>` Operator
+
 The `1>` operator is used to redirect the output of a command to a file.
 But, as a special case, if the file descriptor is not specified before the operator `>`, the output is redirected to the standard output by default, so `>` is equivalent to `1>`.
 
@@ -13,7 +15,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It'll then send a series of commands to your shell, executing commands and redirecting their output to a file:
+It will then send a series of commands to your shell, executing commands, and redirecting their output to a file:
 
 ```bash
 $ ls /tmp/baz > /tmp/foo/baz.md
@@ -29,5 +31,4 @@ $ cat /tmp/foo/quz.md
 blueberry
 ```
 
-The tester will check if the commands correctly execute commands and redirect their output to a file as specified.
-The file contents will also be checked for correctness.
+The tester will check if the commands are executed correctly and redirect their output to a file as specified. The file contents will also be checked for correctness.
