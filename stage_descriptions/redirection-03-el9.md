@@ -1,5 +1,7 @@
 In this stage, you'll implement support for appending the output of a command to a file.
 
+### The `1>>` Operator
+
 The `1>>` operator is used to append the output of a command to a file.
 As a special case, if the file descriptor is not specified before the operator `>>`, the output is redirected to the standard output by default, so `>>` is equivalent to `1>>`.
 
@@ -13,7 +15,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It'll then send a series of commands to your shell, executing commands and appending their output to a file:
+It will then send a series of commands to your shell, executing commands, and appending their output to a file:
 
 ```bash
 $ ls /tmp/baz >> /tmp/bar/bar.md
@@ -35,5 +37,5 @@ banana
 blueberry
 ```
 
-The tester will check if the commands correctly execute commands and append their output to a file as specified.
+The tester will check if the commands are executed correctly and append their output to a file as specified.
 The file contents will also be checked for correctness.
