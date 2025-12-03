@@ -15,7 +15,7 @@ first
 second
 ```
 
-You can also explicitly write `1>>` to append to standard output. Both `>>` and `1>>` do exactly the same thing.
+You can also explicitly write `1>>` to append the command's standard output to a file. Both `>>` and `1>>` do exactly the same thing.
 
 ### Tests
 
