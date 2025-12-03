@@ -28,7 +28,7 @@ However, since redirecting standard output is so common, the shell allows you to
 $ echo hello > file.txt
 ```
 
-Both commands do exactly the same thing. The `>` is shorthand for `1>`.
+Both commands do exactly the same thing.
 
 ### Error Output Is Not Redirected
 
