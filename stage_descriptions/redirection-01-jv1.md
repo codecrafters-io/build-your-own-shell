@@ -45,7 +45,7 @@ The error message appears on the terminal, and `output.txt` is empty (or contain
 
 ### Tests
 
-The tester will execute your program:
+The tester will execute your program like this:
 ```bash
 $ ./your_program.sh
 ```
