@@ -13,8 +13,8 @@ The tester will execute your program like this:
 It'll then send commands involving pipelines with three or more stages:
 
 ```bash
-$ cat /tmp/foo/file | head -n 5 | wc
-       5       5      10
+$ cat /tmp/foo/file | head -n 3 | wc
+       3       3      10
 $ ls -la /tmp/foo | tail -n 5 | head -n 3 | grep "file"
 -rw-r--r-- 1 user user     5 Apr 29 10:06 file
 $
@@ -24,6 +24,6 @@ The tester will check if the final output matches the expected output after the 
 
 ### Notes
 
--   This requires managing multiple pipes and processes.
--   Ensure correct setup of stdin/stdout for each command in the chain (except the first command's stdin and the last command's stdout, which usually connect to the terminal or file redirections).
--   Proper process cleanup and waiting are crucial.
+- This requires managing multiple pipes and processes.
+- Ensure correct setup of stdin/stdout for each command in the chain (except the first command's stdin and the last command's stdout, which usually connect to the terminal or file redirections).
+- Proper process cleanup and waiting are crucial.
