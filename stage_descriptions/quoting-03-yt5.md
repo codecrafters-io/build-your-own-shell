@@ -13,7 +13,7 @@ Here are a few examples illustrating how backslashes behave outside quotes:
 | Command | Expected Output | Explanation |
 |---------|----------------|-------------|
 | `echo world\ \ \ \ \ \ script` | <code style="white-space: pre;">world      script</code> | Each <code style="white-space: pre;">\ </code> creates a literal space as part of one argument. |
-| `echo before\     after` | <code style="white-space: pre;">before  after</code> | The backslash preserves the first space literally, but the shell collapses the subsequent unescaped spaces. |
+| <code style="white-space: pre;">echo before\     after</code> | <code style="white-space: pre;">before  after</code> | The backslash preserves the first space literally, but the shell collapses the subsequent unescaped spaces. |
 | `echo test\nexample` | `testnexample` | `\n` becomes just `n`. |
 | `echo hello\\world` | `hello\world` | The first backslash escapes the second, and the result is a single literal backslash in the argument. |
 | `echo \'hello\'` | `'hello'` | `\'` makes the single quotes literal characters. |
