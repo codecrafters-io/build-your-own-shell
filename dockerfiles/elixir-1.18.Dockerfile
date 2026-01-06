@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1.7-labs
 FROM elixir:1.18.3-alpine
 
+RUN apk add --no-cache 'xz>=5.6' 'curl>=8.9' 'readline-dev>=8.2' 'musl-dev>=1.2' 'ncurses-dev>=6.4'
+
 # Ensures the container is re-built if dependency files change
 ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="mix.exs"
 
