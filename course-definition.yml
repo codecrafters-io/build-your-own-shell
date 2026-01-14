@@ -11,8 +11,8 @@ description_md: |-
   Your shell will run a REPL, parse commands, spawn processes, and more.
 short_description_md: |-
   Learn about parsing shell commands, executing programs and more
-concept_slugs: ["what-is-a-shell-prompt", "what-are-builtin-commands", "what-is-path"]
-
+concept_slugs:
+  ["what-is-a-shell-prompt", "what-are-builtin-commands", "what-is-path"]
 completion_percentage: 20
 
 languages:
@@ -29,6 +29,7 @@ languages:
   - slug: "python"
   - slug: "ruby"
   - slug: "rust"
+  - slug: "scala"
   - slug: "typescript"
   - slug: "zig"
 
@@ -67,7 +68,7 @@ marketing:
         * How running commands require spawning OS processes and exits
 
         In the advanced stages, you'll discover new programming ideas, such as parsing complex syntax and process management. 
-        
+
         As your code gets complex, you’ll be forced to structure and refactor it - to avoid regressions and to make adding new features easier.
 
     - question_markdown: "Why should I build such a project?"
@@ -79,11 +80,11 @@ marketing:
     - question_markdown: "What are the pre-requisites for this challenge?"
       answer_markdown: |-
         You should be comfortable writing code in any one language and using Git. No prior experience with shells or operating systems is required. 
-        
+
         Most learners pick up required concepts (e.g processes) as they go.
 
         What matters most is curiosity and persistence. You’ll develop intuition by exploring, debugging, and discovering solutions yourself. 
-        
+
         While we will make it extremely simple to get started, don't expect this to be a follow-along tutorial.
   testimonials:
     - author_name: "Ananthalakshmi Sankar"
@@ -151,20 +152,14 @@ extensions:
 
 stages:
   - slug: "oo8"
-    concept_slugs:
-      [
-        "what-is-a-shell-prompt",
-      ]
+    concept_slugs: ["what-is-a-shell-prompt"]
     name: "Print a prompt"
     difficulty: very_easy
     marketing_md: |-
       In this stage, you'll implement printing the shell prompt.
 
   - slug: "cz2"
-    concept_slugs:
-      [
-        "what-is-a-shell-prompt",
-      ]
+    concept_slugs: ["what-is-a-shell-prompt"]
     name: "Handle invalid commands"
     difficulty: easy
     marketing_md: |-
@@ -177,50 +172,35 @@ stages:
       In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
 
   - slug: "pn5"
-    concept_slugs:
-      [
-        "what-are-builtin-commands",
-      ]
+    concept_slugs: ["what-are-builtin-commands"]
     name: "Implement exit"
     difficulty: easy
     marketing_md: |-
       In this stage, you'll implement the `exit` builtin command.
 
   - slug: "iz3"
-    concept_slugs:
-      [
-        "what-are-builtin-commands",
-      ]
+    concept_slugs: ["what-are-builtin-commands"]
     name: "Implement echo"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement the `echo` builtin command.
 
   - slug: "ez5"
-    concept_slugs:
-      [
-        "what-are-builtin-commands",
-      ]
+    concept_slugs: ["what-are-builtin-commands"]
     name: "Implement type"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command.
 
   - slug: "mg5"
-    concept_slugs:
-      [
-        "what-is-path",
-      ]
+    concept_slugs: ["what-is-path"]
     name: "Locate executable files"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command for your shell.
 
   - slug: "ip1"
-    concept_slugs:
-      [
-        "what-is-path",
-      ]
+    concept_slugs: ["what-is-path"]
     name: "Run a program"
     difficulty: medium
     marketing_md: |-
