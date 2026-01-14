@@ -1,0 +1,6 @@
+package codecrafters_shell
+
+object Main extends App {
+  // TODO: Uncomment the code below to pass the first stage
+  // System.out.print("$ ");
+}
