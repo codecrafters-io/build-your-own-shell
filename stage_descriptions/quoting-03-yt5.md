@@ -27,11 +27,12 @@ $ ./your_program.sh
 
 It will then send a series of `echo` commands to your shell:
 ```bash
-$ echo \'\"hello world\"\'
-'"hello world"'
-$ echo world\ \ \ \ \ \ script
-world      script
-$
+$ echo multiple\ \ \ \ spaces
+multiple    spaces
+$ echo \'\"literal quotes\"\'
+'"literal quotes"'
+$ echo ignore\_backslash
+ignore_backslash
 ```
 
 The tester will check if the `echo` command correctly handles escaped characters.
@@ -39,8 +40,8 @@ The tester will check if the `echo` command correctly handles escaped characters
 Next, the tester will send a `cat` command with backslashes used to escape characters within filename arguments:
 
 ```bash
-$ cat "/tmp/file\\name" "/tmp/file\ name"
-content1 content2
+$ cat /tmp/\_ignored_1 /tmp/ignore_\2 /tmp/just_one_\\_3
+content1 content2 content3
 ```
 
 The tester will verify that the `cat` command correctly accesses these files.
