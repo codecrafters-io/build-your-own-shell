@@ -33,11 +33,10 @@ The tester will execute your program like this:
 It'll then send a series of `echo` commands to your shell:
 
 ```bash
-$ echo "hello'script'\\n'world"
-hello'script'\n'world
-$ echo "hello\"insidequotes"script\"
-hello"insidequotesscript"
-$
+$ echo "just'one'\\n'backslash"
+just'one'\n'backslash
+$ echo "inside\"literal_quote."outside\"
+inside"literal_quote.outside"
 ```
 
 The tester will check if the `echo` command correctly prints the quoted text.
@@ -45,8 +44,8 @@ The tester will check if the `echo` command correctly prints the quoted text.
 Then it will also send a `cat` command, with the file name parameters consisting of backslashes inside double quotes:
 
 ```bash
-$ cat "/tmp/ant/\"f 38\"" "/tmp/ant/\"f\\93\""
-content1 content2
+$ cat /tmp/"number 1" /tmp/"doublequote \" 2" /tmp/"backslash \\ 3"
+content1 content2 content3
 ```
 
 The tester will check whether the `cat` command correctly prints the file's contents.
