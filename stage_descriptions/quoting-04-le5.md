@@ -36,7 +36,7 @@ The tester will check if the `echo` command correctly prints the quoted text.
 
 Next, the tester will send a `cat` command, with the file name parameters consisting of backslashes inside single quotes:
 ```bash
-$ cat /tmp/'no slash 1' /tmp/'one slash \2' /tmp/'two slashes \3\'
+$ cat /tmp/'no slash 1' /tmp/'one slash \2' /tmp/'two slashes \\3'
 content1 content2 content3
 ```
 

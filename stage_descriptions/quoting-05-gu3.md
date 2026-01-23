@@ -35,8 +35,8 @@ It'll then send a series of `echo` commands to your shell:
 ```bash
 $ echo "just'one'\\n'backslash"
 just'one'\n'backslash
-$ echo "inside\"literal_quote."outside\"
-inside"literal_quote.outside"
+$ echo "inside\"literal_quote.\"outside"
+inside"literal_quote."outside
 ```
 
 The tester will check if the `echo` command correctly prints the quoted text.
