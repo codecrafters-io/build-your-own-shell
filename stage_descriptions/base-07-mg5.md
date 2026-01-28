@@ -55,6 +55,19 @@ The tester will verify that the `type` command correctly identifies executable f
 
 ### Notes
 
+{{#lang_is_elixir}}
+- You can either use [System.find_executable](https://hexdocs.pm/elixir/1.19.5/System.html#find_executable/1) or implement the PATH traversal logic on your own.
+{{/lang_is_elixir}}
+
+{{#lang_is_go}}
+- You can either use [exec.LookPath](https://pkg.go.dev/os/exec#LookPath) or implement the PATH traversal logic on your own.
+{{/lang_is_go}}
+
+{{^lang_is_elixir}}
+{{^lang_is_go}}
 - Most languages provide functions to check execute permissions for a file (like `os.access(path, os.X_OK)` in Python, or `Files.isExecutable()` in Java).
+{{/lang_is_go}}
+{{/lang_is_elixir}}
+
 - PATH can include directories that don’t exist on disk, so your code should handle such cases gracefully.
 - When parsing the PATH environment variable, remember that the delimiter (usually `:` or `;`) can vary by operating system. Use OS-agnostic path handling provided by your language (like `os.pathsep` in Python, `File.pathSeparator` in Java, or `path.delimiter` in Node.js) to correctly split the directories.
