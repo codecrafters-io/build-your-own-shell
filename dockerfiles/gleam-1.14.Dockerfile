@@ -18,3 +18,7 @@ RUN gleam build
 # Cache build directory
 RUN mkdir -p /app-cached
 RUN mv build /app-cached/build
+
+# root user is not allowed to run Erlexec
+RUN adduser -D appuser
+USER appuser
