@@ -21,4 +21,5 @@ RUN mv build /app-cached/build
 
 # root user is not allowed to run Erlexec
 RUN adduser -D appuser
+RUN chown -R appuser:appuser /app /app-cached
 USER appuser
