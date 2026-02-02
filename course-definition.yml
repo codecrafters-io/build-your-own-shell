@@ -12,7 +12,7 @@ description_md: |-
 short_description_md: |-
   Learn about parsing shell commands, executing programs and more
 concept_slugs:
-  ["what-is-a-shell-prompt", "what-are-builtin-commands", "what-is-path"]
+  ["what-is-a-shell-prompt", "what-are-builtin-commands", "what-is-path", "shell-quoting"]
 completion_percentage: 20
 
 languages:
@@ -236,6 +236,7 @@ stages:
 
   - slug: "ni6"
     primary_extension_slug: "quoting"
+    concept_slugs: ["shell-quoting"]
     name: "Single quotes"
     difficulty: medium
     marketing_md: |-
@@ -243,6 +244,7 @@ stages:
 
   - slug: "tg6"
     primary_extension_slug: "quoting"
+    concept_slugs: ["shell-quoting"]
     name: "Double quotes"
     difficulty: medium
     marketing_md: |-
@@ -250,6 +252,7 @@ stages:
 
   - slug: "yt5"
     primary_extension_slug: "quoting"
+    concept_slugs: ["shell-quoting"]
     name: "Backslash outside quotes"
     difficulty: medium
     marketing_md: |-
@@ -257,6 +260,7 @@ stages:
 
   - slug: "le5"
     primary_extension_slug: "quoting"
+    concept_slugs: ["shell-quoting"]
     name: "Backslash within single quotes"
     difficulty: medium
     marketing_md: |-
@@ -264,6 +268,7 @@ stages:
 
   - slug: "gu3"
     primary_extension_slug: "quoting"
+    concept_slugs: ["shell-quoting"]
     name: "Backslash within double quotes"
     difficulty: medium
     marketing_md: |-
@@ -271,6 +276,7 @@ stages:
 
   - slug: "qj0"
     primary_extension_slug: "quoting"
+    concept_slugs: ["shell-quoting"]
     name: "Executing a quoted executable"
     difficulty: medium
     marketing_md: |-
