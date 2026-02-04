@@ -360,56 +360,56 @@ stages:
       In this stage, you'll implement support for handling multiple completions with common prefixes.
 
   - slug: "zv2"
-    primary_extension_slug: "completions"
+    primary_extension_slug: "path-completions"
     name: "Filename completion"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll add support for filename completion.
 
   - slug: "ue6"
-    primary_extension_slug: "completions"
+    primary_extension_slug: "path-completions"
     name: "Directory name completion"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll add support for directory name  completion for command argument.
 
   - slug: "lc6"
-    primary_extension_slug: "completions"
+    primary_extension_slug: "path-completions"
     name: "Completion in paths"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll add support for completion inside arbitrary paths.
 
   - slug: "px6"
-    primary_extension_slug: "completions"
+    primary_extension_slug: "path-completions"
     name: "Multiple tab presses"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement path completion for supporting multiple tab presses.
 
   - slug: "jp8"
-    primary_extension_slug: "completions"
+    primary_extension_slug: "path-completions"
     name: "Handling absent entry completions"
     difficulty: easy
     marketing_md: |-
       In this stage, you'll refine your shell's tab completion behavior to handle cases where the user types an entry that is not present.
 
   - slug: "qd1"
-    primary_extension_slug: "completions"
+    primary_extension_slug: "path-completions"
     name: "Multiple path matches"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement tab completion for multiple files and directories.
 
   - slug: "vs5"
-    primary_extension_slug: "completions"
+    primary_extension_slug: "path-completions"
     name: "Path partial completions"
     difficulty: hard
     marketing_md: |-
       In this stage, you'll extend path to handle partial completions using the longest common prefix (LCP) logic.
 
   - slug: "no5"
-    primary_extension_slug: "completions"
+    primary_extension_slug: "path-completions"
     name: "Path completion in command position"
     difficulty: hard
     marketing_md: |-
