@@ -1,0 +1,49 @@
+In this stage, you’ll add support for filename completion.
+
+### Filename Completion
+
+When the user presses `<TAB>` while typing an argument:
+
+1. Look for files in the present working directory.
+2. Find files whose names start with the typed prefix.
+3. Complete the filename and add a trailing space.
+
+For example,
+
+```bash
+$ cat re<TAB>
+
+# In the same line
+$ cat readme.txt
+```
+
+### Tests
+
+The tester will create a single file in the present working directory, eg. `readme.txt`.
+
+The tester will then execute your program like this:
+
+```bash
+$ ./your_program.sh
+```
+
+It will then simulate user input and tab presses:
+
+```bash
+$ cat re<TAB>
+
+# In the same line
+# With a trailing space
+$ cat readme.txt
+```
+
+The tester will verify that:
+
+- Pressing tab after `cat re` completes to `cat readme.txt`
+- A trailing space is inserted after the completion since the completion was made for a file path.
+
+### Notes
+
+- In this stage, you'll only need to handle cases of single matching filename, we'll get to implementing completion in cases of directories, and multiple completions in the later stages.
+
+- The argument completion does not depend on the command.
