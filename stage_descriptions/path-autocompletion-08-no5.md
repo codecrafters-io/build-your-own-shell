@@ -1,4 +1,4 @@
-In this stage, you'll extend path to path completions for command position.
+In this stage, you'll extend path completions to the command position.
 
 ### The command position
 
@@ -41,7 +41,7 @@ $ ./foo/
 
 ### Tests
 
-The tester will create following entries inside a directory `/tmp/test_dir`:
+The tester will create the following entries inside a directory `/tmp/test_dir`:
 
 - `file.txt`
 - `foo/hello.sh` (With executable permissions)
@@ -70,7 +70,7 @@ $ /tmp/test_dir/foo/
 $ /tmp/test_dir/foo/<TAB>
 
 # In the same line
-$ /tmp/test_dir/foo/script.sh
+$ /tmp/test_dir/foo/hello.sh
 ```
 
 The tester will verify that:
@@ -88,5 +88,5 @@ The tester will verify that:
   - Trailing `/` is added because it is a directory.
 
 - Pressing `<TAB>` after `foo/` (`/tmp/test_dir/foo/<TAB>`)
-  - Completes the nested path to `script.sh`.
-  - Trailing space is added because it a file.
+  - Completes the nested path to `hello.sh`.
+  - Trailing space is added because it is a file.
