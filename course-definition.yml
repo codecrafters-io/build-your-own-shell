@@ -380,6 +380,13 @@ stages:
     marketing_md: |-
       In this stage, you'll add support for completion inside arbitrary paths.
 
+  - slug: "bf8"
+    primary_extension_slug: "path-completions"
+    name: "Directory completion in paths"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for directory completion inside arbitrary paths.
+
   - slug: "px6"
     primary_extension_slug: "path-completions"
     name: "Multiple tab presses"
