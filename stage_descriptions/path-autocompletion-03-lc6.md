@@ -43,4 +43,4 @@ The tester will verify that:
 
 ### Notes
 
-- In this stage, you'll only need to handle cases of single matching completion; we'll get to directories in paths and multiple completions in later stages.
+- In this stage, you'll only need to handle cases of single matching completion. We'll get to directories in paths and multiple completions in later stages.

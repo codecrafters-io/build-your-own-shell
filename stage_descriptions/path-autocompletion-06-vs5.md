@@ -17,7 +17,7 @@ The tester will execute your program like this:
 $ ./your_program.sh
 ```
 
-The tests will simulate the user typing an invalid command and pressing the `<TAB>` key:
+The tests will simulate the user typing a path argument that doesn't match any present entries and pressing the `<TAB>` key:
 
 ```bash
 $ cat absent_filenam<TAB>
