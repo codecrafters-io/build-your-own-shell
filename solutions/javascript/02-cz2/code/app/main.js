@@ -7,5 +7,4 @@ const rl = readline.createInterface({
 
 rl.question("$ ", (command) => {
   console.log(`${command}: command not found`);
-  rl.close();
 });
