@@ -1,4 +1,4 @@
-@@ -1,11 +1,10 @@
+@@ -1,9 +1,8 @@
  import { createInterface } from "readline";
 
  const rl = createInterface({
@@ -7,9 +7,5 @@
  });
 
 -// TODO: Uncomment the code below to pass the first stage
--// rl.question("$ ", (answer) => {
--//   rl.close();
--// });
-+rl.question("$ ", (answer) => {
-+  rl.close();
-+});
+-// rl.question("$ ", (answer) => {});
++rl.question("$ ", (answer) => {});

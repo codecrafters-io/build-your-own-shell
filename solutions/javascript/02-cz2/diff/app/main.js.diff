@@ -1,4 +1,4 @@
-@@ -1,10 +1,11 @@
+@@ -1,8 +1,11 @@
  const readline = require("readline");
 
  const rl = readline.createInterface({
@@ -6,8 +6,8 @@
    output: process.stdout,
  });
 
--rl.question("$ ", (answer) => {
+-rl.question("$ ", (answer) => {});
 +rl.question("$ ", (command) => {
 +  console.log(`${command}: command not found`);
-   rl.close();
- });
++  rl.close();
++});

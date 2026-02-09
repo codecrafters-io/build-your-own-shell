@@ -5,6 +5,4 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("$ ", (answer) => {
-  rl.close();
-});
+rl.question("$ ", (answer) => {});
