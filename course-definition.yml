@@ -12,7 +12,12 @@ description_md: |-
 short_description_md: |-
   Learn about parsing shell commands, executing programs and more
 concept_slugs:
-  ["what-is-a-shell-prompt", "what-are-builtin-commands", "what-is-path", "shell-quoting"]
+  [
+    "what-is-a-shell-prompt",
+    "what-are-builtin-commands",
+    "what-is-path",
+    "shell-quoting",
+  ]
 completion_percentage: 20
 
 languages:
@@ -25,6 +30,7 @@ languages:
   - slug: "java"
   - slug: "javascript"
   - slug: "kotlin"
+  - slug: "ocaml"
   - slug: "php"
   - slug: "python"
   - slug: "ruby"
