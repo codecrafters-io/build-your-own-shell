@@ -1,54 +1,46 @@
-In this stage, you'll add support for directory name completion for command arguments.
+In this stage, you'll add support for completing to a file in a nested path.
 
-### Directory Name Completion
+### Completion to a File in Paths
 
-When the user presses `<TAB>` while typing an argument and the match is a directory:
+When completing a token that contains a path (e.g., with `path/to/f`) and the match is a file:
 
-1. Complete the token with the matching directory name.
-2. Append a trailing `/` and do not add a space.
+1. Split the token into a directory part and a prefix. For eg, The directory part is `path/to/` and the prefix is `f`.
+2. List entries inside the specified directory that match the prefix.
+3. Complete the token with the matching file name and add a trailing space.
 
 For example:
 
 ```bash
-$ rmdir p<TAB>
+$ cat path/to/f<TAB>
 # In the same line
-$ rmdir pig/
-
-$ rmdir pig/<TAB>
-# In the same line
-$ rmdir pig/dog/
+$ cat path/to/file.txt 
 ```
 
 ### Tests
 
-The tester will create nested directories in the working directory, e.g. `pig/dog`.
+The tester will create a single file inside a directory, e.g. `path/to/file.txt`.
 
 The tester will then execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
 It will then simulate user input and tab presses:
 
 ```bash
-$ ls <TAB>
+$ cat path/to/f<TAB>
 
 # In the same line
-# Without trailing space
-$ ls pig/
-
-# On next tab
-# Without trailing space
-$ ls pig/dog/
+# With a trailing space
+$ cat path/to/file.txt 
 ```
 
 The tester will verify that:
 
-- The first tab after the command (e.g. `rmdir `) autocompletes to the first directory with a trailing slash.
-- The second tab autocompletes to the full nested path with a trailing slash.
-- No trailing space is inserted after the slash.
+- Pressing tab after the given text autocompletes to the file name
+- A trailing space is inserted after the completion.
 
 ### Notes
 
-- In this stage, you'll only need to handle cases of single matching completion; we'll get to multiple completions in later stages.
+- In this stage, you'll only need to handle cases of single matching completion. We'll get to directories in paths and multiple completions in later stages.
