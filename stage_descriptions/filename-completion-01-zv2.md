@@ -1,4 +1,4 @@
-In this stage, you’ll add support for filename completion.
+In this stage, you’ll add support for file.
 
 ### Filename Completion
 
@@ -43,6 +43,8 @@ The tester will verify that:
 - A trailing space is inserted after the completion since the completion was made for a file path.
 
 ### Notes
+
+- In this stage, you'll only need to match the prefix against the entry in the current working directory. We'll get to implementing completion in case of nested directories in the later stages.
 
 - In this stage, you'll only need to handle cases of single matching filename, we'll get to implementing completion in cases of directories, and multiple completions in the later stages.
 

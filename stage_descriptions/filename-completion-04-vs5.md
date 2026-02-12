@@ -1,6 +1,6 @@
 In this stage, you'll refine your shell's tab completion behavior to handle cases where the user types an entry that is not present.
 
-### Handling Absent Entry Completions
+### Missing Entry Completions
 
 When the user types an argument path that doesn't match any present entries' prefix and presses `<TAB>`, your shell should:
 
