@@ -129,8 +129,8 @@ extensions:
 
       Programmable completion allows you to autocomplete commands and executable files.
 
-  - slug: "path-completions"
-    name: "Path Completion"
+  - slug: "filename-completion"
+    name: "Filename Completion"
     description_markdown: |
       In this challenge extension, you'll add path completion support to your shell.
 
@@ -360,67 +360,53 @@ stages:
       In this stage, you'll implement support for handling multiple completions with common prefixes.
 
   - slug: "zv2"
-    primary_extension_slug: "path-completions"
-    name: "Filename completion"
+    primary_extension_slug: "filename-completion"
+    name: "File completion"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll add support for filename completion.
+      In this stage, you'll add support for file completion.
 
   - slug: "ue6"
-    primary_extension_slug: "path-completions"
-    name: "Directory name completion"
+    primary_extension_slug: "filename-completion"
+    name: "Nested file completion"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll add support for directory name completion for command argument.
+      In this stage, you'll add support for completing to a file in a nested directory.
 
   - slug: "lc6"
-    primary_extension_slug: "path-completions"
-    name: "Completion to a file in paths"
+    primary_extension_slug: "filename-completion"
+    name: "Directory completion"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll add support for completing to a file inside arbitrary paths.
-
-  - slug: "px6"
-    primary_extension_slug: "path-completions"
-    name: "Completion to a directory in paths"
-    difficulty: medium
-    marketing_md: |-
-      In this stage, you'll add support for completing to a directory inside arbitrary paths.
-
-  - slug: "qd1"
-    primary_extension_slug: "path-completions"
-    name: "Multiple tab presses"
-    difficulty: medium
-    marketing_md: |-
-      In this stage, you'll implement path completion for supporting multiple tab presses.
+      In this stage, you'll extend filename completion for supporting directory completion.
 
   - slug: "vs5"
-    primary_extension_slug: "path-completions"
-    name: "Handling absent entry completions"
+    primary_extension_slug: "filename-completion"
+    name: "Missing entry completion"
     difficulty: easy
     marketing_md: |-
-      In this stage, you'll refine your shell's tab completion behavior to handle cases where the user types an entry that is not present.
+      In this stage, you'll add support for handling missing entry gracefully.
 
   - slug: "no5"
-    primary_extension_slug: "path-completions"
-    name: "Multiple path matches"
+    primary_extension_slug: "filename-completion"
+    name: "Multiple matches"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll implement tab completion for multiple files and directories.
+      In this stage, you'll add support for handling filename completion in case of multiple matches.
 
   - slug: "jp8"
-    primary_extension_slug: "path-completions"
-    name: "Path partial completions"
+    primary_extension_slug: "filename-completion"
+    name: "Partial filename completions"
     difficulty: hard
     marketing_md: |-
-      In this stage, you'll extend the path to handle partial completions using the longest common prefix (LCP) logic.
+      In this stage, you'll extend your implementation to handle partial completions using the longest common prefix (LCP) logic.
 
   - slug: "bf8"
-    primary_extension_slug: "path-completions"
-    name: "Path completion in command position"
-    difficulty: hard
+    primary_extension_slug: "filename-completion"
+    name: "Multi-argument completions"
+    difficulty: easy
     marketing_md: |-
-      In this stage, you'll extend path completions to the command position.
+      In this stage, you'll extend your implementation to handle filepath completion in any argument position.
 
   - slug: "br6"
     primary_extension_slug: "pipelines"
