@@ -364,7 +364,7 @@ stages:
     name: "File completion"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll add support for file completion.
+      In this stage, you'll add support for file completion in working directory.
 
   - slug: "ue6"
     primary_extension_slug: "filename-completion"

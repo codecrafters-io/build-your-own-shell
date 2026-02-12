@@ -1,4 +1,4 @@
-In this stage, you'll add support for directory name completion for command arguments.
+In this stage, you'll add support for completing to a directory.
 
 ### Directory Name Completion
 
@@ -45,10 +45,10 @@ $ ls pig/dog/
 
 The tester will verify that:
 
-- The first tab after the command (e.g. `rmdir `) autocompletes to the first directory with a trailing slash.
+- The first tab after the command (e.g. `ls `) autocompletes to the first directory with a trailing slash.
 - The second tab autocompletes to the full nested path with a trailing slash.
 - No trailing space is inserted after the slash.
 
 ### Notes
 
-- In this stage, you'll only need to handle cases of single matching completion; we'll get to multiple completions in later stages.
+- In this stage, you'll only need to handle cases of single matching completion. We'll get to multiple completions in later stages.

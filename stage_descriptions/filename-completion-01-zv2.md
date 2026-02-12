@@ -1,4 +1,4 @@
-In this stage, you’ll add support for file.
+In this stage, you'll add support for file completion in working directory.
 
 ### Filename Completion
 
