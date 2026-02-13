@@ -1,3 +1,0 @@
-attributes:
-  required_executable: dotnet (9.0)
-  user_editable_file: src/main.cs
