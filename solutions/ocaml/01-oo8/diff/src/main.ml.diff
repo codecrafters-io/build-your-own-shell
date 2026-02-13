@@ -1,8 +1,5 @@
-@@ -1,8 +1,7 @@
+@@ -1,5 +1,4 @@
  let () =
-   (* You can use print statements as follows for debugging, they'll be visible when running tests. *)
-   Printf.eprintf "Logs from your program will appear here!\n";
-
 -  (* TODO: Uncomment the code below to pass the first stage *)
 -  (* print_string "$ "; *)
 -  (* flush stdout; *)
