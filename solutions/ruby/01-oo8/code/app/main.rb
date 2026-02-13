@@ -1,0 +1,2 @@
+$stdout.write("$ ")
+$stdout.flush
