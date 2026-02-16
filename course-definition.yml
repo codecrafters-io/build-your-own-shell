@@ -382,7 +382,7 @@ stages:
 
   - slug: "vs5"
     primary_extension_slug: "filename-completion"
-    name: "Missing entry completion"
+    name: "Missing completions"
     difficulty: easy
     marketing_md: |-
       In this stage, you'll add support for handling missing entry gracefully.
@@ -396,7 +396,7 @@ stages:
 
   - slug: "jp8"
     primary_extension_slug: "filename-completion"
-    name: "Partial filename completions"
+    name: "Partial completions"
     difficulty: hard
     marketing_md: |-
       In this stage, you'll extend path to handle partial completions using the longest common prefix (LCP) logic.
