@@ -1,0 +1,20 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `exit`:
+      ```java
+      if (input.equals("exit")) {
+          // Exit the shell
+      }
+      ```
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use `break` to exit the loop:
+      ```java
+      if (input.equals("exit")) {
+          break;
+      }
+      ```
+
+      `break` exits the loop and allows the program to terminate naturally.
