@@ -1,0 +1,23 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `exit`:
+      ```ruby
+      command = command ? command.chomp : ""
+      if command == "exit"
+        # Exit the shell
+      end
+      ```
+
+      `chomp` removes the trailing newline from the command before comparing.
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use `break` to exit the loop:
+      ```ruby
+      if command == "exit"
+        break
+      end
+      ```
+
+      `break` exits the loop and allows the program to terminate naturally.
