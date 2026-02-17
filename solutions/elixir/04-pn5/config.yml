@@ -1,0 +1,20 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `exit`:
+      ```elixir
+      if command == "exit" do
+        # Exit the shell
+      end
+      ```
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use [`System.halt(0)`](https://hexdocs.pm/elixir/System.html#halt/1) to terminate the program:
+      ```elixir
+      if command == "exit" do
+        System.halt(0)
+      end
+      ```
+
+      `System.halt(0)` immediately stops the Erlang VM with an exit status of `0`, indicating a successful termination.
