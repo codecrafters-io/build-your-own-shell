@@ -3,9 +3,9 @@ import { createInterface } from "readline";
 const rl = createInterface({
   input: process.stdin,
   output: process.stdout,
+  prompt: "$ ",
 });
 
-rl.setPrompt("$ ");
 rl.prompt();
 
 rl.on("line", (command) => {
