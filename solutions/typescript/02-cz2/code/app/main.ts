@@ -5,7 +5,9 @@ const rl = createInterface({
   output: process.stdout,
 });
 
-rl.question("$ ", (command) => {
+rl.setPrompt("$ ");
+rl.prompt();
+
+rl.on("line", (command) => {
   console.log(`${command}: command not found`);
-  rl.close();
 });

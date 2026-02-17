@@ -1,4 +1,4 @@
-@@ -1,9 +1,11 @@
+@@ -1,9 +1,13 @@
  import { createInterface } from "readline";
 
  const rl = createInterface({
@@ -6,9 +6,9 @@
    output: process.stdout,
  });
 
--rl.setPrompt("$ ");
--rl.prompt();
-+rl.question("$ ", (command) => {
+ rl.setPrompt("$ ");
+ rl.prompt();
++
++rl.on("line", (command) => {
 +  console.log(`${command}: command not found`);
-+  rl.close();
 +});
