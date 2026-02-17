@@ -1,0 +1,13 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      Wrap your code in a `while true do ... done` block:
+      ```ocaml
+      while true do
+        (* Display the prompt *)
+        (* Read the command *)
+        (* Print the error message *)
+      done
+      ```
+
+      The loop runs indefinitely, prompting for a new command after each one is processed.
