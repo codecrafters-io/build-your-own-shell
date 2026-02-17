@@ -1,0 +1,27 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Use a `case` expression to check if the command is `exit`:
+      ```gleam
+      case cmd {
+        "exit" -> // Exit the shell
+        _ -> // Handle other commands
+      }
+      ```
+
+      Pattern matching with `case` is the idiomatic way to branch on values in Gleam.
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Return `Nil` instead of recursing to terminate the program:
+      ```gleam
+      case cmd {
+        "exit" -> Nil
+        _ -> {
+          io.println(cmd <> ": command not found")
+          main()
+        }
+      }
+      ```
+
+      By not calling `main()` recursively, the function returns and the program terminates naturally.
