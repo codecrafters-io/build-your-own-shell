@@ -10,7 +10,7 @@ xyz: command not found
 Your program should:
 
 1. Display the prompt `$ ` (keep the code from the previous stage)
-2. Read the user's input by line
+2. Read the user's input
 3. Print an error message in exactly this format: `{command}: command not found`
    - e.g. if the user types `xyz`, print `xyz: command not found`
 
