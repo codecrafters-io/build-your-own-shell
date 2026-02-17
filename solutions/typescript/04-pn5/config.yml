@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `exit`:
+      ```typescript
+      if (command === "exit") {
+        // Exit the shell
+      }
+      ```
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use [`rl.close()`](https://nodejs.org/api/readline.html#rlclose) to exit the shell:
+      ```typescript
+      if (command === "exit") {
+        rl.close();
+        return;
+      }
+      ```
+
+      - `rl.close()` closes the readline interface and allows the program to terminate naturally.
+      - `return` stops the rest of the handler from running.
