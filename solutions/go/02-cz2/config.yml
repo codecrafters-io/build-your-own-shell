@@ -5,8 +5,8 @@ hints:
 
       ```go
       import (
-          "bufio"
-          "os"
+        "bufio"
+        "os"
       )
 
       // Captures the user's command in the "command" variable
@@ -15,7 +15,7 @@ hints:
 
       The `ReadString()` method waits for the user to enter a command, and then returns it (including a newline) as a string.
 
-  - title_markdown: 'How do I print the command not found message?'
+  - title_markdown: "How do I print the command not found message?"
     body_markdown: |-
       Use the [`Println()`](https://pkg.go.dev/fmt#Println) function:
 
