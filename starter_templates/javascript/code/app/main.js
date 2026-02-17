@@ -6,4 +6,5 @@ const rl = readline.createInterface({
 });
 
 // TODO: Uncomment the code below to pass the first stage
-// rl.question("$ ", (answer) => {});
+// rl.setPrompt("$ ");
+// rl.prompt();

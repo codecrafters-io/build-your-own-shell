@@ -1,4 +1,4 @@
-@@ -1,9 +1,8 @@
+@@ -1,10 +1,9 @@
  const readline = require("readline");
 
  const rl = readline.createInterface({
@@ -7,5 +7,7 @@
  });
 
 -// TODO: Uncomment the code below to pass the first stage
--// rl.question("$ ", (answer) => {});
-+rl.question("$ ", (answer) => {});
+-// rl.setPrompt("$ ");
+-// rl.prompt();
++rl.setPrompt("$ ");
++rl.prompt();

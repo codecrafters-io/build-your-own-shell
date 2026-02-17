@@ -1,16 +1,14 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use the [`question()`](https://nodejs.org/api/readline.html#rlquestionquery-options-callback) method:
+      Use the [`on('line', callback)`](https://nodejs.org/api/readline.html#event-line) method:
       ```javascript
-      rl.question('$ ', (command) => {
-          // The command variable contains the user's input
+      rl.on('line', (command) => {
+        // The command variable contains the user's input
       });
       ```
 
-      The `question()` method displays a prompt and waits for the user to enter a command.
-
-  - title_markdown: 'How do I print the command not found message?'
+  - title_markdown: "How do I print the command not found message?"
     body_markdown: |-
       Use [`console.log()`](https://nodejs.org/api/console.html#consolelogdata-args):
       ```javascript

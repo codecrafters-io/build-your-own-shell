@@ -5,4 +5,5 @@ const rl = createInterface({
   output: process.stdout,
 });
 
-rl.question("$ ", (answer) => {});
+rl.setPrompt("$ ");
+rl.prompt();
