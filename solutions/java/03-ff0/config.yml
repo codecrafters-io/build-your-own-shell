@@ -11,4 +11,4 @@ hints:
       }
       ```
 
-      The `Scanner` is created outside the loop to avoid resetting it on each iteration. The loop runs indefinitely, prompting for a new command after each one is processed.
+      The `Scanner` is created outside the loop to avoid resetting it on each iteration.
