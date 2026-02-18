@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `exit` using [`std.mem.eql()`](https://ziglang.org/documentation/master/std/#std.mem.eql):
+      ```zig
+      if (std.mem.eql(u8, command.?, "exit")) {
+          // Exit the shell
+      }
+      ```
+
+      `std.mem.eql()` compares two slices element by element and returns `true` if they are equal.
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use `break` to exit the loop:
+      ```zig
+      if (std.mem.eql(u8, command.?, "exit")) {
+          break;
+      }
+      ```
+
+      `break` exits the loop and allows the program to terminate naturally.
