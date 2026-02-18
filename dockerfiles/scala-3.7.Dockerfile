@@ -1,6 +1,6 @@
 FROM eclipse-temurin:24-jdk-alpine
 
-ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="src/main/scala/codecrafters_shell/App.scala"
+ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS=".codecrafters/compile.sh"
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
