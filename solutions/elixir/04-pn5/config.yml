@@ -1,20 +1,24 @@
 hints:
   - title_markdown: "How do I know when to exit the shell?"
     body_markdown: |-
-      Check if the command is `exit`:
+      Use a `case` expression to match the command:
       ```elixir
-      if command == "exit" do
-        # Exit the shell
+      case command do
+        "exit" -> # Exit the shell
+        _ -> # Handle other commands
       end
       ```
 
   - title_markdown: "How do I exit the shell?"
     body_markdown: |-
-      Use [`System.halt(0)`](https://hexdocs.pm/elixir/System.html#halt/1) to terminate the program:
+      Stop recursing to let the program terminate naturally:
       ```elixir
-      if command == "exit" do
-        System.halt(0)
+      case command do
+        "exit" -> :ok
+        _ ->
+          IO.puts("#{command}: command not found")
+          loop()
       end
       ```
 
-      `System.halt(0)` immediately stops the Erlang VM with an exit status of `0`, indicating a successful termination.
+      When the command is `"exit"`, returning `:ok` instead of calling `loop()` ends the recursion and allows the program to terminate naturally.

@@ -5,15 +5,13 @@ defmodule CLI do
 
   defp loop do
     IO.write("$ ")
-
     command = IO.gets("") |> String.trim()
 
-    if command == "exit" do
-      System.halt(0)
+    case command do
+      "exit" -> :ok
+      _ ->
+        IO.puts("#{command}: command not found")
+        loop()
     end
-
-    IO.puts("#{command}: command not found")
-
-    loop()
   end
 end
