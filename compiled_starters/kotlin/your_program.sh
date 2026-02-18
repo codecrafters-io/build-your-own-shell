@@ -38,7 +38,7 @@ set -e # Exit early if any commands fail
 # - Edit .codecrafters/run.sh to change how your program runs remotely
 LIBS_DIR="/tmp/codecrafters-kotlin-libs"
 CLASSES_DIR="/tmp/codecrafters-build-shell-kotlin/classes"
-if [ -d "$CLASSES_DIR" ]; then
+if [ -f "$CLASSES_DIR/AppKt.class" ]; then
     exec java -cp "$CLASSES_DIR:$LIBS_DIR/*" AppKt "$@"
 else
     exec /tmp/codecrafters-build-shell-kotlin/install/app/bin/app "$@"
