@@ -135,6 +135,13 @@ extensions:
 
       Programmable completion allows you to autocomplete commands and executable files.
 
+  - slug: "filename-completion"
+    name: "Filename Completion"
+    description_markdown: |
+      In this challenge extension, you'll add path completion support to your shell.
+
+      Path completion allows you to autocomplete file and directory names.
+
   - slug: "pipelines"
     name: "Pipelines"
     description_markdown: |
@@ -357,6 +364,55 @@ stages:
     difficulty: hard
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions with common prefixes.
+
+  - slug: "zv2"
+    primary_extension_slug: "filename-completion"
+    name: "File completion"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for file completion in working directory.
+
+  - slug: "ue6"
+    primary_extension_slug: "filename-completion"
+    name: "Nested file completion"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for completing to a file in a nested directory.
+
+  - slug: "lc6"
+    primary_extension_slug: "filename-completion"
+    name: "Directory completion"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for completing directory names.
+
+  - slug: "vs5"
+    primary_extension_slug: "filename-completion"
+    name: "Missing completions"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for handling missing entry gracefully.
+
+  - slug: "no5"
+    primary_extension_slug: "filename-completion"
+    name: "Multiple matches"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for handling filename completion in case of multiple matches.
+
+  - slug: "jp8"
+    primary_extension_slug: "filename-completion"
+    name: "Partial completions"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll extend your implementation to handle partial completions using the longest common prefix (LCP) logic.
+
+  - slug: "bf8"
+    primary_extension_slug: "filename-completion"
+    name: "Multi-argument completions"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll extend your implementation to handle filepath completion in any argument position.
 
   - slug: "br6"
     primary_extension_slug: "pipelines"
