@@ -10,7 +10,9 @@ int main() {
     std::cout << "$ ";
 
     std::string input;
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input)) {
+      break;
+    }
 
     if (input == "exit") {
       break;
