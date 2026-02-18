@@ -1,8 +1,28 @@
 In this stage, you'll extend your implementation to handle filepath completion in any argument position.
 
-## Arbitrary argument position
+### Arbitrary argument position
 
 The filename completion works across different argument positions, not only on the first position.
+
+For example, with `foo` (file) and `bar/` (directory) in the current directory:
+
+```bash
+$ ls bar/ f<TAB>
+$ ls bar/ foo
+```
+
+With multiple candidates in a later position (e.g. `foo` and `far` in the current directory):
+
+```bash
+$ ls bar/ f<TAB>
+# First tab: bell
+$ ls bar/ f<TAB><TAB>
+# Second tab: options on new line, prompt with "ls bar/ f" on next line
+far  foo
+$ ls bar/ f
+```
+
+The filename completion behavior is same across all argument positions.
 
 ### Tests
 

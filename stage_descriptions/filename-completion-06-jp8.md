@@ -1,4 +1,4 @@
-In this stage, you'll extend path to handle partial completions using the longest common prefix (LCP) logic.
+In this stage, you'll extend your implementation to handle partial completions using the longest common prefix (LCP) logic.
 
 ### Completing to Longest Common Prefix
 
@@ -12,7 +12,7 @@ For example, if these entries exist your current working directory:
 
 When the user types `cat xyz` and presses tab, the shell completes to `cat xyz_foo` because that is the longest prefix shared by all three entries.
 
-After the user types the next separator character, pressing tab completes to the next common prefix of the remaining matches:
+After the user types the next common character, pressing tab completes to the next common prefix of the remaining matches:
 
 ```bash
 # Note: The prompt lines below are displayed on the same line
@@ -46,4 +46,4 @@ The tester will verify that:
 1. After `xyz_`<TAB>, the completion shows `xyz_foo`.
 2. After typing `_` and pressing tab, the completion shows `xyz_foo_bar`.
 3. After typing `_` and pressing tab again, the completion shows `xyz_foo_bar_baz/` without a trailing space.
-4. The trailing character (space or slash) only appears when exactly one match remains and is.
+4. The trailing character (space or slash) only appears when exactly one match remains.

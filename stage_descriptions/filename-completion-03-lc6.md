@@ -1,4 +1,4 @@
-In this stage, you'll add support for completing to a directory.
+In this stage, you'll add support for completing directory names.
 
 ### Directory Name Completion
 

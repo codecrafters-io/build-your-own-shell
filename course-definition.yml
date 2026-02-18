@@ -378,7 +378,7 @@ stages:
     name: "Directory completion"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll add support for completing to a directory.
+      In this stage, you'll add support for completing directory names.
 
   - slug: "vs5"
     primary_extension_slug: "filename-completion"
@@ -399,7 +399,7 @@ stages:
     name: "Partial completions"
     difficulty: hard
     marketing_md: |-
-      In this stage, you'll extend path to handle partial completions using the longest common prefix (LCP) logic.
+      In this stage, you'll extend your implementation to handle partial completions using the longest common prefix (LCP) logic.
 
   - slug: "bf8"
     primary_extension_slug: "filename-completion"
