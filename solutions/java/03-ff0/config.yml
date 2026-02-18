@@ -1,0 +1,14 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      Wrap your code in a `while (true)` block:
+      ```java
+      Scanner scanner = new Scanner(System.in);
+      while (true) {
+          // Display the prompt
+          // Read the command
+          // Print the error message
+      }
+      ```
+
+      The `Scanner` is created outside the loop to avoid resetting it on each iteration. The loop runs indefinitely, prompting for a new command after each one is processed.
