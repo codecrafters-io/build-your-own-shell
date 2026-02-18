@@ -4,7 +4,7 @@ fun main() {
         System.out.flush()
         val command = readLine() ?: return
         if (command == "exit") {
-            return
+            break
         }
         println("$command: command not found")
     }
