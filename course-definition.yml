@@ -378,7 +378,7 @@ stages:
     name: "Directory completion"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll extend filename completion for supporting directory completion.
+      In this stage, you'll add support for completing directory names.
 
   - slug: "vs5"
     primary_extension_slug: "filename-completion"
