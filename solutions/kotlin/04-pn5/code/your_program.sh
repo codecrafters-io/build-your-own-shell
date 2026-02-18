@@ -14,14 +14,11 @@ set -e # Exit early if any commands fail
 # - Edit .codecrafters/compile.sh to change how your program compiles remotely
 (
   cd "$(dirname "$0")" # Ensure compile steps are run within the repository directory
-  gradle distTar
-  cd /tmp/codecrafters-build-shell-kotlin/distributions
-  rm -rf app
-  tar -xvf app.tar
+  gradle installDist
 )
 
 # Copied from .codecrafters/run.sh
 #
 # - Edit this to change how your program runs locally
 # - Edit .codecrafters/run.sh to change how your program runs remotely
-exec /tmp/codecrafters-build-shell-kotlin/distributions/app/bin/app "$@"
+exec /tmp/codecrafters-build-shell-kotlin/install/app/bin/app "$@"
