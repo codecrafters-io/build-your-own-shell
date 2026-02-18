@@ -11,7 +11,9 @@ int main(int argc, char *argv[]) {
 
     // Wait for user input
     char input[100];
-    fgets(input, 100, stdin);
+    if (!fgets(input, 100, stdin)) {
+      break;
+    }
 
     // Remove the trailing newline
     input[strlen(input) - 1] = '\0';
