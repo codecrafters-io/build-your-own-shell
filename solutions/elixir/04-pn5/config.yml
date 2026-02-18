@@ -11,7 +11,7 @@ hints:
 
   - title_markdown: "How do I exit the shell?"
     body_markdown: |-
-      Stop recursing to let the program terminate naturally:
+      Stop recursing to exit the shell:
       ```elixir
       case command do
         "exit" -> :ok
@@ -21,4 +21,4 @@ hints:
       end
       ```
 
-      When the command is `"exit"`, returning `:ok` instead of calling `loop()` ends the recursion and allows the program to terminate naturally.
+      Returning `:ok` ends the recursion and allows the program to terminate naturally.
