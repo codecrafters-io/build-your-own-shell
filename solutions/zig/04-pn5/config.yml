@@ -12,11 +12,11 @@ hints:
 
   - title_markdown: "How do I exit the shell?"
     body_markdown: |-
-      Use `return` to exit the `main` function:
+      Use `break` to exit the loop:
       ```zig
       if (std.mem.eql(u8, command.?, "exit")) {
-          return;
+          break;
       }
       ```
 
-      `return` exits the `main` function and allows the program to terminate naturally.
+      `break` exits the loop and allows the program to terminate naturally.

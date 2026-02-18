@@ -14,7 +14,7 @@ pub fn main() !void {
         const command = try stdin.takeDelimiter('\n');
 
         if (std.mem.eql(u8, command.?, "exit")) {
-            return;
+            break;
         }
 
         try stdout.print("{s}: command not found\n", .{command.?});
