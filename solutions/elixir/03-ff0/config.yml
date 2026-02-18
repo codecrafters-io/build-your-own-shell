@@ -1,0 +1,15 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      Use recursion to create an infinite loop:
+      ```elixir
+      defp loop do
+        # Display the prompt
+        # Read the command
+        # Print the error message
+
+        loop()
+      end
+      ```
+
+      In Elixir, recursion is the idiomatic way to loop. Calling `loop()` at the end of the function starts the cycle again, prompting for a new command after each one is processed.
