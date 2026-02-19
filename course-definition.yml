@@ -135,6 +135,13 @@ extensions:
 
       Programmable completion allows you to autocomplete commands and executable files.
 
+  - slug: "background-jobs"
+    name: "Background Jobs"
+    description_markdown: |
+      In this challenge extension, you'll add support for launching and managing background jobs.
+
+      Background jobs allows you to run multiple commands in the background at once.
+
   - slug: "pipelines"
     name: "Pipelines"
     description_markdown: |
@@ -358,6 +365,13 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions with common prefixes.
 
+  - slug: "af3"
+    primary_extension_slug: "background-jobs"
+    name: "..."
+    difficulty: "..."
+    marketing_md: |-
+      In this stage, you'll register the `jobs` builtin.
+
   - slug: "br6"
     primary_extension_slug: "pipelines"
     name: "Dual-command pipeline"
@@ -378,6 +392,62 @@ stages:
     difficulty: hard
     marketing_md: |-
       Implement support for multi-command pipelines like `command1 | command2 | command3`.
+
+  - slug: "af3"
+    primary_extension_slug: "background-jobs"
+    name: "The jobs builtin"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll register the `jobs` builtin.
+
+  - slug: "at7"
+    primary_extension_slug: "background-jobs"
+    name: "Background launch"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement launching commands in the background.
+
+  - slug: "jd6"
+    primary_extension_slug: "background-jobs"
+    name: "List one job"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement the `jobs` builtin so it can list a single background job.
+
+  - slug: "dk5"
+    primary_extension_slug: "background-jobs"
+    name: "List all jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement the `jobs` builtin so it can list a single background job.
+
+  - slug: "ma9"
+    primary_extension_slug: "background-jobs"
+    name: "Reap one job"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement reaping a background job.
+
+  - slug: "rq2"
+    primary_extension_slug: "background-jobs"
+    name: "Reap multiple jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll handle reaping multiple background jobs and updating markers dynamically.
+
+  - slug: "bv8"
+    primary_extension_slug: "background-jobs"
+    name: "Reap using jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll make the `jobs` builtin reap children before displaying the job list.
+
+  - slug: "fy4"
+    primary_extension_slug: "background-jobs"
+    name: "Job number reset"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll implement job number reset.
 
   - slug: "bq4"
     primary_extension_slug: "history"
