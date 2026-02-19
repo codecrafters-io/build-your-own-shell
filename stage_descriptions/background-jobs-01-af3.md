@@ -34,4 +34,4 @@ $
 
 ### Notes
 
-- In this stage, you'll register `jobs` as a built-in and write an empty implementation for it. You don't need to write the actual implementation of it yet, we'll get to that in the later stages.
+- In this stage, you'll register `jobs` as a built-in and write an empty implementation for it. You don't need to write the actual implementation of it yet. We'll get to that in the later stages.

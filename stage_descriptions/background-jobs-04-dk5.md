@@ -1,4 +1,4 @@
-In this stage, you'll implement the `jobs` builtin so it can list a single background job.
+In this stage, you'll implement the `jobs` builtin so it can list background jobs.
 
 ### Displaying all background jobs
 
@@ -61,4 +61,4 @@ $ jobs
 
 ### Notes
 
-- In this stage you can only keep a record of launched jobs; you do not need to track whether they are still running or have exited. We'll get to that in the later stages.
+- In this stage you can only keep a record of launched jobs. You do not need to track whether they are still running or have exited. We'll get to that in the later stages.

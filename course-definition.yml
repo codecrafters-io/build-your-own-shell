@@ -447,7 +447,7 @@ stages:
     name: "List all jobs"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll implement the `jobs` builtin so it can list a single background job.
+      In this stage, you'll implement the `jobs` builtin so it can list background jobs.
 
   - slug: "ma9"
     primary_extension_slug: "background-jobs"
