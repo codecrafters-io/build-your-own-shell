@@ -1,7 +1,7 @@
 In this stage, you'll implement the `jobs` builtin so it can list a single background job.
 
 ### Displaying a single background job
-Once a command is launched with `&`, the shell keeps a record of it (job number, command line, and whether it is still running). The `jobs` builtin prints that list. Each line shows the job number in brackets, a status such as `Running`, and the command that was run. In this stage you only need to list a single jobs that is still running; you do not need to detect when it has exited.
+Once a command is launched with `&`, the shell keeps a record of it (job number, command line, and whether it is still running). The `jobs` builtin prints that list. Each line shows the job number in brackets, a status such as `Running`, and the command that was run.
 
 For example:
 
