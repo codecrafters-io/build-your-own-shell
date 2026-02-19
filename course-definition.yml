@@ -180,7 +180,7 @@ stages:
 
   - slug: "ff0"
     name: "Implement a REPL"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
 
@@ -194,14 +194,14 @@ stages:
   - slug: "iz3"
     concept_slugs: ["what-are-builtin-commands"]
     name: "Implement echo"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll implement the `echo` builtin command.
 
   - slug: "ez5"
     concept_slugs: ["what-are-builtin-commands"]
     name: "Implement type"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command.
 
