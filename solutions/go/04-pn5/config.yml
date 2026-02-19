@@ -1,0 +1,25 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `exit`:
+      ```go
+      import "strings" 
+
+      command = strings.TrimSpace(command)
+      if command == "exit" {
+        // Exit the shell
+      }
+      ```
+
+      `strings.TrimSpace()` removes any leading and trailing whitespace from the command.
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use `break` to exit the loop:
+      ```go
+      if command == "exit" {
+        break
+      }
+      ```
+
+      `break` exits the loop and allows the program to terminate naturally.

@@ -7,7 +7,6 @@ In previous stages, you implemented basic tab completion for builtin commands. N
 For example:
 
 ```bash
-```bash
 # 1. User types partial command
 $ ech
 

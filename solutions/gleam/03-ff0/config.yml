@@ -1,0 +1,14 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      In Gleam, you can implement a loop using recursion. Call `main()` at the end of the function to restart the cycle:
+      ```gleam
+      pub fn main() {
+        // Display the prompt
+        // Read the command
+        // Print the error message
+        main()
+      }
+      ```
+
+      The recursive call to `main()` keeps the shell running indefinitely after each command is processed.

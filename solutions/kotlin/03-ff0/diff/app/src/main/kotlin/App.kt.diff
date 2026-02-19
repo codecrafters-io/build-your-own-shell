@@ -1,0 +1,13 @@
+@@ -1,6 +1,8 @@
+ fun main() {
+-    print("$ ")
+-    System.out.flush()
+-    val command = readLine() ?: return
+-    println("$command: command not found")
++    while (true) {
++        print("$ ")
++        System.out.flush()
++        val command = readLine() ?: return
++        println("$command: command not found")
++    }
+ }

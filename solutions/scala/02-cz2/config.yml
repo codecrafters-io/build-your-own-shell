@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use [`scala.io.StdIn.readLine()`](https://scala-lang.org/api/3.x/scala/io/StdIn$.html#readLine-0):
+
+      ```scala
+      // Captures the user's command in the "command" variable
+      val command = scala.io.StdIn.readLine()
+      ```
+
+      The `readLine()` method waits for the user to enter a command and then returns it as a string.
+
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use [`println()`](https://scala-lang.org/api/3.x/scala/Predef$.html#println-4c4) with a [string interpolation](https://docs.scala-lang.org/overviews/core/string-interpolation.html):
+
+      ```scala
+      // Prints the "<command>: command not found" message
+      println(s"$command: command not found")
+      ```
+
+      The `s` string interpolator allows you to embed variables directly in the string using `$`.

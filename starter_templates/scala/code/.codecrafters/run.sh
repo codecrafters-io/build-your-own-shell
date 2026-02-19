@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-exec java -jar "$(dirname "$0")/target/scala-3.7.4/shell.jar" "$@"
+exec java -jar /tmp/codecrafters-build-shell-scala "$@"

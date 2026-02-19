@@ -1,0 +1,24 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Use a `case` expression to match the command:
+      ```elixir
+      case command do
+        "exit" -> # Exit the shell
+        _ -> # Handle other commands
+      end
+      ```
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Stop recursing to exit the shell:
+      ```elixir
+      case command do
+        "exit" -> :ok
+        _ ->
+          IO.puts("#{command}: command not found")
+          loop()
+      end
+      ```
+
+      Returning `:ok` ends the recursion and allows the program to terminate naturally.

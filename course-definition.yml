@@ -135,6 +135,13 @@ extensions:
 
       Programmable completion allows you to autocomplete commands and executable files.
 
+  - slug: "filename-completion"
+    name: "Filename Completion"
+    description_markdown: |
+      In this challenge extension, you'll add path completion support to your shell.
+
+      Path completion allows you to autocomplete file and directory names.
+
   - slug: "background-jobs"
     name: "Background Jobs"
     description_markdown: |
@@ -180,7 +187,7 @@ stages:
 
   - slug: "ff0"
     name: "Implement a REPL"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll implement a REPL (Read-Eval-Print Loop) for your shell.
 
@@ -194,14 +201,14 @@ stages:
   - slug: "iz3"
     concept_slugs: ["what-are-builtin-commands"]
     name: "Implement echo"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll implement the `echo` builtin command.
 
   - slug: "ez5"
     concept_slugs: ["what-are-builtin-commands"]
     name: "Implement type"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll implement the `type` builtin command.
 
@@ -365,12 +372,110 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for handling multiple completions with common prefixes.
 
+  - slug: "zv2"
+    primary_extension_slug: "filename-completion"
+    name: "File completion"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for file completion in working directory.
+
+  - slug: "ue6"
+    primary_extension_slug: "filename-completion"
+    name: "Nested file completion"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for completing to a file in a nested directory.
+
+  - slug: "lc6"
+    primary_extension_slug: "filename-completion"
+    name: "Directory completion"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for completing directory names.
+
+  - slug: "vs5"
+    primary_extension_slug: "filename-completion"
+    name: "Missing completions"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for handling missing entry gracefully.
+
+  - slug: "no5"
+    primary_extension_slug: "filename-completion"
+    name: "Multiple matches"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for handling filename completion in case of multiple matches.
+
+  - slug: "jp8"
+    primary_extension_slug: "filename-completion"
+    name: "Partial completions"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll extend your implementation to handle partial completions using the longest common prefix (LCP) logic.
+
+  - slug: "bf8"
+    primary_extension_slug: "filename-completion"
+    name: "Multi-argument completions"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll extend your implementation to handle filepath completion in any argument position.
+
   - slug: "af3"
     primary_extension_slug: "background-jobs"
-    name: "..."
-    difficulty: "..."
+    name: "The jobs builtin"
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll register the `jobs` builtin.
+
+  - slug: "at7"
+    primary_extension_slug: "background-jobs"
+    name: "Background launch"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement launching commands in the background.
+
+  - slug: "jd6"
+    primary_extension_slug: "background-jobs"
+    name: "List one job"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement the `jobs` builtin so it can list a single background job.
+
+  - slug: "dk5"
+    primary_extension_slug: "background-jobs"
+    name: "List all jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement the `jobs` builtin so it can list a single background job.
+
+  - slug: "ma9"
+    primary_extension_slug: "background-jobs"
+    name: "Reap one job"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement reaping a background job.
+
+  - slug: "rq2"
+    primary_extension_slug: "background-jobs"
+    name: "Reap multiple jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll handle reaping multiple background jobs and updating markers dynamically.
+
+  - slug: "bv8"
+    primary_extension_slug: "background-jobs"
+    name: "Reap in jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll make the `jobs` builtin reap children before displaying the job list.
+
+  - slug: "fy4"
+    primary_extension_slug: "background-jobs"
+    name: "Job number reset"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll implement job number reset.
 
   - slug: "br6"
     primary_extension_slug: "pipelines"
