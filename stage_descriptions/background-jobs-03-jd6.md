@@ -37,6 +37,6 @@ $ jobs
 
 ### Notes
 
-- In this stage you can only keep a record of launched jobs. You do not need to track whether they are still running or have exited. We'll get to that in the later stages.
+- In this stage you only need to list a single jobs that is still running. You do not need to detect when it has exited. We'll get to that in the later stages.
 
 - In this stage, the tester will only test the output of the `jobs` built-in against a single background job.

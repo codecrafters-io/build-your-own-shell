@@ -454,7 +454,7 @@ stages:
     name: "Reap one job"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll implement reaping a background job.
+      In this stage, you'll implement reaping of a background job.
 
   - slug: "rq2"
     primary_extension_slug: "background-jobs"

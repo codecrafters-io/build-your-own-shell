@@ -1,4 +1,4 @@
-In this stage, you'll implement reaping a background job.
+In this stage, you'll implement reaping of a background job.
 
 ### Reaping a background job
 
@@ -46,4 +46,4 @@ $
 
 ### Notes
 
-- In this stage, you'll need to handle reaping a single background jobs. We'll get to handling reaping multiple background jobs in the later stages.
+- In this stage, you'll need to handle reaping a single background job. We'll get to handling reaping multiple background jobs in later stages.
