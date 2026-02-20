@@ -1,26 +1,32 @@
-In this stage, you'll add support for completing to a file in a nested path.
+In this stage, you'll add support for completing filenames in nested paths.
 
-### Completion to a File in Paths
+### Completion in Nested Paths
 
-When completing a token that contains a path (e.g., with `path/to/f`) and the match is a file:
+So far, your shell only completes filenames in the current directory. Now you'll extend it to complete files in subdirectories when the user includes a path.
 
-1. Split the token into a directory part and a prefix. For eg, The directory part is `path/to/` and the prefix is `f`.
-2. List entries inside the specified directory that match the prefix.
-3. Complete the token with the matching file name and add a trailing space.
-
-For example:
+For example, if there's a file at `path/to/file.txt`, the user can type:
 
 ```bash
 $ cat path/to/f<TAB>
-# In the same line
 $ cat path/to/file.txt 
+#                      ^ note the trailing space
 ```
+
+### Implementing Path Completion
+
+When the user presses tab, and the partial filename contains a `/`:
+
+1. Split the text at the last `/` character:
+   - Everything up to and including the last `/` is the directory path
+   - Everything after it is the prefix to match
+     
+   For example, in `path/to/f`, the directory path is `path/to/` and the prefix is `f`
+2. Search the directory path for entries that start with the prefix
+3. If one entry matches, replace the entire partial filename with the full path and add a trailing space (e.g., `path/to/f` becomes `path/to/file.txt `)
 
 ### Tests
 
-The tester will create a single file inside a directory, e.g. `path/to/file.txt`.
-
-The tester will then execute your program like this:
+The tester will create a file in a nested directory (e.g., `path/to/file.txt`) and execute your program like this:
 
 ```bash
 $ ./your_program.sh
@@ -30,17 +36,14 @@ It will then simulate user input and tab presses:
 
 ```bash
 $ cat path/to/f<TAB>
-
-# In the same line
-# With a trailing space
 $ cat path/to/file.txt 
 ```
 
 The tester will verify that:
-
-- Pressing tab after the given text autocompletes to the file name
-- A trailing space is inserted after the completion.
+- Pressing tab completes the partial path to the full path
+- A trailing space is added after the completed path
 
 ### Notes
 
-- In this stage, you'll only need to handle cases of single matching completion. We'll get to completing directories and handling multiple completions in later stages.
+- The directory path is relative to the current working directory. For example, if the current working directory is `/home/user` and the token is `path/to/f`, list entries inside `/home/user/path/to/`.
+- You only need to handle the case where exactly one entry matches the prefix. We'll handle multiple matches in later stages.
