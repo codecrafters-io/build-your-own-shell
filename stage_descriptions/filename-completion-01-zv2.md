@@ -46,9 +46,7 @@ The tester will verify that:
 
 ### Notes
 
-- In this stage, you'll only need to match the prefix against the entry in the current working directory. We'll get to implementing completion in case of nested directories in the later stages.
-
-- In this stage, you'll only need to handle cases of single matching filename, we'll get to implementing completion in cases of directories, and multiple completions in the later stages.
+- In this stage, you may only match the prefix against entries in the current working directory and handle only a single matching filename. We'll get to supporting nested directories and multiple matches in the later stages.
 
 {{#lang_is_rust}}
 - We recommend using a library like [rustyline](https://crates.io/crates/rustyline/) for your implementation. Most modern shells and REPLs (like the Python REPL) use [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline) under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
