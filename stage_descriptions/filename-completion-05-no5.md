@@ -1,45 +1,45 @@
-In this stage, you'll add support for handling filename completion in case of multiple matches.
+In this stage, you'll handle tab completion when multiple entries match.
 
 ### Handling Multiple Matches
 
 When multiple files or directories match the current prefix:
+1. First `<TAB>`: Ring the bell (`\x07`) to indicate multiple matches exist
+2. Second `<TAB>`: List all matches in alphabetical order on a new line
 
-1. First `<TAB>`: ring the bell (`\x07`) to indicate ambiguity.
-2. Second `<TAB>`: list all matches in alphabetical order, separated by spaces, on a new line.
-3. The original input remains on the prompt for continuation.
+When listing matches:
+- Separate entries with at least one space (two spaces are recommended for readability)
+- Show directories with a trailing `/`
+- Show files without any trailing character
 
-For example:
-
+For example, with entries `bar.txt` and `foo/`:
 ```bash
-$ stat <TAB><TAB>
-bar  foo/
+$ stat <TAB>
+# Bell rings, no change to input
+$ stat <TAB>
+bar.txt  foo/
 $ stat 
 ```
 
+Since the original input remains on the prompt, the user can continue typing to narrow down the matches.
+
 ### Tests
 
-The tester will create multiple entries inside a directory. Eg.
-
-- `bar.txt`
-- `foo/`
-
+The tester will create multiple entries (e.g., `bar.txt` and `foo/`) and execute your program like this:
 ```bash
 $ ./your_program.sh
 ```
 
-It will then simulate user input and tab presses:
-
+It will then simulate user input:
 ```bash
 $ stat <TAB><TAB>
-
-# After 2 tab presses
-$ stat 
 bar.txt  foo/
+$ stat 
 ```
 
 The tester will verify that:
-1. The first tab press rings the bell.
-2. The second tab press displays all matching entries in alphabetical order.
-    - The matches are separated by at least one space.
-    - The matches are displayed on a new line.
-3. The prompt reappears with the original input preserved.
+- The first tab press rings the bell
+- The second tab press displays all matching entries in alphabetical order
+- The matches are separated by at least one space
+- Directories are shown with a trailing `/`
+- The matches are displayed on a new line
+- The prompt reappears with the original input preserved
