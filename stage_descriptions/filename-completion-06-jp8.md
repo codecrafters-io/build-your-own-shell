@@ -71,4 +71,3 @@ The tester will verify that:
 
 - The LCP is computed on entry names without trailing characters. The `/` or space is only added when exactly one match remains.
 - Even if the LCP matches a complete entry name (e.g., `foo` when entries are `foo` and `foobar/`), don't add a trailing character if multiple matches still exist.
-- If the LCP is the same as what's already typed (no additional shared prefix), fall back to the bell behavior from the previous stage.
