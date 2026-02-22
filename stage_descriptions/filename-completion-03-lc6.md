@@ -60,4 +60,4 @@ The tester will verify that:
 
 - You only need to handle the case where exactly one entry matches. We'll handle multiple matches in later stages.
 - Both file and directory completion should work. Files get a trailing space, directories get a trailing slash with no space.
-- Check if an entry is a directory using your language's filesystem functions (e.g., `os.path.isdir()` in Python, `fs.statSync().isDirectory()` in Node.js).
+- You can check if an entry is a directory using your language's filesystem functions (e.g., `os.path.isdir()` in Python, `fs.statSync().isDirectory()` in Node.js).
