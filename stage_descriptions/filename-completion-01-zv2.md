@@ -1,51 +1,50 @@
-In this stage, you'll add support for file completion in working directory.
+In this stage, you'll add support for filename completion.
 
 ### Filename Completion
 
-When the user presses `<TAB>` while typing an argument:
+Filename completion is a shell feature that helps users complete filename arguments by pressing the `<TAB>` key.
 
-1. Look for files in the present working directory.
-2. Find files whose names start with the typed prefix.
-3. Complete the filename and add a trailing space.
-
-For example,
+For example:
 
 ```bash
 $ cat re<TAB>
-
-# In the same line
-$ cat readme.txt
+$ cat readme.txt 
+#                ^ note the trailing space
 ```
+
+When the user presses `<TAB>` while typing an argument:
+
+1. Extract the text after the last space in the input (e.g., `"re"` in `"cat re"`).
+2. Search the current directory for files that start with that prefix.
+3. If a file matches, complete it and add a trailing space.
+
+The trailing whitespace lets the user immediately start typing the next argument without manually adding a space.
 
 ### Tests
 
-The tester will create a single file in the present working directory, eg. `readme.txt`.
-
-The tester will then execute your program like this:
+The tester will create a file in the current directory (e.g., `readme.txt`) and execute your program like this:
 
 ```bash
 $ ./your_program.sh
 ```
 
-It will then simulate user input and tab presses:
+It will then simulate user input with a partial filename:
 
 ```bash
 $ cat re<TAB>
+$ cat readme.txt 
 
-# In the same line
-# With a trailing space
-$ cat readme.txt
+$ cat hello<TAB>
+$ cat hello_world.py 
 ```
 
 The tester will verify that:
 
-- Pressing tab after `cat re` completes to `cat readme.txt`
-- A trailing space is inserted after the completion since the completion was made for a file path.
+- Pressing tab completes the partial filename to the full filename
+- A trailing space is added after the filename
 
 ### Notes
 
-- In this stage, you'll only need to match the prefix against the entry in the current working directory. We'll get to implementing completion in case of nested directories in the later stages.
-
-- In this stage, you'll only need to handle cases of single matching filename, we'll get to implementing completion in cases of directories, and multiple completions in the later stages.
-
-- The argument completion does not depend on the command.
+- For this stage, you only need to match the prefix against files in the current working directory. We'll implement completion in nested directories in later stages.
+- For this stage, you only need to handle cases of a single matching filename. We'll implement directory completion and multiple completions in later stages.
+- The completion works for any command, not just `cat`. For example, even for a nonexistent command like `xyz`, pressing tab should still complete the argument: `xyz read<TAB>` becomes `xyz readme.txt `.
