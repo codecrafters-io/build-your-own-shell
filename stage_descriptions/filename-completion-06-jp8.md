@@ -2,13 +2,21 @@ In this stage, you'll handle partial completions using the longest common prefix
 
 ### Longest Common Prefix
 
-The longest common prefix is the longest string that all matching entries share at the start. For example:
+The longest common prefix (LCP) is the longest string that all matching entries share at the start. For example:
 - `xyz_foo`, `xyz_foo_bar`, `xyz_foo_bar_baz` have the LCP `xyz_foo`
 - `readme.txt`, `report.txt` have the LCP `re`
 - `app.py`, `data.json` have no common prefix (empty LCP)
 
-When multiple entries match, complete to the LCP so the user can continue typing and pressing tab to narrow down further:
+When multiple matches exist:
+- If they share a prefix longer than the current input: complete to the LCP
+- If they don't: ring the bell on the first tab, list matches on subsequent tab presses (like in previous stages)
 
+For example, if these entries exist in the current directory:
+- `xyz_foo/`
+- `xyz_foo_bar/`
+- `xyz_foo_bar_baz/`
+
+The user can progressively complete using the LCP:
 ```bash
 $ ls xyz_<TAB>
 # Completes to LCP: xyz_foo (shared by all three entries)
@@ -40,16 +48,19 @@ $ cat readme.txt
 #                ^
 ```
 
-
-### Replacing Bell Behavior
-
-This stage replaces the bell behavior from previous stages. Now, when multiple matches exist:
-- If they share a common prefix longer than what's typed: complete to the LCP (no bell)
-- If they don't share any additional prefix: ring the bell on the first tab, list matches on the second tab (like before)
+If the entries have no additional common prefix (e.g., `foo` and `foobar/`):
+```bash
+$ ls foo<TAB>
+# LCP is "foo" which is already typed, bell rings
+$ ls foo<TAB>
+# Lists matches
+foo  foobar/
+$ ls foo
+```
 
 ### Tests
 
-The tester will create nested entries and execute your program:
+The tester will create nested entries and execute your program like this:
 ```bash
 $ ./your_program.sh
 ```
