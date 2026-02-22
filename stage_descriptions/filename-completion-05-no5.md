@@ -1,10 +1,10 @@
-In this stage, you'll handle tab completion when multiple entries match.
+In this stage, you'll handle tab completion when an entry has multiple matches.
 
 ### Handling Multiple Matches
 
 When multiple files or directories match the current prefix:
 1. First `<TAB>`: Ring the bell (`\x07`) to indicate multiple matches exist
-2. Second `<TAB>`: List all matches in alphabetical order on a new line
+2. Subsequent `<TAB>` presses: List all matches in alphabetical order on a new line, then redisplay the prompt
 
 When listing matches:
 - Separate entries with at least one space (two spaces are recommended for readability)
@@ -38,8 +38,9 @@ $ stat
 
 The tester will verify that:
 - The first tab press rings the bell
-- The second tab press displays all matching entries in alphabetical order
-- The matches are separated by at least one space
-- Directories are shown with a trailing `/`
-- The matches are displayed on a new line
+- Subsequent tab presses display all matching entries:
+  - The matches are sorted alphabetically
+  - The matches are separated by at least one space
+  - Directories are shown with a trailing `/`
+  - The matches are displayed on a new line
 - The prompt reappears with the original input preserved
