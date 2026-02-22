@@ -1,4 +1,4 @@
-In this stage, you'll extend filename completion to work for any argument
+In this stage, you'll extend tab completion to work for any argument
 
 ### Completion in Any Argument Position
 
