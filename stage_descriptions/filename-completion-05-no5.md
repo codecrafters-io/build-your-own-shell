@@ -39,8 +39,8 @@ $ stat
 The tester will verify that:
 - The first tab press rings the bell
 - Subsequent tab presses display all matching entries:
-  - The matches are sorted alphabetically
-  - The matches are separated by at least one space
-  - Directories are shown with a trailing `/`
-  - The matches are displayed on a new line
+    - The matches are sorted alphabetically
+    - The matches are separated by at least one space
+    - Directories are shown with a trailing `/`
+    - The matches are displayed on a new line
 - The prompt reappears with the original input preserved
