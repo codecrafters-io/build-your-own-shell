@@ -43,7 +43,7 @@ $ cat readme.txt
 
 ### Replacing Bell Behavior
 
-This stage replaces the bell behavior from the previous stage. Now, when multiple matches exist:
+This stage replaces the bell behavior from previous stages. Now, when multiple matches exist:
 - If they share a common prefix longer than what's typed: complete to the LCP (no bell)
 - If they don't share any additional prefix: ring the bell on the first tab, list matches on the second tab (like before)
 
