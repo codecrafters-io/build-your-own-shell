@@ -1,14 +1,8 @@
-In this stage, you'll add support for filename completion when typing arguments.
+In this stage, you'll add support for filename completion.
 
 ### Filename Completion
 
 Filename completion is a shell feature that helps users complete filename arguments by pressing the `<TAB>` key.
-
-When the user presses `<TAB>` while typing an argument:
-
-1. Extract the text after the last space in the input (e.g., `"re"` in `"cat re"`). This is the partial filename argument.
-2. Search the current directory for files that start with that prefix.
-3. If a file matches, complete it and add a trailing space.
 
 For example:
 
@@ -17,6 +11,12 @@ $ cat re<TAB>
 $ cat readme.txt 
 #                ^ note the trailing space
 ```
+
+When the user presses `<TAB>` while typing an argument:
+
+1. Extract the text after the last space in the input (e.g., `"re"` in `"cat re"`).
+2. Search the current directory for files that start with that prefix.
+3. If a file matches, complete it and add a trailing space.
 
 The trailing whitespace lets the user immediately start typing the next argument without manually adding a space.
 
