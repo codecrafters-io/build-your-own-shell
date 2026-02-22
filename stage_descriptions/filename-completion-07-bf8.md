@@ -1,71 +1,61 @@
-In this stage, you'll extend your implementation to handle filepath completion in any argument position.
+In this stage, you'll extend filename completion to work for any argument
 
-### Arbitrary argument position
+### Completion in Any Argument Position
 
-The filename completion works across different argument positions, not only on the first position.
+So far, your shell completes the first argument after a command.
+
+For this stage, completion should work the same way for any subsequent argument:
+- Extract the text after the last space
+- Match it against entries in the current working directory
+- Complete using the same rules (LCP, bell for multiple matches, trailing space/slash)
 
 For example, with `foo` (file) and `bar/` (directory) in the current directory:
-
 ```bash
+$ ls b<TAB>
+# Completes to bar/ (directory, no trailing space)
+$ ls bar/
+
+# User types space and f
 $ ls bar/ f<TAB>
-$ ls bar/ foo
+# Completes to foo (file, with trailing space)
+$ ls bar/ foo 
+
+# User types space and x
+$ ls bar/ foo x<TAB>
+# No match, bell rings, input unchanged
+$ ls bar/ foo x
 ```
-
-With multiple candidates in a later position (e.g. `foo` and `far` in the current directory):
-
-```bash
-$ ls bar/ f<TAB>
-# First tab: bell
-$ ls bar/ f<TAB><TAB>
-# Second tab: options on new line, prompt with "ls bar/ f" on next line
-far  foo
-$ ls bar/ f
-```
-
-The filename completion behavior is same across all argument positions.
 
 ### Tests
 
-The tester will test the filename completion behavior in different argument positions.
-
-The tester will create entries in the current working directory, for example:
-
-- `foo` (file)
-- `bar/` (directory)
-
-It will then run your program:
-
+The tester will create entries in the current directory (e.g., `foo` and `bar/`) and execute your program like this:
 ```bash
 $ ./your_program.sh
 ```
 
-The tester will simulate:
-
+It will then test completion at different argument positions:
 ```bash
-$ ls <TAB>
-# First tab: bell
 $ ls <TAB><TAB>
-# Second tab: options on new line, prompt with "ls " on next line
 bar/  foo
 $ ls 
-# Type b and press tab
+
 $ ls b<TAB>
-# Expected completion:
 $ ls bar/
-# Type space and 'f' and press tab:
+
 $ ls bar/ f<TAB>
-# Expected completion:
-$ ls bar/ foo
-# Expected space and 'x' (unmatched prefix)
+$ ls bar/ foo 
+
 $ ls bar/ foo x<TAB>
-# Expected bell, input unchanged
 $ ls bar/ foo x
 ```
 
 The tester will verify that:
+- Completion works correctly for the first argument
+- Completion works correctly for subsequent arguments
+- No match behavior (bell) works in any argument position
+- All previous completion features (LCP, multiple matches, etc.) work in any position
 
-1. First tab with multiple matches rings the bell.
-2. Second tab shows the options on a new line and the prompt continues on the next line with the original input preserved.
-3. Typing a disambiguating prefix and pressing tab completes to the matching entry (trailing space for file, trailing slash for directory).
-4. After a space, typing the first letter of the other entry and pressing tab completes the second argument.
-5. After a space, typing a prefix that matches neither entry and pressing tab rings the bell and does not change the input.
+### Notes
+
+- Each argument is completed independently against the current working directory. A preceding directory argument (like `bar/`) does not change the search directory for subsequent arguments. For example, in `ls bar/ f<TAB>`, the `f` is matched against entries in the CWD, not inside `bar/`.
+- All completion logic from previous stages applies to every argument position.
