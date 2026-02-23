@@ -3,6 +3,7 @@ FROM maven:3.9.11-eclipse-temurin-25-alpine
 
 # Ensures the container is re-built if dependency files change
 ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="pom.xml"
+ENV MAVEN_OPTS="--sun-misc-unsafe-memory-access=allow"
 
 WORKDIR /app
 
