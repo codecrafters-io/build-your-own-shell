@@ -15,11 +15,10 @@ REPLs, builtin commands, and more.
 
 The entry point for your `shell` implementation is in
 `src/main/scala/codecrafters_shell/App.scala`. Study and uncomment the relevant
-code, and push your changes to pass the first stage:
+code, then run the command below to execute the tests on our servers:
 
 ```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
+codecrafters submit
 ```
 
 Time to move on to the next stage!

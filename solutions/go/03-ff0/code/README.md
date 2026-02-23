@@ -14,11 +14,11 @@ REPLs, builtin commands, and more.
 # Passing the first stage
 
 The entry point for your `shell` implementation is in `app/main.go`. Study and
-uncomment the relevant code, and push your changes to pass the first stage:
+uncomment the relevant code, then run the command below to execute the tests on
+our servers:
 
 ```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
+codecrafters submit
 ```
 
 Time to move on to the next stage!
