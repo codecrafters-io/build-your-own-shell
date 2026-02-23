@@ -129,11 +129,11 @@ extensions:
       Redirection allows you to redirect the output of a command to a file or another command.
 
   - slug: "completions"
-    name: "Autocompletion"
+    name: "Command Completion"
     description_markdown: |
-      In this challenge extension, you'll add programmable completion support to your shell.
+      In this challenge extension, you'll add command completion support to your shell.
 
-      Programmable completion allows you to autocomplete commands and executable files.
+      Command completion allows you to autocomplete commands and executable files.
 
   - slug: "filename-completion"
     name: "Filename Completion"
@@ -382,7 +382,7 @@ stages:
   - slug: "lc6"
     primary_extension_slug: "filename-completion"
     name: "Directory completion"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll add support for completing directory names.
 
@@ -396,7 +396,7 @@ stages:
   - slug: "no5"
     primary_extension_slug: "filename-completion"
     name: "Multiple matches"
-    difficulty: medium
+    difficulty: hard
     marketing_md: |-
       In this stage, you'll add support for handling filename completion in case of multiple matches.
 
