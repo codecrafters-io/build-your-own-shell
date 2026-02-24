@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use the [`readLineSync()`](https://api.dart.dev/stable/dart-io/Stdin/readLineSync.html) method:
+
+      ```dart
+      // Captures the user's command in the "command" variable
+      String command = stdin.readLineSync()!;
+      ```
+
+      The `readLineSync()` method waits for the user to enter a command and then returns it as a string.
+
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use the [`print()`](https://api.dart.dev/stable/dart-core/print.html) function:
+
+      ```dart
+      // Prints the "<command>: command not found" message
+      print('$command: command not found');
+      ```
+
+      The code above uses [string interpolation](https://dart.dev/language/built-in-types#strings) to include the command in the message.
