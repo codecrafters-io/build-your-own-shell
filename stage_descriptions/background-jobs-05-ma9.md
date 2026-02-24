@@ -46,4 +46,4 @@ $
 
 - In this stage, you'll need to handle reaping a single background job. We'll get to handling reaping multiple background jobs in later stages.
 
-- When using `waitpid`, only handle normal (graceful) exit. You do not need to handle signal termination, stopped, or continued states — only detect that the process has exited normally (e.g. via `WIFEXITED`).
+- When using `waitpid`, handle both normal exits and signal termination. You do not need to handle stopped or continued states — only detect that the process has exited normally (e.g. via `WIFEXITED`) or was terminated by a signal (e.g. via `WIFSIGNALED`). In both cases, the job should be removed from the table.
