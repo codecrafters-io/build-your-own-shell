@@ -1,0 +1,16 @@
+@@ -1,9 +1,11 @@
+ import 'dart:io';
+
+ void main(List<String> arguments) {
+-  stdout.write('\$ ');
++  while (true) {
++    stdout.write('\$ ');
+
+-  // Wait for user input
+-  String command = stdin.readLineSync()!;
+-  print('$command: command not found');
++    // Wait for user input
++    String command = stdin.readLineSync()!;
++    print('$command: command not found');
++  }
+ }
