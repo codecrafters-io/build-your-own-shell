@@ -1,10 +1,7 @@
-@@ -1,9 +1,8 @@
+@@ -1,6 +1,5 @@
  import 'dart:io';
 
  void main(List<String> arguments) {
-   // You can use print statements as follows for debugging, they'll be visible when running tests.
-   stderr.writeln('Logs from your program will appear here!');
-
 -  // TODO: Uncomment the code below to pass the first stage
 -  // stdout.write('\$ ');
 +  stdout.write('\$ ');
