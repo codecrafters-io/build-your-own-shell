@@ -29,4 +29,5 @@ The tester expects a history list with the commands that were executed, formatte
 
 ### Notes
 
-- Some shells like *zsh* don't add the `history` command to the history list, but the tester expects it to be present.
+- Some shells like _zsh_ don't add the `history` command to the history list, but the tester expects it to be present.
+- For this extension, storing history in memory is sufficient. History persistence across sessions will be implemented in a separate extension.

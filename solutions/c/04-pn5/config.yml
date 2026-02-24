@@ -1,0 +1,24 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `exit` using [`strcmp()`](https://man7.org/linux/man-pages/man3/strcmp.3.html):
+      ```c
+      #include <string.h>
+
+      if (strcmp(input, "exit") == 0) {
+          // Exit the shell
+      }
+      ```
+
+      `strcmp()` returns `0` when two strings are equal.
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use `break` to exit the loop:
+      ```c
+      if (strcmp(input, "exit") == 0) {
+          break;
+      }
+      ```
+
+      `break` exits the loop and allows the program to terminate naturally.

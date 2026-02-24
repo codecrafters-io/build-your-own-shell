@@ -1,0 +1,14 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      Wrap your code in a `for` loop:
+      ```go
+      reader := bufio.NewReader(os.Stdin)
+      for {
+        // Wait for user input
+        // Read the command
+        // Print the error message
+      }
+      ```
+
+      The reader is created outside the loop to avoid resetting its buffer on each iteration.

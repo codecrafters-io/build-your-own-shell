@@ -1,7 +1,14 @@
 # syntax=docker/dockerfile:1.7-labs
 FROM gradle:jdk24-alpine
 
-# Ensures the container is re-built if pom.xml changes
+# hadolint ignore=DL3018
+RUN apk add --no-cache bash curl unzip && \
+    curl -sL "https://github.com/JetBrains/kotlin/releases/download/v2.2.0/kotlin-compiler-2.2.0.zip" -o /tmp/kotlin.zip && \
+    unzip -q /tmp/kotlin.zip -d /opt/ && \
+    rm /tmp/kotlin.zip
+ENV PATH="/opt/kotlinc/bin:${PATH}"
+
+# Ensures the container is re-built if build files change
 ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="settings.gradle.kts,app/build.gradle.kts,gradle/libs.versions.toml"
 
 WORKDIR /app

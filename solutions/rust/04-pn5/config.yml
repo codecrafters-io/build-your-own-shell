@@ -1,0 +1,24 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `exit`:
+      ```rust
+      command = command.trim().to_string();
+      if command == "exit" {
+          // Exit the shell
+      }
+      ```
+
+      - `trim()` removes any leading and trailing whitespace from the command.
+      - `to_string()` converts the command to a string.
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use `break` to exit the loop:
+      ```rust
+      if command == "exit" {
+          break;
+      }
+      ```
+
+      `break` exits the loop and allowsthe program to terminate naturally.

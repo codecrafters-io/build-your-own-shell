@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use the [`input_line`](https://v2.ocaml.org/api/Stdlib.html#VALinput_line) function:
+
+      ```ocaml
+      (* Captures the user's command in the "command" variable *)
+      let command = input_line stdin in
+      ```
+
+      The `input_line` function waits for the user to enter a command and then returns it as a string (without the trailing newline).
+
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use the [`print_endline`](https://v2.ocaml.org/api/Stdlib.html#VALprint_endline) function:
+
+      ```ocaml
+      (* Prints the "<command>: command not found" message *)
+      print_endline (command ^ ": command not found")
+      ```
+
+      The `^` operator concatenates two strings together.

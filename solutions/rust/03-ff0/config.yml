@@ -1,0 +1,13 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      Wrap your code in a `loop` block:
+      ```rust
+      loop {
+          // Display the prompt
+          // Read the command
+          // Print the error message
+      }
+      ```
+
+      The loop runs indefinitely, prompting for a new command after each one is processed.

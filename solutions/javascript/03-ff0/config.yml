@@ -1,0 +1,12 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      Call `rl.prompt()` again at the end of the `line` event handler:
+      ```javascript
+      rl.on("line", (command) => {
+        console.log(`${command}: command not found`);  
+        rl.prompt();
+      });
+      ```
+
+      The `readline` interface automatically waits for the next input after each `rl.prompt()` call, keeping the shell running indefinitely.
