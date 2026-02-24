@@ -4,7 +4,7 @@ In this stage, you'll extend the `jobs` builtin to reap a single job.
 
 When a background process exits, it becomes a zombie — it has finished running but stays in the process table until its parent calls `waitpid`. The shell must reap these children to clean them up.
 
-When the `jobs` builtin is invoked, the shell calls `waitpid()` with the `WNOHANG` flag (which means "check but don't block"). If a child has exited, the shell prints a `Done` line and removes the job from its table.
+When the `jobs` builtin is invoked, the shell calls `waitpid()` with the `WNOHANG` flag (which means "check but don't block"). If a child has exited normally (e.g., `WIFEXITED`), the shell prints a `Done` line and removes the job from its table.
 
 For example:
 

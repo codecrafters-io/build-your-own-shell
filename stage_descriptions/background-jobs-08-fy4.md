@@ -5,7 +5,7 @@ In this stage, you'll implement recycling job number indices.
 Job numbers are assigned sequentially: `1`, `2`, `3`, and so on. When jobs complete and are removed from the table, the next new job reuses the smallest available number. So the next job number depends on how many jobs are still in the table:
 
 - When all jobs have completed and the table is empty, the next job gets `[1]`.
-- When some jobs have completed, the next job gets the next number in sequence. For example, if you had jobs `[1]` and `[2]` and job `[2]` completes, only `[1]` remains — the next new job should be `[2]`, not `[3]`.
+- When some jobs have completed, the next job gets the smallest available number. For example, if jobs `[1]` and `[2]` were started, and job `[2]` completes, only `[1]` remains — the next new job should be `[2]`, not `[3]`.
 
 For example: 
 
