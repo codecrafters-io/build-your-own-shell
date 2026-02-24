@@ -28,6 +28,7 @@ languages:
   - slug: "elixir"
   - slug: "gleam"
   - slug: "go"
+  - slug: "haskell"
   - slug: "java"
   - slug: "javascript"
   - slug: "kotlin"
