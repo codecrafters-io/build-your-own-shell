@@ -6,4 +6,3 @@
 -  // stdout.write('\$ ');
 +  stdout.write('\$ ');
  }
-\ No newline at end of file
