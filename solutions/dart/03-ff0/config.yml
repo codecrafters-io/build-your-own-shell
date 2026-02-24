@@ -1,0 +1,12 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      Wrap your code in a `while` loop:
+
+      ```dart
+      while (true) {
+        // Print the prompt
+        // Read the command
+        // Print the error message
+      }
+      ```
