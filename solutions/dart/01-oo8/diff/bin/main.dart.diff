@@ -6,7 +6,7 @@
    stderr.writeln('Logs from your program will appear here!');
 
 -  // TODO: Uncomment the code below to pass the first stage
--  // stdout.write("$ ");
-+  stdout.write("$ ");
+-  // stdout.write('$ ');
++  stdout.write('$ ');
  }
 \ No newline at end of file

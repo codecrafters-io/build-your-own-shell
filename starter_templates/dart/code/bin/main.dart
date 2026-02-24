@@ -5,5 +5,5 @@ void main(List<String> arguments) {
   stderr.writeln('Logs from your program will appear here!');
 
   // TODO: Uncomment the code below to pass the first stage
-  // stdout.write("$ ");
+  // stdout.write('$ ');
 }
