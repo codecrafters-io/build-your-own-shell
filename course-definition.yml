@@ -430,52 +430,52 @@ stages:
 
   - slug: "at7"
     primary_extension_slug: "background-jobs"
-    name: "Background launch"
+    name: "Starting background jobs"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement launching commands in the background.
 
   - slug: "jd6"
     primary_extension_slug: "background-jobs"
-    name: "List one job"
+    name: "List a single job"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement the `jobs` builtin so it can list a single background job.
 
   - slug: "dk5"
     primary_extension_slug: "background-jobs"
-    name: "List all jobs"
+    name: "List multiple jobs"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll implement the `jobs` builtin so it can list background jobs.
+      In this stage, you'll extend the `jobs` builtin so it can list background jobs.
 
   - slug: "ma9"
     primary_extension_slug: "background-jobs"
-    name: "Reap one job"
+    name: "Reaping one job using jobs"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll implement reaping of a background job.
+      In this stage, you'll extend the `jobs` builtin to reap a single job.
 
   - slug: "rq2"
     primary_extension_slug: "background-jobs"
-    name: "Reap multiple jobs"
+    name: "Reap multiple jobs using jobs"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll handle reaping multiple background jobs and updating markers dynamically.
+      In this stage, you'll extend the `jobs` builtin to reap multiple jobs and update markers dynamically.
 
   - slug: "bv8"
     primary_extension_slug: "background-jobs"
-    name: "Reap using jobs"
+    name: "Reap before the next prompt"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll make the `jobs` builtin reap children before displaying the job list.
+      In this stage, you'll add suport for reaping jobs before printing the next prompt.
 
   - slug: "fy4"
     primary_extension_slug: "background-jobs"
     name: "Job number reset"
     difficulty: easy
     marketing_md: |-
-      In this stage, you'll implement job number reset.
+      In this stage, you'll implement recycling job number indices.
 
   - slug: "br6"
     primary_extension_slug: "pipelines"

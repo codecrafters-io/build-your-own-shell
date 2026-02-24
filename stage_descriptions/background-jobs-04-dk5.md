@@ -1,10 +1,10 @@
-In this stage, you'll implement the `jobs` builtin so it can list background jobs.
+In this stage, you'll extend the `jobs` builtin so it can list background jobs.
 
 ### Displaying all background jobs
 
-When more than one command is running in the background, `jobs` lists them in the order they were started. Job numbers are assigned sequentially: the first background job is `[1]`, the next is `[2]`, and so on. The shell uses two markers: `+` for the *current* job (the one most recently started) and `-` for the *previous* job (the one before that). All other jobs are shown with a space in the marker column.
+When more than one command is running in the background, `jobs` lists them in the order they were started. Job numbers are assigned sequentially: the first background job is `[1]`, the next is `[2]`, and so on. The shell uses two markers: `+` for the current job (the one most recently started) and `-` for the previous job (the one before that). All other jobs are shown with a space in the marker column.
 
-**Example**
+For example:
 
 ```bash
 $ sleep 10 &
@@ -19,7 +19,7 @@ $ sleep 30 &
 # All other jobs have no markers
 $ jobs
 [1]   Running                 sleep 10 &
-[2]+  Running                 sleep 20 &
+[2]-  Running                 sleep 20 &
 [3]+  Running                 sleep 30 &
 ```
 
@@ -31,7 +31,7 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will then launch jobs in the background and test the output of the `jobs` built-in.
+It will then launch jobs in the background and test the output of the `jobs` builtin.
 
 ```bash
 # Launch a background job
@@ -61,4 +61,4 @@ $ jobs
 
 ### Notes
 
-- In this stage you can only keep a record of launched jobs. You do not need to track whether they are still running or have exited. We'll get to that in the later stages.
+- In this stage you'll only need to keep a record of launched jobs. You do not need to track whether they are still running or have exited. We'll get to that in the later stages.

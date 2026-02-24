@@ -22,7 +22,7 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-The program will launch a program in the background like this:
+It will then launch a long-running program in the background like this:
 
 ```bash
 # Expect: Prompt line is printed immediately after 

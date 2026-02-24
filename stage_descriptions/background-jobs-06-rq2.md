@@ -9,18 +9,25 @@ The `+` and `-` markers are dynamic. They update when a job is removed from the 
 For example:
 
 ```bash
-$ sleep 100 &
-[1] 84470
-$ sleep 1 &
-[2] 84471
-$
-# (after ~1 second, press enter)
-[2]+  Done                    sleep 1
+$ sleep 100 & 
+[1] 10886
+$ sleep 5 & 
+[2] 10887
+$ sleep 6 & 
+[3] 10892
+
+# After job number 2 and 3 have completed
+$ jobs
+[1]   Running                 sleep 100 &
+[2]-  Done                    sleep 5
+[3]+  Done                    sleep 6
+
+# jobs still displays the remaining job, and it is promoted to current (+)
 $ jobs
 [1]+  Running                 sleep 100 &
 ```
 
-Job 2 was the current job (`+`), but after it finishes and is reaped, job 1 is promoted to `+`.
+Job 1 was neither current nor the previous job, but is promoted to the current job (+) after the existing 'current' and 'previous' jobs were reaped.
 
 ### Tests
 
@@ -31,19 +38,22 @@ $ ./your_shell.sh
 ```
 
 ```bash
-$ sleep 100 &
-[1] 84470
-$ sleep 2 &
-[2] 84471
+$ sleep 100 & 
+[1] 10168
+$ sleep 5 & 
+[2] 10171
+$ sleep 10 & 
+[3] 10173
+# After job number 2 has finished
+$ jobs
+[1]   Running                 sleep 100 &
+[2]-  Done                    sleep 5
+[3]+  Running                 sleep 10 &
+# After job number 3 has finished
 $ jobs
 [1]-  Running                 sleep 100 &
-[2]+  Running                 sleep 2 &
-
-# After `sleep 2` finishes (Press enter)
-$
-[2]+  Done                    sleep 2
-
-# Job 1 is now the current job
+[3]+  Done                    sleep 10
+# List remaining jobs
 $ jobs
 [1]+  Running                 sleep 100 &
 ```

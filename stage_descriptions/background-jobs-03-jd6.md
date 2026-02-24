@@ -24,7 +24,7 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will then use the `jobs` built-in:
+It will then use the `jobs` builtin:
 
 ```bash
 $ sleep 10 &
@@ -37,6 +37,6 @@ $ jobs
 
 ### Notes
 
-- In this stage you only need to list a single jobs that is still running. You do not need to detect when it has exited. We'll get to that in the later stages.
+- In this stage you only need to list a single job that is still running. You do not need to detect when it has exited. We'll get to that in the later stages.
 
-- In this stage, the tester will only test the output of the `jobs` built-in against a single background job.
+- In this stage, the tester will only test the output of the `jobs` builtin against a single background job.

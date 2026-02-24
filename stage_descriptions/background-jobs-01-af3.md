@@ -2,7 +2,7 @@ In this stage, you'll register the `jobs` builtin.
 
 ### The `jobs` Builtin
 
-The [`jobs`](https://www.man7.org/linux/man-pages/man1/jobs.1p.html) lists the background jobs that are currently known to the shell. When you run a command with & at the end, the shell runs it in the background and gives it a job number. jobs shows those jobs and their status (e.g. running or done).
+The [`jobs`](https://www.man7.org/linux/man-pages/man1/jobs.1p.html) builtin lists the background jobs that are currently known to the shell. When you run a command with & at the end, the shell runs it in the background and gives it a job number. jobs shows those jobs and their status (e.g. running or done).
 
 For example:
 
@@ -20,7 +20,7 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will then use the type built-in on `jobs`.
+It will then use the type builtin on `jobs`.
 
 ```bash
 $ type jobs
@@ -34,4 +34,4 @@ $
 
 ### Notes
 
-- In this stage, you'll register `jobs` as a built-in and write an empty implementation for it. You don't need to write the actual implementation of it yet. We'll get to that in the later stages.
+- In this stage, you'll register `jobs` as a builtin and write an empty implementation for it. You don't need to write the actual implementation of it yet. We'll get to that in the later stages.
