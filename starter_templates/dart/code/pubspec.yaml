@@ -1,0 +1,5 @@
+name: codecrafters-shell
+version: 0.1.0
+
+environment:
+  sdk: ^3.11.0
