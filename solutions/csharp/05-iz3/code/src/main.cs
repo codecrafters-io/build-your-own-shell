@@ -8,9 +8,13 @@ class Program
 
             // Wait for user input
             var command = Console.ReadLine();
-            if (command == "exit")
+            if (command is null || command == "exit")
             {
                 break;
+            }
+            else if (command == "echo")
+            {
+                Console.WriteLine();
             }
             else if (command.StartsWith("echo "))
             {
