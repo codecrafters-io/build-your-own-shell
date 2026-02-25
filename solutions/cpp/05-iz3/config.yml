@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```cpp
+      if (input.substr(0, 5) == "echo ") {
+          // Handle the echo command
+      }
+      ```
+
+      The [`substr()`](https://en.cppreference.com/w/cpp/string/basic_string/substr) method returns a substring starting at the given position with the given length.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use `substr()` to get everything after `echo `:
+      ```cpp
+      if (input.substr(0, 5) == "echo ") {
+          std::cout << input.substr(5) << std::endl;
+      }
+      ```
+
+      `input.substr(5)` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
