@@ -12,7 +12,7 @@ main :: proc() {
         n, _ := os.read(os.stdin, buf[:])
         command := strings.trim_right(string(buf[:n]), "\r\n")
 
-        if command == "exit" {
+        if command == "exit" || (len(command) > 4 && command[:4] == "exit" && command[4] == ' ') {
             break
         }
 

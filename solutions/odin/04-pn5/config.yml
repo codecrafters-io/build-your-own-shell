@@ -1,9 +1,9 @@
 hints:
   - title_markdown: "How do I know when to exit the shell?"
     body_markdown: |-
-      Check if the command is `exit`:
+      Check if the first token is `exit`:
       ```odin
-      if command == "exit" {
+      if command == "exit" || (len(command) > 4 && command[:4] == "exit" && command[4] == ' ') {
           // Exit the shell
       }
       ```
@@ -12,7 +12,7 @@ hints:
     body_markdown: |-
       Use `break` to exit the loop:
       ```odin
-      if command == "exit" {
+      if command == "exit" || (len(command) > 4 && command[:4] == "exit" && command[4] == ' ') {
           break
       }
       ```
