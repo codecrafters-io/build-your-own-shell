@@ -9,6 +9,10 @@ pub fn main() {
   let cmd = string.trim(command)
   case cmd {
     "exit" -> Nil
+    "echo" -> {
+      io.println("")
+      main()
+    }
     "echo " <> rest -> {
       io.println(rest)
       main()
