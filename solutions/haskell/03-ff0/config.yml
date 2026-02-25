@@ -1,0 +1,15 @@
+hints:
+  - title_markdown: "How do I keep the shell running?"
+    body_markdown: |-
+      Use recursion to create an infinite loop by calling `main` at the end of the `do` block:
+
+      ```haskell
+      main :: IO ()
+      main = do
+          -- Display the prompt
+          -- Read the command
+          -- Print the error message
+          main
+      ```
+
+      In Haskell, recursion is the idiomatic way to implement loops. The recursive call to `main` restarts the prompt after each command is processed.

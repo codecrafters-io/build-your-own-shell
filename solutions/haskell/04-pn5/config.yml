@@ -1,0 +1,23 @@
+hints:
+  - title_markdown: "How do I know when to exit the shell?"
+    body_markdown: |-
+      Check if the command is `"exit"`:
+      ```haskell
+      if command == "exit"
+          then -- Exit the shell
+          else -- Handle the command
+      ```
+
+  - title_markdown: "How do I exit the shell?"
+    body_markdown: |-
+      Use `pure ()` to stop the recursion and let the program terminate naturally:
+
+      ```haskell
+      if command == "exit"
+          then pure ()
+          else do
+              putStrLn $ command ++ ": command not found"
+              main
+      ```
+
+      By returning `pure ()` instead of calling `main` recursively, the program exits the loop and terminates.

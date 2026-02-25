@@ -1,0 +1,21 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use the [`getLine`](https://hackage.haskell.org/package/base/docs/Prelude.html#v:getLine) function:
+
+      ```haskell
+      -- Captures the user's command in the "command" variable
+      command <- getLine
+      ```
+
+      The `getLine` function waits for the user to enter a command and then returns it as a string (without a trailing newline).
+
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use [`putStrLn`](https://hackage.haskell.org/package/base/docs/Prelude.html#v:putStrLn) to print the message:
+
+      ```haskell
+      putStrLn $ command ++ ": command not found"
+      ```
+
+      The `++` operator concatenates the command name with the error message.

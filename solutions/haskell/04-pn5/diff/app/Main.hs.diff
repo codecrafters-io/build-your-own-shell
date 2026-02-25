@@ -1,0 +1,17 @@
+@@ -1,11 +1,14 @@
+ module Main (main) where
+
+ import System.IO (hFlush, stdout)
+
+ main :: IO ()
+ main = do
+     putStr "$ "
+     hFlush stdout
+     command <- getLine
+-    putStrLn $ command ++ ": command not found"
+-    main
++    if command == "exit"
++        then pure ()
++        else do
++            putStrLn $ command ++ ": command not found"
++            main

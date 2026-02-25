@@ -1,0 +1,12 @@
+@@ -1,9 +1,10 @@
+ module Main (main) where
+
+ import System.IO (hFlush, stdout)
+
+ main :: IO ()
+ main = do
+     putStr "$ "
+     hFlush stdout
+-    pure ()
++    command <- getLine
++    putStrLn $ command ++ ": command not found"
