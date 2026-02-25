@@ -1,0 +1,24 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo ` using [`strncmp()`](https://man7.org/linux/man-pages/man3/strncmp.3.html):
+      ```c
+      #include <string.h>
+
+      if (strncmp(input, "echo ", 5) == 0) {
+          // Handle the echo command
+      }
+      ```
+
+      `strncmp()` compares the first `n` characters of two strings and returns `0` when they are equal.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use pointer arithmetic to get everything after `echo `:
+      ```c
+      if (strncmp(input, "echo ", 5) == 0) {
+          printf("%s\n", input + 5);
+      }
+      ```
+
+      `input + 5` points to the character right after `"echo "`, which is the start of the arguments.
