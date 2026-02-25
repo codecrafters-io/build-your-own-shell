@@ -6,7 +6,9 @@ object Main extends App {
 
     // Wait for user input
     val command = scala.io.StdIn.readLine()
-    if (command == "exit") {
+    if (command == null) {
+      sys.exit(0)
+    } else if (command == "exit") {
       sys.exit(0)
     } else if (command.startsWith("echo ")) {
       println(command.drop(5))
