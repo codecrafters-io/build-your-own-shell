@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```java
+      if (input.startsWith("echo ")) {
+          // Handle the echo command
+      }
+      ```
+
+      The [`startsWith()`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#startsWith(java.lang.String)) method returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use `substring()` to get everything after `echo `:
+      ```java
+      if (input.startsWith("echo ")) {
+          System.out.println(input.substring(5));
+      }
+      ```
+
+      `input.substring(5)` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
