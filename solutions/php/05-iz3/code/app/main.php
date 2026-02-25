@@ -1,0 +1,16 @@
+<?php
+error_reporting(E_ALL);
+
+while (true) {
+    fwrite(STDOUT, "$ ");
+
+    // Wait for user input
+    $command = rtrim(fgets(STDIN), "\r\n");
+    if ($command === "exit") {
+        break;
+    } elseif (str_starts_with($command, "echo ")) {
+        fwrite(STDOUT, substr($command, 5) . "\n");
+    } else {
+        fwrite(STDOUT, $command . ": command not found\n");
+    }
+}

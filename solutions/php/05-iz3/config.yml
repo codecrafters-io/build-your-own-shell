@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```php
+      if (str_starts_with($command, "echo ")) {
+          // Handle the echo command
+      }
+      ```
+
+      The [`str_starts_with()`](https://www.php.net/manual/en/function.str-starts-with.php) function returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use `substr()` to get everything after `echo `:
+      ```php
+      if (str_starts_with($command, "echo ")) {
+          fwrite(STDOUT, substr($command, 5) . "\n");
+      }
+      ```
+
+      [`substr($command, 5)`](https://www.php.net/manual/en/function.substr.php) returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
