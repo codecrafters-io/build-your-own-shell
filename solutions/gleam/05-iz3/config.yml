@@ -1,0 +1,27 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Use pattern matching with the `<>` operator to check if the command starts with `echo `:
+      ```gleam
+      case cmd {
+        "echo " <> rest -> // Handle the echo command
+        _ -> // Handle other commands
+      }
+      ```
+
+      Gleam's `<>` operator in patterns destructures a string into a literal prefix and the remainder.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      The `<>` pattern operator automatically captures the rest of the string:
+      ```gleam
+      case cmd {
+        "echo " <> rest -> {
+          io.println(rest)
+          main()
+        }
+        _ -> // Handle other commands
+      }
+      ```
+
+      `rest` contains everything after `"echo "`, which are the arguments to print.
