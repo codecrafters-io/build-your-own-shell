@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```scala
+      if (command.startsWith("echo ")) {
+        // Handle the echo command
+      }
+      ```
+
+      The [`startsWith()`](https://www.scala-lang.org/api/3.x/scala/collection/StringOps.html#startsWith-fffff4c5) method returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use [`drop()`](https://www.scala-lang.org/api/3.x/scala/collection/StringOps.html#drop-fffff4ca) to get everything after `echo `:
+      ```scala
+      if (command.startsWith("echo ")) {
+        println(command.drop(5))
+      }
+      ```
+
+      `command.drop(5)` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
