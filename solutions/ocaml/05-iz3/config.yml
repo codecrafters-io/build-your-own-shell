@@ -1,0 +1,20 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```ocaml
+      if String.length command >= 5 && String.sub command 0 5 = "echo " then
+        (* Handle the echo command *)
+      ```
+
+      In OCaml, [`String.sub`](https://v2.ocaml.org/api/String.html#VALsub) extracts a substring, and you can compare it with `=` to check for a prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use [`String.sub`](https://v2.ocaml.org/api/String.html#VALsub) to get everything after `echo `:
+      ```ocaml
+      if String.length command >= 5 && String.sub command 0 5 = "echo " then
+        print_endline (String.sub command 5 (String.length command - 5))
+      ```
+
+      `String.sub command 5 (String.length command - 5)` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
