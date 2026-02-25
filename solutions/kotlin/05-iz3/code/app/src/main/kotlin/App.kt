@@ -1,0 +1,14 @@
+fun main() {
+    while (true) {
+        print("$ ")
+        System.out.flush()
+        val command = readLine() ?: return
+        if (command == "exit") {
+            break
+        } else if (command.startsWith("echo ")) {
+            println(command.substring(5))
+        } else {
+            println("$command: command not found")
+        }
+    }
+}
