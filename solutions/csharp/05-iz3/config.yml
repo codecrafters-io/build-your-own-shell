@@ -1,0 +1,24 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```csharp
+      if (command.StartsWith("echo "))
+      {
+          // Handle the echo command
+      }
+      ```
+
+      The [`StartsWith()`](https://learn.microsoft.com/en-us/dotnet/api/system.string.startswith) method returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use a range operator to get everything after `echo `:
+      ```csharp
+      if (command.StartsWith("echo "))
+      {
+          Console.WriteLine(command[5..]);
+      }
+      ```
+
+      `command[5..]` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
