@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```rust
+      if command.starts_with("echo ") {
+          // Handle the echo command
+      }
+      ```
+
+      The [`starts_with()`](https://doc.rust-lang.org/std/string/struct.String.html#method.starts_with) method returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use string slicing to get everything after `echo `:
+      ```rust
+      if command.starts_with("echo ") {
+          println!("{}", &command[5..]);
+      }
+      ```
+
+      `&command[5..]` returns a string slice starting from index 5 (right after `"echo "`), which contains the arguments.

@@ -1,0 +1,20 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```python
+      if command.startswith("echo "):
+          # Handle the echo command
+      ```
+
+      The [`startswith()`](https://docs.python.org/3/library/stdtypes.html#str.startswith) method returns `True` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use string slicing to get everything after `echo `:
+      ```python
+      if command.startswith("echo "):
+          print(command[5:])
+      ```
+
+      `command[5:]` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
