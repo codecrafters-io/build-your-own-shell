@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```ruby
+      if command.start_with?("echo ")
+        # Handle the echo command
+      end
+      ```
+
+      The [`start_with?`](https://ruby-doc.org/core/String.html#method-i-start_with-3F) method returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use string slicing to get everything after `echo `:
+      ```ruby
+      if command.start_with?("echo ")
+        $stdout.puts(command[5..])
+      end
+      ```
+
+      `command[5..]` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
