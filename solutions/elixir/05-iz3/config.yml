@@ -1,0 +1,25 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Use pattern matching to check if the command starts with `echo `:
+      ```elixir
+      case command do
+        "echo " <> args ->
+          # Handle the echo command
+      end
+      ```
+
+      Elixir's `<>` operator in pattern matching splits the string, binding the rest to `args`.
+
+  - title_markdown: "How do I extract and print the arguments?"
+    body_markdown: |-
+      The pattern match already extracts the arguments for you:
+      ```elixir
+      case command do
+        "echo " <> args ->
+          IO.puts(args)
+          loop()
+      end
+      ```
+
+      `"echo " <> args` binds everything after `"echo "` to `args`, which you can print directly with `IO.puts/1`.
