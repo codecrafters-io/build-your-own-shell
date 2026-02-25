@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```dart
+      if (command.startsWith('echo ')) {
+        // Handle the echo command
+      }
+      ```
+
+      The [`startsWith()`](https://api.dart.dev/stable/dart-core/String/startsWith.html) method returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use [`substring()`](https://api.dart.dev/stable/dart-core/String/substring.html) to get everything after `echo `:
+      ```dart
+      if (command.startsWith('echo ')) {
+        print(command.substring(5));
+      }
+      ```
+
+      `command.substring(5)` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
