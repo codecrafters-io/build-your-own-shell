@@ -41,6 +41,7 @@ languages:
   - slug: "scala"
   - slug: "typescript"
   - slug: "zig"
+  - slug: "swift"
 
 marketing:
   difficulty: medium
