@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# scala-cli
+.scala-build/
+.bsp/
+
+# VS Code
+.vscode/
+
+# Metals
+.bloop/
+.metals/
