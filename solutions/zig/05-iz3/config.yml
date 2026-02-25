@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo ` using [`std.mem.startsWith()`](https://ziglang.org/documentation/master/std/#std.mem.startsWith):
+      ```zig
+      if (std.mem.startsWith(u8, command.?, "echo ")) {
+          // Handle the echo command
+      }
+      ```
+
+      `std.mem.startsWith()` returns `true` if the first slice starts with the second slice.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use slice syntax to get everything after `echo `:
+      ```zig
+      if (std.mem.startsWith(u8, command.?, "echo ")) {
+          try stdout.print("{s}\n", .{command.?[5..]});
+      }
+      ```
+
+      `command.?[5..]` returns a slice starting from index 5 (right after `"echo "`), which contains the arguments.
