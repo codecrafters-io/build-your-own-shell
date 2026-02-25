@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```typescript
+      if (command.startsWith("echo ")) {
+        // Handle the echo command
+      }
+      ```
+
+      The [`startsWith()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith) method returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use [`slice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) to get everything after `echo `:
+      ```typescript
+      if (command.startsWith("echo ")) {
+        console.log(command.slice(5));
+      }
+      ```
+
+      `command.slice(5)` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.

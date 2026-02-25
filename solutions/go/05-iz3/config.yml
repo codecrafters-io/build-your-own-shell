@@ -1,0 +1,24 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```go
+      import "strings"
+
+      if strings.HasPrefix(command, "echo ") {
+          // Handle the echo command
+      }
+      ```
+
+      The [`strings.HasPrefix()`](https://pkg.go.dev/strings#HasPrefix) function returns `true` if the string starts with the given prefix.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use string slicing to get everything after `echo `:
+      ```go
+      if strings.HasPrefix(command, "echo ") {
+          fmt.Println(command[5:])
+      }
+      ```
+
+      `command[5:]` returns the substring starting from index 5 (right after `"echo "`), which contains the arguments.
