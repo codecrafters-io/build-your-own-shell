@@ -2,11 +2,13 @@ loop do
   $stdout.write("$ ")
   $stdout.flush
   command = $stdin.gets
-  command = command ? command.chomp : ""
+  break if command.nil?
+
+  command = command.chomp
   if command == "exit"
     break
-  elsif command.start_with?("echo ")
-    $stdout.puts(command[5..])
+  elsif command == "echo" || command.start_with?("echo ")
+    $stdout.puts(command[5..] || "")
   else
     $stdout.puts("#{command}: command not found")
   end
