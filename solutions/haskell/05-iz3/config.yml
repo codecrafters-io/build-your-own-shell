@@ -1,0 +1,24 @@
+hints:
+  - title_markdown: "How do I identify the echo command?"
+    body_markdown: |-
+      Check if the command starts with `echo `:
+      ```haskell
+      import Data.List (isPrefixOf)
+
+      if "echo " `isPrefixOf` command
+          then -- Handle the echo command
+          else -- Handle other commands
+      ```
+
+      The [`isPrefixOf`](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isPrefixOf) function from `Data.List` returns `True` if the first list is a prefix of the second.
+
+  - title_markdown: "How do I extract the arguments?"
+    body_markdown: |-
+      Use [`drop`](https://hackage.haskell.org/package/base/docs/Prelude.html#v:drop) to get everything after `echo `:
+      ```haskell
+      if "echo " `isPrefixOf` command
+          then putStrLn (drop 5 command)
+          else putStrLn $ command ++ ": command not found"
+      ```
+
+      `drop 5 command` removes the first 5 characters (`"echo "`), leaving just the arguments to print.
