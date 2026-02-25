@@ -1,0 +1,22 @@
+hints:
+  - title_markdown: "How do I read the user's command?"
+    body_markdown: |-
+      Use [`os.read()`](https://pkg.odin-lang.org/core/os/#read) to read from standard input:
+
+      ```odin
+      buf: [1024]byte
+      n, _ := os.read(os.stdin, buf[:])
+      command := string(buf[:n])
+      ```
+
+      The `os.read()` procedure reads bytes from stdin into the buffer and returns the number of bytes read.
+
+  - title_markdown: "How do I print the command not found message?"
+    body_markdown: |-
+      Use [`fmt.printf()`](https://pkg.odin-lang.org/core/fmt/#printf) to print the formatted message:
+
+      ```odin
+      fmt.printf("%s: command not found\n", command)
+      ```
+
+      The `%s` format specifier is used for strings. Since `os.read()` includes a trailing newline, use `strings.trim_right()` to remove it before printing.
