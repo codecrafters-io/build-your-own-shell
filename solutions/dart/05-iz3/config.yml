@@ -1,9 +1,9 @@
 hints:
   - title_markdown: "How do I identify the echo command?"
     body_markdown: |-
-      Check if the command starts with `echo `:
+      Check if the command is `echo` or starts with `echo `:
       ```dart
-      if (command.startsWith('echo ')) {
+      if (command == 'echo' || command.startsWith('echo ')) {
         // Handle the echo command
       }
       ```
@@ -14,8 +14,8 @@ hints:
     body_markdown: |-
       Use [`substring()`](https://api.dart.dev/stable/dart-core/String/substring.html) to get everything after `echo `:
       ```dart
-      if (command.startsWith('echo ')) {
-        print(command.substring(5));
+      if (command == 'echo' || command.startsWith('echo ')) {
+        print(command == 'echo' ? '' : command.substring(5));
       }
       ```
 

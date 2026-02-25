@@ -8,8 +8,8 @@ void main(List<String> arguments) {
     String command = stdin.readLineSync()!;
     if (command == 'exit') {
       break;
-    } else if (command.startsWith('echo ')) {
-      print(command.substring(5));
+    } else if (command == 'echo' || command.startsWith('echo ')) {
+      print(command == 'echo' ? '' : command.substring(5));
     } else {
       print('$command: command not found');
     }
