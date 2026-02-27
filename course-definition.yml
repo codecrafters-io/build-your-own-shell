@@ -145,6 +145,13 @@ extensions:
 
       Path completion allows you to autocomplete file and directory names.
 
+  - slug: "background-jobs"
+    name: "Background Jobs"
+    description_markdown: |
+      In this challenge extension, you'll add support for launching and managing background jobs.
+
+      Background jobs allows you to run multiple commands in the background at once.
+
   - slug: "pipelines"
     name: "Pipelines"
     description_markdown: |
@@ -416,6 +423,62 @@ stages:
     difficulty: easy
     marketing_md: |-
       In this stage, you'll extend your implementation to handle filepath completion in any argument position.
+
+  - slug: "af3"
+    primary_extension_slug: "background-jobs"
+    name: "The jobs builtin"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll register the `jobs` builtin.
+
+  - slug: "at7"
+    primary_extension_slug: "background-jobs"
+    name: "Starting background jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement launching commands in the background.
+
+  - slug: "jd6"
+    primary_extension_slug: "background-jobs"
+    name: "List a single job"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement the `jobs` builtin so it can list a single background job.
+
+  - slug: "dk5"
+    primary_extension_slug: "background-jobs"
+    name: "List multiple jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll extend the `jobs` builtin so it can list background jobs.
+
+  - slug: "ma9"
+    primary_extension_slug: "background-jobs"
+    name: "Reaping one job using jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll extend the `jobs` builtin to reap a single job.
+
+  - slug: "rq2"
+    primary_extension_slug: "background-jobs"
+    name: "Reap multiple jobs using jobs"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll extend the `jobs` builtin to reap multiple jobs and update markers dynamically.
+
+  - slug: "bv8"
+    primary_extension_slug: "background-jobs"
+    name: "Reap before the next prompt"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add suport for reaping jobs before printing the next prompt.
+
+  - slug: "fy4"
+    primary_extension_slug: "background-jobs"
+    name: "Job number reset"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll implement recycling job number indices.
 
   - slug: "br6"
     primary_extension_slug: "pipelines"
