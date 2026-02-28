@@ -1,4 +1,26 @@
-In this stage, you'll add support for limiting history entries using the `history <n>` syntax.
+In this stage, you'll add support for limiting the number of history entries.
+
+### The `history <n>` Command
+
+The `history` command can take an optional number argument to limit the number of entries displayed. When the user runs `history <n>`, your shell should show the last `n` commands from the history.
+
+For example, `history 2` shows the two most recent commands:
+
+```bash
+$ echo first
+first
+$ echo second
+second
+$ echo third
+third
+$ history 2
+    2  echo second
+    3  echo third
+    4  history 2
+$
+```
+
+Here, the `history 2` command displays the two most recent commands (including the `history` command itself).
 
 ### Tests
 
@@ -23,8 +45,12 @@ $ history 2
 $
 ```
 
-The tester expects the history list to be limited to the last `n` commands.
+The tester will verify that:
+- The output shows the last `n` commands
+- Each entry is numbered correctly
+- The `history` command itself appears in the history
 
 ### Notes
 
-- The tester expects the history command to be present in the history list.
+- The `history` command should include itself in the history list.
+- In Bash, `history <n>` means "show the last n commands". Some shells like _zsh_ interpret this differently (as "show entries starting from line n"), but for this challenge, use the Bash interpretation.
