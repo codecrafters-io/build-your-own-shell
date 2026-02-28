@@ -30,7 +30,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It will then send multiple commands to your shell, followed by the `history <n>` command, which displays the last n commands:
+It will then send multiple commands to your shell, followed by the `history <n>` command:
 
 ```bash
 $ echo hello
