@@ -1,4 +1,4 @@
-In this stage, you'll implement wiring up the output streams of the background jobs to the terminal.
+In this stage, you'll implement wiring up background job's output streams to the terminal.
 
 ### Running in the Background
 
