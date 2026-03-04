@@ -22,11 +22,15 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will then launch a long-running program in the background like this:
+It will start a sleep command in the background.
 
 ```bash
-# Expect: Prompt line is printed immediately after 
-$ time_consuming_command &
+# Expected output:
+# [JOB_NUMBER] PID
+# Immediately followed by the next prompt
+$ sleep 500 &
 [1] 84470
 $ 
 ```
+
+It will expect the output to be a line containing `[JOB_NUMBER] PID`, immediately followed by the next prompt.

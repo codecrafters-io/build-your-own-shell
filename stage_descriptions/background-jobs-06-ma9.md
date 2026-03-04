@@ -28,15 +28,33 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
+It will launch a background job and check its status using `jobs`.
+
 ```bash
 # Expect: Prompt returns; job line e.g. [1] <pid>
-$ sleep 5 &
+$ cat /path/to/fifo &
 [1] 84470
 $ jobs
-[1]+  Running                 sleep 5 &
-# After 5 seconds
+[1]+  Running                 cat /path/to/fifo &
+$ 
+```
+
+The tester will then write empty content to the FIFO using another shell.
+
+```bash
+$ echo -ne "" > /path/to/fifo
+```
+
+Using the first shell, it will use the `jobs` builtin to check the status of jobs.
+
+```bash
+# Expect: The finished process is shown as 'Done'
 $ jobs
-[1]+  Done                    sleep 5
+[1]+  Done                  cat /path/to/fifo 
+```
+
+The tester will again issue another `jobs` builtin to check that there are no running jobs.
+```bash
 # Expect: jobs no longer lists that job
 $ jobs
 $ 
@@ -47,3 +65,5 @@ $
 - In this stage, you'll need to handle reaping a single background job. We'll get to handling reaping multiple background jobs in later stages.
 
 - When using `waitpid`, only handle normal (graceful) exit. You do not need to handle signal termination, stopped, or continued states — only detect that the process has exited normally (e.g. via `WIFEXITED`).
+
+- The trailing `&` is removed from the `Done` entry in the output of the reaped job.

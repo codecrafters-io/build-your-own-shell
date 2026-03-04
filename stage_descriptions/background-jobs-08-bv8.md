@@ -32,18 +32,36 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-```bash
+It will then launch some background jobs and check their statuses.
 
-$ sleep 500 & 
-[1] 11208
-$ sleep 5 & 
-[2] 11209
-# Before printing the next prompt, after the command execution,
-# reap the children and display their status
-$ echo Hello
-Hello
-[2]+  Done                    sleep 5
-# jobs displays the running job, which has now been promoted to +
+```bash
+$ sleep 500 &
+[1] <pid>
+$ cat /path/to/fifo &
+[2] <pid>
+$ jobs
+[1]-  Running                 sleep 500 &
+[2]+  Running                 cat /path/to/fifo &
+```
+
+The tester will then write empty string to the FIFO, using a separate process, so that the `cat` process in the background finishes.
+
+```bash
+# In a separate process
+$ echo -ne "" > /path/to/fifo
+```
+
+The tester will then run a command, expecting the command's output, followed by the status of the reaped job.
+
+```bash
+$ echo banana
+banana
+[2]+  Done                    cat /path/to/fifo
+```
+
+The tester will then run the `jobs` builtin, expecting the entry of the only running job to appear in the output.
+
+```bash
 $ jobs
 [1]+  Running                 sleep 500 &
 ```

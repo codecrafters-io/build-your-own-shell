@@ -38,30 +38,57 @@ $ ./your_shell.sh
 ```
 
 ```bash
-$ sleep 100 & 
-[1] 10168
-$ sleep 5 & 
-[2] 10171
-$ sleep 10 & 
-[3] 10173
-# After job number 2 has finished
+$ sleep 500 &
+[1] <pid>
+$ cat /path/to/fifo1 &
+[2] <pid>
+$ cat /path/to/fifo2 &
+[3] <pid>
+```
+
+The tester will then write empty content to the first FIFO, using a separate process, so that the former `cat` process exits.
+
+```bash
+# Using a separate process
+$ echo -ne "" > /path/to/fifo1
+```
+
+```bash
+# Expect: Job 2 to be 'Done'
 $ jobs
-[1]   Running                 sleep 100 &
-[2]-  Done                    sleep 5
-[3]+  Running                 sleep 10 &
-# After job number 3 has finished
+[1]   Running                 sleep 500 &
+[2]-  Done                    cat /path/to/fifo1
+[3]+  Running                 cat /path/to/fifo2 &
+```
+
+The tester will then write empty content to the second FIFO, using a separate process, so that the latter `cat` process exits.
+
+```bash
+# Using a separate process
+$ echo -ne "" > /path/to/fifo2
+```
+
+The tester will then list the jobs using `jobs`.
+
+```bash
+# Expect: Job 3 to be 'Done'
 $ jobs
-[1]-  Running                 sleep 100 &
-[3]+  Done                    sleep 10
-# List remaining jobs
+[1]-  Running                 sleep 500 &
+[3]+  Done                    cat /path/to/fifo2
+```
+
+The tester will then list the remaining job using `jobs`.
+
+```bash
+# Expect: Job 1 to be 'Running'
 $ jobs
-[1]+  Running                 sleep 100 &
+[1]+  Running                 sleep 500 &
 ```
 
 ### Notes
 
 - Your reap loop should handle the case where multiple children exit between prompts. Call `waitpid(-1, WNOHANG)` in a loop until it returns 0 or -1.
 
-- Job numbers are stable — a job keeps the number it was assigned for its entire lifetime.
+- Job numbers are stable. A job keeps the number it was assigned for its entire lifetime.
 
 - After removing a finished job, recalculate which job gets `+` and `-`.

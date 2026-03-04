@@ -61,4 +61,4 @@ $ jobs
 
 ### Notes
 
-- In this stage you'll only need to keep a record of launched jobs. You do not need to track whether they are still running or have exited. We'll get to that in the later stages.
+- In this stage, you'll only need to keep a record of launched jobs. You do not need to track whether they are still running or have exited. We'll get to that in the later stages.
