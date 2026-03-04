@@ -49,7 +49,7 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will start a sleep command in the background.
+It will start a cat command in the background (reading from fifo1), followed by another cat in the foreground for fifo2.
 
 ```bash
 # Expected output:
