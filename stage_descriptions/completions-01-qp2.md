@@ -54,11 +54,17 @@ The tester will verify that:
 - We recommend using a library like [JLine](https://github.com/jline/jline3) for your implementation. Most modern shells and REPLs (like the Python REPL) use [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline) under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
 {{/lang_is_java}}
 
+{{#lang_is_csharp}}
+- We recommend using a library like [Readline.Ext](https://www.nuget.org/packages/ReadLine.Ext) for your implementation. Most modern shells and REPLs (like the Python REPL) use [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline) under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
+{{/lang_is_csharp}}
+
 {{^lang_is_rust}}
 {{^lang_is_python}}
 {{^lang_is_go}}
 {{^lang_is_java}}
+{{^lang_is_csharp}}
 - We recommend using a library like [readline](https://en.wikipedia.org/wiki/GNU_Readline) for your implementation. Most modern shells and REPLs (like the Python REPL) use readline under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
+{{/lang_is_csharp}}
 {{/lang_is_java}}
 {{/lang_is_go}}
 {{/lang_is_python}}
