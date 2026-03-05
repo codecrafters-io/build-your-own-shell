@@ -17,6 +17,7 @@ concept_slugs:
     "what-are-builtin-commands",
     "what-is-path",
     "shell-quoting",
+    "how-do-i-use-readline-in-js",
   ]
 completion_percentage: 20
 
