@@ -6,7 +6,7 @@ When a user types a command prefix and presses `<TAB>`, your shell should find a
 
 1. On the first `<TAB>` press, ring the bell (using `\x07`).
 2. On the second `<TAB>` press:
-    - Print all matching executables on a new line. List them in **alphabetical order**, separated by two spaces (<code style="white-space: pre;">  </code>).
+    - Print all matching executables on a new line. List them in **alphabetical order**, separated by at least one space (two spaces are recommended for readability).
     - Show the prompt again on the next line, keeping the original command prefix.
  
 For example:
@@ -38,6 +38,6 @@ $ xyz_
 The tester will verify that:
 1. The first tab press rings the bell.
 2. The second tab press displays all matching executables in alphabetical order.
-    - The matches are separated by two spaces.
+    - The matches are separated by at least one space.
     - The matches are displayed on a new line.
 3. The prompt reappears with the original input preserved.
