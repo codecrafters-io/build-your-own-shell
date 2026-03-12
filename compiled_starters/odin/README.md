@@ -27,7 +27,7 @@ Time to move on to the next stage!
 
 Note: This section is for stages 2 and beyond.
 
-1. Ensure you have `odin` installed locally
+1. Ensure you have `odin (dev-2026-03)` installed locally
 1. Run `./your_program.sh` to run your program, which is implemented in
    `src/main.odin`.
 1. Run `codecrafters submit` to submit your solution to CodeCrafters. Test
