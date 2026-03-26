@@ -1,11 +1,16 @@
-# syntax=docker/dockerfile:1.7-labs
-FROM sbtscala/scala-sbt:eclipse-temurin-alpine-25.0.1_8_1.12.8_3.8.2
+FROM eclipse-temurin:25-jdk-alpine-3.23
 
-ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="build.sbt,project/assembly.sbt,project/build.properties"
+ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="scala-cli.yml"
 
-# .git & README.md are unique per-repository. We ignore them on first copy to prevent cache misses
-COPY --exclude=.git --exclude=README.md . /app
+RUN apk add --no-cache bash=5.3.3-r1
 
+SHELL ["/bin/bash", "-e", "-o", "pipefail", "-c"]
+
+RUN curl https://raw.githubusercontent.com/VirtusLab/scala-cli/refs/tags/v1.12.5/scala-cli.sh > /usr/local/bin/scala-cli && \
+    chmod +x /usr/local/bin/scala-cli
+    
 WORKDIR /app
+
+COPY . /app
 
 RUN .codecrafters/compile.sh
