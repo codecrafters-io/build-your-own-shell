@@ -27,7 +27,7 @@ Time to move on to the next stage!
 
 Note: This section is for stages 2 and beyond.
 
-1. Ensure you have `sbt (1.11.7)` installed locally
+1. Ensure you have `sbt (1.12.8)` installed locally
 1. Run `./your_program.sh` to run your program, which is implemented in
    `src/main/scala/codecrafters_shell/App.scala`.
 1. Run `codecrafters submit` to submit your solution to CodeCrafters. Test
