@@ -4,6 +4,7 @@ ThisBuild / organization     := "com.codecrafters"
 ThisBuild / organizationName := "CodeCrafters"
 
 assembly / assemblyJarName := "shell.jar"
+assembly / assemblyCacheOutput := true
 
 lazy val root = (project in file("."))
   .settings(
@@ -12,3 +13,4 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
     )
   )
+
