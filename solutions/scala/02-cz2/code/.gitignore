@@ -1,9 +1,23 @@
 # macOS
 .DS_Store
 
-# scala-cli
-.scala-build/
-.bsp/
+# sbt specific
+dist/*
+debug/
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+project/local-plugins.sbt
+.history
+.ensime
+.ensime_cache/
+.sbt-scripted/
+local.sbt
+
+# Bloop
+.bsp
 
 # VS Code
 .vscode/
@@ -11,3 +25,4 @@
 # Metals
 .bloop/
 .metals/
+metals.sbt

@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-scala-cli --power package --server=false -o /tmp/codecrafters-build-shell-scala --assembly --force src/main/scala/
+SBT_OPTS="--enable-native-access=ALL-UNNAMED --sun-misc-unsafe-memory-access=allow" sbt -error assembly
