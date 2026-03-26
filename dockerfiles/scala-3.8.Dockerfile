@@ -1,7 +1,11 @@
 # syntax=docker/dockerfile:1.7-labs
-FROM sbtscala/scala-sbt:eclipse-temurin-alpine-25.0.1_8_1.12.8_3.8.2
+FROM eclipse-temurin:25-jdk-alpine-3.23
 
-ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="build.sbt,project/assembly.sbt,project/build.properties"
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+
+RUN apk add --no-cache --upgrade bash=5.3.3-r1 && \
+    curl -fsSL https://github.com/VirtusLab/scala-cli/releases/latest/download/scala-cli-x86_64-pc-linux-static.gz | gzip -d > /usr/local/bin/scala-cli && \
+    chmod +x /usr/local/bin/scala-cli
 
 # .git & README.md are unique per-repository. We ignore them on first copy to prevent cache misses
 COPY --exclude=.git --exclude=README.md . /app

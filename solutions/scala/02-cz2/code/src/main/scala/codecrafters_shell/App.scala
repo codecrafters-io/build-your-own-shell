@@ -1,6 +1,6 @@
 package codecrafters_shell
 
-object Main extends App {
+@main def main(): Unit = {
   System.out.print("$ ")
 
   // Wait for user input
