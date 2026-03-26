@@ -5,6 +5,10 @@
 .scala-build/
 .bsp/
 
+# sbt
+target/
+project/target/
+
 # VS Code
 .vscode/
 
