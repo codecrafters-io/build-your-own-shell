@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-scala-cli --power package --server=false -o /tmp/codecrafters-build-shell-scala --assembly --force src/main/scala/
+scala-cli --power package --server=false --scala 3.8.2 -o /tmp/codecrafters-build-shell-scala --assembly --force src/main/scala/
