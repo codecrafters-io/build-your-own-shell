@@ -10,7 +10,9 @@ Your shell needs to keep track of jobs running in the background. To do that, yo
 
 ### The `jobs` Output Format
 
-The `jobs` builtin lists all the background jobs in this format:
+For this stage, you need to list a single job that is still running using the `jobs` builtin.
+
+The `jobs` builtin lists background jobs in this format:
 
 ```bash
 [1]+  Running                 sleep 10 &
