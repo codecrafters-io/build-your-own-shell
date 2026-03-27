@@ -2,15 +2,17 @@ In this stage, you'll handle reaping multiple background jobs.
 
 ### Reaping Multiple Background Jobs
 
-When several background jobs are running, and some of them finish, your shell needs to check all of them during the next `jobs` call. Loop through your background jobs and check each one to see if it has exited (using the non-blocking check from the previous stages).
+When several background jobs are running, and some of them finish, your shell needs to check all of them during the next `jobs` call. 
 
-Each completed job appears with status `Done` in the `jobs` output, then gets removed from the job table. The next `jobs` call won't show those completed jobs anymore. They only appear once as `Done` before being removed.
+Loop through your background jobs and check each one to see if it has exited (using the non-blocking check from the previous stages).
+
+Like in previous stages, each completed job appears with status `Done` in the `jobs` output, then gets removed from the job table. The next `jobs` call won't show those completed jobs anymore. They only appear once as `Done` before being removed.
 
 ### Dynamic Marker Updates
 
-The `+` and `-` markers are recalculated after removing completed jobs. The markers are always based on the current list of jobs, not the original job numbers.
+The `+` and `-` markers should be recalculated after removing completed jobs. The markers are always based on the current list of jobs, not the original job numbers.
 
-Here's how markers are assigned:
+A recap on how markers are assigned:
 - The job with the highest job number gets `+` (most recent)
 - The job with the second-highest job number gets `-` (previous)
 - All other jobs get a space
@@ -39,12 +41,12 @@ Job 1 started with no marker (space), but after jobs 2 and 3 are removed, it's t
 
 ### Tests
 
-The tester will execute your program:
+The tester will execute your program like this:
 ```bash
 $ ./your_program.sh
 ```
 
-It will create three background jobs:
+It will then create three background jobs:
 ```bash
 $ sleep 500 &
 [1] <pid>
