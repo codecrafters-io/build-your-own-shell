@@ -2,7 +2,7 @@ In this stage, you'll handle reaping multiple background jobs.
 
 ### Reaping Multiple Background Jobs
 
-When several background jobs are running, and some of them finish, your shell needs to check all of them during the next `jobs` call. Loop through your background jobs and check each one to see if it has exited (using the non-blocking check from the previous stage).
+When several background jobs are running, and some of them finish, your shell needs to check all of them during the next `jobs` call. Loop through your background jobs and check each one to see if it has exited (using the non-blocking check from the previous stages).
 
 Each completed job appears with status `Done` in the `jobs` output, then gets removed from the job table. The next `jobs` call won't show those completed jobs anymore. They only appear once as `Done` before being removed.
 
