@@ -1,37 +1,48 @@
-In this stage, you'll extend the `jobs` builtin to reap a single job.
+In this stage, you'll extend the `jobs` builtin to reap completed background jobs.
 
-### Reaping a background job
+### Reaping Background Jobs
 
-When a background process exits, it becomes a zombie — it has finished running but stays in the process table until its parent calls `waitpid`. The shell must reap these children to clean them up.
+Reaping means checking whether background processes have exited and cleaning them up. When a background process exits, it becomes a zombie process—it has finished running but stays in the process table until the parent process acknowledges its exit. The shell must check for these exited processes and clean them up.
 
-When the `jobs` builtin is invoked, the shell calls `waitpid()` with the `WNOHANG` flag (which means "check but don't block"). If a child has exited normally (e.g., `WIFEXITED`), the shell prints a `Done` line and removes the job from its table.
+When the user runs `jobs`, your shell should:
+1. Check each background job to see if it has exited
+2. If a job has exited, display it with status `Done` in the current output
+3. Remove the `Done` job from the job table so it doesn't appear in subsequent `jobs` calls
 
 For example:
-
 ```bash
 $ sleep 1 &
 [1] 84470
-# After ~1 second
+# After ~1 second, the process has exited
 $ jobs
 [1]+  Done                    sleep 1
+# The next jobs call shows nothing (job was removed)
 $ jobs
 $
 ```
 
-The next invocation of `jobs` will not list the job that was already reaped.
+Notice that the `Done` entry doesn't have a trailing `&` unlike `Running` entries.
+
+### Detecting Process Exit
+
+When `jobs` runs, check each background job to see if it has exited. The mechanism depends on your language, but the general approach is to check the process status without blocking (don't wait for it to finish if it's still running).
+
+For example:
+- In C/Unix: Use `waitpid(pid, &status, WNOHANG)` and check `WIFEXITED(status)`
+- In Python: Use `subprocess.Popen.poll()` and check if the return code is not `None`
+- In Node.js: Listen for the `exit` event on the child process
+
+Only handle normal exits for this stage. Don't worry about processes killed by signals or stopped processes—just detect when a process exits normally.
 
 ### Tests
 
-The tester will execute your program like this:
-
+The tester will execute your program:
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will launch a background job and check its status using `jobs`.
-
+It will start a background job and check it with `jobs`:
 ```bash
-# Expect: Prompt returns; job line e.g. [1] <pid>
 $ cat /path/to/fifo &
 [1] 84470
 $ jobs
@@ -39,31 +50,29 @@ $ jobs
 $ 
 ```
 
-The tester will then write empty content to the FIFO using another shell.
-
+The tester will then write to the FIFO to make the `cat` process exit:
 ```bash
 $ echo -ne "" > /path/to/fifo
 ```
 
-Using the first shell, it will use the `jobs` builtin to check the status of jobs.
-
+The next `jobs` call should show the completed job:
 ```bash
-# Expect: The finished process is shown as 'Done'
 $ jobs
-[1]+  Done                  cat /path/to/fifo 
+[1]+  Done                    cat /path/to/fifo
 ```
 
-The tester will again issue another `jobs` builtin to check that there are no running jobs.
+The following `jobs` call should show nothing (the job has been removed):
 ```bash
-# Expect: jobs no longer lists that job
 $ jobs
 $ 
 ```
 
+The tester will verify that:
+- The first `jobs` call shows the job as `Running` with trailing `&`
+- The second `jobs` call shows the job as `Done` without trailing `&`
+- The third `jobs` call shows no jobs (the completed job was removed)
+
 ### Notes
 
-- In this stage, you'll need to handle reaping a single background job. We'll get to handling reaping multiple background jobs in later stages.
-
-- When using `waitpid`, only handle normal (graceful) exit. You do not need to handle signal termination, stopped, or continued states — only detect that the process has exited normally (e.g. via `WIFEXITED`).
-
-- The trailing `&` is removed from the `Done` entry in the output of the reaped job.
+- You only need to handle a single background job for this stage. Multiple jobs will come later.
+- Only detect normal exits (process exited cleanly). Don't handle signal termination or stopped states.
