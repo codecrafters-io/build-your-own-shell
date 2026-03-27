@@ -2,7 +2,7 @@ In this stage, you'll extend the `jobs` builtin to reap completed background job
 
 ### Reaping Background Jobs
 
-Reaping means checking whether background processes have exited and cleaning them up. When a background process exits, it becomes a zombie process—it has finished running but stays in the process table until the parent process acknowledges its exit. The shell must check for these exited processes and clean them up.
+Currently, when a background process in your shell exits, it becomes a zombie process—it has finished running but stays in the process table until the parent process acknowledges its exit. The shell must reap these processes to clean them up.
 
 When the user runs `jobs`, your shell should:
 1. Check each background job to see if it has exited
@@ -25,23 +25,23 @@ Notice that the `Done` entry doesn't have a trailing `&` unlike `Running` entrie
 
 ### Detecting Process Exit
 
-When `jobs` runs, check each background job to see if it has exited. The mechanism depends on your language, but the general approach is to check the process status without blocking (don't wait for it to finish if it's still running).
+The mechanism for checking whether each background job has exited depends on your language, but the general approach is to check the process status without waiting for it to finish.
 
 For example:
 - In C/Unix: Use `waitpid(pid, &status, WNOHANG)` and check `WIFEXITED(status)`
 - In Python: Use `subprocess.Popen.poll()` and check if the return code is not `None`
 - In Node.js: Listen for the `exit` event on the child process
 
-Only handle normal exits for this stage. Don't worry about processes killed by signals or stopped processes—just detect when a process exits normally.
+Only handle normal exits for this stage. Don't worry about processes killed by signals or stopped. Just detect when a process exits normally.
 
 ### Tests
 
-The tester will execute your program:
+The tester will execute your program like this:
 ```bash
 $ ./your_program.sh
 ```
 
-It will start a background job and check it with `jobs`:
+It will then start a background job and check it with `jobs`:
 ```bash
 $ cat /path/to/fifo &
 [1] 84470
@@ -50,7 +50,7 @@ $ jobs
 $ 
 ```
 
-The tester will then write to the FIFO to make the `cat` process exit:
+The tester will write to the FIFO to make the `cat` process exit:
 ```bash
 $ echo -ne "" > /path/to/fifo
 ```
@@ -61,7 +61,7 @@ $ jobs
 [1]+  Done                    cat /path/to/fifo
 ```
 
-The following `jobs` call should show nothing (the job has been removed):
+The following `jobs` call should show nothing:
 ```bash
 $ jobs
 $ 
@@ -74,5 +74,5 @@ The tester will verify that:
 
 ### Notes
 
-- You only need to handle a single background job for this stage. Multiple jobs will come later.
+- You only need to handle a single background job for this stage.
 - Only detect normal exits (process exited cleanly). Don't handle signal termination or stopped states.
