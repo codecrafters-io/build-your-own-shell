@@ -1,36 +1,52 @@
-In this stage, you'll implement launching commands in the background.
+In this stage, you'll implement running commands in the background.
 
-### Running in the Background
+### Background Jobs (Recap)
 
-When an `&` is appended to a command, the shell runs it in the background: it starts the program but does not wait for it to finish. The prompt returns immediately so you can keep typing. The shell prints a line indicating its job number and its process ID.
+Commands can run in the background by adding `&` at the end. The shell starts the program but doesn't wait for it to finish, allowing you to continue typing other commands.
 
-For example:
-
+When a background job starts, the shell prints a line showing its job number and process ID:
 ```bash
-# Launch in the background
 $ sleep 30 &
 [1] 84470
-# Prompt instantly re-appears
 $ 
 ```
+
+The job number `[1]` is assigned sequentially starting from `1`. Each new background job gets the next number. The PID (`84470` in this example) is the actual process ID assigned by the operating system and will vary.
+
+### Running Commands with the `&` Token
+
+After parsing the command line into tokens, check if the last token is `&`. If it is:
+1. Remove it from the argument list
+2. Run the remaining command in the background
+3. Print the job number and PID
+4. Show the next prompt immediately
+
+For example, `sleep 30 &` has three tokens: `sleep`, `30`, and `&`. You remove the `&` and run `sleep 30` in the background.
+
+The exact mechanism for running a command in the background depends on your language. For example:
+- In C: Call `fork()` and `exec()` but don't call `waitpid()`
+- In Python: Use `subprocess.Popen()` without calling `.wait()` or `.communicate()`
+- In Node.js: Use `child_process.spawn()` without waiting for the process to exit
 
 ### Tests
 
 The tester will execute your program like this:
-
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will start a sleep command in the background.
-
+It will then start a sleep command in the background:
 ```bash
-# Expected output:
-# [JOB_NUMBER] PID
-# Immediately followed by the next prompt
 $ sleep 500 &
 [1] 84470
 $ 
 ```
 
-It will expect the output to be a line containing `[JOB_NUMBER] PID`, immediately followed by the next prompt.
+The tester will verify that:
+- The output contains `[JOB_NUMBER] PID` on one line
+- The next prompt appears immediately (the shell doesn't wait for the command to finish)
+- The background process actually starts running
+
+### Notes
+
+- In this stage, only one background job will be started, so the job number will always be `[1]`.
