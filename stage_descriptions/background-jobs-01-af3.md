@@ -33,7 +33,7 @@ $
 
 ### Tests
 
-The tester will execute your program:
+The tester will execute your program like this:
 ```bash
 $ ./your_program.sh
 ```
