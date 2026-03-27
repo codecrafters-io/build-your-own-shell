@@ -1,86 +1,53 @@
-In this stage, you'll implement wiring up background job's output streams to the terminal.
+In this stage, you'll ensure background jobs can print output to the terminal.
 
-### Running in the Background
+### Background Job Output
 
-When an `&` is appended to a command, the shell runs it in the background. Its standard input, standard output, and standard error are still connected to the shell, which means any output produced by the background job is still printed to the shell.
+When a command runs in the background, the background process's stdout and stderr streams remain connected to the shell's terminal. This means any output it produces should still appear in your shell.
 
 For example:
-
 ```bash
-# Create two FIFOs
-$ mkfifo /path/to/fifo1
-$ mkfifo /path/to/fifo2
-# Launch in the background
-$ cat /path/to/fifo1 &
+$ sleep 2 && echo "Done sleeping" &
 [1] 84470
-# This hangs up because it is launched in the foreground, and is 
-# waiting for a process to write to the pipe
-$ cat /path/to/fifo2
-
+$ echo "I can type this immediately"
+I can type this immediately
+$ Done sleeping
 ```
 
-In another shell,
-```bash
-$ echo "apple" > /path/to/fifo1
-```
+Here, the job's output (`Done sleeping`) appears in the terminal even though it ran in the background.
 
-The content of the first pipe is written to the original shell, following the cat command.
+For this stage, you must ensure the background process shares the same stdout and stderr as the shell. When spawning the background process, let it inherit the shell's stdio streams. 
 
-```bash
-apple
-```
-
-In another shell,
-```bash
-$ echo "ball" >> /path/to/fifo2
-```
-
-The content of the second pipe is written to the original shell, following the previous output.
-
-```bash
-ball
-```
+In most subprocess APIs, this is the default behavior (e.g., `stdio: "inherit"` in Node.js).
 
 ### Tests
 
 The tester will execute your program like this:
-
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will start a cat command in the background (reading from fifo1), followed by another cat in the foreground for fifo2.
+It will start a cat command in the background, followed by another in the foreground that reads from FIFOs:
 
 ```bash
-# Expected output:
-# [JOB_NUMBER] PID
-# Immediately followed by the next prompt
 $ cat /path/to/fifo1 &
 [1] 84470
 $ cat /path/to/fifo2
-
 ```
 
-The tester will then write random content to the `fifo1`. E.g.
-
+The tester will then write to the FIFOs:
 ```bash
-$ echo -ne "Hello from FIFO#1\n" >> /path/to/fifo1
-```
-
-It will expect the written content to appear on the shell on the line following the cat command.
-
-```bash
+$ echo -ne "Hello from FIFO#1\n" > /path/to/fifo1
 Hello from FIFO#1
-```
-
-The tester will then write random content to the `fifo2`. E.g.
-
-```bash
-$ echo -ne "Hello from FIFO#2\n" >> /path/to/fifo2
-```
-
-It will expect the written content to appear on the shell on the line following the previous output.
-
-```bash
+$ echo -ne "Hello from FIFO#2\n" > /path/to/fifo2
 Hello from FIFO#2
 ```
+
+The tester will verify that:
+- The background job's output appears in the terminal
+- The foreground job's output appears in the terminal
+- Both processes share the same stdout/stderr as the shell
+
+### Notes
+
+- The tester uses FIFOs (named pipes) to control when output appears. A FIFO is a special file that blocks reads until someone writes to it.
+- Make sure child processes inherit the shell's stdio streams.
