@@ -25,7 +25,7 @@ Breaking this down:
 - `Running` - The status, padded to 24 characters total. Since "Running" is `7` characters, it's followed by `17` spaces to fill the field
 - `sleep 10 &` - The command that was run
 
-Note that the trailing ` &` at the end of the command is optional when listing it. Bash includes it to indicate the job was started in the background, but other shells like Zsh omit it.
+When listing background jobs, the trailing ` &` at the end of the command is optional. Bash includes it to indicate the job was started in the background, but other shells like Zsh omit it.
 
 ### Tests
 
