@@ -1,71 +1,84 @@
-In this stage, you'll add support for reaping jobs before printing the next prompt.
+In this stage, you'll add automatic reaping before each prompt.
 
-### Reaping before the next prompt
+### Reaping Before Each Prompt
 
-Reaping doesn't only happen when `jobs` is invoked. Before printing the next prompt after a command execution, the shell reaps the children and displays the finished jobs. After displaying the finished job before the next prompt, the `jobs` builtin will not display it again.
+Up until now, your shell only reaped jobs when the user ran the `jobs` builtin. In this stage, you'll add automatic reaping that happens before every prompt.
 
-This means there are two places in your shell that trigger reaping:
-1. Before displaying each prompt.
-2. Inside the `jobs` builtin, before printing the list.
+Before printing the `$ ` prompt, your shell should:
+1. Check all background jobs to see if any have exited
+2. Display a `Done` line for each completed job
+3. Remove those jobs from the job table
+4. Print the prompt
+
+This means completed jobs appear automatically without needing to run `jobs`. The `Done` entries appear between the command output and the next prompt.
 
 For example:
-
 ```bash
 $ sleep 5 & 
 [1] 10637
 $ sleep 100 & 
 [2] 10638
-# Run a command after the job 1 has been completed
+
+# After job 1 completes, run any command
 $ echo "Hello world"
 Hello world
 [1]-  Done                    sleep 5
-# Jobs does not display the already reaped jobs
+$ 
+
+# The jobs builtin no longer shows job 1 (already reaped)
 $ jobs
 [2]+  Running                 sleep 100 &
 ```
 
+Notice the `Done` line appears after the command output but before the next prompt.
+
+### Two Reaping Points
+
+Your shell now reaps jobs in two places:
+1. **Before each prompt**: Check for completed jobs after any command (foreground, builtin, background launch, or even empty input)
+2. **Inside the jobs builtin**: Check for completed jobs before displaying the list
+
+Both places use the same reaping logic: check for exited jobs, display them as `Done`, then remove them from the table. A job's `Done` entry appears exactly once. Either from automatic reaping or from calling `jobs`, whichever happens first.
+
 ### Tests
 
 The tester will execute your program like this:
-
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will then launch some background jobs and check their statuses.
-
+It will then launch multiple background jobs, make certain jobs exit, and then run the `jobs` command:
 ```bash
+# Start two background jobs
 $ sleep 500 &
 [1] <pid>
 $ cat /path/to/fifo &
 [2] <pid>
+
+# Check jobs - both should be running
 $ jobs
 [1]-  Running                 sleep 500 &
 [2]+  Running                 cat /path/to/fifo &
-```
 
-The tester will then write empty string to the FIFO, using a separate process, so that the `cat` process in the background finishes.
-
-```bash
-# In a separate process
-$ echo -ne "" > /path/to/fifo
-```
-
-The tester will then run a command, expecting the command's output, followed by the status of the reaped job.
-
-```bash
+# The tester writes to the FIFO (in a separate process) to make job 2 exit
+# Then run a command - the Done line appears before the next prompt
 $ echo banana
 banana
 [2]+  Done                    cat /path/to/fifo
-```
+$ 
 
-The tester will then run the `jobs` builtin, expecting the entry of the only running job to appear in the output.
-
-```bash
+# Check jobs - job 2 should be removed, only job 1 remains
 $ jobs
 [1]+  Running                 sleep 500 &
 ```
 
+The tester will verify that:
+- The `Done` line appears after the command output and before the next prompt
+- Reaped jobs are removed from the job table
+- Subsequent `jobs` calls don't show already reaped jobs
+- Markers are recalculated correctly after reaping
+
 ### Notes
 
-- When a job is reaped, it is marked as `Done`, included in the current listing, and removed afterward. The `Done` entry appears exactly once.
+- When a job is reaped, it appears as `Done` exactly once, then is removed from the table.
+- Both the automatic reaping and the `jobs` builtin use the same reaping logic.
