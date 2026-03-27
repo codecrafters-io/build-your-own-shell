@@ -13,7 +13,7 @@ $
 
 The job number `[1]` is assigned sequentially starting from `1`. Each new background job gets the next number. The PID (`84470` in this example) is the actual process ID assigned by the operating system and will vary.
 
-### Detecting the `&` Token
+### Running Commands with the `&` Token
 
 After parsing the command line into tokens, check if the last token is `&`. If it is:
 1. Remove it from the argument list
@@ -23,23 +23,19 @@ After parsing the command line into tokens, check if the last token is `&`. If i
 
 For example, `sleep 30 &` has three tokens: `sleep`, `30`, and `&`. You remove the `&` and run `sleep 30` in the background.
 
-Normally, after starting a process, your shell waits for it to exit before showing the next prompt. For background jobs, you need to skip this waiting step.
-
-The exact mechanism depends on your language:
+The exact mechanism for running a command in the background depends on your language. For example:
 - In C: Call `fork()` and `exec()` but don't call `waitpid()`
 - In Python: Use `subprocess.Popen()` without calling `.wait()` or `.communicate()`
 - In Node.js: Use `child_process.spawn()` without waiting for the process to exit
 
-Start the process, print the job line, and immediately show the next prompt.
-
 ### Tests
 
-The tester will execute your program:
+The tester will execute your program like this:
 ```bash
 $ ./your_program.sh
 ```
 
-It will start a sleep command in the background:
+It will then start a sleep command in the background:
 ```bash
 $ sleep 500 &
 [1] 84470
@@ -54,5 +50,3 @@ The tester will verify that:
 ### Notes
 
 - In this stage, only one background job will be started, so the job number will always be `[1]`.
-- You only need to handle backgrounding external commands. Backgrounding builtins is not tested.
-- The job number and PID should be printed to stdout, not stderr.
