@@ -1,6 +1,6 @@
 package codecrafters_shell
 
-object Main extends App {
+@main def main(): Unit = {
   while (true) {
     System.out.print("$ ")
 

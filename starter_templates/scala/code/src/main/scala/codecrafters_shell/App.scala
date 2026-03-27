@@ -1,6 +1,6 @@
 package codecrafters_shell
 
-object Main extends App {
+@main def main(): Unit = {
   // TODO: Uncomment the code below to pass the first stage
-  // System.out.print("$ ");
+  // System.out.print("$ ")
 }

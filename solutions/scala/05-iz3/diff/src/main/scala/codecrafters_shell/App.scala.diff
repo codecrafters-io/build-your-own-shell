@@ -1,7 +1,7 @@
 @@ -1,14 +1,17 @@
  package codecrafters_shell
 
- object Main extends App {
+ @main def main(): Unit = {
    while (true) {
      System.out.print("$ ")
 
