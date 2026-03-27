@@ -2,7 +2,9 @@ In this stage, you'll extend the `jobs` builtin to list multiple background jobs
 
 ### Displaying Multiple Background Jobs
 
-When multiple commands run in the background, `jobs` lists them in the order they were started. Job numbers are assigned sequentially, starting from 1.
+When multiple commands run in the background, the `jobs` command lists them in the order they were started.
+
+Job numbers are assigned sequentially: the first background job is `[1]`, the next is `[2]`, and so on.
 
 The shell uses markers to indicate special jobs:
 - `+` - The most recently started job (the "current" job)
@@ -23,17 +25,17 @@ $ jobs
 [3]+  Running                 sleep 30 &
 ```
 
-Job 3 is the most recent (gets `+`), job 2 is the previous (gets `-`), and job 1 gets a space.
+In this example, the "current" job 3 has a `+` marker, the "previous" job 2 has a `-` marker, while job 1 gets a space.
 
 ### Tests
 
-The tester will execute your program:
+The tester will execute your program like this:
 
 ```bash
 $ ./your_program.sh
 ```
 
-It will launch jobs and verify the `jobs` output after each one:
+It will then launch jobs and verify the `jobs` output after each one:
 
 ```bash
 $ sleep 10 & 
@@ -63,5 +65,5 @@ The tester will verify that:
 
 ### Notes
 
-- Jobs should always be displayed in order by job number (1, 2, 3...), not in the order they were most recently touched.
+- Jobs should always be displayed in order by job number (1, 2, 3...).
 - You only need to track launched jobs. Detecting when jobs exit will come in later stages.
