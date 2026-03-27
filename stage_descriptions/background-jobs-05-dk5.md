@@ -9,7 +9,7 @@ Job numbers are assigned sequentially: the first background job is `[1]`, the ne
 The shell uses markers to indicate special jobs:
 - `+` - The most recently started job (the "current" job)
 - `-` - The second most recently started job (the "previous" job)  
-- ` ` (space) - All other jobs
+- Space (` `) - All other jobs
 
 For example, with three background jobs:
 ```bash
