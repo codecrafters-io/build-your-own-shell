@@ -47,7 +47,7 @@ The tester will verify that:
 - The job number is `[1]`
 - The marker is `+`
 - The status is `Running`
-- The command includes ` &` at the end
+- The command matches what was run (the trailing ` &` is optional)
 
 ### Notes
 
