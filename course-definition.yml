@@ -462,14 +462,14 @@ stages:
 
   - slug: "ma9"
     primary_extension_slug: "background-jobs"
-    name: "Reaping one job using jobs"
+    name: "Reap one job"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll extend the `jobs` builtin to reap a single job.
 
   - slug: "rq2"
     primary_extension_slug: "background-jobs"
-    name: "Reap multiple jobs using jobs"
+    name: "Reap multiple jobs"
     difficulty: medium
     marketing_md: |-
       In this stage, you'll extend the `jobs` builtin to reap multiple jobs and update markers dynamically.
@@ -483,7 +483,7 @@ stages:
 
   - slug: "fy4"
     primary_extension_slug: "background-jobs"
-    name: "Job number reset"
+    name: "Job number assignment"
     difficulty: easy
     marketing_md: |-
       In this stage, you'll implement recycling job number indices.
