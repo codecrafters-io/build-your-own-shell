@@ -1,42 +1,56 @@
-In this stage, you'll implement the `jobs` builtin so it can list a single background job.
+In this stage, you'll implement the `jobs` builtin to list a single background job.
 
-### Displaying a single background job
-Once a command is launched with `&`, the shell keeps a record of it (job number, command line, and whether it is still running). The `jobs` builtin prints that list. Each line shows the job number in brackets, a status such as `Running`, and the command that was run.
+### Tracking Background Jobs
 
-For example:
+When a command runs in the background with `&`, your shell needs to keep track of it. You'll need a data structure (like a list or table) that stores the following information about each background job:
+- Job number (starts at 1, increments for each new job)
+- Process ID
+- Command string
+- Status (e.g., Running)
 
-```bash
-# Launch program in the background
-$ sleep 10 &
-[1] 84470
+### The `jobs` Output Format
 
-# The '+' indicates the most recently started job
-# With a single job, it is always the current one.
-$ jobs
+The `jobs` builtin prints one line per job with this format:
+
+```
 [1]+  Running                 sleep 10 &
 ```
+
+Breaking this down:
+- `[1]` - Job number in brackets
+- `+` - Marker indicating the most recent job (always `+` when there's only one job)
+- Two spaces
+- `Running` - Status, padded to 24 characters total. Since "Running" is `7` characters, it's followed by `17` spaces to fill the field
+- `sleep 10 &` - The command that was run
+
+The trailing ` &` at the end of the command is optional. Bash includes it to indicate the job was started in the background, but you can omit it if you prefer.
 
 ### Tests
 
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will then use the `jobs` builtin:
+It will then start a background job and run `jobs`:
 
 ```bash
 $ sleep 10 &
 [1] 84470
-
-# Expected 1 job to be running
 $ jobs
 [1]+  Running                 sleep 10 &
 ```
 
+The tester will verify that:
+- The job is listed with the correct format
+- The job number is `[1]`
+- The marker is `+`
+- The status is `Running`
+- The command includes ` &` at the end
+
 ### Notes
 
-- In this stage, you only need to list a single job that is still running. You do not need to detect when it has exited. We'll get to that in the later stages.
-
-- In this stage, the tester will only test the output of the `jobs` builtin against a single background job.
+- You only need to list jobs that are still running. Detecting when jobs exit will come in later stages.
+- The tester will only test with a single background job in this stage.
+- The status field should be padded to 24 characters total (including "Running" and trailing spaces).
