@@ -46,33 +46,34 @@ The tester will execute your program like this:
 $ ./your_program.sh
 ```
 
-It will then create three background jobs:
+It will then create background jobs, terminate certain jobs, and then run the `jobs` command:
 ```bash
+# Start three background jobs
 $ sleep 500 &
 [1] <pid>
 $ cat /path/to/fifo1 &
 [2] <pid>
 $ cat /path/to/fifo2 &
 [3] <pid>
-```
 
-The tester will make job 2 exit by writing to fifo1:
-```bash
+# Terminate job 2 by writing to its FIFO
+$ echo -ne "" > /path/to/fifo1
+
+# Check jobs - job 2 should show as Done
 $ jobs
 [1]   Running                 sleep 500 &
 [2]-  Done                    cat /path/to/fifo1
 [3]+  Running                 cat /path/to/fifo2 &
-```
 
-The tester will make job 3 exit by writing to fifo2:
-```bash
+# Terminate job 3 by writing to its FIFO
+$ echo -ne "" > /path/to/fifo2
+
+# Check jobs - job 3 should show as Done, job 2 already removed
 $ jobs
 [1]-  Running                 sleep 500 &
 [3]+  Done                    cat /path/to/fifo2
-```
 
-The tester will check the remaining job:
-```bash
+# Check jobs - job 2 should be removed, only job 1 remains
 $ jobs
 [1]+  Running                 sleep 500 &
 ```
@@ -81,7 +82,6 @@ The tester will verify that:
 - Done jobs appear in the output once with status `Done`
 - Done jobs are removed from the job table after being displayed
 - Markers are recalculated correctly after each removal
-- Job 1 is promoted to `+` after jobs 2 and 3 are removed
 
 ### Notes
 
