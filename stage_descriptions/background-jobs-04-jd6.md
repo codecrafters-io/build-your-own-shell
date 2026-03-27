@@ -2,7 +2,7 @@ In this stage, you'll implement the `jobs` builtin to list a single background j
 
 ### Tracking Background Jobs
 
-When a command runs in the background with `&`, your shell needs to keep track of it. You'll need a data structure (like a list or table) that stores the following information about each background job:
+Your shell needs to keep track of jobs running in the background. To do that, you'll need a data structure (like a list or table) that stores the following information about each job:
 - Job number (starts at 1, increments for each new job)
 - Process ID
 - Command string
@@ -10,20 +10,20 @@ When a command runs in the background with `&`, your shell needs to keep track o
 
 ### The `jobs` Output Format
 
-The `jobs` builtin prints one line per job with this format:
+The `jobs` builtin lists all the background jobs in this format:
 
-```
+```bash
 [1]+  Running                 sleep 10 &
 ```
 
 Breaking this down:
-- `[1]` - Job number in brackets
-- `+` - Marker indicating the most recent job (always `+` when there's only one job)
+- `[1]` - The job number in brackets
+- `+` - A marker indicating the most recent job (always `+` when there's only one job)
 - Two spaces
-- `Running` - Status, padded to 24 characters total. Since "Running" is `7` characters, it's followed by `17` spaces to fill the field
+- `Running` - The status, padded to 24 characters total. Since "Running" is `7` characters, it's followed by `17` spaces to fill the field
 - `sleep 10 &` - The command that was run
 
-The trailing ` &` at the end of the command is optional. Bash includes it to indicate the job was started in the background, but you can omit it if you prefer.
+Note that the trailing ` &` at the end of the command is optional when listing it. Bash includes it to indicate the job was started in the background, but other shells like Zsh omit it.
 
 ### Tests
 
