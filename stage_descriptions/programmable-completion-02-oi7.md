@@ -25,7 +25,7 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will then use the `type` builtin on `complete`
+It will then use the `complete` builtin to list the registered completions.
 
 ```bash
 # Registration command may have spaces between arguments
