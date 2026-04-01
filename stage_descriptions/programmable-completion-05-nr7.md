@@ -41,6 +41,6 @@ In the example above, when the completer runs for that tab press:
 - `COMP_LINE`: `git ad` (full edited line)
 - `COMP_POINT`: the index of the cursor in `COMP_LINE` at the time of completion. For example, if the cursor is immediately after the `d` in `git ad`, then `COMP_POINT` is `6` (since `'git ad'` has 6 characters in ASCII).
 
-The completer script will only work correctly if `argv[1]`–`argv[3]` are passed as in the previous stage and `COMP_LINE` and `COMP_POINT` are set in the environment to the values the current line implies.
+The completer script will only work correctly `COMP_LINE` and `COMP_POINT` are set in the environment to the values the current line implies.
 
 If `COMP_LINE` or `COMP_POINT` is not passed, or is incorrect, the tester’s script will not produce the right candidates and completion will fail.

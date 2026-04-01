@@ -2,7 +2,7 @@ In this stage, you'll extend command-based completion so a completer script can 
 
 ### Multiple candidates from a `-C` completer
 
-The completer writes candidates to stdout as newline-separated entries (`\n`). Each output line is one completion candidate, the same as in the previous stage.
+The completer writes candidates to stdout as newline-separated entries (`\n`). Each output line is one completion candidate, the same as in the earlier stages.
 
 For example:
 
