@@ -11,12 +11,9 @@ $ echo first
 first
 $ echo second
 second
-$ echo third
-third
 $ history 2
     2  echo second
-    3  echo third
-    4  history 2
+    3  history 2
 $
 ```
 
