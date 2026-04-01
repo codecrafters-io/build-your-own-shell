@@ -1,4 +1,4 @@
-In this stage, you'll pass completion context into a `-C` completer using the first three command-line arguments (`argv1` through `argv3`).
+In this stage, you'll pass completion context into a `-C` completer using the command-line arguments.
 
 ### Passing arguments to the completer
 

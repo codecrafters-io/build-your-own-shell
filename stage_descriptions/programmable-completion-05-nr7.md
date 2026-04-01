@@ -1,4 +1,4 @@
-In this stage, you'll pass `COMP_LINE` and `COMP_POINT` into a `-C` completer as environment variables.
+In this stage, you'll pass completion context into a `-C` completer using environment variables.
 
 ### `COMP_LINE` and `COMP_POINT` variables
 
