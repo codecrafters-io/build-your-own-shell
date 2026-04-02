@@ -453,6 +453,13 @@ stages:
     marketing_md: |-
       In this stage, you'll add support for `-C` option in the `complete` builtin.
 
+  - slug: "pm5"
+    primary_extension_slug: "programmable-completion"
+    name: "Bell and completer stderr"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll handle the case of no completions and printing the stderr of the completer script to the shell.
+
   - slug: "zi0"
     primary_extension_slug: "programmable-completion"
     name: "Passing command-line arguments"
@@ -480,13 +487,6 @@ stages:
     difficulty: medium
     marketing_md: |-
       In this stage, you'll extend `-C` programmable completion using the longest common prefix (LCP) of the matching words.
-
-  - slug: "pm5"
-    primary_extension_slug: "programmable-completion"
-    name: "Empty completer output"
-    difficulty: medium
-    marketing_md: |-
-      In this stage, you'll handle a `-C` completer that returns no candidates.
 
   - slug: "tz2"
     primary_extension_slug: "programmable-completion"
