@@ -455,10 +455,17 @@ stages:
 
   - slug: "pm5"
     primary_extension_slug: "programmable-completion"
-    name: "Bell and completer stderr"
+    name: "Handling no completions"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll handle the case where the completer produces no completion candidates.
+
+  - slug: "qf1"
+    primary_extension_slug: "programmable-completion"
+    name: "Handling completer's stderr"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll handle the case of no completions and printing the stderr of the completer script to the shell.
+      In this stage, you'll add support for handling the completer script's stderr.
 
   - slug: "zi0"
     primary_extension_slug: "programmable-completion"
