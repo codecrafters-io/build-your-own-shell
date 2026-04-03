@@ -44,7 +44,8 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will create a completer script that prints contents to stdout, but does not exit. For example:
+It will create a completer script that prints contents to stderr, but does not exit. For example:
+
 ```python
 #!/usr/bin/python3
 import sys
