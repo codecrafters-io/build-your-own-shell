@@ -31,8 +31,9 @@ It will then use the `complete` builtin to list the registered completions.
 # Registration command may have spaces between arguments
 $ complete  -C  /path/to/completer/script  git
 # Output should not have spaces between arguments
+# The path should be surrounded with single quotes
 $ complete
-complete -C /path/to/completer/script git
+complete -C '/path/to/completer/script' git
 ```
 
 ### Notes
