@@ -8,11 +8,8 @@
 
 set -e # Exit on failure
 
-LIBS_DIR="/tmp/codecrafters-kotlin-libs"
-CLASSES_DIR="/tmp/codecrafters-build-shell-kotlin/classes"
+LIBS_DIR="/tmp/codecrafters-libs-shell-kotlin"
+BUILD_DIR="/tmp/codecrafters-build-shell-kotlin"
+KOTLIN_MAIN="$BUILD_DIR/classes/kotlin/main"
 
-if [ -d "$CLASSES_DIR" ]; then
-    exec java -cp "$CLASSES_DIR:$LIBS_DIR/*" AppKt "$@"
-else
-    exec /tmp/codecrafters-build-shell-kotlin/install/app/bin/app "$@"
-fi
+exec java -cp "$KOTLIN_MAIN:$LIBS_DIR/*" AppKt "$@"
