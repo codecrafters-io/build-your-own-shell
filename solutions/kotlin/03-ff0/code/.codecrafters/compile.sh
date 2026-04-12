@@ -11,13 +11,12 @@ set -e # Exit on failure
 LIBS_DIR="/tmp/codecrafters-libs-shell-kotlin"
 BUILD_DIR="/tmp/codecrafters-build-shell-kotlin"
 KOTLIN_MAIN="$BUILD_DIR/classes/kotlin/main"
-KOTLIN_JVM_OPTS="--enable-native-access=ALL-UNNAMED --sun-misc-unsafe-memory-access=allow"
+KOTLIN_JVM_OPTS="-J--enable-native-access=ALL-UNNAMED -J--sun-misc-unsafe-memory-access=allow"
 
 if [ -d "$LIBS_DIR" ] && [ "$(ls -A "$LIBS_DIR" 2>/dev/null)" ] && command -v kotlinc >/dev/null 2>&1; then
   # Fast path: compile with kotlinc using pre-cached libraries
   mkdir -p "$KOTLIN_MAIN"
-  JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS:+${JAVA_TOOL_OPTIONS} }$KOTLIN_JVM_OPTS" \
-    kotlinc -cp "$(echo "$LIBS_DIR"/*.jar | tr ' ' ':')" -d "$KOTLIN_MAIN" app/src/main/kotlin/*.kt
+  kotlinc $KOTLIN_JVM_OPTS -cp "$(echo "$LIBS_DIR"/*.jar | tr ' ' ':')" -d "$KOTLIN_MAIN" app/src/main/kotlin/*.kt
 else
   # Full build: use Gradle to build and install distribution
   gradle installDist
