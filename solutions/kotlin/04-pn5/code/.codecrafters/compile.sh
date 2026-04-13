@@ -16,7 +16,7 @@ KOTLIN_JVM_OPTS="-J--enable-native-access=ALL-UNNAMED -J--sun-misc-unsafe-memory
 if [ -d "$LIBS_DIR" ] && [ "$(ls -A "$LIBS_DIR" 2>/dev/null)" ] && command -v kotlinc >/dev/null 2>&1; then
   # Fast path: compile with kotlinc using pre-cached libraries
   mkdir -p "$KOTLIN_MAIN"
-  kotlinc $KOTLIN_JVM_OPTS -cp "$(echo "$LIBS_DIR"/*.jar | tr ' ' ':')" -d "$KOTLIN_MAIN" app/src/main/kotlin/*.kt
+  find app/src/main/kotlin -type f -name '*.kt' -exec kotlinc $KOTLIN_JVM_OPTS -cp "$(echo "$LIBS_DIR"/*.jar | tr ' ' ':')" -d "$KOTLIN_MAIN" {} +
 else
   # Full build: use Gradle to build and install distribution
   gradle installDist
