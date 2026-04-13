@@ -2,7 +2,9 @@ In this stage, you'll add support for parameter expansion using the `${VAR}` for
 
 ### Expansion with braces
 
-Braces make the end of the variable name explicit, which matters when the name is followed by characters that would otherwise be treated as part of the name or as literal text to concatenate. The shell expands `${NAME}` the same way it expands `$NAME` for a simple identifier, so literal suffixes and neighboring expansions parse unambiguously. For instance, `$FOO_suffix` would refer to a different variable name entirely; `${FOO}_suffix` expands `FOO` and leaves `_suffix` as literal text after it.
+Braces make the end of the variable name explicit, which matters when the name is followed by characters that would otherwise be treated as part of the name or as literal text to concatenate.
+
+The shell expands `${NAME}` the same way it expands `$NAME` for a simple identifier, so literal suffixes and neighboring expansions parse unambiguously. For instance, `$FOO_suffix` would refer to a different variable name entirely. `${FOO}_suffix` expands `FOO` and leaves `_suffix` as literal text after it.
 
 For example:
 

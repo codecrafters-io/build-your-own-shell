@@ -2,7 +2,9 @@ In this stage, you'll add support for parameter expansion using the `$VAR` form.
 
 ### Expansion
 
-When a command line contains `$NAME` and `NAME` is set in the shell (including exported variables), the shell replaces that token with the variable’s value before invoking builtins or external programs. The substitution happens in the words the shell passes as arguments; it does not change how the variable is stored internally. Each expanded value becomes a separate argument to the program the shell runs.
+When a command line contains `$NAME` and `NAME` is set in the shell (including exported variables), the shell replaces that token with the variable’s value before invoking builtins or external programs.
+
+The substitution happens in the words the shell passes as arguments. It does not change how the variable is stored internally. Each expanded value becomes a separate argument to the program the shell runs.
 
 For example:
 

@@ -32,13 +32,11 @@ $ export foo=bar
 $ declare -p foo
 declare -x foo="bar"
 ```
+The tester will check that `foo` appears in the shell's environment variable list.
 
-The tester will check that `baz` appears in the shell's environment variable list, and that `foo` doesn't.
-
-It will also check that only the exported variable is passed to the child process.
+It will also check that the exported variable is passed to the child process.
 
 ```bash
 $ environment_variable_printer_3452 foo baz
-The variable "foo" is not set
-The value of "baz" is "caz"
+The value of "foo" is "bar"
 ```
