@@ -174,6 +174,11 @@ extensions:
 
       History persistence allows you to save and load previously entered commands to and from a file.
 
+  - slug: "parameter-expansion"
+    name: "Parameter Expansion"
+    description_markdown: |
+      In this challenge extension, you'll add `declare`, `export`, exported variables for child processes, and `$VAR` / `${VAR}` expansion.
+
 stages:
   - slug: "oo8"
     concept_slugs: ["what-is-a-shell-prompt"]
@@ -592,3 +597,66 @@ stages:
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement support for appending the in-memory history to the history file when exiting.
+
+  - slug: "ji0"
+    primary_extension_slug: "parameter-expansion"
+    name: "The declare builtin"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll register the `declare` builtin.
+
+  - slug: "oa2"
+    primary_extension_slug: "parameter-expansion"
+    name: "Printing non-existing variables"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll implement the `-p` flag of the declare builtin when the requested variable does not exist.
+
+  - slug: "kv5"
+    primary_extension_slug: "parameter-expansion"
+    name: "Storing shell variables"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for storing and displaying shell variables.
+
+  - slug: "db8"
+    primary_extension_slug: "parameter-expansion"
+    name: "The exported attribute"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll support the `-x` option to `declare`, which marks a variable as exported.
+
+  - slug: "ts9"
+    primary_extension_slug: "parameter-expansion"
+    name: "Modifying environment variable"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for passing the exported variables to the child process.
+
+  - slug: "zv9"
+    primary_extension_slug: "parameter-expansion"
+    name: "The export builtin"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll register the `export` builtin and treat `export NAME=VALUE` like `declare -x NAME=VALUE`.
+
+  - slug: "tq1"
+    primary_extension_slug: "parameter-expansion"
+    name: "Redeclaring variables"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll ensure that redeclaring a variable without changing its attributes preserves existing attributes such as export.
+
+  - slug: "ge9"
+    primary_extension_slug: "parameter-expansion"
+    name: "Expanding variables"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll add support for parameter expansion using the `$VAR` form.
+
+  - slug: "br2"
+    primary_extension_slug: "parameter-expansion"
+    name: "Expansion with braces"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for parameter expansion using the `${VAR}` form.
