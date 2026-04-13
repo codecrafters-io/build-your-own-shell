@@ -1,4 +1,4 @@
-In this stage, you'll register the `export` builtin and treat `export NAME=VALUE` like `declare -x NAME=VALUE`.
+In this stage, you'll implement the `export` builtin.
 
 ### The `export` builtin
 
