@@ -9,8 +9,8 @@ The shell expands `${NAME}` the same way it expands `$NAME` for a simple identif
 For example:
 
 ```bash
-$ export BAZ=qux
-$ FOO=bar
+$ declare BAZ=qux
+$ declare FOO=bar
 $ echo appended is ${FOO}_suffix
 appended is bar_suffix
 $ echo joined is ${FOO}_${BAZ}_tail
@@ -28,10 +28,10 @@ $ ./your_program.sh
 It will set variables and run commands (including builtins such as `echo` if your shell implements them) where words contain `${VAR}` with literal text immediately after the closing brace. For example:
 
 ```bash
-$ export ITEM=widget
+$ declare ITEM=widget
 $ declare FOO=BAR
 $ ./custom_exe_1234 stock_${ITEM}_id ${FOO}
-Program was passed 2 args (including program name).
+Program was passed 3 args (including program name).
 Arg #0 (program name): custom_exe_1234
 Arg #1: stock_widget_id
 Arg #2: BAR

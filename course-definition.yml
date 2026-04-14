@@ -177,7 +177,7 @@ extensions:
   - slug: "parameter-expansion"
     name: "Parameter Expansion"
     description_markdown: |
-      In this challenge extension, you'll add `declare`, `export`, exported variables for child processes, and `$VAR` / `${VAR}` expansion.
+      In this challenge extension, you'll add `declare` (including valid names) and `$VAR` / `${VAR}` parameter expansion (including when a name is unset).
 
 stages:
   - slug: "oo8"
@@ -621,31 +621,10 @@ stages:
 
   - slug: "db8"
     primary_extension_slug: "parameter-expansion"
-    name: "The exported attribute"
+    name: "Validating shell variable names"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll support the `-x` option to `declare`, which marks a variable as exported.
-
-  - slug: "ts9"
-    primary_extension_slug: "parameter-expansion"
-    name: "Modifying environment variable"
-    difficulty: easy
-    marketing_md: |-
-      In this stage, you'll add support for passing the exported variables to the child process.
-
-  - slug: "zv9"
-    primary_extension_slug: "parameter-expansion"
-    name: "The export builtin"
-    difficulty: easy
-    marketing_md: |-
-      In this stage, you'll implement the `export` builtin.
-
-  - slug: "tq1"
-    primary_extension_slug: "parameter-expansion"
-    name: "Redeclaring variables"
-    difficulty: easy
-    marketing_md: |-
-      In this stage, you'll ensure that redeclaring a variable without changing its attributes preserves existing attributes such as export.
+      In this stage, you'll add support for validation for shell variable names.
 
   - slug: "ge9"
     primary_extension_slug: "parameter-expansion"
@@ -660,3 +639,10 @@ stages:
     difficulty: medium
     marketing_md: |-
       In this stage, you'll add support for parameter expansion using the `${VAR}` form.
+
+  - slug: "my0"
+    primary_extension_slug: "parameter-expansion"
+    name: "Expansion when a name is unset"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for expanding the variable name when it is not set.

@@ -2,15 +2,15 @@ In this stage, you'll add support for parameter expansion using the `$VAR` form.
 
 ### Expansion
 
-When a command line contains `$NAME` and `NAME` is set in the shell (including exported variables), the shell replaces that token with the variable’s value before invoking builtins or external programs.
+When a command line contains `$NAME` and `NAME` is set in the shell (for example with `declare`), the shell replaces that token with the variable’s value before invoking builtins or external programs.
 
 The substitution happens in the words the shell passes as arguments. It does not change how the variable is stored internally. Each expanded value becomes a separate argument to the program the shell runs.
 
 For example:
 
 ```bash
-$ export VARIABLE=VALUE
-$ FOO=BAR
+$ declare VARIABLE=VALUE
+$ declare FOO=BAR
 $ echo $VARIABLE $FOO
 VALUE BAR
 ```
@@ -28,8 +28,8 @@ $ ./your_program.sh
 It will set variables, then run a program with arguments that use `$VAR` expansion. For example:
 
 ```bash
-$ export VARIABLE=VALUE
-$ FOO=BAR
+$ declare VARIABLE=VALUE
+$ declare FOO=BAR
 $ custom_exe_1234 $VARIABLE $FOO
 Program was passed 3 args (including program name).
 Arg #0 (program name): custom_exe_1234
