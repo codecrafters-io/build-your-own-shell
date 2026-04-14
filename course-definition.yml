@@ -146,6 +146,13 @@ extensions:
 
       Path completion allows you to autocomplete file and directory names.
 
+  - slug: "programmable-completion"
+    name: "Programmable Completion"
+    description_markdown: |
+      In this challenge extension, you'll add support for the `complete` builtin and external completer scripts (`-C`).
+
+      Programmable completion lets you register custom tab-completion behavior for specific commands.
+
   - slug: "background-jobs"
     name: "Background Jobs"
     description_markdown: |
@@ -424,6 +431,76 @@ stages:
     difficulty: easy
     marketing_md: |-
       In this stage, you'll extend your implementation to handle filepath completion in any argument position.
+
+  - slug: "ne7"
+    primary_extension_slug: "programmable-completion"
+    name: "Register complete builtin"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for the `complete` builtin.
+
+  - slug: "oi7"
+    primary_extension_slug: "programmable-completion"
+    name: "Display registered completions"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for displaying the registered completion using the `complete` builtin.
+
+  - slug: "wl6"
+    primary_extension_slug: "programmable-completion"
+    name: "Command based completion"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for `-C` option in the `complete` builtin.
+
+  - slug: "pm5"
+    primary_extension_slug: "programmable-completion"
+    name: "Handling no completions"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll handle the case where the completer produces no completion candidates.
+
+  - slug: "qf1"
+    primary_extension_slug: "programmable-completion"
+    name: "Handling completer's stderr"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for handling the completer script's stderr.
+
+  - slug: "zi0"
+    primary_extension_slug: "programmable-completion"
+    name: "Passing command-line arguments"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll pass completion context into a `-C` completer using the command-line arguments.
+
+  - slug: "nr7"
+    primary_extension_slug: "programmable-completion"
+    name: "Passing environment variables"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll pass completion context into a `-C` completer using environment variables.
+
+  - slug: "ep2"
+    primary_extension_slug: "programmable-completion"
+    name: "Multiple completer candidates"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll extend command-based completion so a completer script can supply multiple candidates.
+
+  - slug: "xz3"
+    primary_extension_slug: "programmable-completion"
+    name: "Longest common prefix"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll extend `-C` programmable completion using the longest common prefix (LCP) of the matching words.
+
+  - slug: "tz2"
+    primary_extension_slug: "programmable-completion"
+    name: "Unregister a completion"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll support the `-r` option on the `complete` builtin.
 
   - slug: "af3"
     primary_extension_slug: "background-jobs"
