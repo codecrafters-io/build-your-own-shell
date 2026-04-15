@@ -181,6 +181,11 @@ extensions:
 
       History persistence allows you to save and load previously entered commands to and from a file.
 
+  - slug: "parameter-expansion"
+    name: "Parameter Expansion"
+    description_markdown: |
+      In this challenge extension, you'll add `declare` (including valid names) and `$VAR` / `${VAR}` parameter expansion (including when a name is unset).
+
 stages:
   - slug: "oo8"
     concept_slugs: ["what-is-a-shell-prompt"]
@@ -669,3 +674,52 @@ stages:
     difficulty: medium
     marketing_md: |-
       In this stage, you'll implement support for appending the in-memory history to the history file when exiting.
+
+  - slug: "ji0"
+    primary_extension_slug: "parameter-expansion"
+    name: "The declare builtin"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll register the `declare` builtin.
+
+  - slug: "oa2"
+    primary_extension_slug: "parameter-expansion"
+    name: "Printing non-existing variables"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll implement the `-p` flag of the declare builtin when the requested variable does not exist.
+
+  - slug: "kv5"
+    primary_extension_slug: "parameter-expansion"
+    name: "Storing shell variables"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for storing and displaying shell variables.
+
+  - slug: "db8"
+    primary_extension_slug: "parameter-expansion"
+    name: "Validating shell variable names"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for validation for shell variable names.
+
+  - slug: "ge9"
+    primary_extension_slug: "parameter-expansion"
+    name: "Expanding variables"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll add support for parameter expansion using the `$VAR` form.
+
+  - slug: "br2"
+    primary_extension_slug: "parameter-expansion"
+    name: "Expansion with braces"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for parameter expansion using the `${VAR}` form.
+
+  - slug: "my0"
+    primary_extension_slug: "parameter-expansion"
+    name: "Expansion when a name is unset"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for expanding the variable name when it is not set.
