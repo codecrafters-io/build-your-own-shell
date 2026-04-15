@@ -26,8 +26,8 @@ It will then define a variable with `declare` and ask for its description:
 $ declare foo=bar
 $ declare -p foo
 declare -- foo="bar"
-$ declare -p non_existent_variable
-declare: non_existent_variable: not found
+$ declare -p missing_variable
+declare: missing_variable: not found
 ```
 
 The tester will verify the output matches the expected format for the existing and non-existing variables.

@@ -20,8 +20,8 @@ $ ./your_program.sh
 It will then run `declare -p` with a variable name that your shell has not defined.
 
 ```bash
-$ declare -p non_existent_variable
-declare: non_existent_variable: not found
+$ declare -p missing_variable
+declare: missing_variable: not found
 ```
 
 ### Notes
