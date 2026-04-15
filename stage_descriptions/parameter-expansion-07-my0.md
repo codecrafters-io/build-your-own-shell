@@ -16,7 +16,7 @@ Arg #2: existingsvalue
 Program Signature: 5998595441
 ```
 
-Here only two arguments are passed after the program name: `_suffix` (from empty `${missing_1}` plus literal `_suffix`) and `existingsvalue` (from `${existing}`); `${missing_2}` adds nothing.
+Here only two arguments are passed after the program name: `_suffix` (from empty `${missing_1}` plus literal `_suffix`) and `existingsvalue` (from `${existing}`). `${missing_2}` adds nothing.
 
 ### Tests
 

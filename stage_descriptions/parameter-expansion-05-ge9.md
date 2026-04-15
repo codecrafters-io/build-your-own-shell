@@ -9,13 +9,13 @@ The substitution happens in the words the shell passes as arguments. It does not
 For example:
 
 ```bash
-$ declare VARIABLE=VALUE
-$ declare FOO=BAR
-$ echo $VARIABLE $FOO
-VALUE BAR
+$ declare Variable_1=value
+$ declare Variable_2=value2
+$ echo $Variable_1 $Variable_2
+value value2
 ```
 
-Here `echo` receives two words after expansion (`VALUE` and `BAR`), not the literal strings `$VARIABLE` and `$FOO`.
+Here `echo` receives two words after expansion (`value` and `value2`), not the literal strings `$Variable_1` and `$Variable_2`.
 
 ### Tests
 
@@ -28,13 +28,13 @@ $ ./your_program.sh
 It will set variables, then run a program with arguments that use `$VAR` expansion. For example:
 
 ```bash
-$ declare VARIABLE=VALUE
-$ declare FOO=BAR
-$ custom_exe_1234 $VARIABLE $FOO
+$ declare Variable_1=Value_1
+$ declare Variable_2=Value2
+$ custom_exe_1234 $Variable_1 $Variable_2
 Program was passed 3 args (including program name).
 Arg #0 (program name): custom_exe_1234
-Arg #1: VALUE
-Arg #2: BAR
+Arg #1: Value_1
+Arg #2: Value_2
 Program Signature: 5998595441
 ```
 

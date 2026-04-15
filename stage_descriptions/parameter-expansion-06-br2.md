@@ -9,12 +9,12 @@ The shell expands `${NAME}` the same way it expands `$NAME` for a simple identif
 For example:
 
 ```bash
-$ declare BAZ=qux
-$ declare FOO=bar
-$ echo appended is ${FOO}_suffix
-appended is bar_suffix
-$ echo joined is ${FOO}_${BAZ}_tail
-joined is bar_qux_tail
+$ declare Var1=foo
+$ declare _Var2=bar
+$ echo appended is ${Var1}_suffix
+appended is foo_suffix
+$ echo joined is ${Var1}_${_Var2}_tail
+joined is foo_bar_tail
 ```
 
 ### Tests
@@ -28,13 +28,13 @@ $ ./your_program.sh
 It will set variables and run commands (including builtins such as `echo` if your shell implements them) where words contain `${VAR}` with literal text immediately after the closing brace. For example:
 
 ```bash
-$ declare ITEM=widget
-$ declare FOO=BAR
-$ ./custom_exe_1234 stock_${ITEM}_id ${FOO}
+$ declare Item=widget
+$ declare Foo1=Bar2
+$ ./custom_exe_1234 stock_${Item}_id ${Foo1}
 Program was passed 3 args (including program name).
 Arg #0 (program name): custom_exe_1234
 Arg #1: stock_widget_id
-Arg #2: BAR
+Arg #2: Bar2
 Program Signature: 5998595441
 ```
 
