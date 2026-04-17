@@ -1,4 +1,4 @@
-In this stage, you'll add support for displaying the registered completion using the `complete` builtin.
+In this stage, you'll add support for the `-p` flag for the `complete` builtin.
 
 ### The `-p` flag
 

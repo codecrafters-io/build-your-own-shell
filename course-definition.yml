@@ -444,28 +444,28 @@ stages:
     name: "Display registered completions"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll add support for displaying the registered completion using the `complete` builtin.
+      In this stage, you'll add support for the `-p` flag for the `complete` builtin.
 
   - slug: "wl6"
     primary_extension_slug: "programmable-completion"
     name: "Command based completion"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll add support for `-C` option in the `complete` builtin.
+      In this stage, you'll add support for displaying the registered completion using the `complete` builtin.
 
   - slug: "pm5"
     primary_extension_slug: "programmable-completion"
     name: "Handling no completions"
     difficulty: easy
     marketing_md: |-
-      In this stage, you'll handle the case where the completer produces no completion candidates.
+      In this stage, you'll add support for `-C` option in the `complete` builtin.
 
   - slug: "qf1"
     primary_extension_slug: "programmable-completion"
     name: "Handling completer's stderr"
     difficulty: medium
     marketing_md: |-
-      In this stage, you'll add support for handling the completer script's stderr.
+      In this stage, you'll handle the case where the completer produces no completion candidates.
 
   - slug: "zi0"
     primary_extension_slug: "programmable-completion"
