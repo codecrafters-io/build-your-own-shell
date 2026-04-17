@@ -32,13 +32,13 @@ apple
 banana
 blueberry
 
-$ echo 'Hello Emily' 1>> /tmp/bar/baz.md
-$ echo 'Hello Maria' 1>> /tmp/bar/baz.md
+$ echo Hello Emily 1>> /tmp/bar/baz.md
+$ echo Hello Maria 1>> /tmp/bar/baz.md
 $ cat /tmp/bar/baz.md
 Hello Emily
 Hello Maria
 
-$ echo "List of files: " > /tmp/bar/qux.md
+$ echo List of files: > /tmp/bar/qux.md
 $ ls /tmp/baz >> /tmp/bar/qux.md
 $ cat /tmp/bar/qux.md
 List of files:

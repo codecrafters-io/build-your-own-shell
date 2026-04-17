@@ -47,7 +47,7 @@ $ ls nonexistent 2> /tmp/quz/baz.md
 $ cat /tmp/quz/baz.md
 ls: nonexistent: No such file or directory
 
-$ echo 'Maria file cannot be found' 2> /tmp/quz/foo.md
+$ echo Maria file cannot be found 2> /tmp/quz/foo.md
 Maria file cannot be found
 $ 
 

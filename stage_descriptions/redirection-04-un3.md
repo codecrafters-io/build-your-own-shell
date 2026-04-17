@@ -34,7 +34,7 @@ $ ls nonexistent 2>> /tmp/foo/qux.md
 $ cat /tmp/foo/qux.md
 ls: nonexistent: No such file or directory
 
-$ echo "James says Error" 2>> /tmp/foo/quz.md
+$ echo James says Error 2>> /tmp/foo/quz.md
 James says Error
 
 $ cat nonexistent 2>> /tmp/foo/quz.md

@@ -58,7 +58,7 @@ $ cat /tmp/foo/baz.md
 apple
 blueberry
 
-$ echo 'Hello James' 1> /tmp/foo/foo.md
+$ echo Hello James 1> /tmp/foo/foo.md
 $ cat /tmp/foo/foo.md
 Hello James
 
