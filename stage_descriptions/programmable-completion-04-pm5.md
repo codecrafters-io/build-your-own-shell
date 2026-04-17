@@ -1,18 +1,40 @@
-In this stage, you'll handle the case where the completer produces no completion candidates.
+In this stage, you'll add support for `-C` option in the `complete` builtin.
 
-### No completion candidates
+### Command-based programmable completion
 
-When the user presses tab and the shell runs the registered completer script, the shell reads standard output and treats line as a candidate. If the completer prints nothing to standard output, there are no candidates to apply.
+The `complete` builtin supports `-C`, which registers an external command that your shell should run when tab completion is requested for a specific command name.
 
-In that case the shell should not insert text or replace the current word. It should print the bell character (`\x07`) to standard output.
+If the user runs `complete -C /path/to/docker_completer_script.py docker`, the shell registers that completion rule and prints nothing.
 
-For example:
+When the user later types `docker ` and presses tab, the shell runs the registered completer script, reads its stdout, and uses that output as completion candidates. The completer script can be in any language.
+
+A high-level flow looks like this:
+1. The user types a partial command and presses tab.
+2. The shell intercepts the tab keypress.
+3. The shell looks up the completion rule for that command name and finds the `-C` rule.
+4. The shell starts the completer script using `fork()` and `exec()`.
+5. The completer script prints completion candidates to stdout.
+6. The shell reads the stdout of the completer script.
+7. Each line of the stdout is a completion candidate.
+
+The completer script will offer only one completion candidate for this stage.
+
+For example, the completer script that offers `run` completion can look like this:
+
+```python
+#!/usr/bin/env python3
+print("run")
+```
 
 ```bash
-$ complete -C /path/to/completer_script git
-$ git xyz<TAB>
-# Bell (\x07); line unchanged
+$ complete -C /path/to/completer/script.py docker
+$ docker <TAB>
+# Since the completer script only offers 'run' as the completion option
+# It autocompletes to 'run' with a trailing space
+$ docker run
 ```
+
+In this stage, you only need to support a completer that prints a single candidate word each time.
 
 ### Tests
 
@@ -22,23 +44,31 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will register a command-based completion rule for a command such as `git`. The `complete` command should produce no output.
+The tester will create a completer script that will always print the following:
+```
+run
+```
+
+It will register a command-based completion rule.
 
 ```bash
-$ complete -C /path/to/completer_script git
-$
+$ complete -C /path/to/completer/script.py docker
+$ 
 ```
 
-The tester will supply a completer script that prints nothing to the stdout. For example, the script might look something like this:
-
-```python
-#!/usr/bin/python3
-exit(0)
-```
+The tester will then type `docker ` and press tab.
 
 ```bash
-# Expect: bell only; input line unchanged
-$ git xyz<TAB>
+$ docker <TAB>
+# Autocompletes to run because the completion
+# offers 'run' as the only option
+$ docker run
 ```
 
-The tester will verify that the input line is unchanged after the tab press and that the bell character is printed to standard output.
+The tester will verify that tab completion uses the completer script output and inserts the single returned word with a trailing space.
+
+### Notes
+
+- The completer script will print a single line to stdout. 
+
+- You do not need to support passing extra completion context into the completer yet. We'll add those details in later stages.
