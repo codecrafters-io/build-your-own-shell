@@ -1,23 +1,26 @@
-In this stage, you'll extend command-based completion so a completer script can supply multiple candidates.
+In this stage, you'll handle completer scripts that return multiple completion candidates.
 
-### Multiple candidates from a `-C` completer
+### Multiple Candidates
 
-The completer writes candidates to stdout as newline-separated entries (`\n`). Each output line is one completion candidate, the same as in the earlier stages.
+A completer script can return more than one candidate by printing each one on a separate line to stdout. When multiple candidates are returned, your shell should display them all to the user instead of completing immediately.
 
-For example:
+For example, if the completer script prints:
 
-If the completer script always prints the following to stdout:
 ```
-clone
-push
 add
+commit
+push
 ```
+
+And the user presses TAB:
 
 ```bash
-$ complete -C /path/to/completer_script git
-$ git <TAB>
-add  clone  push
+$ git <TAB><TAB>
+add  commit  push
+$ git 
 ```
+
+The first TAB should ring the terminal bell (since there's no unique completion). The second TAB should display all candidates on the next line, separated by at least two spaces, sorted alphabetically. After displaying the candidates, the shell should reprint the prompt with the original input.
 
 ### Tests
 
@@ -27,26 +30,23 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-The tester will then create a completer script that will always print the following to the stdout:
-```
-add
-commit
-push
-```
-
-It will register a command-based completion rule for `git` and attempt a completion.
+It will then register a completer script that always returns three candidates (`add`, `commit`, `push`):
 
 ```bash
 $ complete -C /path/to/completer_script git
-# First tab rings bell 
-# Second tab displays the completion options followed by the prompt line
-$ git <TAB>
+$ git <TAB><TAB>
 add  commit  push
 $ git 
 ```
 
-The tester will verify that all the completion options offered by the completer script are shown in the next line as completion options with at least two spaces in between, followed by the prompt from the previous line.
+The tester will verify that:
+
+- The first TAB rings the bell (no unique match)
+- The second TAB displays all candidates on one line, separated by at least two spaces
+- The candidates are sorted alphabetically
+- The prompt and original input are reprinted after the candidate list
 
 ### Notes
 
-- You don't need to implement the Longest Common Prefix (LCP) completion yet.
+- You don't need to implement longest common prefix (LCP) completion yet. That comes in a later stage.
+- The display format matches how Bash shows multiple completions: candidates on one line with at least two spaces between them.
