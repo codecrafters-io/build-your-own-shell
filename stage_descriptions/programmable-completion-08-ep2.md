@@ -2,7 +2,7 @@ In this stage, you'll handle completer scripts that return multiple completion c
 
 ### Multiple Candidates
 
-A completer script can return more than one candidate by printing each one on a separate line to stdout. When multiple candidates are returned, your shell should display them all to the user instead of completing immediately.
+A completer script can return more than one candidate by printing each one on a separate line to stdout.
 
 For example, if the completer script prints:
 
@@ -20,7 +20,10 @@ add  commit  push
 $ git 
 ```
 
-The first TAB should ring the terminal bell (since there's no unique completion). The second TAB should display all candidates on the next line, separated by at least two spaces, sorted alphabetically. After displaying the candidates, the shell should reprint the prompt with the original input.
+1. The first TAB should ring the terminal bell (since there's no unique completion).
+2. The second TAB should display all candidates on the next line, separated by at least two spaces, sorted alphabetically.
+
+After displaying the candidates, the shell should reprint the prompt with the original input.
 
 ### Tests
 
@@ -48,5 +51,5 @@ The tester will verify that:
 
 ### Notes
 
-- You don't need to implement longest common prefix (LCP) completion yet. That comes in a later stage.
+- You don't need to implement longest common prefix (LCP) completion yet. That comes in later stages.
 - The display format matches how Bash shows multiple completions: candidates on one line with at least two spaces between them.
