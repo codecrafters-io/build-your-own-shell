@@ -1,10 +1,19 @@
-In this stage, you'll support the `-r` option on the `complete` builtin.
+In this stage, you'll add support for removing completion rules with `complete -r`.
 
-### The `-r` option
+### The `-r` Option
 
-The `complete` builtin accepts `-r` followed by a command name. The shell drops any stored completion rule for that name. After that, tab completion for that command behaves as if nothing had been registered.
+The `complete` builtin accepts a `-r` flag followed by a command name. This removes any stored completion rule for that command. After removal, pressing TAB for that command should behave as if no completion was ever registered.
 
-Running `complete -r` with a command name should produce no output on success, the same as registering a rule.
+```bash
+$ complete -C /path/to/completer_script git
+$ git ch<TAB>
+$ git checkout             # completion works
+
+$ complete -r git
+$ git ch<TAB>              # bell rings, no completion
+```
+
+The command should produce no output on success, just like registering a rule.
 
 ### Tests
 
@@ -14,17 +23,20 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will register a completion, unregister it with `-r`, then attempt completion again.
+It will then register a completion rule, remove it with `-r`, then attempt completion:
 
 ```bash
-$ complete -C '/path/to/completer/script' git
+$ complete -C /path/to/completer_script git
 $ complete -r git
-# Expect: Bell to ring
-$ git <TAB>
+$ git <TAB>                # bell rings, no completion
 ```
 
-The tester will verify that after unregistering, tab completion for `git` no longer works and the bell rings.
+The tester will verify that:
+
+- `complete -r` produces no output
+- TAB completion for the removed command no longer works
+- The bell rings when attempting completion on an unregistered command
 
 ### Notes
 
-If `complete -r` is run for a command that has no completion registered, the shell should still print nothing and not treat it as an error.
+- If `complete -r` is called for a command that has no completion registered, the shell should still produce no output and not treat it as an error.
