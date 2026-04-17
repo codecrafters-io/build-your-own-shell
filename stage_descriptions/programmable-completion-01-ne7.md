@@ -31,14 +31,6 @@ $ type complete
 complete is a shell builtin
 ```
 
-The tester will also type the `complete` built-in to the shell.
-
-```bash
-# Expected: No output
-$ complete
-$ 
-```
-
 ### Notes
 
-- In this stage, you'll register `complete` as a builtin and write an empty implementation for it. You don't need to write the actual implementation of it yet. We'll get to that in the later stages.
+- In this stage, you'll register `complete` as a builtin. You don't need to write the actual implementation of it yet. We'll get to that in the later stages.
