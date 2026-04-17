@@ -1,4 +1,4 @@
-In this stage, you'll add support for displaying the registered completion using the `complete` builtin.
+In this stage, you'll add support for `-C` option in the `complete` builtin and displaying the registered completions.
 
 ### Displaying registered completion
 

@@ -1,4 +1,4 @@
-In this stage, you'll add support for `-C` option in the `complete` builtin.
+In this stage, you'll add support for completing to a single candidate.
 
 ### Command-based programmable completion
 
