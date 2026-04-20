@@ -30,7 +30,7 @@ After displaying the candidates, the shell should reprint the prompt with the or
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
 It will then register a completer script that always returns three candidates (`add`, `commit`, `push`):
