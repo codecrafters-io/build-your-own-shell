@@ -52,4 +52,3 @@ The tester will verify that:
 ### Notes
 
 - You don't need to implement longest common prefix (LCP) completion yet. That comes in later stages.
-- The display format matches how Bash shows multiple completions: candidates on one line with at least two spaces between them.
