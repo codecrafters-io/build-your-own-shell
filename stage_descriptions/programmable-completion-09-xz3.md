@@ -20,7 +20,7 @@ If the candidates don't share a prefix beyond what's already typed, the behavior
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
 It will register a completer script that returns `checkout` and `cherry-pick`:
