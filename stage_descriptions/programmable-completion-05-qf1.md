@@ -1,17 +1,27 @@
-In this stage, you'll handle the case where the completer produces no completion candidates.
+In this stage, you'll handle the case where the completer script returns no candidates.
 
-### No completion candidates
+### Handling Empty Completer Output
 
-When the user presses tab and the shell runs the registered completer script, the shell reads standard output and treats line as a candidate. If the completer prints nothing to standard output, there are no candidates to apply.
+When the completer script prints nothing to stdout, your shell has no candidates to work with. In that case, the shell should:
 
-In that case the shell should not insert text or replace the current word. It should print the bell character (`\x07`) to standard output.
+- Not insert or modify any text
+- Ring the terminal bell by printing `\x07` to stdout
 
-For example:
+This gives the user feedback that their TAB press was received but no completion was available.
+
+For example, a completer that always exits without printing anything:
+
+```python
+#!/usr/bin/env python3
+exit(0)
+```
+
+When registered and triggered with TAB, your shell should just ring the bell and leave the input untouched:
 
 ```bash
 $ complete -C /path/to/completer_script docker
 $ docker xyz<TAB>
-# Bell (\x07); line unchanged
+# bell rings, input line stays as "docker xyz"
 ```
 
 ### Tests
@@ -19,26 +29,18 @@ $ docker xyz<TAB>
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will register a command-based completion rule for a command such as `docker`. The `complete` command should produce no output.
+It will supply a completer script that prints nothing, register it for a command, and press TAB:
 
 ```bash
-$ complete -C /path/to/completer_script docker
-$
+$ complete -C /path/to/completer_script <command>
+$ <command> <partial><TAB>
+# bell rings, input unchanged
 ```
 
-The tester will supply a completer script that prints nothing to the stdout. For example, the script might look something like this:
+The tester will verify that:
 
-```python
-#!/usr/bin/python3
-exit(0)
-```
-
-```bash
-# Expect: bell only; input line unchanged
-$ docker xyz<TAB>
-```
-
-The tester will verify that the input line is unchanged after the tab press and that the bell character is printed to standard output.
+- The input line is unchanged after the TAB press
+- The bell character (`\x07`) is printed to stdout
