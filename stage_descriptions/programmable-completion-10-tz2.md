@@ -13,7 +13,7 @@ $ complete -r git
 $ git ch<TAB>              # bell rings, no completion
 ```
 
-The command should produce no output on success, just like registering a rule.
+The command should produce no output on success.
 
 ### Tests
 
@@ -36,7 +36,7 @@ $ git <TAB>
 
 The tester will verify that:
 - `complete -p git` prints `complete: git: no completion specification` after unregistering
-- Tab completion for `git` no longer works and the bell rings
+- Tab completion for `git` no longer works, and the bell rings
 
 ### Notes
 
