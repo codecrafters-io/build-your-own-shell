@@ -29,7 +29,7 @@ The completer script can then use `argv[2]` to filter its candidates by prefix (
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
 It will register a completer script for a command:
