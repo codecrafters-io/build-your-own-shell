@@ -14,16 +14,20 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will register a completion, unregister it with `-r`, then attempt completion again.
+It will register a completion, unregister it with `-r`, confirm via `-p` that the rule is gone, then attempt completion again.
 
 ```bash
 $ complete -C '/path/to/completer/script' git
 $ complete -r git
+$ complete -p git
+complete: git: no completion specification
 # Expect: Bell to ring
 $ git <TAB>
 ```
 
-The tester will verify that after unregistering, tab completion for `git` no longer works and the bell rings.
+The tester will verify that:
+- `complete -p git` prints `complete: git: no completion specification` after unregistering
+- Tab completion for `git` no longer works and the bell rings
 
 ### Notes
 

@@ -45,7 +45,7 @@ add  commit  push
 $ git 
 ```
 
-The tester will verify that all the completion options offered by the completer script are shown in the next line as completion options with at least two spaces in between, followed by the prompt from the previous line.
+The tester will verify that all the completion options offered by the completer script are shown in the next line as completion options with at least one space in between, followed by the prompt from the previous line.
 
 ### Notes
 
