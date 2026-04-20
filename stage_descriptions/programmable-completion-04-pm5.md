@@ -1,74 +1,58 @@
-In this stage, you'll add support for completing to a single candidate.
+In this stage, you'll invoke the registered completer script and use its output to complete a single candidate.
 
-### Command-based programmable completion
+### Running the Completer Script
 
-The `complete` builtin supports `-C`, which registers an external command that your shell should run when tab completion is requested for a specific command name.
+In earlier stages, you registered completer scripts with `complete -C` and stored them. Now you'll actually run them.
 
-If the user runs `complete -C /path/to/docker_completer_script.py docker`, the shell registers that completion rule and prints nothing.
+When the user types a command name followed by a space and presses TAB, your shell should first check whether a completer is registered for that command. If one is registered:
 
-When the user later types `docker ` and presses tab, the shell runs the registered completer script, reads its stdout, and uses that output as completion candidates. The completer script can be in any language.
+1. Run the script as a separate process
+2. Read its stdout
+3. Use each line of output as a completion candidate
 
-A high-level flow looks like this:
-1. The user types a partial command and presses tab.
-2. The shell intercepts the tab keypress.
-3. The shell looks up the completion rule for that command name and finds the `-C` rule.
-4. The shell starts the completer script using `fork()` and `exec()`.
-5. The completer script prints completion candidates to stdout.
-6. The shell reads the stdout of the completer script.
-7. Each line of the stdout is a completion candidate.
+If no completer is registered, your shell should fall back to its existing completion behavior (or do nothing if no other completion logic has been implemented yet).
 
-The completer script will offer only one completion candidate for this stage.
+For this stage, the completer will always print exactly one line. Your shell should take that line and complete the user's input with it, followed by a trailing space.
 
-For example, the completer script that offers `run` completion can look like this:
+For example, a completer script could be as simple as this:
 
 ```python
 #!/usr/bin/env python3
 print("run")
 ```
 
-```bash
-$ complete -C /path/to/completer/script.py docker
-$ docker <TAB>
-# Since the completer script only offers 'run' as the completion option
-# It autocompletes to 'run' with a trailing space
-$ docker run
-```
+When registered and triggered with TAB, your shell should run the script, read its stdout, and use the output as the completion:
 
-In this stage, you only need to support a completer that prints a single candidate word each time.
+```bash
+$ complete -C /path/to/completer_script docker
+$ docker <TAB>
+$ docker run 
+```
 
 ### Tests
 
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-The tester will create a completer script that will always print the following:
-```
-run
-```
-
-It will register a command-based completion rule.
+It will create a completer script that always prints a single word to stdout, register it for a command, and then press TAB:
 
 ```bash
-$ complete -C /path/to/completer/script.py docker
-$ 
+$ complete -C /path/to/completer_script <command>
+$ <command> <TAB>
+$ <command> <candidate> 
 ```
 
-The tester will then type `docker ` and press tab.
+The tester will verify that:
 
-```bash
-$ docker <TAB>
-# Autocompletes to run because the completion
-# offers 'run' as the only option
-$ docker run
-```
-
-The tester will verify that tab completion uses the completer script output and inserts the single returned word with a trailing space.
+- Your shell runs the registered completer script on TAB
+- The single line from stdout is used as the completion
+- A trailing space is added after the completed word
 
 ### Notes
 
-- The completer script will print a single line to stdout. 
-
-- You do not need to support passing extra completion context into the completer yet. We'll add those details in later stages.
+- You don't need to pass completion context (like the current word being typed) to the completer yet. That comes in later stages.
+- Make sure to wait for the completer script to finish before inserting the completion, otherwise you may read partial output.
+- The completer script can be written in any language. Your shell just needs to execute it and read from stdout.
