@@ -9,7 +9,7 @@ $ complete -p git
 complete: git: no completion specification
 ```
 
-For this stage, you can hardcode the error output. You don't need to track any specifications yet, just recognize `-p` and print the error message for whatever command name follows it.
+For this stage, you'll only return the error output. You don't need to track any specifications yet, just recognize `-p` and print the error message for whatever command name follows it.
 
 ### Tests
 
@@ -30,7 +30,3 @@ The tester will verify that:
 
 - The output matches the format `complete: <command>: no completion specification`
 - The command name in the output matches the one passed to `-p`
-
-### Notes
-
-- You can hardcode the output for this stage. We'll get to keeping track of completion specifications in the later stages.
