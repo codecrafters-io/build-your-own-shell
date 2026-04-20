@@ -4,7 +4,7 @@ In this stage, you'll handle the case where the completer script returns no cand
 
 When the completer script prints nothing to stdout, your shell has no candidates to work with. In that case, the shell should:
 
-- Not insert or modify any text
+- Leave the input unchanged
 - Ring the terminal bell by printing `\x07` to stdout
 
 This gives the user feedback that their TAB press was received but no completion was available.
@@ -35,8 +35,8 @@ $ ./your_program.sh
 It will supply a completer script that prints nothing, register it for a command, and press TAB:
 
 ```bash
-$ complete -C /path/to/completer_script <command>
-$ <command> <partial><TAB>
+$ complete -C /path/to/completer_script docker
+$ docker xyz<TAB>
 # bell rings, input unchanged
 ```
 
