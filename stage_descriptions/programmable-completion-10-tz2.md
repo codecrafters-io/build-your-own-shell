@@ -20,7 +20,7 @@ The command should produce no output on success, just like registering a rule.
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
 It will register a completion, unregister it with `-r`, confirm via `-p` that the rule is gone, then attempt completion again.
