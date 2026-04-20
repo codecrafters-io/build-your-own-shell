@@ -1,20 +1,17 @@
-In this stage, you'll add support for displaying the registered completion using the `complete` builtin.
+In this stage, you'll add support for the `-p` flag for the `complete` builtin.
 
-### The `complete` Builtin
+### The `-p` flag
 
-The [`complete`](https://www.gnu.org/software/bash/manual/html_node/Programmable-Completion-Builtins.html#index-complete) builtin lets the shell register and list programmable completions for commands.
+The `-p` flag prints the completion specification registered for a given command in a reusable format.
 
-The `complete` builtin without any flags displays the completions registered so far.
+If no specification has been registered, the shell prints an error message indicating there's no completion specification for that command.
 
 For example:
 
 ```bash
-# Register the script as the completer script for the 'git' command
-$ complete -C /path/to/completer/script git
-# Make use of the registered completion
-$ complete
-complete -C /path/to/completer/script git
-$
+# See the autocompletion specification for the 'git' command
+$ complete -p git
+complete: git: no completion specification
 ```
 
 ### Tests
@@ -25,17 +22,13 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will then use the `complete` builtin to list the registered completions.
+It will then use the `-p` flag with the `complete` builtin.
 
 ```bash
-# Registration command may have spaces between arguments
-$ complete  -C  /path/to/completer/script  git
-# Output should not have spaces between arguments
-# The path should be surrounded with single quotes
-$ complete
-complete -C '/path/to/completer/script' git
+$ complete -p git
+complete: git: no completion specification
 ```
 
 ### Notes
 
-- You should parse the arguments and display them in the correct format while displaying the output of the `complete` builtin and not copy the command used to register the completion.
+- You can hardcode the output for this stage. We'll get to keeping track of completion specifications in the later stages.

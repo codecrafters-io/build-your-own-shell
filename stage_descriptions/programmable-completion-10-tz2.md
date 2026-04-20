@@ -23,19 +23,20 @@ The tester will execute your program like this:
 $ ./your_shell.sh
 ```
 
-It will then register a completion rule, remove it with `-r`, then attempt completion:
+It will register a completion, unregister it with `-r`, confirm via `-p` that the rule is gone, then attempt completion again.
 
 ```bash
 $ complete -C /path/to/completer_script git
 $ complete -r git
-$ git <TAB>                # bell rings, no completion
+$ complete -p git
+complete: git: no completion specification
+# Expect: Bell to ring
+$ git <TAB>
 ```
 
 The tester will verify that:
-
-- `complete -r` produces no output
-- TAB completion for the removed command no longer works
-- The bell rings when attempting completion on an unregistered command
+- `complete -p git` prints `complete: git: no completion specification` after unregistering
+- Tab completion for `git` no longer works and the bell rings
 
 ### Notes
 

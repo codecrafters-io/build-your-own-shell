@@ -27,7 +27,7 @@ Time to move on to the next stage!
 
 Note: This section is for stages 2 and beyond.
 
-1. Ensure you have `ruby (3.4)` installed locally
+1. Ensure you have `ruby (4.0)` installed locally
 1. Run `./your_program.sh` to run your program, which is implemented in
    `app/main.rb`.
 1. Run `codecrafters submit` to submit your solution to CodeCrafters. Test
