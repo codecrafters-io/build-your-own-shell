@@ -1,34 +1,39 @@
-In this stage, you'll add support for the `-p` flag for the `complete` builtin.
+In this stage, you'll add support for the `-p` flag on the `complete` builtin.
 
-### The `-p` flag
+### The `-p` Flag
 
-The `-p` flag prints the completion specification registered for a given command in a reusable format.
-
-If no specification has been registered, the shell prints an error message indicating there's no completion specification for that command.
-
-For example:
+The `-p` flag prints the completion specification registered for a given command. 
 
 ```bash
-# See the autocompletion specification for the 'git' command
+$ complete -p git
+complete -C '/path/to/git/completer' git
+```
+
+When no specification has been registered, it prints an error message in this format:
+
+```bash
 $ complete -p git
 complete: git: no completion specification
 ```
+
+For this stage, you'll only return the error output. You don't need to track any specifications yet, just recognize `-p` and print the error message for whatever command name follows it.
 
 ### Tests
 
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will then use the `-p` flag with the `complete` builtin.
+It will run `complete -p` with a random command name:
 
 ```bash
-$ complete -p git
-complete: git: no completion specification
+$ complete -p <command>
+complete: <command>: no completion specification
 ```
 
-### Notes
+The tester will verify that:
 
-- You can hardcode the output for this stage. We'll get to keeping track of completion specifications in the later stages.
+- The output matches the format `complete: <command>: no completion specification`
+- The command name in the output matches the one passed to `-p`
