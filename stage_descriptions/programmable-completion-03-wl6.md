@@ -1,20 +1,30 @@
-In this stage, you'll add support for `-C` option in the `complete` builtin and displaying the registered completions.
+In this stage, you'll add support for the `-C` flag to register completions and extend `-p` to display the completions.
 
-### Displaying registered completion
+### Registering and Displaying Completions
 
-The [`complete`](https://www.gnu.org/software/bash/manual/html_node/Programmable-Completion-Builtins.html#index-complete) builtin lets the shell register and list programmable completions for commands.
-
-The `complete` builtin with the `-p` flag displays the completion registered for the specified command.
-
-For example:
+The `-C` flag tells `complete` to register a completer script for a command. Once a completion is registered, `complete -p <command>` should print it back in a normalized format.
 
 ```bash
 $ complete -C /path/to/git/completer git
-$ complete -C /path/to/docker/completer docker
 $ complete -p git
 complete -C '/path/to/git/completer' git
+
+$ complete -C /path/to/docker/completer docker
 $ complete -p docker
 complete -C '/path/to/docker/completer' docker
+```
+
+Two things to note about the output format:
+
+- The script path is wrapped in single quotes
+- Arguments are separated by exactly one space, regardless of how the registration command was written
+
+So even if the user registers with extra whitespace, the output is always clean:
+
+```bash
+$ complete   -C    /path/to/git/completer   git
+$ complete -p git
+complete -C '/path/to/git/completer' git
 ```
 
 ### Tests
@@ -22,23 +32,35 @@ complete -C '/path/to/docker/completer' docker
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will then use the `complete` builtin to list the registered completions.
+It will register completions with `-C` (sometimes using extra whitespace) and then query them with `-p`:
 
 ```bash
-# Registration command may have spaces between arguments
-# Output of -p flag should not have spaces between arguments
-# The path should be surrounded with single quotes
 $ complete  -C  /path/to/completer/script  git
 $ complete -p git
 complete -C '/path/to/completer/script' git
+
 $ complete   -C /path/to/docker/completer    docker
 $ complete -p docker
 complete -C '/path/to/docker/completer' docker
 ```
 
+The tester will verify that:
+
+- `complete -C <path> <command>` registers the completion and produces no output
+- `complete -p <command>` prints the registered completion in the format `complete -C '<path>' <command>`
+- The output uses single quotes around the path and single spaces between arguments
+
 ### Notes
 
-- You should parse the arguments and display them in the correct format while displaying the output of the `complete -p` and not copy the command used to register the completion.
+- In earlier stages, `complete -p <command>` printed `complete: <command>: no completion specification`. That error is still the correct response when no completion has been registered for the given command.
+- Don't echo back the original `complete -C` command. Parse the arguments, store them, and reconstruct the output in the normalized format.
+- The single quotes around the path are literal characters in the output.
+
+
+
+
+
+
