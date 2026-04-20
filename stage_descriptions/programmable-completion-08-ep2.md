@@ -21,7 +21,7 @@ $ git
 ```
 
 1. The first TAB should ring the terminal bell (since there's no unique completion).
-2. The second TAB should display all candidates on the next line, separated by at least two spaces, sorted alphabetically.
+2. The second TAB should display all candidates on the next line, sorted alphabetically and separated by at least one space (two spaces are recommended for readability).
 
 After displaying the candidates, the shell should reprint the prompt with the original input.
 
@@ -45,7 +45,7 @@ $ git
 The tester will verify that:
 
 - The first TAB rings the bell (no unique match)
-- The second TAB displays all candidates on one line, separated by at least two spaces
+- The second TAB displays all candidates on one line, separated by at least one space
 - The candidates are sorted alphabetically
 - The prompt and original input are reprinted after the candidate list
 
