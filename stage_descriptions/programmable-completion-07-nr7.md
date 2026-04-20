@@ -1,46 +1,50 @@
-In this stage, you'll pass completion context into a `-C` completer using environment variables.
+In this stage, you'll pass `COMP_LINE` and `COMP_POINT` as environment variables when invoking a completer script.
 
-### `COMP_LINE` and `COMP_POINT` variables
+### Completion Environment Variables
 
-In addition to `argv[1]`-`argv[3]`, the shell also passes the following as environment variables to the completer script.
+In earlier stages, you passed the command name, current word, and previous word as arguments to the completer. Some completers also need to know the full command line and where the cursor is. Your shell should set two environment variables before invoking the completer:
 
-- `COMP_LINE` — The full text of the command line the user is editing, exactly as it appears before the tab press (one string, not including the trailing newline).
+- `COMP_LINE` — The full text of the command line as it appears when TAB is pressed (no trailing newline).
+- `COMP_POINT` — The zero-based byte index of the cursor position in `COMP_LINE`. When TAB is pressed at the end of the line, this is the length of `COMP_LINE`.
 
-- `COMP_POINT` — The zero-based index into `COMP_LINE` where the cursor sits: the position at which the next typed character would be inserted. For a tab press at the end of the partial word being completed, this is the length of `COMP_LINE` in bytes.
-
-For example:
+For example, if the user types:
 
 ```bash
-$ complete -C /path/to/completer_script systemctl
-$ systemctl start r<TAB>
-$ systemctl start redis 
+$ git ad<TAB>
 ```
+
+Your shell should set:
+
+- `COMP_LINE`: `git ad`
+- `COMP_POINT`: `6` (the string `git ad` is 6 bytes long, and the cursor is at the end)
+
+These are set as environment variables on the completer process, alongside the `argv[1]`, `argv[2]`, and `argv[3]` arguments from earlier stages.
 
 ### Tests
 
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will register a command-based completion rule. The `complete` command should produce no output.
+It will then register a completer script and trigger completion:
 
 ```bash
 $ complete -C /path/to/completer_script git
-$ git ad
+$ git ad<TAB>
 $ git add 
 ```
 
-In the example above, when the completer runs for that tab press:
+The completer script relies on both the argv arguments and the environment variables to produce the correct candidate. If `COMP_LINE` or `COMP_POINT` is missing or incorrect, the script will not return the right result, and completion will fail.
 
-- `argv[1]`: `git` (command name)
-- `argv[2]`: `ad` (current word being completed)
-- `argv[3]`: `git` (previous word)
+The tester will verify that:
 
-- `COMP_LINE`: `git ad` (full edited line)
-- `COMP_POINT`: the index of the cursor in `COMP_LINE` at the time of completion. For example, if the cursor is immediately after the `d` in `git ad`, then `COMP_POINT` is `6` (since `'git ad'` has 6 characters in ASCII).
+- `COMP_LINE` is set to the full command line text at the time of the TAB press
+- `COMP_POINT` is set to the correct byte index of the cursor position
+- The completion result is correct (confirming both environment variables were passed properly)
 
-The completer script will only work correctly if `COMP_LINE` and `COMP_POINT` are set in the environment to the values the current line implies.
+### Notes
 
-If `COMP_LINE` or `COMP_POINT` is not passed, or is incorrect, the tester’s script will not produce the right candidates and completion will fail.
+- `COMP_POINT` is a byte index, not a character index. For ASCII input, they're the same, but the distinction matters if you handle multibyte characters.
+- These environment variables should only be set for the completer process, not persisted in your shell's own environment.
