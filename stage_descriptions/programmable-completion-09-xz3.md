@@ -4,7 +4,10 @@ In this stage, you'll complete to the longest common prefix (LCP) when multiple 
 
 When a completer returns multiple candidates, there are two cases to handle:
 
-If the candidates share a prefix longer than what the user has already typed, the first TAB should complete to that shared prefix without ringing the bell. For example, if the completer returns `checkout` and `cherry-pick` and the user has typed `c`:
+- If they share a prefix longer than the current input: complete to the LCP
+- If they don't: ring the bell on the first tab, list matches on subsequent tab presses (like in previous stages)
+
+For example, if the completer returns `checkout` and `cherry-pick` and the user has typed `c`:
 
 ```bash
 $ git c<TAB>
@@ -12,8 +15,6 @@ $ git che
 ```
 
 Both candidates start with `che`, so the shell completes to `che` and waits for more input. No bell, no candidate list.
-
-If the candidates don't share a prefix beyond what's already typed, the behavior is the same as earlier stages: ring the bell on the first TAB, display candidates on the second.
 
 ### Tests
 
