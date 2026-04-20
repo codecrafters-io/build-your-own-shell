@@ -1,36 +1,40 @@
-In this stage, you'll add support for the `complete` builtin.
+In this stage, you'll register `complete` as a shell builtin.
 
 ### The `complete` Builtin
 
-The [`complete`](https://www.gnu.org/software/bash/manual/html_node/Programmable-Completion-Builtins.html#index-complete) builtin lets the shell register and list programmable completions for commands.
+The [`complete`](https://www.gnu.org/software/bash/manual/html_node/Programmable-Completion-Builtins.html#index-complete) builtin lets users register programmable completions for commands.
 
-For example:
+For example, you can register a completer script for `git`:
 
 ```bash
-# Register the script as the completer script for the 'git' command
-$ complete -C /path/to/completer/script git
-# Make use of the registered completion
+$ complete -C /path/to/completer_script git
+```
+
+Once registered, the shell will invoke the script when the user presses TAB after `git` to get suggestions:
+
+```bash
 $ git clo<TAB>
-# Autocompletes to 'git clone'
 $ git clone 
 ```
+
+For this stage, you only need to register `complete` as a builtin so that it's recognized by the `type` command. We'll get to implementing the actual behavior in later stages.
 
 ### Tests
 
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
-It will then use the `type` builtin on `complete`
+It will then check that `complete` is recognized as a builtin:
 
 ```bash
-# Expect: complete is a shell builtin
 $ type complete
 complete is a shell builtin
 ```
 
 ### Notes
 
-- In this stage, you'll register `complete` as a builtin. You don't need to write the actual implementation of it yet. We'll get to that in the later stages.
+- You don't need to implement any completion logic in this stage. Just register `complete` so it shows up as a builtin.
+- If your shell already uses a list or map of builtins (e.g., `echo`, `cd`, `pwd`), you can add `complete` to that same structure.
