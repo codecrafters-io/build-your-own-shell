@@ -1,4 +1,4 @@
-In this stage, you'll handle completer scripts that return multiple completion candidates.
+In this stage, you'll handle completer scripts that return multiple candidates.
 
 ### Multiple Candidates
 
@@ -12,7 +12,7 @@ commit
 push
 ```
 
-And the user presses TAB:
+And the user presses TAB twice:
 
 ```bash
 $ git <TAB><TAB>
@@ -21,7 +21,7 @@ $ git
 ```
 
 1. The first TAB should ring the terminal bell (since there's no unique completion).
-2. The second TAB should display all candidates on the next line, sorted alphabetically and separated by at least one space (two spaces are recommended for readability).
+2. The second TAB should display all candidates on the next line, sorted alphabetically, and separated by at least one space (two spaces are recommended for readability).
 
 After displaying the candidates, the shell should reprint the prompt with the original input.
 
