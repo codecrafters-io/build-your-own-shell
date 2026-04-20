@@ -25,7 +25,7 @@ These are set as environment variables on the completer process, alongside the `
 The tester will execute your program like this:
 
 ```bash
-$ ./your_shell.sh
+$ ./your_program.sh
 ```
 
 It will then register a completer script and trigger completion:
