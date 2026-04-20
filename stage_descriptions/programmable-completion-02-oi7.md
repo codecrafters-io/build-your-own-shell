@@ -2,7 +2,14 @@ In this stage, you'll add support for the `-p` flag on the `complete` builtin.
 
 ### The `-p` Flag
 
-The `-p` flag prints the completion specification registered for a given command. When no specification has been registered, it prints an error message in this format:
+The `-p` flag prints the completion specification registered for a given command. 
+
+```bash
+$ complete -p git
+complete -C '/path/to/git/completer' git
+```
+
+When no specification has been registered, it prints an error message in this format:
 
 ```bash
 $ complete -p git
