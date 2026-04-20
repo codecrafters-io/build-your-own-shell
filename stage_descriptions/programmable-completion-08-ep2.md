@@ -51,4 +51,4 @@ The tester will verify that:
 
 ### Notes
 
-- You don't need to implement longest common prefix (LCP) completion yet. That comes in later stages.
+- You don't need to implement longest common prefix (LCP) completion yet. We'll get to that in later stages.
