@@ -2,19 +2,19 @@ In this stage, you'll add support for parameter expansion using the `${VAR}` for
 
 ### Expansion with braces
 
-Braces make the end of the variable name explicit, which matters when the name is followed by characters that would otherwise be treated as part of the name or as literal text to concatenate.
+Braces mark the exact boundary of a variable name. When a variable is followed immediately by other characters, the shell needs to know where the name ends and where literal text begins — braces make that boundary explicit.
 
-The shell expands `${NAME}` the same way it expands `$NAME` for a simple identifier, so literal suffixes and neighboring expansions parse unambiguously. For instance, `$FOO_suffix` would refer to a different variable name entirely. `${FOO}_suffix` expands `FOO` and leaves `_suffix` as literal text after it.
+For example, `$FOO_bar` is treated as a reference to a variable named `FOO_bar`, not `FOO` followed by `_bar`. Writing `${FOO}_bar` removes the ambiguity: the shell expands `FOO` and then appends `_bar` as literal text.
 
 For example:
 
 ```bash
 $ declare Var1=foo
-$ declare _Var2=bar
-$ echo appended is ${Var1}_suffix
-appended is foo_suffix
-$ echo joined is ${Var1}_${_Var2}_tail
-joined is foo_bar_tail
+$ declare Var2=bar
+$ echo appended is ${Var1}_end
+appended is foo_end
+$ echo joined is ${Var1}_and_${Var2}
+joined is foo_and_bar
 ```
 
 ### Tests

@@ -10,8 +10,8 @@ For example:
 
 ```bash
 $ declare foo=bar
-$ declare 23=x
-declare: `2f3_var=xyz': not a valid identifier
+$ declare 67=x
+declare: `67=x': not a valid identifier
 $ declare _FOO=BAR
 ```
 
@@ -27,15 +27,8 @@ It will send `declare` with valid names (starting with a letter or `_`) and with
 
 ```bash
 $ declare 23=x
-declare: `2f3_var=xyz': not a valid identifier
+declare: `23=x': not a valid identifier
 $ declare _FOO=bar
 $ declare -p _FOO
 declare -- _FOO="bar"
-```
-
-The tester will also confirm no variable is stored for the rejected name.
-
-```bash
-$ declare -p 23
-declare: 23: not found
 ```

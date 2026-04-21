@@ -8,15 +8,15 @@ For example:
 
 ```bash
 $ declare existing=existingsvalue
-$ ./custom_exe_1234 ${missing_1}_suffix ${existing} ${missing_2}
+$ ./custom_exe_1234 ${missing1}end ${existing} ${missing2}
 Program was passed 3 args (including program name).
 Arg #0 (program name): custom_exe_1234
-Arg #1: _suffix
+Arg #1: end
 Arg #2: existingsvalue
 Program Signature: 5998595441
 ```
 
-Here only two arguments are passed after the program name: `_suffix` (from empty `${missing_1}` plus literal `_suffix`) and `existingsvalue` (from `${existing}`). `${missing_2}` adds nothing.
+Here only two arguments are passed after the program name: `end` (from empty `${missing1}` plus literal `end`) and `existingsvalue` (from `${existing}`). `${missing2}` adds nothing.
 
 ### Tests
 
@@ -26,14 +26,14 @@ The tester will execute your program like this:
 $ ./your_program.sh
 ```
 
-It will declare `existing`, leave `missing_1` and `missing_2` unset, and run:
+It will declare `existing`, leave `missing1` and `missing2` unset, and run:
 
 ```bash
 $ declare existing=existingsvalue
-$ ./custom_exe_1234 ${missing_1}_suffix ${existing} ${missing_2}
+$ ./custom_exe_1234 ${missing1}end ${existing} ${missing2}
 Program was passed 3 args (including program name).
 Arg #0 (program name): custom_exe_1234
-Arg #1: _suffix
+Arg #1: end
 Arg #2: existingsvalue
 Program Signature: 5998595441
 ```
