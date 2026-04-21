@@ -9,6 +9,7 @@ For this stage, your shell must apply the following rules when parsing double qu
 - Consecutive whitespaces (spaces, tabs) must be preserved.
 - Characters that normally act as delimiters or special characters lose their special meaning inside double quotes and are treated literally.
 - Double-quoted strings placed next to each other are concatenated to form a single argument.
+    - Quoted and unquoted strings placed next to each other are also concatenated.
 
 For example:
 
@@ -18,6 +19,9 @@ hello    world         # Multiple spaces preserved
 
 $ echo "hello""world"
 helloworld             # Quoted strings next to each other are concatenated.
+
+$ echo "hello"world
+helloworld             # Quoted and unquoted strings next to each other are concatenated.
 
 $ echo "hello" "world"
 hello world            # Separate arguments
