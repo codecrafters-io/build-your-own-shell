@@ -9,10 +9,18 @@ A digit must not be the first character. If the name is invalid, the shell repor
 For example:
 
 ```bash
+# Valid variable declaration
 $ declare foo=bar
+$ 
+
+# Valid variable declaration
+$ declare _FOO=BAR
+$ 
+
+# Invalid variable
 $ declare 67=x
 declare: `67=x': not a valid identifier
-$ declare _FOO=BAR
+$ 
 ```
 
 ### Tests

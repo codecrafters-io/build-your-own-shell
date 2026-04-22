@@ -622,7 +622,7 @@ stages:
   - slug: "db8"
     primary_extension_slug: "parameter-expansion"
     name: "Validating shell variable names"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll add support for validation for shell variable names.
 
@@ -643,6 +643,6 @@ stages:
   - slug: "my0"
     primary_extension_slug: "parameter-expansion"
     name: "Expansion when a name is unset"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll add support for expanding the variable name when it is not set.

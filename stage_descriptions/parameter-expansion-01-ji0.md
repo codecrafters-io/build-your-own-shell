@@ -2,7 +2,7 @@ In this stage, you'll register the `declare` builtin.
 
 ### The `declare` builtin
 
-The shell uses the `declare` builtin to create and inspect shell variables. For example,
+The `declare` builtin can be used to create and inspect shell variables. For example,
 
 ```bash
 $ type declare

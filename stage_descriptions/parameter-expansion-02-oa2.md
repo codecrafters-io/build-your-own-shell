@@ -17,7 +17,7 @@ The tester will execute your program like this:
 $ ./your_program.sh
 ```
 
-It will then run `declare -p` with a variable name that your shell has not defined.
+It will then run `declare -p` with a variable name has not been defined.
 
 ```bash
 $ declare -p missing_variable
