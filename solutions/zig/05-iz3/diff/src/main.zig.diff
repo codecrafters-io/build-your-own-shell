@@ -1,27 +1,23 @@
-@@ -1,22 +1,24 @@
+@@ -1,18 +1,20 @@
  const std = @import("std");
 
- var stdin_buffer: [4096]u8 = undefined;
- var stdin_reader = std.fs.File.stdin().readerStreaming(&stdin_buffer);
- const stdin = &stdin_reader.interface;
+ pub fn main(init: std.process.Init) !void {
+     var stdin_buffer: [4096]u8 = undefined;
+     var stdin = std.Io.File.stdin().readerStreaming(init.io, &stdin_buffer);
+     var stdout = std.Io.File.stdout().writer(init.io, &.{});
 
- var stdout_writer = std.fs.File.stdout().writerStreaming(&.{});
- const stdout = &stdout_writer.interface;
-
- pub fn main() !void {
      while (true) {
-         try stdout.print("$ ", .{});
-
-         const command = try stdin.takeDelimiter('\n');
+         try stdout.interface.print("$ ", .{});
+         const command = try stdin.interface.takeDelimiter('\n');
 
          if (std.mem.eql(u8, command.?, "exit")) {
              break;
 +        } else if (std.mem.startsWith(u8, command.?, "echo ")) {
-+            try stdout.print("{s}\n", .{command.?[5..]});
++            try stdout.interface.print("{s}\n", .{command.?[5..]});
 +        } else {
-+            try stdout.print("{s}: command not found\n", .{command.?});
++            try stdout.interface.print("{s}: command not found\n", .{command.?});
          }
 -
--        try stdout.print("{s}: command not found\n", .{command.?});
+-        try stdout.interface.print("{s}: command not found\n", .{command.?});
      }
  }

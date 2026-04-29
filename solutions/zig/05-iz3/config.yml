@@ -1,7 +1,7 @@
 hints:
   - title_markdown: "How do I identify the echo command?"
     body_markdown: |-
-      Check if the command starts with `echo ` using [`std.mem.startsWith()`](https://ziglang.org/documentation/master/std/#std.mem.startsWith):
+      Check if the command starts with `echo ` using [`std.mem.startsWith()`](https://ziglang.org/documentation/0.16.0/std/#std.mem.startsWith):
       ```zig
       if (std.mem.startsWith(u8, command.?, "echo ")) {
           // Handle the echo command
@@ -15,7 +15,7 @@ hints:
       Use slice syntax to get everything after `echo `:
       ```zig
       if (std.mem.startsWith(u8, command.?, "echo ")) {
-          try stdout.print("{s}\n", .{command.?[5..]});
+          try stdout.interface.print("{s}\n", .{command.?[5..]});
       }
       ```
 
