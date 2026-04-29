@@ -1,9 +1,11 @@
 const std = @import("std");
 
-var stdout_writer = std.fs.File.stdout().writerStreaming(&.{});
-const stdout = &stdout_writer.interface;
+pub fn main(init: std.process.Init) !void {
+    var stdout = std.Io.File.stdout().writer(init.io, &.{});
 
-pub fn main() !void {
+    // Suppress unused local constant error. Feel free to remove the line below.
+    try stdout.interface.print("", .{});
+
     // TODO: Uncomment the code below to pass the first stage
-    // try stdout.print("$ ", .{});
+    // try stdout.interface.print("$ ", .{});
 }

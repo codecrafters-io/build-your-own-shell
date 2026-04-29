@@ -1,15 +1,12 @@
 const std = @import("std");
 
-var stdin_buffer: [4096]u8 = undefined;
-var stdin_reader = std.fs.File.stdin().readerStreaming(&stdin_buffer);
-const stdin = &stdin_reader.interface;
+pub fn main(init: std.process.Init) !void {
+    var stdin_buffer: [4096]u8 = undefined;
+    var stdin = std.Io.File.stdin().readerStreaming(init.io, &stdin_buffer);
+    var stdout = std.Io.File.stdout().writer(init.io, &.{});
 
-var stdout_writer = std.fs.File.stdout().writerStreaming(&.{});
-const stdout = &stdout_writer.interface;
+    try stdout.interface.print("$ ", .{});
 
-pub fn main() !void {
-    try stdout.print("$ ", .{});
-
-    const command = try stdin.takeDelimiter('\n');
-    try stdout.print("{s}: command not found\n", .{command.?});
+    const command = try stdin.interface.takeDelimiter('\n');
+    try stdout.interface.print("{s}: command not found\n", .{command.?});
 }
