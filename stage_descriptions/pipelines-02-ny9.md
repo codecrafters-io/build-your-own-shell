@@ -13,8 +13,8 @@ The tester will execute your program like this:
 It'll then send commands involving pipelines with built-ins:
 
 ```bash
-$ echo raspberry\\nblueberry | wc
-       1       1      20
+$ echo apple-orange | wc
+       1       1      13
 $ ls | type exit
 exit is a shell builtin
 $
