@@ -184,7 +184,9 @@ extensions:
   - slug: "parameter-expansion"
     name: "Parameter Expansion"
     description_markdown: |
-      In this challenge extension, you'll add `declare` (including valid names) and `$VAR` / `${VAR}` parameter expansion (including when a name is unset).
+      In this challenge extension, you'll add support for shell variables and parameter expansion.
+
+      Shell variables allow you to store values and reference them in commands using `$VAR` or `${VAR}`.
 
 stages:
   - slug: "oo8"
@@ -684,7 +686,7 @@ stages:
 
   - slug: "oa2"
     primary_extension_slug: "parameter-expansion"
-    name: "Printing non-existing variables"
+    name: "Printing missing variables"
     difficulty: easy
     marketing_md: |-
       In this stage, you'll implement the `-p` flag of the declare builtin when the requested variable does not exist.
@@ -698,7 +700,7 @@ stages:
 
   - slug: "db8"
     primary_extension_slug: "parameter-expansion"
-    name: "Validating shell variable names"
+    name: "Validating variable names"
     difficulty: easy
     marketing_md: |-
       In this stage, you'll add support for validation for shell variable names.
@@ -719,7 +721,7 @@ stages:
 
   - slug: "my0"
     primary_extension_slug: "parameter-expansion"
-    name: "Expansion when a name is unset"
+    name: "Expanding empty variables"
     difficulty: easy
     marketing_md: |-
       In this stage, you'll add support for expanding the variable name when it is not set.
