@@ -484,7 +484,7 @@ stages:
   - slug: "nr7"
     primary_extension_slug: "programmable-completion"
     name: "Passing environment variables"
-    difficulty: medium
+    difficulty: easy
     marketing_md: |-
       In this stage, you'll pass completion context into a `-C` completer using environment variables.
 
