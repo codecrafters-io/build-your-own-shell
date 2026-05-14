@@ -6,8 +6,10 @@ FROM debian:trixie
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
         curl \
-        xz-utils \
+        libncurses-dev \
+        libreadline-dev \
         procps \
+        xz-utils \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
