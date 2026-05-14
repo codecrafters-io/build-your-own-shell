@@ -1,13 +1,14 @@
 hints:
   - title_markdown: "How do I read the user's command?"
     body_markdown: |-
-      Use the [`get_line()`](https://hexdocs.pm/gleam_stdlib/gleam/erlang.html#get_line) function:
+      Use the [`get_line()`](https://www.erlang.org/doc/apps/stdlib/io.html#get_line/1) function:
 
       ```gleam
-      import gleam/erlang
+      @external(erlang, "io", "get_line")
+      fn get_line(prompt: String) -> String
 
       // Captures the user's command
-      let assert Ok(command) = erlang.get_line("")
+      let input_line = get_line("")
       ```
 
       The `get_line()` function waits for the user to enter a command and returns it as a string (including a trailing newline).
@@ -16,12 +17,13 @@ hints:
       Use the [`println()`](https://hexdocs.pm/gleam_stdlib/gleam/io.html#println) function:
 
       ```gleam
+      import gleam/io
       import gleam/string
 
       # Prints the "<command>: command not found" message
-      let cmd = string.trim(command)
-      io.println(cmd <> ": command not found")
+      let command = string.trim(input_line)
+      io.println(command <> ": command not found")
       ```
 
       - The `<>` operator concatenates strings.
-      - The `string.trim()` function removes surrounding whitespace, including the trailing newline from `command`.
+      - The `string.trim()` function removes surrounding whitespace, including the trailing newline from `input_line`.

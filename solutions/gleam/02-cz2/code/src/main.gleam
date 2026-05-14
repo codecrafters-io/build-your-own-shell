@@ -1,11 +1,13 @@
 import gleam/io
-import gleam/erlang
 import gleam/string
 
 pub fn main() {
   io.print("$ ")
-  let assert Ok(command) = erlang.get_line("") 
-  
-  let cmd = string.trim(command)
-  io.println(cmd <> ": command not found")
+  let input_line = get_line("")
+
+  let command = string.trim(input_line)
+  io.println(command <> ": command not found")
 }
+
+@external(erlang, "io", "get_line")
+fn get_line(prompt prompt: String) -> String

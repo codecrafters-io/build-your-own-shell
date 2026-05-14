@@ -3,7 +3,7 @@ hints:
     body_markdown: |-
       Use pattern matching with the `<>` operator to check if the command starts with `echo `:
       ```gleam
-      case cmd {
+      case command {
         "echo " <> rest -> // Handle the echo command
         _ -> // Handle other commands
       }
@@ -15,7 +15,7 @@ hints:
     body_markdown: |-
       The `<>` pattern operator automatically captures the rest of the string:
       ```gleam
-      case cmd {
+      case command {
         "echo " <> rest -> {
           io.println(rest)
           main()

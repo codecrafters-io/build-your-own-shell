@@ -3,7 +3,7 @@ hints:
     body_markdown: |-
       Use a `case` expression to check if the command is `exit`:
       ```gleam
-      case cmd {
+      case command {
         "exit" -> // Exit the shell
         _ -> // Handle other commands
       }
@@ -15,10 +15,10 @@ hints:
     body_markdown: |-
       Return `Nil` instead of recursing to terminate the program:
       ```gleam
-      case cmd {
+      case command {
         "exit" -> Nil
         _ -> {
-          io.println(cmd <> ": command not found")
+          io.println(command <> ": command not found")
           main()
         }
       }
