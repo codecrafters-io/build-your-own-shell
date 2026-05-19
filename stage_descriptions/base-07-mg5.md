@@ -2,7 +2,7 @@ In this stage, you'll extend the `type` builtin to search for executable files u
 
 ### The PATH Environment Variable
 
-The [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) environment variable specifies a list of directories where the shell should look for executable programs.
+The [PATH](https://app.codecrafters.io/concepts/what-is-path) environment variable specifies a list of directories where the shell should look for executable programs.
 
 For example, if the PATH is set to `/dir1:/dir2:/dir3`, the shell would search for executables in `/dir1`, then `/dir2`, and finally `/dir3`, in that order.
 

@@ -2,7 +2,7 @@ In this stage, you'll implement the `exit` builtin.
 
 ### The `exit` Builtin
 
-The [`exit`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit) builtin is a special command that terminates the shell.
+The [`exit`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#exit) builtin terminates the shell. [Builtin commands](https://app.codecrafters.io/concepts/what-are-builtin-commands) are handled directly by the shell without starting a new process.
 
 When your shell receives the `exit` command, it should terminate immediately.
 
