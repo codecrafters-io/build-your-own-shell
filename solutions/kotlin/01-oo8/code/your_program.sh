@@ -39,4 +39,5 @@ set -e # Exit early if any commands fail
 LIBS_DIR="/tmp/codecrafters-libs-shell-kotlin"
 BUILD_DIR="/tmp/codecrafters-build-shell-kotlin"
 KOTLIN_MAIN="$BUILD_DIR/classes/kotlin/main"
-exec java -cp "$KOTLIN_MAIN:$LIBS_DIR/*" AppKt "$@"
+JVM_OPTS="--enable-native-access=ALL-UNNAMED --sun-misc-unsafe-memory-access=allow"
+exec java $JVM_OPTS -cp "$KOTLIN_MAIN:$LIBS_DIR/*" AppKt "$@"
