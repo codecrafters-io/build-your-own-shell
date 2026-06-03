@@ -13,9 +13,9 @@ REPLs, builtin commands, and more.
 
 # Passing the first stage
 
-The entry point for your `shell` implementation is in `src/main.cs`. Study and
-uncomment the relevant code, then run the command below to execute the tests on
-our servers:
+The entry point for your `shell` implementation is in `src/Program.cs`. Study
+and uncomment the relevant code, then run the command below to execute the tests
+on our servers:
 
 ```sh
 codecrafters submit
@@ -27,8 +27,8 @@ Time to move on to the next stage!
 
 Note: This section is for stages 2 and beyond.
 
-1. Ensure you have `dotnet (9.0)` installed locally
+1. Ensure you have `dotnet (10.0)` installed locally
 1. Run `./your_program.sh` to run your program, which is implemented in
-   `src/main.cs`.
+   `src/Program.cs`.
 1. Run `codecrafters submit` to submit your solution to CodeCrafters. Test
    output will be streamed to your terminal.
