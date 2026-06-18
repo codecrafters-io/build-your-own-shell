@@ -5,11 +5,9 @@ In this stage, you'll implement recycling job number indices.
 Job numbers are assigned sequentially: `1`, `2`, `3`, and so on. When jobs are completed and removed from the table, the next new job reuses the smallest available number. So the next job number depends on how many jobs are still in the table:
 
 - When all jobs have completed, and the table is empty, the next job gets `[1]`.
-- If some jobs remain, the next job gets the smallest available number.
+- If some jobs remain, the next job gets the next sequential number.
 
-For example, if you have jobs `[1]` and `[3]` running, the next job gets `[2]`, not `[4]`.
-
-Here are some more examples: 
+Here are some examples:
 
 ```bash
 # Recycling to 1 when the table is empty
