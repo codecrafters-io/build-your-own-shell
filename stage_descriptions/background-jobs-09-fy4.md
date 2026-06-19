@@ -2,10 +2,12 @@ In this stage, you'll implement recycling job number indices.
 
 ### Recycling Job Numbers
 
-Job numbers are assigned sequentially: `1`, `2`, `3`, and so on. When jobs are completed and removed from the table, the next new job reuses the smallest available number. So the next job number depends on how many jobs are still in the table:
+Job numbers are normally assigned sequentially: `1`, `2`, `3`, and so on.. However, when jobs finish, they are removed from the job table, allowing job numbers to be reused.
 
-- When all jobs have completed, and the table is empty, the next job gets `[1]`.
-- If some jobs remain, the next job gets the next sequential number.
+When assigning a new job number:
+
+- If the job table is empty, assign `[1]`.
+- Otherwise, assign one more than the highest job number currently in the table.
 
 Here are some examples:
 
