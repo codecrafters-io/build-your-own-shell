@@ -2,14 +2,14 @@ In this stage, you'll implement recycling job number indices.
 
 ### Recycling Job Numbers
 
-Job numbers are assigned sequentially: `1`, `2`, `3`, and so on. When jobs are completed and removed from the table, the next new job reuses the smallest available number. So the next job number depends on how many jobs are still in the table:
+Normally, job numbers are assigned sequentially: `1`, `2`, `3`, and so on. However, when jobs finish, they are removed from the job table, allowing job numbers to be reused.
 
-- When all jobs have completed, and the table is empty, the next job gets `[1]`.
-- If some jobs remain, the next job gets the smallest available number.
+When assigning a new job number:
 
-For example, if you have jobs `[1]` and `[3]` running, the next job gets `[2]`, not `[4]`.
+- If the job table is empty, assign `[1]`.
+- Otherwise, assign one more than the highest job number currently in the table.
 
-Here are some more examples: 
+Here are some examples:
 
 ```bash
 # Recycling to 1 when the table is empty
@@ -65,7 +65,7 @@ $ jobs
 [1]+  Running                 sleep 100 &
 ```
 
-The tester will also restart your program and verify number reuse when a gap exists:
+The tester will also restart your program and verify number reuse when a job exits:
 ```bash
 $ sleep 100 &
 [1] <pid>
@@ -93,5 +93,4 @@ The tester will verify that:
 ### Notes
 
 - Job numbers are recycled—they don't grow forever. After job 2 exits, the next job is `[2]`, not `[3]`.
-- Always assign the smallest available number, not just the next sequential number.
 - When the job table is empty, reset to `[1]`.
