@@ -1,0 +1,8 @@
+@@ -1,5 +1,4 @@
+ import Foundation
+
+-// Uncomment this block to pass the first stage
+-// print("$ ", terminator: "")
+-// _ = readLine()
++print("$ ", terminator: "")
++_ = readLine()
