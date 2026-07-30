@@ -9,14 +9,14 @@ ARG TARGETARCH
 ENV CODECRAFTERS_DEPENDENCY_FILE_PATHS="alire.toml,codecrafters_shell.gpr"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates \
-    curl \
-    git \
-    gnat \
-    gprbuild \
-    make \
-    unzip \
-    xz-utils \
+    ca-certificates=20250419 \
+    curl=8.14.* \
+    git=1:2.47.* \
+    gnat=14.1 \
+    gprbuild=2025.* \
+    make=4.4.1-2 \
+    unzip=6.0-29 \
+    xz-utils=5.8.* \
  && rm -rf /var/lib/apt/lists/*
 
 RUN case "$TARGETARCH" in \
@@ -36,4 +36,3 @@ COPY --exclude=.git --exclude=README.md . /app
 
 RUN alr toolchain --select gnat_external gprbuild
 RUN alr build
-

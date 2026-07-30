@@ -3,7 +3,7 @@ with Ada.Text_IO.Text_Streams; use Ada.Text_IO.Text_Streams;
 with Ada.Command_Line;
 
 procedure Main is
-  Console_Stream: Stream_Access := Stream(Standard_Output);
+  Console_Stream: constant Stream_Access := Stream(Standard_Output);
 begin
 
    String'Write(Console_Stream, "$ ");

@@ -4,7 +4,7 @@
  with Ada.Command_Line;
 
  procedure Main is
-   Console_Stream: Stream_Access := Stream(Standard_Output);
+   Console_Stream: constant Stream_Access := Stream(Standard_Output);
  begin
 
 -   -- TODO: Uncomment the code below to pass the first stage
