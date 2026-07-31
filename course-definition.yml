@@ -23,6 +23,8 @@ completion_percentage: 20
 
 languages:
   - slug: "ada"
+    release_status: "alpha"
+    alpha_tester_usernames: ["tsobako"]
   - slug: "c"
   - slug: "cpp"
   - slug: "csharp"
