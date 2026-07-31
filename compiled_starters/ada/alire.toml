@@ -1,0 +1,12 @@
+name = "codecrafters_shell"
+description = "Starter code for the Build your own Shell challenge"
+version = "0.1.0-dev"
+
+authors = ["Codecrafters <hello@codecrafters.io>"]
+maintainers = ["Codecrafters <hello@codecrafters.io>"]
+maintainers-logins = ["codecrafters-io"]
+licenses = "MIT"
+website = "https://codecrafters.io"
+
+executables = ["main"]
+project-files = ["codecrafters_shell.gpr"]
