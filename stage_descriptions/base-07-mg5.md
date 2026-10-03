@@ -71,3 +71,5 @@ The tester will verify that the `type` command correctly identifies executable f
 
 - PATH can include directories that don’t exist on disk, so your code should handle such cases gracefully.
 - When parsing the PATH environment variable, remember that the delimiter (usually `:` or `;`) can vary by operating system. Use OS-agnostic path handling provided by your language (like `os.pathsep` in Python, `File.pathSeparator` in Java, or `path.delimiter` in Node.js) to correctly split the directories.
+- In Node.js, `fs.accessSync(path, fs.constants.X_OK)` throws an error if the file doesn't exist or isn't executable (it doesn't return a boolean), so it should be used with `try/catch`.
+
