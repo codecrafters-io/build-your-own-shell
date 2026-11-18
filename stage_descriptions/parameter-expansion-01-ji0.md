@@ -1,8 +1,8 @@
-In this stage, you'll register the `declare` builtin.
+Shell variables let users name text and reuse it in commands. In this stage, you'll make `type` recognize the `declare` builtin.
 
 ### The `declare` builtin
 
-The `declare` builtin can be used to create and inspect shell variables. For example,
+The `declare` builtin creates and inspects named text values held by the running shell. These are values entered by the shell's user, separate from variables in the source code you write. The following example shows the eventual behavior. Only `type declare` is required in this stage:
 
 ```bash
 $ type declare
@@ -26,7 +26,3 @@ It will then verify that `declare` is registered as a builtin:
 $ type declare
 declare is a shell builtin
 ```
-
-### Notes
-
-- In this stage, you only need to register the `declare` builtin. We'll get to implementing its behavior in the later stages.

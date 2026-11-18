@@ -1,4 +1,10 @@
-In this stage, you'll implement the `history` builtin.
+A history list records the commands entered during a shell session. In this stage, you'll store those command lines and display them with `history`.
+
+### Recording and listing commands
+
+Record each entered command line in order, including unrecognized commands. Store the command text as entered, without the `$ ` prompt or the command's output. The `history` command itself is included before its list is displayed.
+
+Print entries oldest first, numbered starting at `1`. Each output line contains the entry number followed by its command text, using the spacing shown below.
 
 ### Tests
 

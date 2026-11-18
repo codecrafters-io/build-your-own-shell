@@ -1,14 +1,10 @@
-In this stage, you'll implement the `jobs` builtin to list a single background job.
+The `jobs` builtin can describe a background command after it has started. In this stage, you'll replace its empty response with one running-job entry.
 
-### Tracking Background Jobs
+### Tracking background jobs
 
-Your shell needs to keep track of jobs running in the background. To do that, you'll need a data structure (like a list or table) that stores the following information about each job:
-- Job number (starts at 1, increments for each new job)
-- Process ID
-- Command string
-- Status (e.g., Running)
+The shell needs to associate the job number it printed at launch with the child's PID and the command text. That association lets `jobs` describe the same running command later. How you store the association is your choice.
 
-### The `jobs` Output Format
+### The `jobs` output format
 
 For this stage, you need to list a single job that is still running using the `jobs` builtin.
 
@@ -55,4 +51,3 @@ The tester will verify that:
 
 - You only need to list jobs that are still running. Detecting when jobs exit will come in later stages.
 - The tester will only test with a single background job in this stage.
-- The status field should be padded to 24 characters total (including "Running" and trailing spaces).

@@ -1,15 +1,15 @@
-In this stage, you'll implement support for backslashes within double quotes.
+Double quotes allow a backslash to change how certain following characters are interpreted. In this stage, you'll handle escaped quotes and backslashes inside double quotes.
 
-### Backslashes in Double Quotes
+### Backslashes in double quotes
 
 Within [double quotes](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes), a backslash only escapes certain special characters: `"`, `\`, `$`, `` ` ``, and `newline`. For all other characters, the backslash is treated literally.
 
-In this stage, we’ll cover:
+In this stage, support:
 
 - `\"`: escapes double quote, allowing `"` to appear literally within the quoted string.
 - `\\`: escapes backslash, resulting in a literal `\`.
 
-We won’t cover the following cases in this stage:
+The following cases are outside this stage:
 
 - `\$`: escapes the dollar sign.
 - `` \` ``: escapes the backtick.
@@ -49,5 +49,3 @@ content1 content2 content3
 ```
 
 The tester will check whether the `cat` command correctly prints the file's contents.
-
-

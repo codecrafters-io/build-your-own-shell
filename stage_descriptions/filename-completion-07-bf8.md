@@ -1,13 +1,10 @@
-In this stage, you'll extend tab completion to work for any argument
+Commands often take several paths as arguments. In this stage, you'll extend filename completion to every argument position while preserving earlier arguments.
 
-### Completion in Any Argument Position
+### Completion in any argument position
 
 So far, your shell completes the first argument after a command.
 
-For this stage, completion should work the same way for any subsequent argument:
-- Extract the text after the last space
-- Match it against entries in the current working directory
-- Complete using the same rules (LCP, bell for multiple matches, trailing space/slash)
+For this stage, apply the same matching and display rules to whichever argument the user is typing. Preserve nested-path lookup, longest-common-prefix completion, the bell and match list, and the file/directory suffix rules.
 
 For example, with `foo` (file) and `bar/` (directory) in the current directory:
 ```bash
@@ -57,5 +54,5 @@ The tester will verify that:
 
 ### Notes
 
-- Each argument is completed independently against the current working directory. A preceding directory argument (like `bar/`) does not change the search directory for subsequent arguments. For example, in `ls bar/ f<TAB>`, the `f` is matched against entries in the CWD, not inside `bar/`.
+- Each argument determines its own search directory. A preceding argument such as `bar/` does not change it. In `ls bar/ f<TAB>`, match `f` in the current working directory. An argument containing its own directory prefix still uses that path.
 - All completion logic from previous stages applies to every argument position.

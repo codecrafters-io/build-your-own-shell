@@ -1,16 +1,6 @@
-In this stage, you'll extend your `cd` builtin to handle relative paths.
+Users can move from their current directory without spelling out a path from the filesystem root. In this stage, you'll extend `cd` to accept relative paths.
 
-### The `cd` Builtin (Recap)
-
-As a recap, `cd` can receive multiple argument types:
-
-- Absolute paths, like `/usr/local/bin`. (Handled in previous stages)
-- Relative paths, like `./`, `../`, `./dir`. 
-- The `~` character.
-
-For this stage, you'll handle the second argument type.
-
-### Relative Paths
+### Relative paths
 
 A relative path specifies a location relative to the current working directory, rather than from the root of the filesystem.
 
@@ -20,7 +10,7 @@ Your shell must correctly interpret and navigate the following components of a r
 - `../` (Parent Directory): Refers to the directory immediately above the current working directory in the file system hierarchy. 
 - Subdirectories: Paths like `./dirname` or `dirname` are treated as relative to the current directory.
 
-Here are some examples:
+Here are some examples. The `#` comments explain the interactions and aren't part of the commands you need to handle:
 ```bash
 $ pwd
 /usr

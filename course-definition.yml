@@ -4,11 +4,11 @@ short_name: "Shell"
 release_status: "live"
 
 description_md: |-
-  A shell is the program that interprets what you type into the terminal. It reads your commands, runs programs, and prints their output. Popular examples are Bash and ZSH.
+  How does your shell find a program when you type its name without a path?
 
-  In this challenge, you'll build your own shell from scratch.
+  The shell checks its built-in commands, then searches the directories in PATH for an executable. You'll build that lookup into an interactive shell that reads commands and runs programs. Extensions add directory navigation, quoting, file redirection, pipelines, background jobs, variables, and saved command history. Completion covers command names, filenames, and suggestions from custom scripts.
 
-  Your shell will run a REPL, parse commands, spawn processes, and more.
+  You'll practice parsing text, launching and coordinating processes, connecting input and output streams, and managing session state.
 short_description_md: |-
   Learn about parsing shell commands, executing programs and more
 concept_slugs:

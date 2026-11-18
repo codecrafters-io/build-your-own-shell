@@ -1,6 +1,6 @@
-In this stage, you'll handle completer scripts that return multiple candidates.
+A completer can return several possible words. In this stage, you'll display those candidates as choices while preserving the user's input.
 
-### Multiple Candidates
+### Multiple candidates
 
 A completer script can return more than one candidate by printing each one on a separate line to stdout.
 
@@ -12,7 +12,7 @@ commit
 push
 ```
 
-And the user presses TAB twice:
+Pressing TAB twice displays those choices:
 
 ```bash
 $ git <TAB><TAB>
@@ -33,7 +33,7 @@ The tester will execute your program like this:
 $ ./your_program.sh
 ```
 
-It will then register a completer script that always returns three candidates (`add`, `commit`, `push`):
+It will register a completer script that returns several candidates. The exact candidates vary. For example:
 
 ```bash
 $ complete -C /path/to/completer_script git
@@ -48,6 +48,8 @@ The tester will verify that:
 - The second TAB displays all candidates on one line, separated by at least one space
 - The candidates are sorted alphabetically
 - The prompt and original input are reprinted after the candidate list
+
+Continue passing the current command-line arguments and environment variables to the completer. Its suggestions can depend on that context.
 
 ### Notes
 

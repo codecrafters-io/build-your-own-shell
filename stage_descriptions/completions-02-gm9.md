@@ -1,8 +1,10 @@
-In this stage, you'll extend your shell's tab completion to handle commands with arguments.
+After completing a command name, users still need to supply arguments. In this stage, you'll let them continue typing and execute the full command with Enter.
 
-### Tab Completion with Arguments
+### Tab completion with arguments
 
-In previous stages, you implemented basic tab completion for builtin commands. Now, you'll ensure that after a command is completed, the user can continue typing arguments and execute a full command.
+The completed name and its trailing space remain in the input line. Text typed afterward must become part of that same command, with the arguments preserved when Enter is pressed.
+
+Completing argument text itself is outside this stage.
 
 For example:
 

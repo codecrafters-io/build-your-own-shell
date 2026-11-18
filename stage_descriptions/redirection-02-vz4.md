@@ -1,10 +1,12 @@
-In this stage, you'll implement support for redirecting a command's standard error to a file.
+Users may want to save error messages while ordinary output stays in the terminal. In this stage, you'll redirect standard error with `2>`.
 
-### The `2>` Operator
+### The `2>` operator
 
 The `2>` operator redirects the standard error of a command to a file. The standard error is where programs write error messages and diagnostics.
 
 In Unix, standard error is identified by the number `2`. When you write `2>`, you're explicitly redirecting file descriptor 2 (stderr) to a file.
+
+As with `>`, create the destination if it doesn't exist and replace its old contents if it does. This happens even when the command writes nothing to stderr.
 
 For example:
 
@@ -16,9 +18,9 @@ cat: nonexistent: No such file or directory
 
 Here, the error message is written to `errors.txt` rather than appearing in the terminal.
 
-### Standard Output Is Not Redirected
+### Standard output is not redirected
 
-The `2>` operator only redirects standard error, not standard output. Normal output still appears on the terminal:
+The `2>` operator changes stderr's destination. Standard output is unchanged and still appears on the terminal:
 
 ```bash
 $ cat existing_file nonexistent 2> errors.txt

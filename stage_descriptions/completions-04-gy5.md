@@ -1,8 +1,8 @@
-In this stage, you'll extend your shell's tab completion to include external executable files in the user's `PATH`.
+PATH directories supply completion candidates as well as executable locations. In this stage, you'll complete external executable names alongside builtins.
 
-### Tab Completion for Executables
+### Tab completion for executables
 
-In previous stages, you implemented tab completion for builtin commands (`echo` and `exit`). Now you'll extend completion to include external executables found in the PATH environment variable.
+Candidates are executable filenames from directories in PATH. Keep the existing builtin candidates (`echo` and `exit`). This stage covers a prefix with one matching executable.
 
 When the user types the beginning of an executable's name and presses `<TAB>`, your shell should complete it to the full executable name.
 
@@ -10,7 +10,7 @@ For example, if `custom_executable` exists in a directory listed in PATH, typing
 
 ### Tests
 
-The tester will create an executable file named `custom_executable` and add its directory to the `PATH`.
+The tester will create an executable file, such as `custom_executable`, and add its directory to the `PATH`. The filename varies between test runs.
 
 It will then execute your program like this:
 

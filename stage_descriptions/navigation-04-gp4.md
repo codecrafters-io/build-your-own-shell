@@ -1,21 +1,10 @@
-In this stage, you'll extend your `cd` builtin to handle the `~` character.
+The user's home directory is a destination supplied by the shell's environment. In this stage, you'll extend `cd` to accept `~` as that directory.
 
-### The `cd` Builtin (Recap)
-
-As a recap, `cd` can receive multiple argument types:
-
-- Absolute paths, like `/usr/local/bin`. (Handled in earlier stages)
-- Relative paths, like `./`, `../`, `./dir`. (Handled in previous stages)
-- The `~` character.
-
-### The `~` Character
+### The `~` character
 
 The `~` (tilde) character is shorthand for the user's home directory. It's a convenient way to quickly navigate back to your home directory from anywhere in the filesystem.
 
-The home directory is specified by the [`HOME`](https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap08.html#tag_08_03) environment variable. When your shell sees `cd ~`, it should:
-
-1. Read the value of the `HOME` environment variable
-2. Change to that directory
+The [`HOME`](https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap08.html#tag_08_03) environment variable specifies the home directory. `cd ~` must change to that value, regardless of the current directory. The path varies between environments, so it cannot be hardcoded.
 
 For example:
 ```bash

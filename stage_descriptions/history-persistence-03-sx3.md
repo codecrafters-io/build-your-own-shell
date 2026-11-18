@@ -1,4 +1,8 @@
-In this stage, you will add support for appending commands from memory to the history file using the `history -a <path_to_history_file>` command.
+Appending new commands preserves history already saved in a file. In this stage, you'll add `history -a <path_to_history_file>` without duplicating previously appended entries.
+
+### Appending new entries
+
+The first append writes commands entered in this session, including the `history -a` command. Later appends write only entries added since the previous append, including each new `history -a` invocation. Keep the existing one-command-per-line format and trailing newline.
 
 ### Tests
 
@@ -37,4 +41,4 @@ history -a <path_to_history_file>
 
 ### Notes
 - The tester will expect the `history -a` command to also be present in the history file.
-- Running `history -a` multiple times should only append commands that have been executed since the last time `history -a` was run.
+- A successful append produces no terminal output.

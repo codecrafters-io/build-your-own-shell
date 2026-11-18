@@ -1,12 +1,12 @@
-In this stage, you'll pass completion context to a `-C` completer script as command-line arguments.
+A completer needs context to choose suggestions for the argument being edited. In this stage, you'll pass the command name and surrounding words as arguments to the script.
 
-### Passing Arguments to the Completer
+### Passing arguments to the completer
 
-A completer script needs to know what the user is typing in order to offer relevant suggestions. When your shell invokes a completer registered with `complete -C`, it should pass exactly three arguments:
+A completer script needs to know what the user is typing. When your shell invokes a completer registered with `complete -C`, pass three context arguments after the script's own name in `argv[0]`:
 
-1. `argv[1]` — The command name being completed (e.g., `git`)
-2. `argv[2]` — The word currently being completed (the partial text at the cursor)
-3. `argv[3]` — The word immediately before the word being completed. If there's no preceding word, pass an empty string.
+1. `argv[1]` is the command name whose arguments are being completed (e.g., `git`).
+2. `argv[2]` is the word currently being completed, up to the cursor. It is empty when the cursor follows a separating space.
+3. `argv[3]` is the word immediately before that word. For the first argument position, this is the command name. If there is no preceding word, pass an empty string.
 
 The completer script uses these values to decide which candidates to print to stdout (one per line, as before).
 
@@ -57,4 +57,4 @@ The tester will verify that:
 ### Notes
 
 - The completer script is already written by the tester. You don't need to create it, just invoke it with the correct arguments.
-- If there's no word before the one being completed (e.g., `git <TAB>`), pass an empty string as `argv[3]`.
+- For `git <TAB>`, `argv[1]` is `git`, `argv[2]` is empty, and `argv[3]` is `git`.

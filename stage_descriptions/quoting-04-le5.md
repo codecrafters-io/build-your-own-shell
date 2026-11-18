@@ -1,6 +1,6 @@
-In this stage, you'll implement support for backslashes within single quotes.
+Single-quoted text must remain literal even after your shell learns to handle escapes elsewhere. In this stage, you'll preserve backslashes inside single quotes.
 
-### Backslashes in Single Quotes
+### Backslashes in single quotes
 
 Backslashes have no special escaping behavior inside [single quotes](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes). Every character (including backslashes) within single quotes is treated literally. 
 

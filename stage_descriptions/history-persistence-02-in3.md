@@ -1,4 +1,8 @@
-In this stage, you will add support for writing commands from memory to the history file using the `history -w <path_to_history_file>` command.
+Saving history produces a file that another session can load. In this stage, you'll write the in-memory history with `history -w <path_to_history_file>`.
+
+### Writing the history list
+
+Write the entire list in order, replacing any existing file contents. Use one command per line without history numbers or prompts, and end the file with a newline. Include the `history -w` command itself. A successful write produces no terminal output.
 
 ### Tests
 
@@ -30,5 +34,3 @@ history -w <path_to_history_file>
 
 ### Notes
 - If the file doesn't exist when running `history -w`, your shell should create the file and then write the commands to it.
-- The tester will expect the `history -w` command to also be present in the history file.
-- The history file should include a trailing newline character (displayed as an empty line).

@@ -1,6 +1,6 @@
-In this stage, you'll implement recycling job number indices.
+Job numbers can be reused after completed jobs have been reported and removed. In this stage, you'll assign new numbers from the jobs still known to the shell.
 
-### Recycling Job Numbers
+### Recycling job numbers
 
 Normally, job numbers are assigned sequentially: `1`, `2`, `3`, and so on. However, when jobs finish, they are removed from the job table, allowing job numbers to be reused.
 
@@ -9,7 +9,7 @@ When assigning a new job number:
 - If the job table is empty, assign `[1]`.
 - Otherwise, assign one more than the highest job number currently in the table.
 
-Here are some examples:
+These examples show two separate shell sessions. The completion reports are shown at prompt checkpoints, with the intervening wait or input omitted where marked:
 
 ```bash
 # Recycling to 1 when the table is empty
@@ -92,5 +92,4 @@ The tester will verify that:
 
 ### Notes
 
-- Job numbers are recycled—they don't grow forever. After job 2 exits, the next job is `[2]`, not `[3]`.
-- When the job table is empty, reset to `[1]`.
+- Removing job 2 allows `[2]` to be reused when job 1 is the highest remaining job. If a higher-numbered job remains, assign one more than that higher number. Gaps below it stay unused.

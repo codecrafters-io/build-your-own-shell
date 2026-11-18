@@ -1,10 +1,10 @@
-In this stage, you'll implement support for appending the command's standard error to a file.
+Error messages can accumulate in a file just as ordinary output can. In this stage, you'll add `2>>` to append standard error.
 
-### The `2>>` Operator
+### The `2>>` operator
 
 The `2>>` operator appends the standard error of a command to a file. Unlike `2>`, which overwrites the file, `2>>` adds error messages to the end of the file and preserves any existing content.
 
-If the file doesn't exist, it is created. If the file already exists, the new error output is added to the end.
+If the file doesn't exist, it is created. Standard output keeps its existing destination.
 
 For example: 
 

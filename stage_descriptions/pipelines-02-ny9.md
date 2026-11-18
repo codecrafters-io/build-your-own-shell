@@ -1,6 +1,8 @@
-In this stage, you'll extend pipeline support to include shell built-in commands.
+Builtin output can participate in a pipeline just as an external program's output does. In this stage, you'll add builtins to your two-command pipelines.
 
-Built-in commands (like `echo`, `type`) need to be handled correctly when they appear as part of a pipeline, whether at the beginning, middle, or end.
+### Builtins in a pipeline
+
+For this stage, a builtin can appear on either side of `|`. It uses the same pipe connections as an external program. Pipelines with more than two commands come in later stages.
 
 ### Tests
 
@@ -20,9 +22,8 @@ exit is a shell builtin
 $
 ```
 
-The tester will check if the final output matches the expected output after the pipeline execution, correctly handling the built-in commands.
-For the `type` command, the tester will check if the command correctly handles the built-in command and prints the correct output, the `ls` output is not supposed to be printed.
+The tester checks the final pipeline output. In `ls | type exit`, `type` doesn't read its input, but the connection still sends `ls` output into the pipe. Only `type` produces terminal output.
 
 ### Notes
 
--   Built-in commands don't typically involve creating a new process via `fork`/`exec`. You'll need to handle their execution within the shell process while still managing the input/output redirection required by the pipeline.
+- Your shell already contains the builtin implementation. It may run that code in the shell process or a child process, provided the pipeline's input/output behavior is correct. There is no requirement to locate an external executable for the builtin.

@@ -1,10 +1,12 @@
-In this stage, you'll add support for validation for shell variable names.
+Variable names must follow the rules used to recognize them in commands. In this stage, you'll validate names before accepting a `declare` assignment.
 
 ### Validating identifiers
 
 A shell variable name must be a valid identifier: it starts with a letter or an underscore, and the rest of the name may use letters, digits, and underscores.
 
 A digit must not be the first character. If the name is invalid, the shell reports an error and does not create a variable.
+
+The error includes the entire assignment, such as `67=x`, enclosed by an opening backtick and a closing single quote. Preserve those characters exactly as shown below.
 
 For example:
 

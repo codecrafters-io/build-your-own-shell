@@ -1,8 +1,8 @@
-In this stage, you'll implement the `cd` builtin to handle absolute paths. 
+Your shell can show its current directory with `pwd`. In this stage, you'll implement `cd` with absolute paths to change that directory for subsequent commands.
 
-### The `cd` Builtin
+### The `cd` builtin
 
-The `cd` (change directory) builtin is used to change the current working directory.
+The `cd` (change directory) builtin changes the shell process's current working directory. A child process has its own working directory, so changing a separate program's directory would leave the shell unchanged.
 
 The `cd` command can handle different types of arguments:
 
@@ -12,7 +12,7 @@ The `cd` command can handle different types of arguments:
 
 For this stage, we'll focus on absolute paths.
 
-### Handling Absolute Paths
+### Handling absolute paths
 
 An absolute path starts with `/` and specifies a location from the root of the filesystem.
 

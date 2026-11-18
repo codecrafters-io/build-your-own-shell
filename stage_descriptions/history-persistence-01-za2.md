@@ -1,4 +1,14 @@
-In this stage, you will read history from a file using the `history -r <path_to_history_file>` command.
+File persistence makes the in-memory history from the History extension available across shell sessions. In this stage, you'll load saved commands with `history -r <path_to_history_file>`.
+
+### The history file
+
+This builds on the history list and listing behavior you added in the History extension.
+
+The file contains one command per line, without history numbers or prompts. Loading appends those commands to the in-memory list in file order. It does not execute them or replace commands already in the list.
+
+Record `history -r <path_to_history_file>` itself before appending the loaded commands. A successful load produces no output.
+
+In file examples, `<|EMPTY LINE|>` marks the trailing newline after the last command. Those characters are an annotation and must not appear in the file. Likewise, `<path_to_history_file>` stands for the actual file path chosen by the tester.
 
 ### Tests
 
@@ -27,7 +37,3 @@ $ history
     4  history
 $
 ```
-
-### Notes
-- The tester will expect the history commands to also be present in the history list.
-- `history -r` should append the history file's contents to the history list in memory.
