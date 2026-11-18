@@ -1,10 +1,10 @@
-In this stage, you'll implement support for appending the output of a command to a file.
+Appending output preserves the results already saved in a file. In this stage, you'll add standard-output append redirection with `>>`.
 
-### The `>>` Operator
+### The `>>` operator
 
 The `>>` operator appends the standard output of a command to a file. Unlike `>`, which overwrites the file, `>>` adds the output to the end of the file and preserves any existing content.
 
-If the file doesn't exist, it is created (just like `>`). If the file already exists, the new output is added to the end.
+If the file doesn't exist, it is created, just as with `>`.
 
 For example:
 ```bash

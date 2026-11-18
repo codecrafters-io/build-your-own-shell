@@ -1,6 +1,6 @@
-In this stage, you'll add automatic reaping before each prompt.
+Users should see completion reports during ordinary shell use without having to run `jobs`. In this stage, you'll report finished jobs before the next prompt.
 
-### Reaping Before Each Prompt
+### Reaping before each prompt
 
 Up until now, your shell only reaped jobs when the user ran the `jobs` builtin. In this stage, you'll add automatic reaping that happens before every prompt.
 
@@ -32,13 +32,13 @@ $ jobs
 
 Notice the `Done` line appears after the command output but before the next prompt.
 
-### Two Reaping Points
+### Two reaping points
 
 Your shell now reaps jobs in two places:
 1. **Before each prompt**: Check for completed jobs after any command (foreground, builtin, background launch, or even empty input)
 2. **Inside the jobs builtin**: Check for completed jobs before displaying the list
 
-Both places use the same reaping logic: check for exited jobs, display them as `Done`, then remove them from the table. A job's `Done` entry appears exactly once. Either from automatic reaping or from calling `jobs`, whichever happens first.
+Both checkpoints must produce consistent reports. A job appears as `Done` exactly once, whether `jobs` or the next prompt reports it first. After that report, remove it from the shell's job records.
 
 ### Tests
 
@@ -80,5 +80,4 @@ The tester will verify that:
 
 ### Notes
 
-- When a job is reaped, it appears as `Done` exactly once, then is removed from the table.
-- Both the automatic reaping and the `jobs` builtin use the same reaping logic.
+- You do not need to interrupt an idle input line as soon as a job exits. This stage reports completed jobs when the shell reaches its next prompt checkpoint.

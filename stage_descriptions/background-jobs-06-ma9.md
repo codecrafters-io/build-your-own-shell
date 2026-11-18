@@ -1,8 +1,10 @@
-In this stage, you'll extend the `jobs` builtin to reap completed background jobs.
+A finished background command needs a completion report before it disappears from the job list. In this stage, you'll make `jobs` report a completed job as `Done` once.
 
-### Reaping Background Jobs
+### Reaping background jobs
 
-Currently, when a background process in your shell exits, it becomes a zombie process—it has finished running but stays in the process table until the parent process acknowledges its exit. The shell must reap these processes to clean them up.
+On Unix, a child that exits can remain in the operating system's process table until its parent collects its exit status. That finished process is called a zombie. Collecting the status is called reaping, and your language's subprocess library may perform it for you.
+
+The shell also has its own record of the job. Collecting the OS exit status and removing that record are separate responsibilities: the user still needs to see the completion report once.
 
 When the user runs `jobs`, your shell should:
 1. Check each background job to see if it has exited
@@ -21,18 +23,18 @@ $ jobs
 $
 ```
 
-Notice that the `Done` entry doesn't have a trailing `&` unlike `Running` entries.
+The `Done` entry must omit the trailing `&`. For `Running` entries, that suffix remains optional.
 
-### Detecting Process Exit
+### Detecting process exit
 
 The mechanism for checking whether each background job has exited depends on your language, but the general approach is to check the process status without waiting for it to finish.
 
 For example:
-- In C/Unix: Use `waitpid(pid, &status, WNOHANG)` and check `WIFEXITED(status)`
+- In C/Unix: `waitpid(pid, &status, WNOHANG)` can collect an exit without blocking. Inspect `WIFEXITED(status)` only when `waitpid` returns that child's PID.
 - In Python: Use `subprocess.Popen.poll()` and check if the return code is not `None`
 - In Node.js: Listen for the `exit` event on the child process
 
-Only handle normal exits for this stage. Don't worry about processes killed by signals or stopped. Just detect when a process exits normally.
+Only handle normal process exits in this stage. Signal termination and stopped processes are outside its scope.
 
 ### Tests
 
@@ -50,7 +52,7 @@ $ jobs
 $ 
 ```
 
-The tester will write to the FIFO to make the `cat` process exit:
+The tester writes to the FIFO from a separate process and closes it. The resulting end-of-file makes `cat` exit:
 ```bash
 $ echo -ne "" > /path/to/fifo
 ```
@@ -68,11 +70,11 @@ $
 ```
 
 The tester will verify that:
-- The first `jobs` call shows the job as `Running` with trailing `&`
+- The first `jobs` call shows the job as `Running`. Its trailing `&` remains optional.
 - The second `jobs` call shows the job as `Done` without trailing `&`
 - The third `jobs` call shows no jobs (the completed job was removed)
 
 ### Notes
 
 - You only need to handle a single background job for this stage.
-- Only detect normal exits (process exited cleanly). Don't handle signal termination or stopped states.
+- A normal exit means the process ended by returning or calling an exit function. It does not require an exit status of zero.

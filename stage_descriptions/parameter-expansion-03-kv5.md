@@ -1,8 +1,10 @@
-In this stage, you'll add support for storing and displaying shell variables.
+Defined variables need to retain their values for later commands. In this stage, you'll store values with `declare NAME=VALUE` and display them with `declare -p NAME`.
 
 ### Declaring shell variables
 
 With `declare NAME=VALUE`, the shell records a shell variable and its value. With `declare -p NAME`, the shell prints a line describing that variable. The output of `declare -p NAME` is `declare -- NAME="VALUE"`.
+
+Values remain available for later commands in the same shell session. Assigning the same name again replaces its value and produces no output. The double quotes in the printed description are literal output characters.
 
 For example:
 

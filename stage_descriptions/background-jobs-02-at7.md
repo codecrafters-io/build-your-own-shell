@@ -1,6 +1,6 @@
-In this stage, you'll implement running commands in the background.
+A background command leaves the shell ready for more input without waiting for the program to finish. In this stage, you'll launch external commands ending in `&` that way.
 
-### Background Jobs (Recap)
+### Background jobs (recap)
 
 Commands can run in the background by adding `&` at the end. The shell starts the program but doesn't wait for it to finish, allowing you to continue typing other commands.
 
@@ -13,20 +13,11 @@ $
 
 The job number `[1]` is assigned sequentially starting from `1`. Each new background job gets the next number. The PID (`84470` in this example) is the actual process ID assigned by the operating system and will vary.
 
-### Running Commands with the `&` Token
+### Running commands with the `&` token
 
-After parsing the command line into tokens, check if the last token is `&`. If it is:
-1. Remove it from the argument list
-2. Run the remaining command in the background
-3. Print the job number and PID
-4. Show the next prompt immediately
+An unquoted trailing `&` is shell control syntax. It must not become an argument to the program. For `sleep 30 &`, the program receives `30` as its argument and runs in the background.
 
-For example, `sleep 30 &` has three tokens: `sleep`, `30`, and `&`. You remove the `&` and run `sleep 30` in the background.
-
-The exact mechanism for running a command in the background depends on your language. For example:
-- In C: Call `fork()` and `exec()` but don't call `waitpid()`
-- In Python: Use `subprocess.Popen()` without calling `.wait()` or `.communicate()`
-- In Node.js: Use `child_process.spawn()` without waiting for the process to exit
+Print `[JOB_NUMBER] PID` after starting the process, then display the next prompt without waiting for the process to finish. The PID must identify the child that is actually running.
 
 ### Tests
 
@@ -50,3 +41,4 @@ The tester will verify that:
 ### Notes
 
 - In this stage, only one background job will be started, so the job number will always be `[1]`.
+- Process-launch APIs differ by language. In C, `fork()` and `exec()` can start the child without a blocking `waitpid()` at launch. In Python, `subprocess.Popen()` starts it without an immediate `.wait()` or `.communicate()`. In Node.js, `child_process.spawn()` starts it asynchronously. Collecting exit status comes in later stages.

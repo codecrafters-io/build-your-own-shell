@@ -1,17 +1,17 @@
-In this stage, you'll implement support for quoting with double quotes.
+Double quotes can group text containing spaces into one argument, just as single quotes can. In this stage, you'll extend your argument parser to support them.
 
-### Double Quotes
+### Double quotes
 
 In shell syntax, most characters within [double quotes](https://www.gnu.org/software/bash/manual/bash.html#Double-Quotes) (`"`) are treated literally. However, double quotes allow certain special characters to be interpreted (like `$` for variables and `\` for escaping), but we'll cover those exceptions in later stages.
 
 For this stage, your shell must apply the following rules when parsing double quotes:
 
-- Consecutive whitespaces (spaces, tabs) must be preserved.
-- Characters that normally act as delimiters or special characters lose their special meaning inside double quotes and are treated literally.
+- Consecutive whitespace characters (spaces, tabs) must be preserved within the argument.
+- The surrounding double quotes group the text and are removed. A single quote inside them is an ordinary character.
 - Double-quoted strings placed next to each other are concatenated to form a single argument.
     - Quoted and unquoted strings placed next to each other are also concatenated.
 
-For example:
+For example, the comments below explain the results. They aren't part of the command output:
 
 ```bash
 $ echo "hello    world"

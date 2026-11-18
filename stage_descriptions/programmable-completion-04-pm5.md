@@ -1,18 +1,16 @@
-In this stage, you'll invoke the registered completer script and use its output to complete a single candidate.
+A stored completion specification becomes useful when the shell runs its script. In this stage, you'll use one candidate from that script's output to complete an argument.
 
-### Running the Completer Script
+### Running the completer script
 
-In earlier stages, you registered completer scripts with `complete -C` and stored them. Now you'll actually run them.
+You already store script paths with `complete -C`. A completion candidate is a possible replacement for the word being edited. The script supplies candidates through stdout, with one candidate per line.
 
-When the user types a command name followed by a space and presses TAB, your shell should first check whether a completer is registered for that command. If one is registered:
-
-1. Run the script as a separate process
-2. Read its stdout
-3. Use each line of output as a completion candidate
+When the user types a command name followed by a space and presses TAB, run its registered script as a separate process. Its stdout supplies the replacement text. The output's newline separates candidates and isn't inserted into the input line.
 
 If no completer is registered, your shell should fall back to its existing completion behavior (or do nothing if no other completion logic has been implemented yet).
 
 For this stage, the completer will always print exactly one line. Your shell should take that line and complete the user's input with it, followed by a trailing space.
+
+Tab edits the pending command. It does not execute that command. The successive prompt lines below show the same line before and after completion.
 
 For example, a completer script could be as simple as this:
 

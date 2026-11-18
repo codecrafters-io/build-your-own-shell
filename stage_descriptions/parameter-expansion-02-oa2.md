@@ -1,8 +1,8 @@
-In this stage, you'll implement the `-p` flag of the declare builtin when the requested variable does not exist.
+Your shell needs to report when a requested variable has no stored value. In this stage, you'll implement the missing-name response for `declare -p NAME`.
 
 ### The `-p` flag
 
-`declare -p NAME` prints a description of the variable `NAME`. If no such variable exists in the shell’s variable store, the shell prints an error.
+`declare -p NAME` prints a description of the variable `NAME`. If no such variable exists in the shell's variable store, the shell prints an error.
 
 ```bash
 $ declare -p variable
@@ -17,7 +17,7 @@ The tester will execute your program like this:
 $ ./your_program.sh
 ```
 
-It will then run `declare -p` with a variable name has not been defined.
+It will then run `declare -p` with a variable name that has not been defined.
 
 ```bash
 $ declare -p missing_variable
@@ -26,4 +26,4 @@ declare: missing_variable: not found
 
 ### Notes
 
-- You can hardcode the output of the `declare` builtin for this stage. We'll get to implementing storing shell variables in the later stages.
+- Variable storage comes in later stages. For now, report every queried name as missing, using the name from the input in the error message.

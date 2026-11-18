@@ -1,6 +1,6 @@
-In this stage, you'll handle the case where the completer script returns no candidates.
+A registered completer may have no suggestions for the current input. In this stage, you'll handle an empty result by preserving the input and ringing the bell.
 
-### Handling Empty Completer Output
+### Handling empty completer output
 
 When the completer script prints nothing to stdout, your shell has no candidates to work with. In that case, the shell should:
 
@@ -8,6 +8,10 @@ When the completer script prints nothing to stdout, your shell has no candidates
 - Ring the terminal bell by printing `\x07` to stdout
 
 This gives the user feedback that their TAB press was received but no completion was available.
+
+The bell is the control byte `\x07`. A terminal may turn it into a beep or a flash, depending on its settings.
+
+An empty result from a registered completer is final for that Tab press. Use the earlier fallback behavior only when the command has no registered completer.
 
 For example, a completer that always exits without printing anything:
 

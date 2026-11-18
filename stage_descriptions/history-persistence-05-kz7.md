@@ -1,4 +1,8 @@
-In this stage, you'll add support for writing the in-memory history to the history file when exiting.
+Automatic saving lets a later session recover the commands from this one. In this stage, you'll write the in-memory history to `HISTFILE` before exiting.
+
+### Saving before exit
+
+When `HISTFILE` is set, write the history to that path before terminating, using the same file format as `history -w`. Record `exit` before saving so it is included too. This stage's example starts with an empty file. Preserving existing file content through append behavior comes in later stages.
 
 ### Tests
 

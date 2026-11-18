@@ -1,8 +1,10 @@
-In this stage, you'll implement support for [quoting](https://app.codecrafters.io/concepts/shell-quoting) with single quotes. 
+[Quoting](https://app.codecrafters.io/concepts/shell-quoting) lets a user pass spaces and special characters inside one argument. In this stage, you'll add single-quote support to your argument parsing.
 
-### Single Quotes
+### Single quotes
 
 [Single quotes](https://www.gnu.org/software/bash/manual/bash.html#Single-Quotes) (`'`) disable all special meaning for characters enclosed within them. Every character between single quotes is treated literally.
+
+The surrounding quotes group the text and are removed from the resulting argument. Unquoted spaces separate arguments. Quoted and unquoted segments with no space between them form one argument.
 
 When your shell parses a command line:
 
@@ -15,9 +17,11 @@ Here are a few examples illustrating how single quotes behave:
 | Command | Expected output | Explanation |
 | :---: | :-------------: | :---------: |
 | <code style="white-space: pre;">echo 'hello    world'</code> | <code style="white-space: pre;">hello    world</code> | Spaces are preserved within quotes. |
-| <code style="white-space: pre;">echo hello    world</code> | `hello world` | Consecutive spaces are collapsed unless quoted. |
+| <code style="white-space: pre;">echo hello    world</code> | `hello world` | Unquoted spaces separate two arguments, which `echo` prints with one space between them. |
 | `echo 'hello''world'` | `helloworld` | Adjacent quoted strings `'hello'` and `'world'` are concatenated.
-| `echo hello''world` | `helloworld` | Empty quotes `''` are ignored.
+| `echo hello''world` | `helloworld` | The empty quoted segment adds no characters to this argument. |
+
+An empty quoted segment inside a word contributes no text, as in `hello''world`. On its own, `''` represents an empty argument. Quoting preserves argument boundaries as well as the characters inside them.
 
 
 ### Tests

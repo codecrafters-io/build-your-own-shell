@@ -1,6 +1,6 @@
-In this stage, you'll implement tab completion for multiple executables that share a common prefix.
+Several executables can match the same prefix, leaving the shell without a unique choice. In this stage, you'll list matching command names on request.
 
-### Handling Multiple Matches
+### Handling multiple matches
 
 When a user types a command prefix and presses `<TAB>`, your shell should find all executables in PATH that match the prefix and do the following:
 
@@ -9,6 +9,8 @@ When a user types a command prefix and presses `<TAB>`, your shell should find a
     - Print all matching executables on a new line. List them in **alphabetical order**, separated by at least one space (two spaces are recommended for readability).
     - Show the prompt again on the next line, keeping the original command prefix.
  
+In this stage, keep the input unchanged on the first Tab press. Completing an additional shared portion of the names comes in later stages.
+
 For example:
 
 ```bash
@@ -19,15 +21,13 @@ $ xyz_
 
 ### Tests
 
-The tester will execute your program like this:
+The tester will place executables with a common prefix in several PATH directories. It will then start your program with that PATH:
 
 ```bash
 ./your_program.sh
 ```
 
-It will then set up a specific `PATH` and place multiple executables starting with a common prefix into different directories in the `PATH`.
-
-Finally, it will type the common prefix, and then press the tab key twice.
+It will type the common prefix and press the tab key twice.
 
 ```bash
 $ xyz_<TAB><TAB>

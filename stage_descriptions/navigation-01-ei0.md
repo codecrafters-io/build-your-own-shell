@@ -1,12 +1,12 @@
-In this stage, you'll implement the `pwd` builtin.
+Directory navigation lets users change where commands operate. In this stage, you'll implement the `pwd` builtin to show the shell's current directory.
 
-### The `pwd` Builtin
+### The `pwd` builtin
 
-The [`pwd`](https://en.wikipedia.org/wiki/Pwd) (print working directory) builtin prints the full, absolute path of the current working directory to stdout.
+Each process has a current working directory, the starting point for relative paths such as `file.txt`. The [`pwd`](https://en.wikipedia.org/wiki/Pwd) (print working directory) builtin prints that directory's full, absolute path to stdout. An absolute path starts at the filesystem root, `/`.
 
 When your shell starts, its current working directory is typically the directory from which it was executed. Your `pwd` implementation needs to retrieve this information from the operating system and print it.
 
-For example:
+These examples show two separate shell sessions started in different directories. Repeating `pwd` within one session does not change the directory:
 ```bash
 $ pwd
 /home/user/projects
@@ -34,4 +34,4 @@ The tester will verify that the `pwd` command correctly displays the current wor
 
 ### Notes
 
-- The `pwd` command must print the full absolute path of the current working directory.
+- Implement `pwd` in your shell, even if an external `pwd` executable is available. As with your other builtins, `type pwd` should identify it as a shell builtin.

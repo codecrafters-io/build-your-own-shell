@@ -1,22 +1,15 @@
-In this stage, you'll implement a [REPL (Read-Eval-Print Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
+Your shell currently handles one command. In this stage, you'll keep accepting commands with a [REPL (Read-Eval-Print Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
 
 ### The REPL
 
-A [REPL (Read-Eval-Print Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) is an interactive loop that forms the core of a shell. It follows a repeating cycle:
+A REPL repeats the interaction between the user and the shell:
 
 1. **Read**: Display a prompt and wait for user input
 2. **Eval**: Parse and execute the command
 3. **Print**: Display the output or error message
 4. **Loop**: Return to step `1` and wait for the next command
 
-This cycle continues indefinitely until the shell process is terminated.
-
-Your shell should follow this same cycle:
-1. Display the prompt `$ `, then wait for a line of input.
-2. Print `<command_name>: command not found` for any command the user enters, like with the previous stages.
-3. Return to step `1`.
-
-For example, if the user types `hello`, your shell should print `hello: command not found`, then display the prompt (`$ `) again.
+For now, evaluation still treats every command as unrecognized. After printing `<command_name>: command not found`, display `$ ` again and wait for another line. For example, `hello` produces `hello: command not found` followed by a new prompt.
 
 ### Tests
 

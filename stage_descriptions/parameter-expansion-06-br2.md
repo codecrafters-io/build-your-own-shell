@@ -1,8 +1,8 @@
-In this stage, you'll add support for parameter expansion using the `${VAR}` form.
+Braces mark where a variable name ends when literal text follows it. In this stage, you'll add parameter expansion using `${VAR}`.
 
 ### Expansion with braces
 
-Without braces, `$FOObar` is read as the variable `FOObar`. Wrapping the name in braces — `${FOO}bar` — tells the shell exactly where the name ends, so `FOO` is expanded and `bar` is appended as literal text.
+Without braces, `$FOObar` names the variable `FOObar`. In `${FOO}bar`, the closing brace ends the name. Expand `FOO` and keep the following `bar` as literal text in the same word.
 
 ```bash
 $ declare Var1=foo
@@ -26,7 +26,7 @@ It will set variables and run commands as follows:
 ```bash
 $ declare Item=widget
 $ declare Foo1=Bar2
-$ ./custom_exe_1234 stock_${Item}_id ${Foo1}
+$ custom_exe_1234 stock_${Item}_id ${Foo1}
 Program was passed 3 args (including program name).
 Arg #0 (program name): custom_exe_1234
 Arg #1: stock_widget_id

@@ -1,8 +1,12 @@
-In this stage, you'll add support for removing completion rules with `complete -r`.
+Removing a custom completer restores any other completion behavior your shell supports. In this stage, you'll remove completion rules with `complete -r` and ring the bell if no fallback candidate exists.
 
-### The `-r` Option
+### The `-r` option
 
-The `complete` builtin accepts a `-r` flag followed by a command name. This removes any stored completion rule for that command. After removal, pressing TAB for that command should behave as if no completion was ever registered.
+The `complete` builtin accepts a `-r` flag followed by a command name. This removes any stored completion rule for that command. After removal, use any other completion behavior your shell supports.
+
+If that fallback produces no candidate, leave the input unchanged and ring the bell (`\x07`). This feedback is now required even if your shell has no other completion implementation, where earlier stages allowed a no-op.
+
+The examples below assume there is no matching fallback completion, so Tab rings the bell after removal:
 
 ```bash
 $ complete -C /path/to/completer_script git
@@ -36,7 +40,7 @@ $ git <TAB>
 
 The tester will verify that:
 - `complete -p git` prints `complete: git: no completion specification` after unregistering
-- Tab completion for `git` no longer works, and the bell rings
+- The removed completer no longer supplies candidates. With no fallback match in the test, the input remains unchanged and the bell rings.
 
 ### Notes
 

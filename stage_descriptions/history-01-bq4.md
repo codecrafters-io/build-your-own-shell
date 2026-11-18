@@ -1,8 +1,8 @@
-In this stage, you'll add support for [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin.
+Command history will let users inspect and recall earlier input. In this stage, you'll make `type` recognize [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin.
 
 ### The history builtin
 
-[history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) as a shell builtin that lists previously executed commands. Example usage: 
+The [history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#index-history) builtin lists commands entered in the shell. This example shows the eventual listing behavior, which is not required yet:
 ```bash
 $ history
     1  previous_command_1
@@ -26,4 +26,4 @@ history is a shell builtin
 $
 ```
 
-The tester will then execute the `type history` command and expect the output to be `history is a shell builtin`.
+The required result is `history is a shell builtin`. You do not need to store or display a history list in this stage.

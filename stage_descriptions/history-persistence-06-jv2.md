@@ -1,4 +1,8 @@
-In this stage, you'll add support for appending the in-memory history to the history file when exiting.
+Commands loaded at startup are already saved in the history file. In this stage, you'll append only the session's new history entries to `HISTFILE` on exit.
+
+### Preserving saved history
+
+Do not append entries loaded on startup again. Add the new session commands in order, including `exit`, using one command per line and a trailing newline. This applies the incremental append behavior to automatic saving.
 
 ### Tests
 

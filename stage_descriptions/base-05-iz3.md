@@ -1,8 +1,8 @@
-In this stage, you'll implement the `echo` builtin.
+A working command can produce ordinary output as well as errors. In this stage, you'll implement the `echo` builtin to print its arguments.
 
-### The `echo` Builtin
+### The `echo` builtin
 
-The [`echo`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) builtin prints its arguments to stdout, with spaces between them, and a newline (`\n`) at the end.
+The words after a command name are its arguments. The [`echo`](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html) builtin prints those arguments to standard output (stdout), the stream used for ordinary output. Separate the arguments with one space and finish with a newline (`\n`). Quoting and escaping come in later stages.
 
 Example usage:
 

@@ -1,8 +1,10 @@
-In this stage, you'll add support for filename completion.
+Filename completion helps users fill in command arguments from files on disk. In this stage, you'll complete a filename from the current working directory.
 
-### Filename Completion
+### Filename completion
 
 Filename completion is a shell feature that helps users complete filename arguments by pressing the `<TAB>` key.
+
+The current working directory is the directory the shell uses to resolve relative paths. While the user types an argument, Tab should replace its partial filename with a matching name from that directory. This edits the current input line without executing the command. Successive prompt lines below show the same line before and after a keypress.
 
 For example:
 
@@ -12,11 +14,7 @@ $ cat readme.txt
 #                ^ note the trailing space
 ```
 
-When the user presses `<TAB>` while typing an argument:
-
-1. Extract the text after the last space in the input (e.g., `"re"` in `"cat re"`).
-2. Search the current directory for files that start with that prefix.
-3. If a file matches, complete it and add a trailing space.
+For the input `"cat re"`, the filename prefix is `"re"`. When exactly one filename starts with that prefix, complete the filename and add a trailing space. Leave the command name unchanged.
 
 The trailing whitespace lets the user immediately start typing the next argument without manually adding a space.
 
@@ -47,4 +45,4 @@ The tester will verify that:
 
 - For this stage, you only need to match the prefix against files in the current working directory. We'll implement completion in nested directories in later stages.
 - For this stage, you only need to handle cases of a single matching filename. We'll implement directory completion and multiple completions in later stages.
-- The completion works for any command, not just `cat`. For example, even for a nonexistent command like `xyz`, pressing tab should still complete the argument: `xyz read<TAB>` becomes `xyz readme.txt `.
+- Completion applies to arguments of any command. Even for a nonexistent command like `xyz`, `xyz read<TAB>` becomes `xyz readme.txt ` when that file is the unique match.

@@ -1,6 +1,6 @@
-In this stage, you'll add support for completing filenames in nested paths.
+Users can complete a file's path without first changing the shell's current directory. In this stage, you'll extend filename completion to nested paths.
 
-### Completion in Nested Paths
+### Completion in nested paths
 
 So far, your shell only completes filenames in the current directory. Now you'll extend it to complete files in subdirectories when the user includes a path.
 
@@ -12,17 +12,11 @@ $ cat path/to/file.txt
 #                      ^ note the trailing space
 ```
 
-### Implementing Path Completion
+### The directory and filename prefix
 
-When the user presses tab, and the partial filename contains a `/`:
+In `path/to/f`, `path/to/` names the directory to search and `f` is the filename prefix. The completed input must keep that directory path, so the result is `path/to/file.txt ` with a trailing space.
 
-1. Split the text at the last `/` character:
-   - Everything up to and including the last `/` is the directory path
-   - Everything after it is the prefix to match
-     
-   For example, in `path/to/f`, the directory path is `path/to/` and the prefix is `f`
-2. Search the directory path for entries that start with the prefix
-3. If one entry matches, replace the entire partial filename with the full path and add a trailing space (e.g., `path/to/f` becomes `path/to/file.txt `)
+A path ending in `/` has an empty filename prefix. Every entry in that directory matches an empty prefix. For this stage, there will be exactly one matching file, so `path/to/` can also complete to `path/to/file.txt `.
 
 ### Tests
 

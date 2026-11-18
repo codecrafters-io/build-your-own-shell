@@ -1,8 +1,10 @@
-In this stage, you'll add support for the `-C` flag to register completions and extend `-p` to display the completions.
+Your shell can report missing completion specifications but cannot store them yet. In this stage, you'll register script paths with `complete -C` and display them with `-p`.
 
-### Registering and Displaying Completions
+### Registering and displaying completions
 
 The `-C` flag tells `complete` to register a completer script for a command. Once a completion is registered, `complete -p <command>` should print it back in a normalized format.
+
+Registration records the script path without running it. The script need not exist yet in this stage. Invoking it on Tab comes next.
 
 ```bash
 $ complete -C /path/to/git/completer git
@@ -56,11 +58,6 @@ The tester will verify that:
 ### Notes
 
 - In earlier stages, `complete -p <command>` printed `complete: <command>: no completion specification`. That error is still the correct response when no completion has been registered for the given command.
-- Don't echo back the original `complete -C` command. Parse the arguments, store them, and reconstruct the output in the normalized format.
 - The single quotes around the path are literal characters in the output.
-
-
-
-
 
 

@@ -1,10 +1,8 @@
-In this stage, you'll implement support for executing a quoted executable.
+Executable names can contain spaces and literal quote characters too. In this stage, you'll apply the quoting and escaping rules to the command name.
 
-### Quoted Executable Names
+### Quoted executable names
 
-Up until now, the executable name (the first word in a command) has been a simple string. But executable names can also be quoted, just like arguments. This is useful when an executable has spaces, quotes, or special characters in its name. 
-
-Quoting the executable name lets you execute programs that would otherwise be difficult to reference.
+The first word identifies the executable. Parse that word using the same rules as the following arguments, then use the resulting name for PATH lookup. Remove the grouping quotes while preserving any quote characters that the parsing rules make literal.
 
 For example:
 
@@ -40,6 +38,6 @@ content2
 ```
 
 The tester will verify that:
-- Quoted executable names are correctly processed (quotes removed).
+- Quoted executable names are correctly processed, with grouping quotes removed and literal characters preserved.
 - The resulting executable name is found and executed.
 - The output matches what the executable produces.

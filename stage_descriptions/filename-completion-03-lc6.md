@@ -1,6 +1,6 @@
-In this stage, you'll add support for completing directory names.
+A completed directory ends with `/`, allowing the user to continue into it without starting a new argument. In this stage, you'll add directory-name completion.
 
-### Directory Name Completion
+### Directory name completion
 
 So far, your shell completes filenames and file paths. Now you'll extend it to complete directories.
 
@@ -52,7 +52,7 @@ $ ls pig/dog/
 ```
 
 The tester will verify that:
-- The first tab after the command (e.g., `ls `) autocompletes to the first directory with a trailing slash.
+- Tab after the command (e.g., `ls `) completes the unique matching directory with a trailing slash. The filename prefix is empty in this case.
 - The second tab completes to the nested directory with a trailing slash.
 - No trailing space is added after the slashes.
 

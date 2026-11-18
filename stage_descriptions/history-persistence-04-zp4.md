@@ -1,9 +1,10 @@
-In this stage, you'll ensure that your shell loads history from the file into memory on startup.
+Loading saved history at startup avoids a manual `history -r` in every session. In this stage, you'll load the file named by `HISTFILE` automatically.
 
 ### The `HISTFILE` environment variable
 
-The [`HISTFILE` environment variable](https://www.gnu.org/software///bash/manual/bash.html#index-HISTFILE) specifies the path to the history file. 
-It is the path used to load history from the file into memory on startup and to save the in-memory history to the file when exiting.
+The [`HISTFILE` environment variable](https://www.gnu.org/software///bash/manual/bash.html#index-HISTFILE) supplies the history file's path. When it is set, load that file's commands into memory before accepting the first command. Use the file format from earlier stages and retain the commands without executing them.
+
+New commands follow the loaded entries in history. This stage covers loading on startup. Automatically saving to the same path on exit comes next.
 
 
 ### Tests

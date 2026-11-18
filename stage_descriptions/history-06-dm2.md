@@ -1,4 +1,8 @@
-In this stage, you'll implement support for being able to press enter to execute a command recalled using UP-DOWN arrows.
+A recalled command is still pending input until the user submits it. In this stage, you'll execute that command when Enter is pressed.
+
+### Submitting recalled input
+
+Execute the command again so it produces fresh output. History stores the command text rather than a saved copy of its earlier output.
 
 ### Tests
 
@@ -8,7 +12,7 @@ The tester will execute your program like this:
 ./your_program.sh
 ```
 
-It will then send multiple commands to your shell, followed by the up and then down arrow keys to recall the history and then press enter to execute the command:
+It will send commands, navigate through history with Up and Down, and press Enter on the selected command:
 
 ```bash
 $ echo hello

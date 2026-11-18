@@ -1,8 +1,8 @@
-In this stage, you'll add support for the `-p` flag on the `complete` builtin.
+A completion specification records which script supplies suggestions for a command. In this stage, you'll add `complete -p` to report a missing specification.
 
-### The `-p` Flag
+### The `-p` flag
 
-The `-p` flag prints the completion specification registered for a given command. 
+The `-p` flag prints the completion specification registered for a given command. A specification records which completer script belongs to that command. Once registration is implemented, a successful query will look like this:
 
 ```bash
 $ complete -p git

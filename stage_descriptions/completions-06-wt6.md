@@ -1,8 +1,8 @@
-In this stage, you'll extend autocompletion to handle partial completions using the longest common prefix (LCP) logic.
+Even an ambiguous command prefix may have more text shared by every match. In this stage, you'll complete that shared portion without choosing one executable.
 
-### Completing to Longest Common Prefix
+### Completing to longest common prefix
 
-When multiple executables match the user's input, and some are prefixes of others, your shell should complete to the longest common prefix of all matches.
+The longest common prefix (LCP) is the longest starting text shared by every match. When it is longer than the user's current command prefix, insert that shared text. Keep waiting for more input without adding a space while several matches remain.
 
 For example, if these executables exist in PATH:
 
@@ -24,6 +24,8 @@ $ xyz_foo_bar_baz
 
 If there is only one match after performing completion, then the shell should complete the command name as with previous stages (with a trailing space).
 
+If multiple matches offer no additional shared text, keep the existing behavior: ring the bell on the first Tab and list matches on the second.
+
 ### Tests
 
 The tester will execute your program like this:
@@ -43,7 +45,7 @@ $ xyz_foo_bar_baz
 ```
 
 The tester will verify that:
-1. After `xyz_`<TAB>, the completion shows `xyz_foo`.
+1. After typing `xyz_` and pressing Tab, the completion shows `xyz_foo`.
 2. After typing `_` and pressing tab, the completion shows `xyz_foo_bar`.
 3. After typing `_` and pressing tab again, the completion shows `xyz_foo_bar_baz ` with a trailing space.
 4. The trailing space only appears when exactly one match remains.

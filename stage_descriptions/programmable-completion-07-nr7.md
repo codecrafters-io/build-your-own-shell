@@ -1,11 +1,11 @@
-In this stage, you'll pass `COMP_LINE` and `COMP_POINT` as environment variables when invoking a completer script.
+Some completers need the full input line and cursor position as well as individual words. In this stage, you'll supply `COMP_LINE` and `COMP_POINT` in their environment.
 
-### Completion Environment Variables
+### Completion environment variables
 
 In earlier stages, you passed the command name, current word, and previous word as arguments to the completer. Some completers also need to know the full command line and where the cursor is. Your shell should set two environment variables before invoking the completer:
 
-- `COMP_LINE` — The full text of the command line as it appears when TAB is pressed (no trailing newline).
-- `COMP_POINT` — The zero-based byte index of the cursor position in `COMP_LINE`. When TAB is pressed at the end of the line, this is the length of `COMP_LINE`.
+- `COMP_LINE` contains the command line when TAB is pressed, without the shell prompt or a trailing newline.
+- `COMP_POINT` contains the zero-based byte index of the cursor position in `COMP_LINE`, written as decimal text. At the end of the line, it equals the line's byte length.
 
 For example, if the user types:
 
@@ -46,5 +46,5 @@ The tester will verify that:
 
 ### Notes
 
-- `COMP_POINT` is a byte index, not a character index. For ASCII input, they're the same, but the distinction matters if you handle multibyte characters.
-- These environment variables should only be set for the completer process, not persisted in your shell's own environment.
+- For ASCII input, byte and character counts are the same. Multibyte characters make those counts differ, so `COMP_POINT` must measure bytes.
+- Supply these variables in the completer process's environment. Leave the shell's own environment unchanged.

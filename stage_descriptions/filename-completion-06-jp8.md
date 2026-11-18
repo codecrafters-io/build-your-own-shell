@@ -1,6 +1,6 @@
-In this stage, you'll handle partial completions using the longest common prefix.
+Several matching filenames may share more text than the user has typed. In this stage, you'll complete to their longest common prefix.
 
-### Longest Common Prefix
+### Longest common prefix
 
 The longest common prefix (LCP) is the longest string that all matching entries share at the start. For example:
 - `xyz_foo`, `xyz_foo_bar`, `xyz_foo_bar_baz` have the LCP `xyz_foo`
@@ -8,7 +8,7 @@ The longest common prefix (LCP) is the longest string that all matching entries 
 - `app.py`, `data.json` have no common prefix (empty LCP)
 
 When multiple matches exist:
-- If they share a prefix longer than the current input: complete to the LCP
+- If they share a prefix longer than the current filename prefix: complete that filename to the LCP
 - If they don't: ring the bell on the first tab, list matches on subsequent tab presses (like in previous stages)
 
 For example, if these entries exist in the current directory:
@@ -60,7 +60,7 @@ $ ls foo
 
 ### Tests
 
-The tester will create nested entries and execute your program like this:
+The tester will create files and directories with shared name prefixes and execute your program like this:
 ```bash
 $ ./your_program.sh
 ```

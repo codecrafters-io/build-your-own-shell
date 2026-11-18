@@ -1,12 +1,12 @@
-In this stage, you'll handle cases where no entries match the argument.
+A filename prefix may have no matching file or directory. In this stage, you'll leave that input unchanged and ring the terminal bell.
 
-### Missing Entry Completions
+### Missing entry completions
 
 When the user types an argument that doesn't match any entries and presses `<TAB>`, your shell should:
 1. Leave the input unchanged (don't modify what the user typed)
 2. Print the bell character `\x07` to standard output
 
-The [bell character](https://en.wikipedia.org/wiki/Bell_character) typically produces an audible beep or visual flash, depending on the terminal settings.
+The [bell character](https://en.wikipedia.org/wiki/Bell_character) is a control byte. Depending on terminal settings, it may produce a beep or a visual flash. It does not add visible text to the input line.
 
 For example:
 ```bash
@@ -34,4 +34,3 @@ $ cat absent_filenam
 The tester will verify that:
 - The input remains unchanged when no completion is possible
 - The bell character is printed to standard output
-

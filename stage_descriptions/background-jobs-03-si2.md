@@ -1,10 +1,10 @@
-In this stage, you'll ensure background jobs can print output to the terminal.
+A background job can produce output while the shell accepts or runs other commands. In this stage, you'll keep that output connected to the terminal.
 
-### Background Job Output
+### Background job output
 
-When a command runs in the background, the background process's stdout and stderr streams remain connected to the shell's terminal. This means any output it produces should still appear in your shell.
+Standard output (stdout) carries a program's ordinary results, and standard error (stderr) carries diagnostics. For these background commands, both streams remain connected to the terminal, so output can appear while the shell is doing other work.
 
-For example:
+This Bash example illustrates output arriving after a prompt. Its `&&` command chaining is background context, and implementing `&&` is outside this stage:
 ```bash
 $ sleep 2 && echo "Done sleeping" &
 [1] 84470
@@ -15,9 +15,7 @@ $ Done sleeping
 
 Here, the job's output (`Done sleeping`) appears in the terminal even though it ran in the background.
 
-For this stage, you must ensure the background process shares the same stdout and stderr as the shell. When spawning the background process, let it inherit the shell's stdio streams. 
-
-In most subprocess APIs, this is the default behavior (e.g., `stdio: "inherit"` in Node.js).
+For this stage, the background process must share the shell's stdout and stderr. Subprocess APIs have different defaults, so check whether yours inherits these streams or creates separate pipes.
 
 ### Tests
 
@@ -26,7 +24,9 @@ The tester will execute your program like this:
 $ ./your_program.sh
 ```
 
-It will start a cat command in the background, followed by another in the foreground that reads from FIFOs:
+The tester uses FIFOs, also called named pipes. A FIFO is a filesystem path through which one process sends bytes to another. A reader can wait for a writer to supply data, which lets the tester control when each command produces output.
+
+It will start a `cat` command reading a FIFO in the background, then another in the foreground:
 
 ```bash
 $ cat /path/to/fifo1 &
@@ -34,7 +34,7 @@ $ cat /path/to/fifo1 &
 $ cat /path/to/fifo2
 ```
 
-The tester will then write to the FIFOs:
+The tester will then write to the FIFOs from a separate process. These writer commands illustrate the test setup, and aren't sent to your shell:
 ```bash
 $ echo -ne "Hello from FIFO#1\n" > /path/to/fifo1
 Hello from FIFO#1
@@ -49,5 +49,5 @@ The tester will verify that:
 
 ### Notes
 
-- The tester uses FIFOs (named pipes) to control when output appears. A FIFO is a special file that blocks reads until someone writes to it.
-- Make sure child processes inherit the shell's stdio streams.
+- In Node.js, `stdio: "inherit"` connects the child to the parent's standard streams. The default for `child_process.spawn()` creates pipes instead.
+- Keep child stdout and stderr connected to the terminal. This stage does not require background input handling or job-control signals.

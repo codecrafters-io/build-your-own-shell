@@ -1,6 +1,6 @@
-In this stage, you'll extend the `jobs` builtin to list multiple background jobs.
+As jobs start, the shell's current and previous job markers change. In this stage, you'll extend `jobs` to list every running background job with the appropriate marker.
 
-### Displaying Multiple Background Jobs
+### Displaying multiple background jobs
 
 When multiple commands run in the background, the `jobs` command lists them in the order they were started.
 
@@ -65,5 +65,4 @@ The tester will verify that:
 
 ### Notes
 
-- Jobs should always be displayed in order by job number (1, 2, 3...).
 - You only need to track launched jobs. Detecting when jobs exit will come in later stages.

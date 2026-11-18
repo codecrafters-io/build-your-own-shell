@@ -1,4 +1,8 @@
-In this stage, you'll add support for recalling history with the down arrow key.
+After moving backward through history, users need a way to move toward newer entries. In this stage, you'll add Down-arrow navigation.
+
+### Moving toward newer commands
+
+After Up selects an older entry, Down selects the next newer one. Replace the current input text with that entry without executing it. The prompt lines below show changes to the same input line.
 
 ### Tests
 
@@ -23,28 +27,28 @@ $ echo hello
 $ echo world
 ```
 
-The tester will expect the previous commands to be displayed when the down arrow key is pressed.
+The tester expects Down to display the next newer command relative to the entry currently shown.
 
 ### Notes
 
 {{#lang_is_rust}}
-- We recommend using a library like [rustyline](https://crates.io/crates/rustyline/) for your implementation. Most modern shells and REPLs (like the Python REPL) use [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline) under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
+- If you're using [rustyline](https://crates.io/crates/rustyline/) or [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline), check that Down moves toward newer entries without executing them. Adjust the library's defaults if needed.
 {{/lang_is_rust}}
 
 {{#lang_is_python}}
-- We recommend using the module [readline](https://docs.python.org/3/library/readline.html) for your implementation. Most modern shells and REPLs (like the Python REPL) use [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline) under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
+- If you're using [readline](https://docs.python.org/3/library/readline.html) or [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline), check that Down moves toward newer entries without executing them. Adjust the library's defaults if needed.
 {{/lang_is_python}}
 
 {{#lang_is_go}}
-- We recommend using a library like [readline](https://pkg.go.dev/github.com/chzyer/readline) for your implementation. Most modern shells and REPLs (like the Python REPL) use [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline) under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
+- If you're using [readline](https://pkg.go.dev/github.com/chzyer/readline) or [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline), check that Down moves toward newer entries without executing them. Adjust the library's defaults if needed.
 {{/lang_is_go}}
 
 {{#lang_is_java}}
-- We recommend using a library like [JLine](https://github.com/jline/jline3) for your implementation. Most modern shells and REPLs (like the Python REPL) use [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline) under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
+- If you're using [JLine](https://github.com/jline/jline3) or [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline), check that Down moves toward newer entries without executing them. Adjust the library's defaults if needed.
 {{/lang_is_java}}
 
 {{#lang_is_csharp}}
-- We recommend using a library like [Readline.Ext](https://www.nuget.org/packages/ReadLine.Ext) for your implementation. Most modern shells and REPLs (like the Python REPL) use [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline) under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
+- If you're using [Readline.Ext](https://www.nuget.org/packages/ReadLine.Ext) or [GNU readline](https://www.wikiwand.com/en/articles/GNU_Readline), check that Down moves toward newer entries without executing them. Adjust the library's defaults if needed.
 {{/lang_is_csharp}}
 
 {{^lang_is_rust}}
@@ -52,7 +56,7 @@ The tester will expect the previous commands to be displayed when the down arrow
 {{^lang_is_go}}
 {{^lang_is_java}}
 {{^lang_is_csharp}}
-- We recommend using a library like [readline](https://en.wikipedia.org/wiki/GNU_Readline) for your implementation. Most modern shells and REPLs (like the Python REPL) use readline under the hood. While you may need to override some of its default behaviors, it's typically less work than starting from scratch.
+- If you're using [readline](https://en.wikipedia.org/wiki/GNU_Readline), check that Down moves toward newer entries without executing them. Adjust the library's defaults if needed.
 {{/lang_is_csharp}}
 {{/lang_is_java}}
 {{/lang_is_go}}

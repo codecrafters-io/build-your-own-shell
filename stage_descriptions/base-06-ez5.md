@@ -1,8 +1,8 @@
-In this stage, you'll implement the `type` builtin for your shell.
+Users can inspect how the shell would handle a command without running it. In this stage, you'll implement that inspection with the `type` builtin.
 
-### The `type` Builtin
+### The `type` builtin
 
-The [`type`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/type.html) builtin is used to determine how a command would be interpreted if it were used. It checks whether a command is a builtin, an executable file, or unrecognized.
+The [`type`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/type.html) builtin distinguishes builtin commands, executable files, and unrecognized names. This stage covers the builtins your shell already knows and names it doesn't recognize.
 
 For example:
 
@@ -49,5 +49,4 @@ The tester will verify that:
 
 ### Notes
 
-- The tester will only check for builtin commands and unrecognized commands in this stage.
 - `type` itself is a shell builtin command, so `$ type type` should print `type is a shell builtin`.

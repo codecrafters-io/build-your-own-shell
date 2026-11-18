@@ -1,6 +1,6 @@
-In this stage, you'll handle tab completion when an entry has multiple matches.
+Several files or directories can match the same prefix. In this stage, you'll display those choices while preserving the user's input.
 
-### Handling Multiple Matches
+### Handling multiple matches
 
 When multiple files or directories match the current prefix:
 1. First `<TAB>`: Ring the bell (`\x07`) to indicate multiple matches exist
